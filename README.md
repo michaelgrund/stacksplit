@@ -2,6 +2,9 @@ StackSplit is a plugin for the MATLAB toolbox SplitLab (Wüstefeld et al., 2008)
 
 StackSplit allows to apply up to now four stacking schemes for already existing single SWS splitting measurments 
 
+
+
+
 1) SIMW: simultaneous inversion of multiple waveforms in timedomain (Roy et al. (2017)
 
 2) WS  : stacking of error surfaces, normalized on minimum of each single surface (Wolfe & Silver, 1998)
