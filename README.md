@@ -1,6 +1,6 @@
 
 # StackSplit 
-### a plugin for multi-event shear wave splitting analyses in SplitLab
+### A plugin for multi-event shear wave splitting analyses in SplitLab
 
 StackSplit is a plugin for the MATLAB toolbox SplitLab (Wüstefeld et al., 2008) which allows to apply multi-event techniques for shear wave splitting measurements (SWS) directly from within the main program. 
 
