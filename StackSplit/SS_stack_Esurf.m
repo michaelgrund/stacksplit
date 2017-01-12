@@ -15,7 +15,7 @@ function h=SS_stack_Esurf(h)
 % 1) no weighting (e.g. Wüstefeld, 2007; PhD thesis): true "topography" of
 %       each surface is considered
 % 2) Wolfe & Silver (1998) procedure: each single surface is normalized to
-%       its overall minimum value before stacking
+%       its overall minimum/maximum value before stacking
 % 3) Restivo & Helffrich (1999) procedure: modified WS approach, each single 
 %       surface is weighted based on the corresponding SNR and additionally 
 %       scaled to a factor of 1/N, with its great-circle direction (BAZ) 
@@ -208,7 +208,7 @@ if length(use_data) > 1 % more than 1 selection
             
             stack_meth='nw';
          %_______________________________________________________________________
-         % WS, each single error surface is normalized on its minimum before stacking
+         % WS, each single error surface is normalized on its minimum/maximum before stacking
         elseif check_stack{2}==1
 
             if h.surf_kind==1 % energy surface
@@ -217,8 +217,37 @@ if length(use_data) > 1 % more than 1 selection
                 sum_ndf=sum_ndf+use_data(ii).results.ndfSC;
 
             elseif h.surf_kind==2 % EV surface
-                STACKsurf=STACKsurf+use_data(ii).results.EVmatrix./min(min(use_data(ii).results.EVmatrix));
-                sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+              
+                % depending on EV input, normalize on minimum or maximum
+                switch config.splitoption
+                   
+                    case 'Minimum Energy' % minimum normalization; if Minimum Energy is the splitoption, then 
+                                          % automatically min(lambda2) is the corresponding EV method
+                                          % (see splitSilverChan.m)
+
+                        STACKsurf=STACKsurf+use_data(ii).results.EVmatrix./min(min(use_data(ii).results.EVmatrix));
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;             
+
+                    case 'Eigenvalue: min(lambda2)' % minimum normalization
+                    
+                        STACKsurf=STACKsurf+use_data(ii).results.EVmatrix./min(min(use_data(ii).results.EVmatrix));
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+                        
+                    case 'Eigenvalue: min(lambda1 * lambda2)' % minimum normalization
+                    
+                        STACKsurf=STACKsurf+use_data(ii).results.EVmatrix./min(min(use_data(ii).results.EVmatrix));
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+                        
+                    case 'Eigenvalue: max(lambda1 / lambda2)' % maximum normalization
+                        
+                        STACKsurf=STACKsurf+use_data(ii).results.EVmatrix./max(max(use_data(ii).results.EVmatrix));
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+                        
+                    case 'Eigenvalue: max(lambda1)' % maximum normalization
+                        
+                        STACKsurf=STACKsurf+use_data(ii).results.EVmatrix./max(max(use_data(ii).results.EVmatrix));
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+                end
 
             end
             
@@ -239,16 +268,48 @@ if length(use_data) > 1 % more than 1 selection
                 
             elseif h.surf_kind==2 % EV surface
                 
-                STACKsurf=STACKsurf+((use_data(ii).results.EVmatrix./...
-                    min(min(use_data(ii).results.EVmatrix)))./countN).*wf;
-                sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+                % depending on EV input, normalize on minimum or maximum
+                switch config.splitoption
+                    
+                    case 'Minimum Energy' % minimum normalization; if Minimum Energy is the splitoption, then 
+                                          % automatically min(lambda2) is the corresponding EV method
+                                          % (see splitSilverChan.m)
+             
+                        STACKsurf=STACKsurf+((use_data(ii).results.EVmatrix./...
+                            min(min(use_data(ii).results.EVmatrix)))./countN).*wf;
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+
+                    case 'Eigenvalue: min(lambda2)' % minimum normalization
+             
+                        STACKsurf=STACKsurf+((use_data(ii).results.EVmatrix./...
+                            min(min(use_data(ii).results.EVmatrix)))./countN).*wf;
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+
+                    case 'Eigenvalue: min(lambda1 * lambda2)' % minimum normalization
+                    
+                        STACKsurf=STACKsurf+((use_data(ii).results.EVmatrix./...
+                            min(min(use_data(ii).results.EVmatrix)))./countN).*wf;
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+
+                    case 'Eigenvalue: max(lambda1 / lambda2)' % maximum normalization
+              
+                        STACKsurf=STACKsurf+((use_data(ii).results.EVmatrix./...
+                            max(max(use_data(ii).results.EVmatrix)))./countN).*wf;
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+
+                    case 'Eigenvalue: max(lambda1)' % maximum normalization
+                        
+                        STACKsurf=STACKsurf+((use_data(ii).results.EVmatrix./...
+                            max(max(use_data(ii).results.EVmatrix)))./countN).*wf;
+                        sum_ndf=sum_ndf+use_data(ii).results.ndfEV;
+                end
 
             end
             
             stack_meth='RH';
             
         end
-        
+       
         %=======================================================
     end
     % END OF STACKING LOOP
@@ -256,8 +317,40 @@ if length(use_data) > 1 % more than 1 selection
 end
 %############################################################################################
 %======================================================
-% find minimum of stacked error surface 
-[indexPhi,indexDt]   = find(STACKsurf==min(STACKsurf(:)), 1);
+% find minimum or maximum of stacked error surface (depending on input of ME and EV)
+ 
+if h.surf_kind==1 % Minimum Energy
+    
+    [indexPhi,indexDt]   = find(STACKsurf==min(STACKsurf(:)), 1);
+   
+elseif h.surf_kind==2 % EV surface
+    
+    switch config.splitoption
+        
+        case 'Minimum Energy' % search abs min; if Minimum Energy is the splitoption, then 
+                              % automatically min(lambda2) is the corresponding EV method
+                              % (see splitSilverChan.m)
+        
+            [indexPhi,indexDt]   = find(STACKsurf==min(STACKsurf(:)), 1);
+                              
+        case 'Eigenvalue: min(lambda2)' % search abs min
+        
+            [indexPhi,indexDt]   = find(STACKsurf==min(STACKsurf(:)), 1);
+            
+        case 'Eigenvalue: min(lambda1 * lambda2)' % search abs min
+        
+            [indexPhi,indexDt]   = find(STACKsurf==min(STACKsurf(:)), 1);
+        
+        case 'Eigenvalue: max(lambda1 / lambda2)' % search abs max
+              
+            [indexPhi,indexDt]   = find(STACKsurf==max(STACKsurf(:)), 1);
+       
+        case 'Eigenvalue: max(lambda1)' % search abs max
+
+            [indexPhi,indexDt]   = find(STACKsurf==max(STACKsurf(:)), 1);       
+    end
+
+end
 
 %======================================================
 % absolute Value in stacked_err_surf, corresponding to the best
@@ -269,11 +362,11 @@ Eresult(1) = STACKsurf(indexPhi, indexDt, 1);
 [errbar_phi,errbar_t,MAPlevel]=SS_geterrorbars_stack_Esurf(Eresult,sum_ndf,STACKsurf);  
 
 %======================================================
-% find corresponding phi and dt value from absolute minimum of stacked
+% find corresponding phi and dt value from absolute minimum/maximum of stacked
 % error surface
-phi_test_min = (phi_test(indexPhi)/ pi * 180);     % fast axis in Q-T-system
-%phiSC  = mod((phi_test_min+bazi_in), 180);        % fast axis in E-N-system
-phiSTACK  = phi_test_min;
+phi_test_ext = (phi_test(indexPhi)/ pi * 180);     % fast axis in Q-T-system
+%phiSC  = mod((phi_test_ext+bazi_in), 180);        % fast axis in E-N-system
+phiSTACK  = phi_test_ext;
 
 shift  = dt_test(indexDt); % samples
 dtSTACK   = shift * sampling; % seconds
