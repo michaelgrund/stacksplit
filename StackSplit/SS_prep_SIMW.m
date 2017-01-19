@@ -60,6 +60,8 @@ set(h.panel(2),'visible','off');
 set(h.panel(3),'visible','off'); 
 set(h.panel(6),'visible','on'); 
 
+config.SS_use_SIMW=0;
+
 %=============================================================================
 % get input data from handle
 
@@ -232,7 +234,6 @@ find_bluedot=findobj(h.EQstatsax,'type','line');
 
 if config.maptool==1 % if mapping toolbox available
 
-    length(find_bluedot)
     if length(find_bluedot) > 4
         set(find_bluedot(1),'Visible','off')
         delete(find_bluedot(1))

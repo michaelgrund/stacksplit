@@ -166,9 +166,6 @@ disp(['=== INVERSION done (' num2str(compend) ' s) ==='])
 
 w=pickwin;
 extime=pickwin(1)*sampling;
-SNR.R=[10 23];
-SNR.T=[10 23];
-thiseq.dt=sampling;
 
 [errbar_phiRC, errbar_tRC, LevelRC, ndfRC] = geterrorbarsRC(T(w), Cmap, Cresult);         
 [errbar_phiSC, errbar_tSC, LevelSC, ndfSC] = geterrorbars(T(w), Emap(:,:,1), Eresult(1)); 
@@ -212,10 +209,10 @@ SIMW_temp.taper=taper;
 index=get(h.list,'value');
 SIMW_temp.events=h.data(index); 
 
-SS_splitdiagnosticplot(Q, T, extime, L(w), E(w), N(w), inc, bazi_mean, thiseq.dt, maxtime, inipol,...
+SS_splitdiagnosticplot(Q, T, extime, L(w), E(w), N(w), inc, bazi_mean, sampling, maxtime, inipol,...
         phiRC, dtRC, Cmap,    correctFastSlowRC, corrected_QTRC,...
         phiSC, dtSC, Emap, correctFastSlow, corrected_QT,...
-        phiEV, dtEV, LevelSC, LevelRC, LevelEV, option,SNR, bazi_int, dist_int, h); 
+        phiEV, dtEV, LevelSC, LevelRC, LevelEV, option, bazi_int, dist_int, h); 
 
     
 % EOF

@@ -27,7 +27,7 @@ function SS_stacksplit_start
 % The use of StackSplit requires small modifications in some of the original Split-
 % Lab functions which partly were taken from Rob Porritts updated version 1.2.1.
 % This modified functions come with this package and must replace the original ones.
-% An overview about this changes is given in README.txt in StackSplit/doc.
+% An overview about this changes is given in SL2SS_changelog.txt in StackSplit/doc.
 %
 % StackSplit allows to apply up to now 4 stacking schemes for already existing 
 % single SWS splitting measurments (see also REFERENCES section below):
@@ -115,6 +115,14 @@ global config eqstack
 config.SS_version='1.0';
 %VVVVVVVVVVVVVVVVVVVVVVV
 
+clc
+disp(' ')
+disp('#################################')
+disp('#     Welcome to StackSplit     #')
+disp('#################################')
+disp(['version ' config.SS_version])
+disp(' ')
+
 %=============================================================
 % CHECK for mapping toolbox
 
@@ -158,19 +166,23 @@ end
 evalin('base','global eqstack');
 
 %=============================================================
+% CHECK INPUT
+
+%.........................................
+[f,sampling,find_res]=SS_check_input(find_res);
+%.........................................
+
+if isempty(f) || isempty(sampling)
+   return
+end
+
+%=============================================================
 % GENERATE GUI layout and corresponding handles
 
 %.........................................
 h=SS_layout(@call_pushSTACK,@call_pushCLEAR,@call_pushSAVE,@call_pushEXIT,@call_listbox,...
     @call_checkNW,@call_checkWS,@call_checkRH,@call_checkSIMW,@call_popTAP,@call_pushINV,...
     @call_popMAXBAZ,@call_popMAXDIST,@call_popSURF);
-%.........................................
-
-%=============================================================
-% CHECK INPUT
-
-%.........................................
-[f,sampling]=SS_check_input(find_res);
 %.........................................
 
 %=============================================================
@@ -354,9 +366,15 @@ end
 
 function call_pushINV(hObject,event_data,h)
 
+global config
+
 h=guidata(hObject);
 
+config.SS_use_SIMW=1;
+
 SS_calc_SIMW(h);
+
+config.SS_use_SIMW=0;
 
 end
 
