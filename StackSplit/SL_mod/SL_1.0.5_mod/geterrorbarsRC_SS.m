@@ -55,12 +55,26 @@ function NDF = getndf(S, n, norig)
 % A(1:length(tap))         = A(1:length(tap))         .* (cos(tap*pi)+1)/2;
 % A(end-length(tap)+1:end) = A(end-length(tap)+1:end) .* (cos(fliplr(tap)*pi)+1)/2;
 
-% new taper MG 2016-08-05 since old one generates steps at the end of window
-A   = S;   
-w1=window(@tukeywin,length(S),0.2);
+global config
+
+% if StackSplit is in use and SIMW is selected, no taper is applied since
+% concatenated waveforms are already tapered
+if isfield(config,'SS_use_SIMW') && config.SS_use_SIMW==1
+    
+    A = S;
+
+% for single event measurements a taper is applied on the trace as before  
+elseif (isfield(config,'SS_use_SIMW') && config.SS_use_SIMW==0) || ~isfield(config,'SS_use_SIMW')
+
+    A = S;
+    
+    % new taper MG 2016-08-05 since old one generates steps at the end of window 
+    w1=window(@tukeywin,length(S),0.2);
                    
-A=w1.*A;             
-A=w1.*A; 
+    A=w1.*A;             
+    A=w1.*A; 
+
+end
 
 OUT = fft(A);
 
