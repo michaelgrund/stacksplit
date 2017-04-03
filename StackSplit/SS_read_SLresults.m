@@ -68,7 +68,10 @@ for ii=1:length(eq)
             find_res(zz)=eq(ii);
             zz=zz+1;
         else
-            disp('You use an results struct from an old SL version! Sorry, no stacking possible!')
+            errordlg('Available SL results struct was generated before the installation of StackSplit (several struct fields are missing)! Sorry, no stacking possible!')
+            merged_str=[];
+            find_res=[];
+            return
         end
     end
 end
@@ -165,12 +168,18 @@ for ii=1:length(find_res) % color results depending on quality ranking
     % perfecty beneath each other ;)
     
     % BAZ
-    if find_res(ii).bazi < 100 && round(find_res(ii).bazi*100)/100 < 100
+
+    
+    if find_res(ii).bazi < 100 && round(find_res(ii).bazi*100)/100 < 100 && find_res(ii).bazi > 10
         chbet_baz='<&nbsp ';
-    elseif find_res(ii).bazi < 10 && round(find_res(ii).bazi*10)/10 < 10
-        chbet_baz='<&nbsp&nbsp ';
+        
+    elseif find_res(ii).bazi < 10 && round(find_res(ii).bazi*10)/10 < 10%% && find_res(ii).bazi > 1
+        chbet_baz='<&nbsp&nbsp&nbsp ';
+        
+%     elseif find_res(ii).bazi < 1 && round(find_res(ii).bazi) < 1
+%         chbet_baz='<&nbsp&nbsp&nbsp '; 
     else
-        chbet_baz='';
+        chbet_baz=''; 
     end
 
     % dist

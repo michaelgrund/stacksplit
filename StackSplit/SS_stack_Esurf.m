@@ -55,14 +55,7 @@ global config
 index=get(h.list,'value');
 
 use_data=h.data(index);
-                                                    %   N ^    (- hw) 
-% angle defining the wedge size for the RH method         |   .       * BAZ 
-halfwedge=10;  % DEFAULT: +- 10° from BAZ           %     |  .      *
-                                                    %     | .    *                                            
-                                                    %     |.  *                                                
-                                                    %     |* . . . . (+ hw)
-                                                      
-                                                    % !!! not in correct scale !!!                                            
+                                          
 %======================================================
 %############################################################################################
 % check if more than one phase per event is selected by comparing the
@@ -108,13 +101,18 @@ else % if not more than one result per event, DEFAULT case
         set(h.push(3),'enable','on');
 end
 %############################################################################################
-% maximum diff of used bazis and dists
+% maximum diff of used bazis, dists and inipols
 
 use_bazi=[use_data.bazi];
 use_dis=[use_data.dis];
 
+for ii=1:length(use_data)
+    use_inipol(ii)=use_data(ii).results.inipol;
+end
+
 diffbazi=abs(max(use_bazi)-min(use_bazi));
 diffdist=abs(max(use_dis)-min(use_dis));
+diffinipol=abs(max(use_inipol)-min(use_inipol));
 
 if ~ischar(config.SS_maxbaz)
     if diffbazi > config.SS_maxbaz && ~strcmp(config.SS_maxbaz,'none')
@@ -137,6 +135,18 @@ if ~ischar(config.SS_maxdist)
         return
     end
 end
+
+if ~ischar(config.SS_maxpol)
+    if diffinipol > config.SS_maxpol && ~strcmp(config.SS_maxpol,'none')
+        h.warn_diffinipol=warndlg({['Inipol difference (' num2str(diffinipol,'%2.1f') '°) exceeds'],...
+            ;['     selected maximum (' num2str(config.SS_maxpol) '°)!']},'Inipol difference');
+    
+        set(h.push(2),'enable','off');
+        set(h.push(3),'enable','off');
+        return
+    end
+end
+
 %############################################################################################
 %======================================================
 % use Emap axes 
@@ -258,7 +268,7 @@ if length(use_data) > 1 % more than 1 selection
         elseif check_stack{3}==1
 
                 curr_SNR=use_data(ii).results.SNR(2); % use SNRSC => SNR(2)
-                [wf,countN]=SS_calc_RH(curr_SNR,use_bazi(ii),use_bazi,halfwedge,h);
+                [wf,countN]=SS_calc_RH(curr_SNR,use_bazi(ii),use_bazi,h);
 
             if h.surf_kind==1 % energy surface
 

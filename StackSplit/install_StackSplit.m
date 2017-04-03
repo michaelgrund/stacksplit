@@ -45,12 +45,12 @@ function install_StackSplit()
 %
 % Besides the StackSplit functions the package also contains modified
 % SplitLab functions which are necessary to generate the multi-
-% event output. All these functions are located in the original SL folder
-% ShearWaveSplitting, execpt the SL starting function splitlab.m.
+% event output. All these functions (execpt the SL starting function splitlab.m)
+% are located in the original SL folders ShearWaveSplitting, Tools and private.
 %
 % By running this installation file, all original functions are renamed with an
 % end suffix *_ori. The (new) modified ones are copied to their corresponding 
-% pathes and have the same names like the others before renaming. Only their conent is
+% pathes and have the same names like the others before renaming. Only their content is
 % slightly modified!
 %
 % So, if you are not happy with StackSplit you easily can recover your original 
@@ -217,7 +217,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % first rename the original mfiles to *_ori
 
-% in total 6 original files have to be modified for running StackSplit
+% in total 8 original files have to be modified for running StackSplit
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN FOLDER
@@ -306,6 +306,72 @@ if isempty(dir_orifiles)
 
 end
 
+cd(folderSL)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SUBFOLDER Tools
+
+dir_TOOL=dir('*Tools');
+
+if ~isempty(dir_TOOL) && isdir(dir_TOOL.name) && length(dir_TOOL)==1
+    cd(dir_TOOL.name)
+    pathTOOL=pwd;
+else
+    errordlg('Missing subfolder Tools!')
+    return
+end
+
+% check if original SL functions are already renamed
+dir_orifiles=dir(['*' filesuffix '.m']); 
+
+if isempty(dir_orifiles)
+
+    % #7 =====================
+    % < database_editResults.m > 
+    %=======================
+    % changes: if a phase result/event is deleted after any phase splitting calculation
+	% in the database viewer, the variable "eq" is saved in this function, otherwise in StackSplit
+	% the deleted event would still appear in the event list!
+
+    dir_databaseedit=dir('database_editResults.m');
+    movefile(dir_databaseedit.name,['database_editResults' filesuffix '.m'])
+    
+end
+
+cd(folderSL)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SUBFOLDER private
+
+dir_priv=dir('*private');
+
+if ~isempty(dir_priv) && isdir(dir_priv.name) && length(dir_priv)==1
+    cd(dir_priv.name)
+    pathpriv=pwd;
+else
+    errordlg('Missing subfolder private!')
+    return
+end
+
+% check if original SL functions are already renamed
+dir_orifiles=dir(['*' filesuffix '.m']); 
+
+if isempty(dir_orifiles)
+
+    % #8 =====================
+    % < seisfigbuttons.m > 
+    %=======================
+    % changes: if an event is deleted after any phase splitting calculation
+	% in the SeismoViewer, the variable "eq" is saved in this function, otherwise in StackSplit
+	% the deleted event would still appear in the event list!
+
+    dir_seisfig=dir('seisfigbuttons.m');
+    movefile(dir_seisfig.name,['seisfigbuttons' filesuffix '.m'])
+    
+end
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % now copy the modified versions into the corresponding folders depending
@@ -323,12 +389,14 @@ copyfile('geterrorbarsRC_SS.m',pathSWS)
 copyfile('preSplit_SS.m',pathSWS)
 copyfile('saveresult_SS.m',pathSWS)
 copyfile('splitdiagnosticplot_SS.m',pathSWS)
+copyfile('database_editResults_SS.m',pathTOOL)
+copyfile('seisfigbuttons_SS.m',pathpriv)
 
 % cleanup/remove folder SL_mod
 cd(pathSS)
 rmdir('SL_mod','s')
 
-% cd to the two corresponding folders and rename *_SS.m version to original
+% cd to the four corresponding folders and rename *_SS.m version to original
 % names
 
 % main folder
@@ -343,6 +411,14 @@ movefile('preSplit_SS.m','preSplit.m')
 movefile('saveresult_SS.m','saveresult.m') 
 movefile('splitdiagnosticplot_SS.m','splitdiagnosticplot.m') 
 
+% Tools folder
+cd(pathTOOL)
+movefile('database_editResults_SS.m','database_editResults.m')
+
+% private folder
+cd(pathpriv)
+movefile('seisfigbuttons_SS.m','seisfigbuttons.m')
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % final check  
@@ -355,14 +431,22 @@ if ~isempty(dir('splitlab.m'))
            isempty(dir('geterrorbarsRC.m')) && isempty(dir('saveresults.m')) && ...
            isempty(dir('splitdiagnosticplot.m')))==0
 
-       disp(' ') 
-       disp('Installation complete !')
+       cd(pathTOOL)
+        
+            if ~isempty(dir('database_editResults.m'))
+                
+              cd(pathpriv)
+              
+                   if ~isempty(dir('seisfigbuttons.m'))
+                
+                        disp(' ') 
+                        disp('Installation complete !')
 
-       msgfinish=msgbox('StackSplit was successfully installed on your system! Please restart MATLAB!','Installation complete');
+                        msgfinish=msgbox('StackSplit was successfully installed on your system! Please restart MATLAB!','Installation complete');
 
+                   end
+            end
    end
- 
 end
 
 % EOF
-

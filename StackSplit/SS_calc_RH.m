@@ -1,4 +1,4 @@
-function [wf,countN]=SS_calc_RH(SNR,bazi_single,bazi_all,halfwedge,h)
+function [wf,countN]=SS_calc_RH(SNR,bazi_single,bazi_all,h)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -79,6 +79,15 @@ wf=1./(1+exp(-((SNR-Xmean)/Xstd)));
 
 %##########################################################################
 % NORMALIZATION depending on BAZ
+
+                                                    %   N ^    (- hw) 
+% angle defining the wedge size for the RH method         |   .       * BAZ 
+halfwedge=10;  % DEFAULT: +- 10° from BAZ           %     |  .      *
+                                                    %     | .    *                                            
+                                                    %     |.  *                                                
+                                                    %     |* . . . . (+ hw)
+                                                      
+                                                    % !!! not in correct scale !!!  
 
 % calc wedge with BAZ+-10° for each single BAZ
 bazi_wedge=[bazi_single-halfwedge;bazi_single+halfwedge]';  

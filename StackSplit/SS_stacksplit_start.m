@@ -15,6 +15,10 @@ function SS_stacksplit_start
 % 2008) which allows to apply multi-event techniques for shear wave splitting 
 % measurements directly from within the main program. 
 %
+% The latest version of StackSplit can be found under:
+%
+% >>>     https://github.com/michaelgrund/stacksplit    <<<
+%
 %
 % !!! NOTE: StackSplit cannot operate without an installed SplitLab version !!!
 %
@@ -32,7 +36,7 @@ function SS_stacksplit_start
 % StackSplit allows to apply up to now 4 stacking schemes for already existing 
 % single SWS splitting measurments (see also REFERENCES section below):
 
-% 1) SIMW: simultaneous inversion of multiple waveforms in timedomain (Roy et al. (2017)
+% 1) SIMW: simultaneous inversion of multiple waveforms in timedomain (Roy et al., 2017)
 % 2) WS  : stacking of error surfaces, normalized on minimum of each single surface 
 %          (Wolfe & Silver, 1998)
 % 3) RH  : modified WS method with weight depending on SNR of each measurement 
@@ -116,12 +120,6 @@ config.SS_version='1.0';
 %VVVVVVVVVVVVVVVVVVVVVVV
 
 clc
-disp(' ')
-disp('#################################')
-disp('#     Welcome to StackSplit     #')
-disp('#################################')
-disp(['version ' config.SS_version])
-disp(' ')
 
 %=============================================================
 % CHECK for mapping toolbox
@@ -148,8 +146,16 @@ end
 %.........................................
 
 if isempty(merged_str) && isempty(find_res)
-    return
+   return
 end  
+
+disp(' ')
+disp('#################################')
+disp('#     Welcome to StackSplit     #')
+disp('#################################')
+disp(['version ' config.SS_version])
+disp(' ')
+
 
 %=============================================================
 % READ/GENERATE global variable for saving stacking results in mat-file
@@ -182,7 +188,7 @@ end
 %.........................................
 h=SS_layout(@call_pushSTACK,@call_pushCLEAR,@call_pushSAVE,@call_pushEXIT,@call_listbox,...
     @call_checkNW,@call_checkWS,@call_checkRH,@call_checkSIMW,@call_popTAP,@call_pushINV,...
-    @call_popMAXBAZ,@call_popMAXDIST,@call_popSURF);
+    @call_popMAXBAZ,@call_popMAXDIST,@call_popSURF,@call_popMAXPOL);
 %.........................................
 
 %=============================================================
@@ -840,6 +846,21 @@ function call_popMAXDIST(hObject,event_data,h)
 
     inputs={'none', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     config.SS_maxdist=cell2mat(inputs(checkpop));
+
+    guidata(hObject, h);
+
+end
+
+% call maxpol popup 
+function call_popMAXPOL(hObject,event_data,h)
+
+    global config
+
+    h=guidata(hObject);
+    checkpop=get(h.pop(5),'Value');
+
+    inputs={'none', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+    config.SS_maxpol=cell2mat(inputs(checkpop));
 
     guidata(hObject, h);
 

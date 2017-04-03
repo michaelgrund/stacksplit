@@ -55,9 +55,9 @@ global config
 % otherwise the fields are created in the following
 
 %VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
-% default values for max diffBAZ/diffdist selection 
+% default values for max diffBAZ/diffdist/diffinipol selection 
 
-if isfield(config,'SS_maxbaz') && isfield(config,'SS_maxdist')
+if isfield(config,'SS_maxbaz') && isfield(config,'SS_maxdist') && isfield(config,'SS_maxpol')
     % set popups to corresponding start values, if available in config
     
     inputs=0:1:10;
@@ -76,14 +76,28 @@ if isfield(config,'SS_maxbaz') && isfield(config,'SS_maxdist')
     else
         set(h.pop(3),'Value',1);
     end
-   
- 
+    
+    inputs=0:1:20;
+    
+    [a,b]=ismember(config.SS_maxpol,inputs);
+    if b~=0 
+        set(h.pop(5),'Value',b);
+    else
+        set(h.pop(5),'Value',1);
+    end
+
 else % default settings
 
     inputs={'none', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    config.SS_maxbaz=cell2mat(inputs(1));
-    config.SS_maxdist=cell2mat(inputs(1));
-
+    config.SS_maxbaz=cell2mat(inputs(6));   % default deltaBAZ is 5°
+    config.SS_maxdist=cell2mat(inputs(6));  % default deltadist is 5°
+    inputs={'none', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+    config.SS_maxpol=cell2mat(inputs(6));   % default deltapol is 5°
+    
+    set(h.pop(2),'Value',6);
+    set(h.pop(3),'Value',6);
+    set(h.pop(5),'Value',6);
+    
 end
 
 %VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV

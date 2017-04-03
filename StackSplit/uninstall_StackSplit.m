@@ -129,6 +129,82 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% SUBFOLDER Tools
+
+dir_TOOL=dir('*Tools');
+
+if ~isempty(dir_TOOL) && isdir(dir_TOOL.name) && length(dir_TOOL)==1
+    cd(dir_TOOL.name)
+else
+    errordlg('Missing subfolder Tools! Uninstallation aborted!')
+end
+
+% check if original SL function (*_ori.m) is available
+dir_orifiles=dir(['*' filesuffix '.m']); 
+
+if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['database_editResults' filesuffix '.m'])
+
+    % first delete the current SS version of the function with correct name
+    dir_edres=dir('database_editResults.m');
+    
+    if ~isempty(dir_edres)
+        delete('database_editResults.m')
+    else
+        errordlg('No file < database_editResults.m > available to delete!')
+        return
+    end
+    
+    % then rename back the original SL file (*_ori.m) to the official name without *_ori
+    movefile(dir_orifiles.name,'database_editResults.m')
+    
+else
+    errordlg(['No original SL file < database_editResults' filesuffix '.m > available! Uninstallation aborted!'])
+    return
+    
+end
+
+cd(folderSL)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% SUBFOLDER private
+
+dir_priv=dir('*private');
+
+if ~isempty(dir_priv) && isdir(dir_priv.name) && length(dir_priv)==1
+    cd(dir_priv.name)
+else
+    errordlg('Missing subfolder private! Uninstallation aborted!')
+end
+
+% check if original SL function (*_ori.m) is available
+dir_orifiles=dir(['*' filesuffix '.m']); 
+
+if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['seisfigbuttons' filesuffix '.m'])
+
+    % first delete the current SS version of the function with correct name
+    dir_seisfig=dir('seisfigbuttons.m');
+    
+    if ~isempty(dir_seisfig)
+        delete('seisfigbuttons.m')
+    else
+        errordlg('No file < seisfigbuttons.m > available to delete!')
+        return
+    end
+    
+    % then rename back the original SL file (*_ori.m) to the official name without *_ori
+    movefile(dir_orifiles.name,'seisfigbuttons.m')
+    
+else
+    errordlg(['No original SL file < seisfigbuttons' filesuffix '.m > available! Uninstallation aborted!'])
+    return
+    
+end
+
+cd(folderSL)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % SUBFOLDER ShearWaveSplitting
 
 dir_SWS=dir('*WaveSplitting');

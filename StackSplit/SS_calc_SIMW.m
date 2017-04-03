@@ -102,6 +102,7 @@ E=h.merged_E;
 
 bazi=h.merged_BAZ;
 dist=h.merged_dist;
+inipol=h.merged_inipol;
 
 inc=h.merged_inc;
 inc=mean(inc);
@@ -117,12 +118,16 @@ max_bazi=max(bazi);
 min_bazi=min(bazi);
 max_dist=max(dist);
 min_dist=min(dist);
+max_inipol=max(inipol);
+min_inipol=min(inipol);
 
 bazi_int=[min_bazi max_bazi];
 dist_int=[min_dist max_dist];
+inipol_int=[min_inipol max_inipol];
 
 diffbazi=abs(max_bazi-min_bazi);
 diffdist=abs(max_dist-min_dist);
+diffinipol=abs(max_inipol-min_inipol);
 
 if ~ischar(config.SS_maxbaz)
     if diffbazi > config.SS_maxbaz && ~strcmp(config.SS_maxbaz,'none')
@@ -132,11 +137,18 @@ if ~ischar(config.SS_maxbaz)
     end
 end
 
-
 if ~ischar(config.SS_maxdist)
     if diffdist > config.SS_maxdist && ~strcmp(config.SS_maxdist,'none')
         h.warn_diffdist=warndlg({['Dist difference (' num2str(diffdist,'%2.1f') '°) exceeds'],...
             ;['     selected maximum (' num2str(config.SS_maxdist) '°)!']},'Dist difference');
+        return
+    end
+end
+
+if ~ischar(config.SS_maxpol)
+    if diffinipol > config.SS_maxpol && ~strcmp(config.SS_maxpol,'none')
+        h.warn_diffinipol=warndlg({['Inipol difference (' num2str(diffinipol,'%2.1f') '°) exceeds'],...
+            ;['     selected maximum (' num2str(config.SS_maxpol) '°)!']},'Inipol difference');
         return
     end
 end

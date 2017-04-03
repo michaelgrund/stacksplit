@@ -150,7 +150,7 @@ if exist('h','var') && sum([h.check(1) h.check(2) h.check(3)])~=0
     eqstack(end).results.dist_max=max_dis;
     eqstack(end).results.dist_mean=mean(dists);
     eqstack(end).results.remark=res_remark;
-
+    
     % add structs of input events, including all used content such as Emap,
     % EVmap, ndfs, singlephi, singledt etc.
     eqstack(end).results.events_in=h.data(index);
@@ -260,6 +260,8 @@ else
     eqstack(end).results.stack_meth='SIMW';
     eqstack(end).results.nwave=SIMW_temp.noc;
     eqstack(end).results.taper=SIMW_temp.taper;
+    eqstack(end).results.quality_simw=SIMW_temp.Q;
+    eqstack(end).results.Null_simw=SIMW_temp.AnisoNull;
     eqstack(end).results.phiSC_simw=SIMW_temp.phiSC;
     eqstack(end).results.dtSC_simw=SIMW_temp.dtSC;
     eqstack(end).results.phiRC_simw=SIMW_temp.phiRC;

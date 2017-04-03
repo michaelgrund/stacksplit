@@ -143,6 +143,7 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
     merged_BAZ=[];
     merged_dist=[];
     merged_inc=[];
+    merged_inipol=[];
 
     for ii=index
         
@@ -159,6 +160,7 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
         merged_BAZ(end+1)=find_res(ii).bazi;
         merged_dist(end+1)=find_res(ii).dis;
         merged_inc(end+1)=find_res(ii).results.incline;
+        merged_inipol(end+1)=find_res(ii).results.inipol;
         
     end
 
@@ -213,6 +215,7 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
     h.merged_BAZ=merged_BAZ;
     h.merged_dist=merged_dist;
     h.merged_inc=merged_inc;
+    h.merged_inipol=merged_inipol;
     
     % only use merged "real" timeseries for inversion, 
     % zeros at begin & end are not considered
