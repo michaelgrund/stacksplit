@@ -1,0 +1,39 @@
+StackSplit 1.0
+
+-2017/04/03- 
+
+The following functions are essential to run StackSplit (besides the original SplitLab package). 
+If any problem occurs or you have suggestions to make StackSplit better please don't hesitate to
+write an email to:
+
+	<<<   michael.grund@kit.edu   >>>.
+
+The latest version of StackSplit can be found at:
+
+	<<<   https://github.com/michaelgrund/stacksplit   >>>.
+
+Files 
+    install_StackSplit.m               - run in command wdw to start installation process of StackSplit                                     
+    SS_basic_settings.m                - set/change basic settings         
+    SS_calc_RH.m                       - apply the RH method, calculate SNR-weight and BAZ-normalization
+    SS_calc_SIMW.m                     - apply SIMW on selected waveforms using the predefined methods (RC,SC,EV)
+    SS_check_inputs.m                  - check consistency of input data like sampling rate (apply resampling if necessary), phi-dt grid parameters etc. 
+    SS_check_matlab_version.m          - check current MATLAB version to avoid problems in some functions with 2014b or newer
+    SS_disp_Esurf_single.m             - display single error surface of selected list entry
+    SS_gen_legends.m                   - subfunction to generate the GUI legends with splits and nulls above listbox
+    SS_gen_stackresplot.m              - generate output plot after using SAVE button in the surface stacking procedure 
+    SS_gen_worldmap.m                  - subfunction to generate the GUI worldmap for displaying the selected event locations
+    SS_geterrorbars_stack_Esurf.m      - calculate errors for stacked surfaces
+    SS_layout.m                        - generate GUI layout
+    SS_plates.mat                      - file containing the plate boundaries for the worldmap
+    SS_prep_SIMW.m                     - display single and concatenated waveforms after selection in listbox 
+    SS_read_SLresults.m                - read individual single event results saved from SL 
+    SS_saveresults.m                   - save multi-event results (error surfaces, SIMW) to mat-file
+    SS_splitdiagnosticLayout.m         - generate layout for diagnostic plot using SIMW
+    SS_splitdiagnosticplot.m           - make diagnostic plot using SIMW
+    SS_splitdiagnosticSetHeader.m      - set header values for diagnostic plot using SIMW
+    SS_stack_Esurf.m                   - calculate stacked error surface 
+    SS_stacksplit_start.m              - main function of StackSplit that is called by button Stacking via SplitLab
+    unistall_StackSplit.m              - run in command wdw to uninstall StackSplit from your system
+  
+  
