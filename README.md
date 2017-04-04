@@ -21,6 +21,13 @@ Up to now (04/2017) four stacking schemes for single SWS splitting measurments m
 
 - stacking of error surfaces without weighting following e.g. PhD thesis of Wüstefeld (2007)
 
+
+
+
+The original SplitLab package can be found here: http://splitting.gm.univ-montp2.fr/
+
+A slightly updated version is available from Rob Porritt: https://robporritt.wordpress.com/software/
+
 #### References
 
 - Roy, C., Winter, A., Ritter, J. R. R., Schweitzer, J. (2017), On the improvement of SKS splitting measurements by the simultaneous inversion of multiple waveforms (SIMW), Geophysical Journal International, 208, 1508–1523, doi:10.1093/gji/ggw470.
