@@ -108,21 +108,27 @@ else
     axes(ax) 
     h.EQstatsax=ax;
 
-    % matlab structures included with this distribution
-    load SL_plates.mat
-    load SL_coasts.mat
+    % check for files needed to construct "alternative" map
+    if exist('SL_plates.mat', 'file') == 2 && exist('SL_coasts.mat', 'file') ==2 ...
+             && exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file') ==2 && exist('ncread')
+
+        % matlab structures included with this distribution
+        load SL_plates.mat
+        load SL_coasts.mat
     
-    % etopo from http://www.ngdc.noaa.gov/mgg/global/global.html
-    if exist('ncread')
-      topoElevation = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','z');
-      topoLatitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lat');
-      topoLongitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lon');
-      lon=repmat(topoLongitude,1,length(topoLatitude));
-      lat=repmat(topoLatitude,1,length(topoLongitude));
-      e = contourf(lon,lat',topoElevation);
-      
+        % etopo from http://www.ngdc.noaa.gov/mgg/global/global.html
+        topoElevation = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','z');
+        topoLatitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lat');  
+        topoLongitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lon');   
+        lon=repmat(topoLongitude,1,length(topoLatitude));  
+        lat=repmat(topoLatitude,1,length(topoLongitude));
+        e = contourf(lon,lat',topoElevation);
+
     else
-      errordlg('To run StackSplit you need either the Mapping toolbox or SplitLab version >= 1.2.1!','Version issue')
+        errordlg('To run StackSplit you need either the Mapping toolbox or SplitLab version >= 1.2.1!','Version issue')
+        close(h.fig)
+        h.quit=1;
+        return
     end
     
     hold on
