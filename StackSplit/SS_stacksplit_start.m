@@ -120,11 +120,11 @@ clc
 %=============================================================
 % CHECK for mapping toolbox
 
-%if license('test', 'MAP_Toolbox')
-%   config.maptool=1;
-%else
+if license('test', 'MAP_Toolbox')
+  config.maptool=1;
+else
    config.maptool=0;
-%end
+end
 
 %=============================================================
 % CHECK if a project was already loaded in SL, otherwise SS will not start
