@@ -11,7 +11,7 @@ If you make use of StackSplit in your work please acknowledge my paper in which 
 - Grund, M. (2017), StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab, in revision, Computers & Geosciences.
 
 
-Up to now (04/2017) four stacking schemes for single SWS splitting measurments made with SplitLab are available in the download package:
+Up to now (04/2017) four stacking schemes for single SWS splitting measurements made with SplitLab are available in the download package:
 
 - SIMW: simultaneous inversion of multiple waveforms in time domain (Roy et al., 2017)
 
