@@ -65,7 +65,7 @@ if config.maptool==1
     load SS_plates.mat;  
 
     % generate subplot and handles
-    ax=subplot(1,1,1,'Parent',h.panel(1),'Position',[0.595 0.53 0.472 0.472]);
+    ax=subplot(1,1,1,'Parent',h.panel(1),'Position',[0.599 0.53 0.472 0.472]);
 
     set(ax,'Color',[224 223 227]./256, 'ButtonDownFcn', [])
     %imagesc(randn(100,100))

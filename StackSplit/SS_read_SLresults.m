@@ -39,6 +39,14 @@ function [merged_str,find_res]=SS_read_SLresults(curr_path2results,curr_staname)
 
 %==================================================================================================================================
 %==================================================================================================================================
+% sort input depending on BAZ, if you want to sort for another parameter
+% change it in the following line:
+
+sortpar='bazi';
+% sortpar='dist';
+% sortpar='inipol';
+
+%=============================================================================================
 % find and load eqresults file in result folder
 
 dir_eqresults=dir(fullfile(curr_path2results,[curr_staname '_eqresults.mat']));
@@ -97,9 +105,15 @@ end
 %=============================================================================================
 % sort input depending on BAZ, if you want to sort for another parameter
 % change it in the following line, e.g. find_res.dis for distance sorting 
-                                      
-[b,index]=sort([find_res.bazi]);
-
+     
+if strcmp(sortpar,'bazi')
+    [b,index]=sort([find_res.bazi]);
+elseif strcmp(sortpar,'dist')
+    [b,index]=sort([find_res.dist]);
+elseif strcmp(sortpar,'inipol')
+    [b,index]=sort([find_res.inipol]);
+end
+    
 find_res=find_res(index);
 
 %=============================================================================================
@@ -190,6 +204,15 @@ for ii=1:length(find_res) % color results depending on quality ranking
     else
         chbet_dis='';
     end
+    
+    % ini pol
+    if find_res(ii).results.inipol < 100 && round(find_res(ii).results.inipol*100)/100 < 100
+        chbet_inipol='<&nbsp ';
+    elseif find_res(ii).results.inipol < 10 && round(find_res(ii).results.inipol*10)/10 < 10
+        chbet_inipol='<&nbsp&nbsp ';
+    else
+        chbet_inipol='';
+    end
    
     % inc
     if find_res(ii).results.incline < 10 && round(find_res(ii).results.incline*10)/10 < 10
@@ -215,7 +238,6 @@ for ii=1:length(find_res) % color results depending on quality ranking
     end
     
     % phases
-
     if length(find_res(ii).results.SplitPhase) < 4
         chbet_phase='<&nbsp ';
     else
@@ -225,6 +247,7 @@ for ii=1:length(find_res) % color results depending on quality ranking
     ' | ' num2str(find_res(ii).date(end),'%03d'),... 
     ' | ' chbet_baz num2str(find_res(ii).bazi,'%.01f'),...
     ' | ' chbet_dis num2str(find_res(ii).dis,'%3.1f'),... 
+    ' | ' chbet_inipol num2str(find_res(ii).results.inipol,'%3.1f'),... 
     ' | ' chbet_inc num2str(find_res(ii).results.incline,'%.01f'),...   
     ' | ' chbet_snr num2str(find_res(ii).results.SNR(2),'%.01f'),...  
     ' | ' chbet_fil num2str(find_res(ii).results.filter(1),'%0.3f') '-' num2str(find_res(ii).results.filter(2),'%0.3f'),...
