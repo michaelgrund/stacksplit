@@ -8,7 +8,7 @@ StackSplit is a plugin for the MATLAB toolbox SplitLab (Wüstefeld et al., 2008)
 
 If you make use of StackSplit in your work please acknowledge my paper in which the program is described:
 
-- Grund, M. (2017), StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab, Computers & Geosciences, 105, 43-5, https://doi.org/10.1016/j.cageo.2017.04.015
+- Grund, M. (2017), StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab, Computers & Geosciences, 105, 43-50, https://doi.org/10.1016/j.cageo.2017.04.015
 
 
 Up to now (04/2017) four stacking schemes for single SWS splitting measurements made with SplitLab are available in the download package:
