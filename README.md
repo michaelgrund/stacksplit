@@ -21,7 +21,7 @@ Up to now (04/2017) four stacking schemes for single SWS splitting measurements 
 
 - stacking of error surfaces without weighting following e.g. PhD thesis of Wüstefeld (2007)
 
-
+![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
 
 
 The original SplitLab package can be found here: http://splitting.gm.univ-montp2.fr/
@@ -36,7 +36,7 @@ A slightly updated version is available from Rob Porritt: https://robporritt.wor
 - Restivo, A. & Helffrich, G. (1999), Teleseismic shear wave splitting measurements in noisy environments, Geophysical Journal International 137, 821-830.
 - Wolfe, C. J. & Silver, P. G. (1998), Seismic anisotropy of oceanic upper mantle: Shear wave splitting methodologies and observations, Journal of Geophysical Research 103(B1), 749-771.
 
-![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
+
 
 
 
