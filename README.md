@@ -36,6 +36,8 @@ A slightly updated version is available from Rob Porritt: https://robporritt.wor
 - Restivo, A. & Helffrich, G. (1999), Teleseismic shear wave splitting measurements in noisy environments, Geophysical Journal International 137, 821-830.
 - Wolfe, C. J. & Silver, P. G. (1998), Seismic anisotropy of oceanic upper mantle: Shear wave splitting methodologies and observations, Journal of Geophysical Research 103(B1), 749-771.
 
+![StackSplit content](https://github.com/michaelgrund/stacksplit/files/3115574/fig4github.pdf)
+
 
 
 
