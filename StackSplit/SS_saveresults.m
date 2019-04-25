@@ -16,6 +16,8 @@ function h=SS_saveresults(h)
 %
 % Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
 % Email: michael.grund@kit.edu
+%
+% 2019-04 -MG- saving output also in GMT-ready format (psxy with -SJ flag)
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -110,6 +112,31 @@ if exist('h','var') && sum([h.check(1) h.check(2) h.check(3)])~=0
     fseek(fid, 0, 'eof'); %go to end of file
     fprintf(fid,'\n %s %2.0f   %2.0f    %3.1f    %3.1f    %3.1f     %3.1f   %3.1f   %3.1f  %4.0f < %3.0f < %3.0f   %4.1f < %3.1f < %3.1f     %s        %s       %s           %s',...
         staname, nsurf, ndf, min_bazi, max_bazi, mean(bazis), min_dis, max_dis, mean(dists), phistack, dtstack, stack_meth, surf_input, res_remark, string_ev_used);
+    fclose(fid);
+
+    %==========================================================================
+    % txt-file, GMT ready format
+    
+    % format allows to directly use the output file in GMT (5.2.1 or
+    % higher) via the -SJ flag of psxy. 
+    
+    % EXAMPLE:   psxy splitresultsSTACK_OUTPUTNAME_4GMT.dat -R -J -SJ -W0.25p,blue -Gred -O -K >> $ps
+    
+    % column description:
+    % station lat. | station lon. | phistack | dtstack(scaled by factor scale_bar) | bar thickness | mean BAZ (not used in GMT) | mean dist (not used in GMT) | station name (not used in GMT) 
+
+    fname = fullfile(config.savedir,['splitresultsSTACK_' config.project(1:end-4) '_4GMT.dat' ]);
+
+    %################
+    % GMT parameters (please adjust for your requirements) 
+    scale_bar=60; % scaling factor, set for scaling the plotted bars uniformly with respect to length
+    thick_bar=10.5; % define thickness of bars
+    %################
+
+    fid   = fopen(fname,'a+');
+    fseek(fid, 0, 'eof'); %go to end of file
+    fprintf(fid,'%5.3f %5.3f %3.1f %3.1f %3.1f %5.3f %5.3f %s \n',...
+       config.slong, config.slat, phistack(2), dtstack(2)*scale_bar, thick_bar, mean(bazis), mean(dists), staname);
     fclose(fid);
 
     %==========================================================================
@@ -242,6 +269,35 @@ else
         SIMW_temp.phiEV(2), SIMW_temp.dtEV(2),...
         char(SIMW_temp.Q), char(SIMW_temp.AnisoNull), res_remark, string_ev_used);
     fclose(fid);
+    
+    
+    %==========================================================================
+    % txt-file, GMT ready format
+    
+    % format allows to directly use the output file in GMT (5.2.1 or
+    % higher) via the -SJ flag of psxy. 
+    
+    % EXAMPLE:   psxy splitresultsSIMW_OUTPUTNAME_4GMT.dat -R -J -SJ -W0.25p,blue -Gred -O -K >> $ps
+    
+    % column description:
+    % station lat. | station lon. | phistack | dtstack(scaled by factor scale_bar) | bar thickness | mean BAZ (not used in GMT) | mean dist (not used in GMT) | station name (not used in GMT) 
+
+    fname = fullfile(config.savedir,['splitresultsSIMW_' config.project(1:end-4) '_4GMT.dat' ]);
+    
+    %################
+    % GMT parameters (please adjust for your requirements) 
+    scale_bar=60; % scaling factor, set for scaling the plotted bars uniformly with respect to length
+    thick_bar=10.5; % define thickness of bars
+    %################
+
+    fid   = fopen(fname,'a+');
+    fseek(fid, 0, 'eof'); %go to end of file
+    
+    formatstr='%5.3f %5.3f %3.1f %3.1f %3.1f %5.3f %5.3f %s \n';
+
+    fprintf(fid,formatstr,...
+       config.slong, config.slat, SIMW_temp.phiSC(2),SIMW_temp.dtSC(2)*scale_bar,thick_bar,SIMW_temp.bazi_mean,SIMW_temp.dist_mean,config.stnname);
+    fclose(fid);
 
     %==========================================================================
     % mat-file
@@ -340,4 +396,3 @@ else
 end
 
 % EOF
-
