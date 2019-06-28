@@ -82,8 +82,8 @@ if config.maptool==1
     % plot circles at distance seletion wdw
     [latlow,lonlow]= scircle1(thissta.slat, thissta.slong, SKSwin(1));
     [latup,lonup]  = scircle1(thissta.slat, thissta.slong, SKSwin(2));
-    f(1) = plotm(latlow, lonlow, '--', 'Color',circleColor, 'linewidth',1, 'ButtonDownFcn', '', 'HitTest', 'off');%SKSwindow
-    f(2) = plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1, 'ButtonDownFcn', '', 'HitTest', 'off');   
+    plotm(latlow, lonlow, '--', 'Color',circleColor, 'linewidth',1, 'ButtonDownFcn', '', 'HitTest', 'off');%SKSwindow
+    plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1, 'ButtonDownFcn', '', 'HitTest', 'off');   
   
     wmin=[num2str(SKSwin(1)) '\circ'];
     wmax=[num2str(SKSwin(2)) '\circ'];

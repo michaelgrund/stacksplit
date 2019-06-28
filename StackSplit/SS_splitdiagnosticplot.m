@@ -224,19 +224,22 @@ line([dtRC(2) dtRC(2)],[-90 90],'Color',[0 0 1])
 line([0 maxtime], [phiRC(2) phiRC(2)],'Color',[0 0 1])
 title('Map of Correlation Coefficient','FontSize',titlefontsize);
 %xlabel('dt [s]', 'Fontsize',fontsize-1);
+xlabel('delay time in s', 'Fontsize',fontsize-1)
 ylabel('fast axis', 'Fontsize',fontsize-1)
-label = ['0' sprintf('|%u',1:maxtime) 'sec'];
-set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', label ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
+
+%label = ['0' sprintf('|%u',1:maxtime) 'sec'];
+set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', [0:1:maxtime] ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
 axis([ts(1) ts(end) -90 90])
 set(h1,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
 
-
 hold off
+
 
 
 %%  Silver & Chan
 % fast/slow seismograms
 axes(axSC(1))
+
 sumFS1 = sum(abs( corFSsc(:,1) -corFSsc(:,2)));
 sumFS2 = sum(abs(-corFSsc(:,1) -corFSsc(:,2)));
 if ( sumFS1 < sumFS2 )
@@ -309,8 +312,9 @@ line([dt dt],[-90 90],'Color',[0 0 1])
 
 hold off
 axis([0 maxtime -90 90])
-set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', label ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
+set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', [0:1:maxtime] ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
 %xlabel('dt [s]', 'Fontsize',fontsize-1);
+xlabel('delay time in s', 'Fontsize',fontsize-1)
 ylabel('fast axis', 'Fontsize',fontsize-1)
 title(Maptitle,'FontSize',titlefontsize);
 set(h1,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
@@ -342,7 +346,7 @@ set(axSeis,'Layer','Top')
 
 axes(axwm)
 
-%get objects from worlmap plot
+%get objects from worldmap plot
 H2=findall(h.EQstatsax);
 
 if config.maptool==1
@@ -350,6 +354,7 @@ if config.maptool==1
     out_handle=copyobj(H2(2:end),axwm);
 
     axis off
+    axis square
 
     findtext=findobj(gca,'type','text');
     set(findtext,'fontsize',6)

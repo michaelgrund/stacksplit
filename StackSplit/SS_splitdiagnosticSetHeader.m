@@ -71,7 +71,7 @@ end
 
 
 str ={['\rm                     Station: \bf' config.stnname ''];
-    ['\rmBackazimuth: \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],bazi_int) '   \rmDistance: \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],dist_int) ];
+    ['\rmBackazimuth:    \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],bazi_int) '   \rmDistance:  \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],dist_int) ];
     [''];
     ['\rmRotation Correlation: ' str11 '     ' str21 ];
     ['\rm      Minimum Energy: ' str12 '     ' str22 ];

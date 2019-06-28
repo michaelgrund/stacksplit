@@ -42,9 +42,9 @@ function h=SS_gen_legends(h)
 %GENERATE axes
                          
 hax1=axes('Parent',h.panel(1),'Units','pixel',...
-                             'Position',[200 417+45 92 65]);                       
+                             'Position',[200 417+45 92 82]);                       
 hax2=axes('Parent',h.panel(1),'Units','pixel',...
-                             'Position',[450 417+45 92 65]);                         
+                             'Position',[450 417+45 92 82]);                         
                          
 %=================================================================================
 %=================================================================================
@@ -68,21 +68,20 @@ marker_size=6;
 axes(hax1);
 
 hold all
-plot(-10,-10,'^','color',col_good_nn,'linewidth',lwleg,'markerfacecolor',col_good_nn,...
+plot(-10,-100,'^','color',col_good_nn,'linewidth',lwleg,'markerfacecolor',col_good_nn,...
     'visible','off','markersize',marker_size)
 plot(-10,-10,'^','color',col_fair_nn,'linewidth',lwleg,'markerfacecolor',col_fair_nn,...
     'visible','off','markersize',marker_size)
 plot(-10,-10,'^','color',col_poor_nn,'linewidth',lwleg,'markerfacecolor',col_poor_nn,...
     'visible','off','markersize',marker_size)
 
-legsplit=legend('good','fair','poor','hittest','off','orientation','horizontal');
+legsplit=legend('\color{black} good','\color{black} fair','\color{black} poor','hittest','off','orientation','horizontal');
 set(legsplit,'ButtonDownFcn',[])
 
 set(hax1,'Visible','off')
 
 titsplit = get(legsplit,'title');
 set(titsplit,'string','Splits');
-
 legend boxoff
 
 %=====================================================================
@@ -98,7 +97,7 @@ plot(-10,-10,'v','color',col_fair_null,'linewidth',lwleg,'markerfacecolor',col_f
 plot(-10,-10,'v','color',col_poor_null,'linewidth',lwleg,'markerfacecolor',col_poor_null,...
     'visible','off','markersize',marker_size)
 
-legnulls=legend('good','fair','poor','hittest','off','orientation','horizontal');
+legnulls=legend('\color{black} good','\color{black} fair','\color{black} poor','hittest','off','orientation','horizontal');
 set(legnulls,'ButtonDownFcn',[])
 
 set(hax2,'Visible','off')

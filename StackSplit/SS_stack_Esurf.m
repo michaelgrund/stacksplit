@@ -424,18 +424,20 @@ colormap(gray)
 
 fontsize=10;
 
-label = ['0' sprintf('|%u',1:maxtime) 'sec'];
-
 hold off
 axis([0 maxtime -90 90])
-set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', label ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
+set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', [0:1:maxtime] ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
+xlabel('delay time in s', 'Fontsize',fontsize)
 ylabel('fast axis', 'Fontsize',fontsize)
 title(['Stacked surfaces: ' num2str(length(use_data))],'fontsize',11)
     
-string1=sprintf(['\\phi:   %4.0f  <  %4.0f\\circ  <  %4.0f']   ,singlephiSTACK);
-string2=sprintf(['\\deltat:    %3.1f  <  %3.1f s  <  %3.1f']   ,singledtSTACK);
-
-text(1.2,-122,{[string1];[string2]},'fontsize',11) 
+% string1=sprintf(['\\phi:   %4.0f  <  %4.0f\\circ  <  %4.0f']   ,singlephiSTACK);
+% string2=sprintf(['\\deltat:    %3.1f  <  %3.1f s  <  %3.1f']   ,singledtSTACK);
+% text(1.2,-122,{[string1];[string2]},'fontsize',11) 
+ 
+string1 = char(strcat({'fast: '},char(num2str(singlephiSTACK(1),'%4.0f')),{'° <: '},char(num2str(singlephiSTACK(2),'%4.0f')),{'° <: '},char(num2str(singlephiSTACK(3),'%4.0f')),{'°'}));   
+string2 = [string1 newline char(strcat({'dt: '},char(num2str(singledtSTACK(1),'%3.1f')),{'° <: '},char(num2str(singledtSTACK(2),'%3.1f')),{'° <: '},char(num2str(singledtSTACK(3),'%3.1f')),{'°'}))];
+uicontrol(h.panel(3),'Style','text', 'String',string2,'Position',[0.05,0.05,170,40], 'BackgroundColor', 'w','Fontsize',10);
 
 %======================================================
 % save results to handle

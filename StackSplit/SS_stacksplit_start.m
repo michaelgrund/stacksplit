@@ -112,7 +112,10 @@ global config eqstack
 
 % SS version
 %VVVVVVVVVVVVVVVVVVVVVVV
-config.SS_version='1.0';
+config.SS_version='2.0'; 
+
+%1.0 released 2017
+%2.0 released 2019-06-28
 %VVVVVVVVVVVVVVVVVVVVVVV
 
 clc

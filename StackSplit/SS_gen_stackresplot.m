@@ -63,27 +63,37 @@ set(fig_out,'visible','off')
 % SET diagnostic header
 
 ax0=subplot(3,4,1:4);
-uipanel('units','normalized',  'Position',[.1 .2  .82 .44],  'BackgroundColor',...
+u1=uipanel('units','normalized',  'Position',[.1 .2  .82 .44],  'BackgroundColor',...
     'w', 'BorderType', 'line', 'HighlightColor','k');
 
-str11 = sprintf(['%4.0f <%4.0f\\circ <%4.0f'],phi); % phi from stacked surface
+% set panel backgrounds to transparent
+jPanel = u1.JavaFrame.getPrintableComponent;  
+jPanel.setOpaque(false)
+jPanel.getParent.setOpaque(false)
+jPanel.getComponent(0).setOpaque(false)
+jPanel.repaint
+
+
+str11 = sprintf(['%4.0f <%4.0f <%4.0f'],phi); % phi from stacked surface
 str21 = sprintf('%3.1f < %3.1fs < %3.1f',dt); % dt from stacked surface
 
 if h.surf_kind==1 
     surf_input='Minimum Energy';
 
-    str ={['          \rmStation: \bf' config.stnname '     \rmSurface input: \bf' surf_input '     \rmMethod: \bf' h.stacked_meth];
-    ['\rmBackazimuth range: \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],bazi_int) ' (' sprintf(['%5.1f'  '\\circ'],mean_bazi)   ') \rmDistance range: \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],dist_int) ' (' sprintf(['%5.1f'  '\\circ'],mean_dist) ')' ];
+    str ={['          \rmStation: \bf  '        config.stnname '       \rm    Surface input: \bf      ' surf_input ' \rm        Method: \bf      ' h.stacked_meth];
+    ['\rmBackazimuth range: \bf   ' sprintf(['%5.1f - %5.1f'],bazi_int) ' (' sprintf(['%5.1f'],mean_bazi)   ') \rm           Distance range: \bf           ' sprintf(['%5.1f - %5.1f'],dist_int) ' (' sprintf(['%5.1f'],mean_dist) ')' ];
     ['  '];
-    ['\rm                 \phi: ' str11 '       \deltat: ' str21 ]};
+    ['\rm                                   \phi: ' str11 '                                              \deltat: ' str21 ]};
 
 elseif h.surf_kind==2
    surf_input='EV';
-
-   str ={['                \rmStation: \bf' config.stnname '     \rmSurface input: \bf' surf_input '     \rmMethod: \bf' h.stacked_meth];
-    ['\rmBackazimuth range: \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],bazi_int) ' (' sprintf(['%5.1f'  '\\circ'],mean_bazi)   ') \rmDistance range: \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],dist_int) ' (' sprintf(['%5.1f'  '\\circ'],mean_dist) ')' ];
+   
+   
+    str ={['          \rmStation: \bf  '        config.stnname '       \rm    Surface input: \bf      ' surf_input ' \rm        Method: \bf      ' h.stacked_meth];
+    ['\rmBackazimuth range: \bf   ' sprintf(['%5.1f - %5.1f'],bazi_int) ' (' sprintf(['%5.1f'],mean_bazi)   ') \rm           Distance range: \bf           ' sprintf(['%5.1f - %5.1f'],dist_int) ' (' sprintf(['%5.1f'],mean_dist) ')' ];
     ['  '];
-    ['\rm                 \phi: ' str11 '       \deltat: ' str21 ]};
+    ['\rm                                   \phi: ' str11 '                                              \deltat: ' str21 ]};
+
 end    
 
 text(.05, 0.2,str,...
@@ -135,14 +145,14 @@ out_handle=copyobj(H1(3:end),ax2);
 colormap(fig_out,'gray')
 
 % set axes parameters again
-label = ['0' sprintf('|%u',1:config.maxSplitTime) 'sec'];
+% label = ['0' sprintf('|%u',1:config.maxSplitTime) 'sec'];
 axis square
 axis([0 config.maxSplitTime -90 90])
-set(gca, 'Xtick',[0:1:config.maxSplitTime], 'XtickLabel', label ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
+set(gca, 'Xtick',[0:1:config.maxSplitTime], 'XtickLabel',[0:1:config.maxSplitTime],'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
 box on
 
 pos=get(ax2,'position');
-set(ax2,'position',[pos(1)-0.015 pos(2)+0.05 pos(3) pos(4)])
+set(ax2,'position',[pos(1)-0.015 pos(2)+0.06 pos(3) pos(4)])
 
 %================================================================================
 % SET print parameters

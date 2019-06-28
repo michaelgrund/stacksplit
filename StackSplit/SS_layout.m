@@ -103,11 +103,24 @@ h.panel(7) = uipanel('Parent',h.panel(1),'Units','pixel',... % panel "around" li
 h.panel(8) = uipanel('Parent',h.panel(1),'Units','pixel','Title','Limits',... 
     'FontSize',10,'Position',[600+shift_right,187,214,102], 'BackgroundColor', [224   223   227]/255,'TitlePosition','centertop');
 
-h.panel(9) = uipanel('Parent',h.panel(1),'Units','pixel','Title','Splits',... 
+h.panel(9) = uipanel('Parent',h.panel(1),'Units','pixel',... 
     'FontSize',10,'Position',[75,500,230,40], 'BackgroundColor', 'w','TitlePosition','centertop');
 
-h.panel(10) = uipanel('Parent',h.panel(1),'Units','pixel','Title','Nulls',... 
+h.panel(10) = uipanel('Parent',h.panel(1),'Units','pixel',... 
     'FontSize',10,'Position',[325,500,230,40], 'BackgroundColor', 'w','TitlePosition','centertop');
+
+% set panel backgrounds to transparent
+jPanel = h.panel(9).JavaFrame.getPrintableComponent;  
+jPanel.setOpaque(false)
+jPanel.getParent.setOpaque(false)
+jPanel.getComponent(0).setOpaque(false)
+jPanel.repaint
+
+jPanel = h.panel(10).JavaFrame.getPrintableComponent;  
+jPanel.setOpaque(false)
+jPanel.getParent.setOpaque(false)
+jPanel.getComponent(0).setOpaque(false)
+jPanel.repaint
 
 %==================================================================================================================================  
 %==================================================================================================================================                         

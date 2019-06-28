@@ -47,7 +47,7 @@ staname=config.stnname;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SAVE results of stacked surfaces
-if exist('h','var') && sum([h.check(1) h.check(2) h.check(3)])~=0
+if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])~=0
 
     stacked_err_surf=h.stacked_err_surf;
     phistack=h.stacked_err_surf_phi;
@@ -386,7 +386,7 @@ else
         No = No+1;
     end
   
-    print( option{:}, fullfile(config.savedir,fname));
+    print( option{:}, fullfile(config.savedir,fname),'-fillpage');
 
     close(gcf) 
     
