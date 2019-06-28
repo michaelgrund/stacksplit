@@ -11,7 +11,7 @@ If you make use of StackSplit in your work please acknowledge my paper in which 
 - Grund, M. (2017), StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab, Computers & Geosciences, 105, 43-50, https://doi.org/10.1016/j.cageo.2017.04.015
 
 
-Up to now (04/2017) four stacking schemes for single SWS splitting measurements made with SplitLab are available in the download package:
+Up to now (06/2019) four stacking schemes for single SWS splitting measurements made with SplitLab are available in the download package:
 
 - SIMW: simultaneous inversion of multiple waveforms in time domain (Roy et al., 2017)
 
@@ -23,10 +23,13 @@ Up to now (04/2017) four stacking schemes for single SWS splitting measurements 
 
 ![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
 
+The latest version 2.0 also works on MATLAB **2018a** and **b**. If you use MATLAB **2014a** or **lower**  version 1.0 is recommended (see releases).
 
 The original SplitLab package can be found here: http://splitting.gm.univ-montp2.fr/
 
 A slightly updated version is available from Rob Porritt: https://robporritt.wordpress.com/software/
+
+
 
 #### References
 
