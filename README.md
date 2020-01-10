@@ -1,5 +1,5 @@
 
-# StackSplit                            [![DOI](https://zenodo.org/badge/77286869.svg)](https://zenodo.org/badge/latestdoi/77286869)                          
+# StackSplit                            [![DOI](https://zenodo.org/badge/77286869.svg)](https://zenodo.org/badge/latestdoi/77286869) [![View michaelgrund/stacksplit on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://de.mathworks.com/matlabcentral/fileexchange/62402-michaelgrund-stacksplit)                         
 ### A plugin for multi-event shear wave splitting analyses in SplitLab                  
 
 
