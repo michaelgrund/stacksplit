@@ -25,13 +25,13 @@ Up to now (06/2019) four stacking schemes for single SWS splitting measurements 
 
 The latest version 2.0 also works on MATLAB **2018a** and **b**. If you use MATLAB **2014a** or **lower**  version 1.0 is recommended (see  [releases](https://github.com/michaelgrund/stacksplit/releases)). 
 
-The original SplitLab package can be found here: http://splitting.gm.univ-montp2.fr/ => **works with StackSplit**
+- The original SplitLab package can be found here: http://splitting.gm.univ-montp2.fr/ => **works with StackSplit**
 
-A slightly updated version is available from Rob Porritt: https://robporritt.wordpress.com/software/ => **works with StackSplit**
+- A slightly updated version is available from Rob Porritt: https://robporritt.wordpress.com/software/ => **works with StackSplit**
 
-The most recent SplitLab version can be found here (not fully compatible with StackSplit): https://github.com/IPGP/splitlab
+- The most recent SplitLab version can be found here (not fully compatible with StackSplit): https://github.com/IPGP/splitlab
 
-Shear wave splitting analysis in Python (based on SplitLab): https://github.com/paudetseis/SplitPy
+- Shear wave splitting analysis in Python (based on SplitLab): https://github.com/paudetseis/SplitPy
 
 #### References
 
