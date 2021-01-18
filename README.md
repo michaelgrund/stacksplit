@@ -33,6 +33,8 @@ The latest version 2.0 also works on MATLAB **2018a** and **b**. If you use MATL
 
 - Shear wave splitting analysis in Python (based on SplitLab): https://github.com/paudetseis/SplitPy
 
+- Shear wave splitting analysis in Julia: https://github.com/anowacki/SeisSplit.jl
+
 #### References
 
 - **_Roy, C., Winter, A., Ritter, J. R. R., Schweitzer, J. (2017)_**, On the improvement of SKS splitting measurements by the simultaneous inversion of multiple waveforms (SIMW), Geophysical Journal International, 208, 1508–1523, doi:10.1093/gji/ggw470.
