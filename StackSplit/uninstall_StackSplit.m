@@ -55,7 +55,7 @@ filesuffix='_ori';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % search for original SL folder 
-[folderSL, name, ext]=fileparts(which('install_SplitLab'));
+[folderSL, ~, ~]=fileparts(which('install_SplitLab'));
 
 if ~isempty(folderSL)
     cd(folderSL)
@@ -66,7 +66,7 @@ end
 % check for unzipped SS folder
 dirSS=dir('StackSpl*');
 
-if ~isempty(dirSS) && isdir(dirSS.name) && length(dirSS)==1
+if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1
     disp('Uninstall StackSplit...')
 else
     errordlg('Missing StackSplit folder! Uninstallation aborted!')
@@ -83,11 +83,11 @@ pos(3:4) = [560 200];
 H = figure('Name', 'StackSplit uninstaller', 'Color','w','units','Pixel',...
     'NumberTitle','Off','ToolBar','none','MenuBar','none','Position',pos);
 
-uifw = uicontrol('style','text','Parent',H,'units','Pixel','String',farewellstring,...
+uicontrol('style','text','Parent',H,'units','Pixel','String',farewellstring,...
     'Position',[30 100 pos(3:4)-[60 130]], 'BackGroundColor','w','HorizontalAlignment','Center');
-uifw = uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','Yes',...
+uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','Yes',...
     'Position',[190 15 90 25],'Callback',' set(0,''Userdata'',1);uiresume; closereq; ');
-uifw = uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','No',...
+uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','No',...
     'Position',[290 15 90 25],'Callback','set(0,''Userdata'',0);uiresume; closereq; ');
 
 uiwait
@@ -133,7 +133,7 @@ end
 
 dir_TOOL=dir('*Tools');
 
-if ~isempty(dir_TOOL) && isdir(dir_TOOL.name) && length(dir_TOOL)==1
+if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && length(dir_TOOL)==1
     cd(dir_TOOL.name)
 else
     errordlg('Missing subfolder Tools! Uninstallation aborted!')
@@ -171,7 +171,7 @@ cd(folderSL)
 
 dir_priv=dir('*private');
 
-if ~isempty(dir_priv) && isdir(dir_priv.name) && length(dir_priv)==1
+if ~isempty(dir_priv) && isfolder(dir_priv.name) && length(dir_priv)==1
     cd(dir_priv.name)
 else
     errordlg('Missing subfolder private! Uninstallation aborted!')
@@ -209,7 +209,7 @@ cd(folderSL)
 
 dir_SWS=dir('*WaveSplitting');
 
-if ~isempty(dir_SWS) && isdir(dir_SWS.name) && length(dir_SWS)==1
+if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && length(dir_SWS)==1
     cd(dir_SWS.name)
 else
     errordlg('Missing subfolder ShearWaveSplitting! Uninstallation aborted!')
@@ -273,7 +273,7 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==5
     disp(' ')    
     disp('Uninstallation of StackSplit successfully finished!')
 
-    msgfinish=msgbox('StackSplit was successfully removed from your system!','Uninstallation complete');
+    msgbox('StackSplit was successfully removed from your system!','Uninstallation complete');
 
 else
     errordlg(['Missing files with suffix *' filesuffix '! Uninstallation aborted!'])
