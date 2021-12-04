@@ -6,7 +6,8 @@
 
 StackSplit is a plugin for the MATLAB toolbox [SplitLab](http://splitting.gm.univ-montp2.fr/) ([**_Wüstefeld et al., 2008_**](https://www.sciencedirect.com/science/article/pii/S0098300407001859)) which allows to apply multi-event techniques for shear wave splitting measurements (SWS) directly from within the main program (for details see the [UserGuide](https://github.com/michaelgrund/stacksplit/blob/main/StackSplit/Doc/StackSplit_userguide.pdf)). 
 
-***
+Citation
+--------
 
 If you make use of StackSplit in your work please acknowledge my paper in which the program is described:
 
@@ -14,7 +15,8 @@ If you make use of StackSplit in your work please acknowledge my paper in which 
 
 Optionally, you can also cite the [Zenodo DOI](https://zenodo.org/record/464385#) given above which is referring this GitHub repository.
 
-***
+Which stacking methods are available?
+-------------------------------------
 
 StackSplit grants easy access to four stacking schemes with which single SWS measurements made with SplitLab can be processed:
 
@@ -28,7 +30,13 @@ StackSplit grants easy access to four stacking schemes with which single SWS mea
 
 ![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
 
+Versions
+--------
+
 The latest version 2.0 also works on MATLAB **2018a** and **b**. If you use MATLAB **2014a** or **lower**  version 1.0 is recommended (see  [releases](https://github.com/michaelgrund/stacksplit/releases)). 
+
+Related topics
+--------------
 
 - The original SplitLab package can be found here: http://splitting.gm.univ-montp2.fr/ => **works with StackSplit**
 
@@ -40,9 +48,8 @@ The latest version 2.0 also works on MATLAB **2018a** and **b**. If you use MATL
 
 - Shear wave splitting analysis in Julia: https://github.com/anowacki/SeisSplit.jl
 
-***
-
-#### References
+References
+----------
 
 - **_Roy, C., Winter, A., Ritter, J. R. R., Schweitzer, J. (2017)_**, On the improvement of SKS splitting measurements by the simultaneous inversion of multiple waveforms (SIMW), Geophysical Journal International, 208, 1508–1523, doi:10.1093/gji/ggw470.
 - **_Wüstefeld, A., Bokelmann, G., Zaroli, C., Barruol, G. (2008)_**, SplitLab: A shear-wave splitting environment in Matlab, Computers & Geosciences 34, 515–528.
