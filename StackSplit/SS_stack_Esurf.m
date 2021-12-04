@@ -406,9 +406,9 @@ nb_contours = floor((1 - mini/maxi)*10);
 version=SS_check_matlab_version(); % MATLAB 2014b or higher?
  
 if version==1   
-    [C, hcon] = contourf(ts,ps,-STACKsurf,-[MAPlevel MAPlevel]);
+    [~, hcon] = contourf(ts,ps,-STACKsurf,-[MAPlevel MAPlevel]);
 else
-    [C, hcon] = contourf('v6',ts,ps,-STACKsurf,-[MAPlevel MAPlevel]);   
+    [~, hcon] = contourf('v6',ts,ps,-STACKsurf,-[MAPlevel MAPlevel]);   
 end
 
 contour(ts, ps, STACKsurf, nb_contours);
@@ -420,7 +420,7 @@ line([singledtSTACK(2) singledtSTACK(2)],[-90 90],'Color',[0 0 1])
 
 colormap(gray)
 
-[row,col]=find(abs(STACKsurf)==min(abs(STACKsurf(:))));
+[~,~]=find(abs(STACKsurf)==min(abs(STACKsurf(:))));
 
 fontsize=10;
 
