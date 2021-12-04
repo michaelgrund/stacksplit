@@ -102,10 +102,10 @@ filesuffix='_ori';
 %========================
 
 % search for original SL folder 
-[folderSL, name, ext]=fileparts(which('install_SplitLab.m'));
+[folderSL, ~, ~]=fileparts(which('install_SplitLab.m'));
 
 % check if RP version is available
-[folderSLRP, name, ext]=fileparts(which('SL_swap_QT_components.m'));
+[folderSLRP, ~, ~]=fileparts(which('SL_swap_QT_components.m'));
 
 if ~isempty(folderSL) && isempty(folderSLRP)
     cd(folderSL)
@@ -130,14 +130,14 @@ dir_orifiles=dir(['splitlab' filesuffix '.m']);
 % check for unzipped SS folder
 dirSS=dir('StackSpl*');
 
-if ~isempty(dirSS) && isdir(dirSS.name) && length(dirSS)==1 && ~isempty(dir_orifiles)
+if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1 && ~isempty(dir_orifiles)
     disp(' ')
     disp('Installation aborted. Found installed version of StackSplit!')
     errordlg('StackSplit was already installed on your system!')
     return
 end
 
-if ~isempty(dirSS) && isdir(dirSS.name) && length(dirSS)==1
+if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1
     pathSS=[folderSL '/StackSplit']; 
     disp(' ')
     disp('Start installation of StackSplit...')
@@ -159,11 +159,11 @@ pos(3:4) = [560 200];
 H = figure('Name', 'StackSplit Installer', 'Color','w','units','Pixel',...
     'NumberTitle','Off','ToolBar','none','MenuBar','none','Position',pos);
 
-uiwelc = uicontrol('style','text','Parent',H,'units','Pixel','String',welcomestring,...
+uicontrol('style','text','Parent',H,'units','Pixel','String',welcomestring,...
     'Position',[30 100 pos(3:4)-[60 130]], 'BackGroundColor','w','HorizontalAlignment','Center');
-uiwelc = uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','Yes',...
+uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','Yes',...
     'Position',[190 15 90 25],'Callback',' set(0,''Userdata'',1);uiresume; closereq; ');
-uiwelc = uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','No',...
+uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','No',...
     'Position',[290 15 90 25],'Callback','set(0,''Userdata'',0);uiresume; closereq; ');
 
 uiwait
@@ -199,12 +199,12 @@ pos(3:4) = [ 560 420];
 H = figure('Name', 'StackSplit Licence Agreement', 'Color','w','units','Pixel',...
     'NumberTitle','Off','ToolBar','none','MenuBar','none','Position',pos);
 
-uidis    = uicontrol('style','text','Parent',H,'units','Pixel','String',licensestring,...
+uicontrol('style','text','Parent',H,'units','Pixel','String',licensestring,...
     'Position',[30 100 pos(3:4)-[60 130]], 'BackGroundColor','w','HorizontalAlignment','Center');
 
-uidis = uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','I agree...',...
+uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','I agree...',...
     'Position',[190 15 90 25],'Callback',' set(0,''Userdata'',1);uiresume; closereq; ');
-uidis = uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','I do not agree!!!',...
+uicontrol('style','pushbutton','Parent',H,'units','Pixel','String','I do not agree!!!',...
     'Position',[290 15 90 25],'Callback','set(0,''Userdata'',0);uiresume; closereq; ');
 
 uiwait
@@ -243,7 +243,7 @@ end
 
 dir_SWS=dir('*WaveSplitting');
 
-if ~isempty(dir_SWS) && isdir(dir_SWS.name) && length(dir_SWS)==1
+if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && length(dir_SWS)==1
     cd(dir_SWS.name)
     pathSWS=pwd;
 else
@@ -314,7 +314,7 @@ cd(folderSL)
 
 dir_TOOL=dir('*Tools');
 
-if ~isempty(dir_TOOL) && isdir(dir_TOOL.name) && length(dir_TOOL)==1
+if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && length(dir_TOOL)==1
     cd(dir_TOOL.name)
     pathTOOL=pwd;
 else
@@ -347,7 +347,7 @@ cd(folderSL)
 
 dir_priv=dir('*private');
 
-if ~isempty(dir_priv) && isdir(dir_priv.name) && length(dir_priv)==1
+if ~isempty(dir_priv) && isfolder(dir_priv.name) && length(dir_priv)==1
     cd(dir_priv.name)
     pathpriv=pwd;
 else
@@ -442,7 +442,7 @@ if ~isempty(dir('splitlab.m'))
                         disp(' ') 
                         disp('Installation complete !')
 
-                        msgfinish=msgbox('StackSplit was successfully installed on your system! Please restart MATLAB!','Installation complete');
+                        msgbox('StackSplit was successfully installed on your system! Please restart MATLAB!','Installation complete');
 
                    end
             end
