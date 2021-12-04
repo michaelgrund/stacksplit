@@ -4,22 +4,27 @@
 
 
 
-StackSplit is a plugin for the MATLAB toolbox SplitLab (**_Wüstefeld et al., 2008_**) which allows to apply multi-event techniques for shear wave splitting measurements (SWS) directly from within the main program (for details see the [UserGuide](https://github.com/michaelgrund/stacksplit/blob/main/StackSplit/Doc/StackSplit_userguide.pdf)). 
+StackSplit is a plugin for the MATLAB toolbox [SplitLab](http://splitting.gm.univ-montp2.fr/) ([**_Wüstefeld et al., 2008_**](https://www.sciencedirect.com/science/article/pii/S0098300407001859)) which allows to apply multi-event techniques for shear wave splitting measurements (SWS) directly from within the main program (for details see the [UserGuide](https://github.com/michaelgrund/stacksplit/blob/main/StackSplit/Doc/StackSplit_userguide.pdf)). 
+
+***
 
 If you make use of StackSplit in your work please acknowledge my paper in which the program is described:
 
 - **_Grund, M. (2017)_**, StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab, Computers & Geosciences, 105, 43-50, https://doi.org/10.1016/j.cageo.2017.04.015
 
+Optionally, you can also cite the [Zenodo DOI](https://zenodo.org/record/464385#) given above which is referring this GitHub repository.
+
+***
 
 StackSplit grants easy access to four stacking schemes with which single SWS measurements made with SplitLab can be processed:
 
-- SIMW: simultaneous inversion of multiple waveforms in time domain (**_Roy et al., 2017_**)
+1. **WS**: stacking of error surfaces, normalized on minimum/maximum (depending on input) of each single surface (**_Wolfe & Silver, 1998_**)
 
-- stacking of error surfaces, normalized on minimum/maximum (depending on input) of each single surface (**_Wolfe & Silver, 1998_**)
+2. **RH**: modified WS method with weight depending on SNR of each measurement and normalization regarding the available backazimuth directions (**_Restivo & Helffrich, 1999_**)
 
-- modified WS method with weight depending on SNR of each measurement and normalization regarding the available backazimuth directions (**_Restivo & Helffrich, 1999_**)
+3. **no weight**: stacking of error surfaces without weighting following PhD thesis of **_Wüstefeld (2007)_**
 
-- stacking of error surfaces without weighting following e.g. PhD thesis of **_Wüstefeld (2007)_**
+4. **SIMW**: simultaneous inversion of multiple waveforms in time domain (**_Roy et al., 2017_**)
 
 ![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
 
@@ -34,6 +39,8 @@ The latest version 2.0 also works on MATLAB **2018a** and **b**. If you use MATL
 - Shear wave splitting analysis in Python (based on SplitLab): https://github.com/paudetseis/SplitPy
 
 - Shear wave splitting analysis in Julia: https://github.com/anowacki/SeisSplit.jl
+
+***
 
 #### References
 
