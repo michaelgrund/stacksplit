@@ -242,7 +242,7 @@ if config.maptool==1 % if mapping toolbox available
         delete(find_bluedot(1))
     end
 
-    evcoord=plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');
+    plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');
 
 
 else % if no mapping toolbox available
@@ -252,7 +252,7 @@ else % if no mapping toolbox available
         delete(find_bluedot(1))
     end
 
-    evcoord=plot(evlon,evlat,'ko','MarkerFaceColor','c','MarkerSize',8);
+    plot(evlon,evlat,'ko','MarkerFaceColor','c','MarkerSize',8);
     
 end
 
