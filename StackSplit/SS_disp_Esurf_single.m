@@ -115,9 +115,9 @@ if length(index)==1
     version=SS_check_matlab_version(); % MATLAB 2014b or higher?
     
     if version==1 
-        [C, hcon] = contourf(ts,ps,-surf2plot,-[Level Level]);
+        [~, hcon] = contourf(ts,ps,-surf2plot,-[Level Level]);
     else
-        [C, hcon] = contourf('v6',ts,ps,-surf2plot,-[Level Level]);
+        [~, hcon] = contourf('v6',ts,ps,-surf2plot,-[Level Level]);
     end
 
     contour(ts, ps, surf2plot, nb_contours);
@@ -168,7 +168,7 @@ if length(index)==1
             delete(find_bluedot(1))
         end
 
-        evcoord=plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off'); 
+        plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off'); 
 
     else % if no mapping toolbox available
 
@@ -179,7 +179,7 @@ if length(index)==1
             delete(find_bluedot(1))
         end
 
-        evcoord=plot(evlon,evlat,'ko','MarkerFaceColor','c','MarkerSize',8);
+        plot(evlon,evlat,'ko','MarkerFaceColor','c','MarkerSize',8);
     
     end
 
@@ -207,7 +207,7 @@ elseif length(index) > 1
             delete(find_bluedot(1))
         end
 
-        evcoord=plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off'); 
+        plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off'); 
 
     else % if no mapping toolbox available
 
@@ -216,7 +216,7 @@ elseif length(index) > 1
             delete(find_bluedot(1))
         end
 
-        evcoord=plot(evlon,evlat,'ko','MarkerFaceColor','c','MarkerSize',8);
+        plot(evlon,evlat,'ko','MarkerFaceColor','c','MarkerSize',8);
 
     end
  
