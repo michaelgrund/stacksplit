@@ -179,9 +179,9 @@ disp(['=== INVERSION done (' num2str(compend) ' s) ==='])
 w=pickwin;
 extime=pickwin(1)*sampling;
 
-[errbar_phiRC, errbar_tRC, LevelRC, ndfRC] = geterrorbarsRC(T(w), Cmap, Cresult);         
-[errbar_phiSC, errbar_tSC, LevelSC, ndfSC] = geterrorbars(T(w), Emap(:,:,1), Eresult(1)); 
-[errbar_phiEV, errbar_tEV, LevelEV, ndfEV] = geterrorbars(T(w), Emap(:,:,2), Eresult(2));
+[errbar_phiRC, errbar_tRC, LevelRC, ~] = geterrorbarsRC(T(w), Cmap, Cresult);         
+[errbar_phiSC, errbar_tSC, LevelSC, ~] = geterrorbars(T(w), Emap(:,:,1), Eresult(1)); 
+[errbar_phiEV, errbar_tEV, LevelEV, ~] = geterrorbars(T(w), Emap(:,:,2), Eresult(2));
 
 phiRC   = [errbar_phiRC(1)  phiRC   errbar_phiRC(2)];             
 dtRC    = [errbar_tRC(1)    dtRC    errbar_tRC(2)];
