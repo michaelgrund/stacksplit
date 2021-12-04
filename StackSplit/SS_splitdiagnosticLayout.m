@@ -101,7 +101,7 @@ axis off
 %% SUBFUNTION menu
 
 %% ---------------------------------
-function q_callback(src,evt)
+function q_callback(src,~)
 % quality menu callback
 global SIMW_temp
 % 1) set menu markers
@@ -120,7 +120,7 @@ tmp2(end) = {tmp3};
 set(tmp1,'String',tmp2);
 
 %% ---------------------------------
-function n_callback(src,evt)
+function n_callback(src,~)
 %null menu callback
 global SIMW_temp
 % 1) set menu markers
@@ -139,7 +139,7 @@ set(tmp1,'String',tmp2);
 
 
 
-function r_callback(src,evt)
+function r_callback(~,~)
 %null menu callback
 global SIMW_temp
 
