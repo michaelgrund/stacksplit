@@ -46,7 +46,9 @@ global config
 
 samp=zeros(1,length(find_res));
 check_rows=zeros(1,length(find_res));
+check_rowsC=zeros(1,length(find_res));
 check_cols=zeros(1,length(find_res));
+check_colsC=zeros(1,length(find_res));
 
 for ii=1:length(find_res)
     if isfield(find_res(ii).results,'dttrace')
@@ -89,7 +91,7 @@ end
 
 % VARYING sampling rate or accuracy factor for whole data set
 if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
-        (length(unique(samp)) > 1 && length(unique(check_rows)))
+        (length(unique(samp)) > 1 && ~isempty(unique(check_rows)))
   
    
    use_samp=max(unique(samp));
