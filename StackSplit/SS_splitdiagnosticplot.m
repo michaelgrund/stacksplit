@@ -205,7 +205,7 @@ mini = min(Cmatrix(:));% allways >= -1
 maxmin = abs(mini - maxi)/2;% allways between 0 and 1
 
 nb_contours = 12;floor((1 - maxmin)*9);
-[C, h1] = contourf(ts,ps,-Cmatrix,-[LevelRC LevelRC]);
+[~, h1] = contourf(ts,ps,-Cmatrix,-[LevelRC LevelRC]);
 contour(ts, ps, Cmatrix, nb_contours);
 
 B = mod(bazi,90);
@@ -282,7 +282,7 @@ ps = linspace(-90,90,f(1));
 maxi = max(abs(Ematrix(:)));
 mini = min(abs(Ematrix(:)));
 nb_contours = floor((1 - mini/maxi)*10);
-[C, h1] = contourf(ts,ps,-Ematrix,-[Level Level]);
+[~, h1] = contourf(ts,ps,-Ematrix,-[Level Level]);
 contour(ts, ps, Ematrix, nb_contours);
 
 B = mod(bazi,90);%backazimuth lines
@@ -329,7 +329,7 @@ H2=findall(h.EQstatsax);
 
 if config.maptool==1
     
-    out_handle=copyobj(H2(2:end),axwm);
+    copyobj(H2(2:end),axwm);
 
     axis off
     axis square
@@ -342,10 +342,9 @@ if config.maptool==1
 
 else
     
-    out_handle=copyobj(H2([2 5:end]),axwm);
+    copyobj(H2([2 5:end]),axwm);
     
     axis off
 
 end
-
 %% EOF %%
