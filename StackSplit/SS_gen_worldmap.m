@@ -60,9 +60,9 @@ fontsize_eqwin=6;
 
 if config.maptool==1
 
-    [p,f]=fileparts(mfilename('fullpath'));
-    load coast        
-    load SS_plates.mat;  
+    fileparts(mfilename('fullpath'));
+    coast_data = load('coast');        
+    plates_data = load('SS_plates.mat');  
 
     % generate subplot and handles
     ax=subplot(1,1,1,'Parent',h.panel(1));
@@ -73,10 +73,10 @@ if config.maptool==1
     axm=axesm('eqdazim','origin',[thissta.slat,thissta.slong],'Frame','on','FLinewidth',1,'FFaceColor','w');
     set(axm, 'ButtonDownFcn', [])
     h.EQstatsax=ax;
-    % 
+    
     % plot plate boundaries & continents
-    plotm(PBlat, PBlong, 'LineStyle','-','Linewidth',1,'Tag','Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
-    c=fillm(lat,long,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag','Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
+    plotm(plates_data.PBlat, plates_data.PBlong, 'LineStyle','-','Linewidth',1,'Tag','Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
+    fillm(coast_data.lat,coast_data.long,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag','Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
 
     % plot circles at distance seletion wdw
     [latlow,lonlow]= scircle1(thissta.slat, thissta.slong, SKSwin(1));
@@ -87,11 +87,11 @@ if config.maptool==1
     wmin=[num2str(SKSwin(1)) '\circ'];
     wmax=[num2str(SKSwin(2)) '\circ'];
 
-    t(1)=textm(latup(50) ,lonup(50),wmax, 'verticalalignment','top','horizontalalignment',   'center', 'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
-    t(2)=textm(latlow(50),lonlow(50),wmin,'verticalalignment','Bottom','horizontalalignment','center', 'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
+    textm(latup(50) ,lonup(50),wmax, 'verticalalignment','top','horizontalalignment',   'center', 'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
+    textm(latlow(50),lonlow(50),wmin,'verticalalignment','Bottom','horizontalalignment','center', 'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
 
     % plot station marker    
-    b=plotm(thissta.slat, thissta.slong,'k^','MarkerFaceColor','r','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');   
+    plotm(thissta.slat, thissta.slong,'k^','MarkerFaceColor','r','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');   
 
     %remove axis etc around plot
     framem('FLinewidth',1,'FFaceColor','w')
@@ -112,16 +112,16 @@ else
              && exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file') ==2 && exist('ncread')
 
         % matlab structures included with this distribution
-        load SL_plates.mat
-        load SL_coasts.mat
-    
+        coast_data = load('SL_coasts.mat');        
+        plates_data = load('SL_plates.mat'); 
+
         % etopo from http://www.ngdc.noaa.gov/mgg/global/global.html
         topoElevation = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','z');
         topoLatitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lat');  
         topoLongitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lon');   
         lon=repmat(topoLongitude,1,length(topoLatitude));  
         lat=repmat(topoLatitude,1,length(topoLongitude));
-        e = contourf(lon,lat',topoElevation);
+        contourf(lon,lat',topoElevation);
 
     else
         errordlg('To run StackSplit you need either the Mapping toolbox or SplitLab version >= 1.2.1!','Version issue')
@@ -133,11 +133,11 @@ else
     hold on
     
     colormap(gray);
-    f = plot(PBlong,PBlat, 'LineStyle','-','Linewidth',1,'Tag','Platebounds','Color',[1.2 1 1]*.8);
-    g = plot(ncst(:,1),ncst(:,2),'k');
+    plot(plates_data.PBlong,plates_data.PBlat, 'LineStyle','-','Linewidth',1,'Tag','Platebounds','Color',[1.2 1 1]*.8);
+    plot(coast_data.ncst(:,1),coast_data.ncst(:,2),'k');
     
     %station marker
-    i = plot(config.slong, config.slat,'k^','MarkerFaceColor','r','MarkerSize',8);
+    plot(config.slong, config.slat,'k^','MarkerFaceColor','r','MarkerSize',8);
     axis([-180 180 -90 90])
     ylabel('Latitude','fontsize',6);
     xlabel('Longitude','fontsize',6);
