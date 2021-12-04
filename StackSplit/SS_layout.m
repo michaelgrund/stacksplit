@@ -51,7 +51,7 @@ h.fig=findobj('type','figure','name',['StackSplit ' config.SS_version]);
 
 if isempty(h.fig)
     h.fig=figure('units','pixels','name',['StackSplit ' config.SS_version], 'numbertitle','off','menubar','none');
-    set(h.fig,'position',[150,321,1450,600])
+    set(h.fig,'position',[150,21,1450,600])
 else
     close(h.fig)
     %.........................................
@@ -60,20 +60,6 @@ else
 end
 
 set(gcf,'Resize','off');
-
-% event info header above listbox
-h.ev_info = uicontrol('style','text','horizontalalignment','left');
-set(h.ev_info,'String',['                  t0time               JD      BAZ     dist     inipol     inc    SNR         filter          pha'])
-set(h.ev_info,'Position',[45,493,572,15],'fontsize',10)
-
-set(h.ev_info,'BackgroundColor',[0.7 0.7 0.7]);
-
-% staname beside worldmap
-h.staname_info = uicontrol('style','text','horizontalalignment','left');
-set(h.staname_info,'String',config.stnname)
-set(h.staname_info,'Position',[790+shift_right,550,68,22],'fontsize',15)
-
-set(h.staname_info,'BackgroundColor',[224   223   227]/255);
 
 %==================================================================================================================================  
 %==================================================================================================================================                         
@@ -103,24 +89,18 @@ h.panel(7) = uipanel('Parent',h.panel(1),'Units','pixel',... % panel "around" li
 h.panel(8) = uipanel('Parent',h.panel(1),'Units','pixel','Title','Limits',... 
     'FontSize',10,'Position',[600+shift_right,187,214,102], 'BackgroundColor', [224   223   227]/255,'TitlePosition','centertop');
 
-h.panel(9) = uipanel('Parent',h.panel(1),'Units','pixel',... 
-    'FontSize',10,'Position',[75,500,230,40], 'BackgroundColor', 'w','TitlePosition','centertop');
+% event info header above listbox
+h.ev_info = uicontrol('style','text','horizontalalignment','left');
+set(h.ev_info,'String',['                  t0time               JD      BAZ     dist     inipol     inc    SNR         filter          pha'])
+set(h.ev_info,'Position',[45,493,572,15],'fontsize',10)
+set(h.ev_info,'BackgroundColor',[0.7 0.7 0.7]);
 
-h.panel(10) = uipanel('Parent',h.panel(1),'Units','pixel',... 
-    'FontSize',10,'Position',[325,500,230,40], 'BackgroundColor', 'w','TitlePosition','centertop');
+% staname beside worldmap
+h.staname_info = uicontrol('style','text','horizontalalignment','left');
+set(h.staname_info,'String',config.stnname)
+set(h.staname_info,'Position',[790+shift_right,550,68,22],'fontsize',15)
 
-% set panel backgrounds to transparent
-jPanel = h.panel(9).JavaFrame.getPrintableComponent;  
-jPanel.setOpaque(false)
-jPanel.getParent.setOpaque(false)
-jPanel.getComponent(0).setOpaque(false)
-jPanel.repaint
-
-jPanel = h.panel(10).JavaFrame.getPrintableComponent;  
-jPanel.setOpaque(false)
-jPanel.getParent.setOpaque(false)
-jPanel.getComponent(0).setOpaque(false)
-jPanel.repaint
+set(h.staname_info,'BackgroundColor',[224   223   227]/255);  
 
 %==================================================================================================================================  
 %==================================================================================================================================                         
@@ -209,8 +189,7 @@ h.taptext=uicontrol('Parent',h.panel(5),'Style','text',...
         'BackgroundColor',[224   223   227]/255,...
         'Position',[8 32 70 17],...
         'String','% taper');
-    
-    
+       
 %==================================================================================================================================  
 %==================================================================================================================================                         
 % Panel << Selection window >> popup wdw for selection between Emap and EVmap (lambda2map)    
@@ -299,8 +278,7 @@ h.maxpoltext1=uicontrol('Parent',h.panel(8),'Style','text',...
         'BackgroundColor',[224   223   227]/255,...
         'Position',[13 9 100 17],...
         'String',['max ' char(hex2dec('0394')) 'inipol in °']);   
-
-
+    
 end
 
 %==================================================================================================================================  
