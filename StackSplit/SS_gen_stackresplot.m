@@ -63,16 +63,6 @@ set(fig_out,'visible','off')
 % SET diagnostic header
 
 ax0=subplot(3,4,1:4);
-u1=uipanel('units','normalized',  'Position',[.1 .2  .82 .44],  'BackgroundColor',...
-    'w', 'BorderType', 'line', 'HighlightColor','k');
-
-% set panel backgrounds to transparent
-jPanel = u1.JavaFrame.getPrintableComponent;  
-jPanel.setOpaque(false)
-jPanel.getParent.setOpaque(false)
-jPanel.getComponent(0).setOpaque(false)
-jPanel.repaint
-
 
 str11 = sprintf(['%4.0f <%4.0f <%4.0f'],phi); % phi from stacked surface
 str21 = sprintf('%3.1f < %3.1fs < %3.1f',dt); % dt from stacked surface
