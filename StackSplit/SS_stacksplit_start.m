@@ -163,7 +163,7 @@ fname = [config.stnname '_stackresults.mat'];
 find_file=dir(fullfile(config.savedir,fname));
 
 if ~isempty(find_file)
-    load(fullfile(config.savedir,fname))
+    eqstack=load(fullfile(config.savedir,fname));
 else
     eqstack=[];
 end
@@ -230,7 +230,7 @@ end
 %############################################################################################################## 
 % call LISTBOX
 
-function call_listbox(hObject, eventData, h)
+function call_listbox(hObject, ~, ~)
 
 h=guidata(hObject);
 
@@ -280,7 +280,7 @@ end
 %================================================================================================================================== 
 % call STACK button (no weight, WS, RH), stack error surfaces and disp stacked Emap
 
-function call_pushSTACK(hObject,event_data,h)
+function call_pushSTACK(hObject,~,~)
 
 h=guidata(hObject);
 
@@ -296,7 +296,7 @@ end
 %================================================================================================================================== 
 % call CLEAR button
 
-function call_pushCLEAR(hObject,event_data,h)
+function call_pushCLEAR(hObject,~,~)
 
 global config
 
@@ -344,7 +344,7 @@ end
 %================================================================================================================================== 
 % call SAVE button
 
-function call_pushSAVE(hObject,event_data,h)
+function call_pushSAVE(hObject,~,~)
 
 h=guidata(hObject);
 
@@ -373,7 +373,7 @@ end
 %================================================================================================================================== 
 % call INVERSION button (SIMW)
 
-function call_pushINV(hObject,event_data,h)
+function call_pushINV(hObject,~,~)
 
 global config
 
@@ -391,7 +391,7 @@ end
 %================================================================================================================================== 
 % call Exit button
 
-function call_pushEXIT(hObject,event_data,h)
+function call_pushEXIT(hObject,~,~)
 
 h=guidata(hObject);
 
@@ -428,7 +428,7 @@ end
 %================================================================================================================================== 
 % call NO WEIGHT radio button
 
-function call_checkNW(hObject,event_data,h)
+function call_checkNW(hObject,~,~)
 
 global config
 
@@ -515,7 +515,7 @@ end
 %================================================================================================================================== 
 % call WS radio button
 
-function call_checkWS(hObject,event_data,h)
+function call_checkWS(hObject,~,~)
 
 global config
 
@@ -601,7 +601,7 @@ end
 %================================================================================================================================== 
 % call RH radio button
 
-function call_checkRH(hObject,event_data,h)
+function call_checkRH(hObject,~,~)
 
 global config
 
@@ -687,7 +687,7 @@ end
 %================================================================================================================================== 
 % call SIMW radio button
 
-function call_checkSIMW(hObject,event_data,h)
+function call_checkSIMW(hObject,~,~)
 
 global config
 
@@ -779,7 +779,7 @@ end
 %================================================================================================================================== 
 % call TAPER popup 
 
-function call_popTAP(hObject,event_data,h)
+function call_popTAP(hObject,~,~)
 
     global config
 
@@ -802,7 +802,7 @@ end
 %================================================================================================================================== 
 % call SURF popup, Esurf or EVsurf
 
-function call_popSURF(hObject,event_data,h)
+function call_popSURF(hObject,~,~)
 
     global config 
     
@@ -825,7 +825,7 @@ end
 %================================================================================================================================== 
 % call maxBAZ popup 
 
-function call_popMAXBAZ(hObject,event_data,h)
+function call_popMAXBAZ(hObject,~,~)
 
     global config
 
@@ -840,7 +840,7 @@ function call_popMAXBAZ(hObject,event_data,h)
 end
 
 % call maxdist popup 
-function call_popMAXDIST(hObject,event_data,h)
+function call_popMAXDIST(hObject,~,~)
 
     global config
 
@@ -855,7 +855,7 @@ function call_popMAXDIST(hObject,event_data,h)
 end
 
 % call maxpol popup 
-function call_popMAXPOL(hObject,event_data,h)
+function call_popMAXPOL(hObject,~,~)
 
     global config
 
