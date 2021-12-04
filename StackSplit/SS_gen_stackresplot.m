@@ -104,7 +104,7 @@ ax1=subplot(3,4,[5 6 9 10]);
 
 if config.maptool==1
 
-    out_handle=copyobj(H2(2:end),ax1); 
+    copyobj(H2(2:end),ax1); 
     colormap(fig_out,'gray')
 
     axis square
@@ -117,7 +117,7 @@ if config.maptool==1
 
 else
     
-    out_handle=copyobj(H2([2 5:end]),ax1);
+    copyobj(H2([2 5:end]),ax1);
     axis off
     
     pos=get(ax1,'position');
@@ -131,7 +131,7 @@ end
 % get objects from Emap plot
 H1=findall(h.axEmap);
 ax2=subplot(3,4,[7 8 11 12]);
-out_handle=copyobj(H1(3:end),ax2); 
+copyobj(H1(3:end),ax2); 
 colormap(fig_out,'gray')
 
 % set axes parameters again
