@@ -107,11 +107,11 @@ end
 % change it in the following line, e.g. find_res.dis for distance sorting 
      
 if strcmp(sortpar,'bazi')
-    [b,index]=sort([find_res.bazi]);
+    [~,index]=sort([find_res.bazi]);
 elseif strcmp(sortpar,'dist')
-    [b,index]=sort([find_res.dist]);
+    [~,index]=sort([find_res.dist]);
 elseif strcmp(sortpar,'inipol')
-    [b,index]=sort([find_res.inipol]);
+    [~,index]=sort([find_res.inipol]);
 end
     
 find_res=find_res(index);
@@ -159,9 +159,9 @@ checkpre=[find_res.results];
 checkop=unique({checkpre.method});
 
 if length(checkop)~=1
-    errordlg({'Different splitting options were used for the single event analysis in SL!',...
-    ' ',... 
-    checkop{:}},'Input problem')
+    errordlg([{'Different splitting options were used for the single event analysis in SL!'},...
+    {' '},... 
+    checkop(:)'],'Input problem')
 
     merged_str=[];
     find_res=[];
