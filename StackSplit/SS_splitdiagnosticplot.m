@@ -93,7 +93,6 @@ titlefontsize = fontsize+2;
 [axH, axRC, axSC, axSeis,axwm] = SS_splitdiagnosticLayout(Synfig);
 SS_splitdiagnosticSetHeader(axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV, pol, splitoption, bazi_int, dist_int)
 
-
 switch splitoption
     case 'Minimum Energy'
         Ematrix = Ematrix(:,:,1);
@@ -134,7 +133,6 @@ switch splitoption
         Maptitle = 'Map of Eigenvalues \lambda_1 * \lambda_2';
 end
 
-
 %% rotate seismograms for plots (backwards == counter-clockwise => use transposed matrix M)
 M = rot3D(inc, bazi);
 
@@ -148,12 +146,8 @@ Nsc = ZEN(3,:);
 
 s = size(QTcorRC,1);%selection length
 
-
-
-
 %% x-values for seismogram plots
 t = (0:(s-1))*sampling;
-
 
 %%  Rotation-Correlation Method% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fast/slow seismograms
@@ -179,7 +173,6 @@ axes(axRC(2))
 plot(t, QTcorRC(:,1),'b--',    t, QTcorRC(:,2) ,'r-','LineWidth',1);
 title([' corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})'],'FontSize',titlefontsize);
 xlim([t(1) t(end)])
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % surface Particle motion
@@ -212,10 +205,8 @@ mini = min(Cmatrix(:));% allways >= -1
 maxmin = abs(mini - maxi)/2;% allways between 0 and 1
 
 nb_contours = 12;floor((1 - maxmin)*9);
-[C, h1] = contourf('v6',ts,ps,-Cmatrix,-[LevelRC LevelRC]);
+[C, h1] = contourf(ts,ps,-Cmatrix,-[LevelRC LevelRC]);
 contour(ts, ps, Cmatrix, nb_contours);
-
-
 
 B = mod(bazi,90);
 plot([0 0]+sampling, [B B-90],'k>','markersize',5,'linewidth',1,'MarkerFaceColor','k' )
@@ -233,8 +224,6 @@ axis([ts(1) ts(end) -90 90])
 set(h1,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
 
 hold off
-
-
 
 %%  Silver & Chan
 % fast/slow seismograms
@@ -263,8 +252,6 @@ plot(t, QTcorSC(:,1),'b--',    t, QTcorSC(:,2) ,'r-','LineWidth',1);
 title([' corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})'],'FontSize',titlefontsize);
 xlim([t(1) t(end)])
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % surface Particle motion
 axes(axSC(3))
@@ -292,23 +279,17 @@ f  = size(Ematrix);
 ts = linspace(0,maxtime,f(2));
 ps = linspace(-90,90,f(1));
 
-
 maxi = max(abs(Ematrix(:)));
 mini = min(abs(Ematrix(:)));
 nb_contours = floor((1 - mini/maxi)*10);
-[C, h1] = contourf('v6',ts,ps,-Ematrix,-[Level Level]);
+[C, h1] = contourf(ts,ps,-Ematrix,-[Level Level]);
 contour(ts, ps, Ematrix, nb_contours);
-
-
-
 
 B = mod(bazi,90);%backazimuth lines
 plot([0 0]+sampling, [B B-90],'k>','markersize',5,'linewidth',1,'MarkerFaceColor','k' )
 plot([maxtime maxtime]-sampling, [B B-90],'k<','markersize',5,'linewidth',1,'MarkerFaceColor','k' )
 line([0 maxtime], [phi phi],'Color',[0 0 1])
 line([dt dt],[-90 90],'Color',[0 0 1])
-
-
 
 hold off
 axis([0 maxtime -90 90])
@@ -318,9 +299,6 @@ xlabel('delay time in s', 'Fontsize',fontsize-1)
 ylabel('fast axis', 'Fontsize',fontsize-1)
 title(Maptitle,'FontSize',titlefontsize);
 set(h1,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
-
-
-
 
 %% plot Initial seismograms %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
