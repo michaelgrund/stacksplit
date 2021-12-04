@@ -62,7 +62,7 @@ if isfield(config,'SS_maxbaz') && isfield(config,'SS_maxdist') && isfield(config
     
     inputs=0:1:10;
 
-    [a,b]=ismember(config.SS_maxbaz,inputs);
+    [~,b]=ismember(config.SS_maxbaz,inputs);
     if b~=0 
         set(h.pop(2),'Value',b);
     else
@@ -70,7 +70,7 @@ if isfield(config,'SS_maxbaz') && isfield(config,'SS_maxdist') && isfield(config
 
     end
 
-    [a,b]=ismember(config.SS_maxdist,inputs);
+    [~,b]=ismember(config.SS_maxdist,inputs);
     if b~=0 
         set(h.pop(3),'Value',b);
     else
@@ -79,7 +79,7 @@ if isfield(config,'SS_maxbaz') && isfield(config,'SS_maxdist') && isfield(config
     
     inputs=0:1:20;
     
-    [a,b]=ismember(config.SS_maxpol,inputs);
+    [~,b]=ismember(config.SS_maxpol,inputs);
     if b~=0 
         set(h.pop(5),'Value',b);
     else
@@ -205,7 +205,7 @@ if isfield(config,'SS_tap')
 
     inputs=0:10:100;
 
-    [a,b]=ismember(config.SS_tap,inputs);
+    [~,b]=ismember(config.SS_tap,inputs);
     
     if b~=0 
         set(h.pop(1),'Value',b);
@@ -281,4 +281,3 @@ h.data=find_res;
 %EOF
 %==================================================================================================================================
 %==================================================================================================================================
-
