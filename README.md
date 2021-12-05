@@ -28,10 +28,14 @@ StackSplit grants easy access to four stacking schemes with which single SWS mea
 
 ![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
 
-Versions
---------
+Compatibility with SplitLab and MATLAB versions
+-----------------------------------------------
 
-The latest version 2.0 also works on MATLAB **2018a** and **b**. If you use MATLAB **2014a** or **lower**  version 1.0 is recommended (see  [releases](https://github.com/michaelgrund/stacksplit/releases)). 
+|StackSplit|SplitLab|MATLAB|
+|---|---|---|
+|dev (main branch)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/) (not tested)|>= 2020a (lower version might work, but not tested yet)|
+|v2.0 (latest release)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|>= 2014b (tested until 2018b)|
+|v1.0|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|<= 2014a|
 
 Related topics
 --------------
