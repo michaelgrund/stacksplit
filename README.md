@@ -33,7 +33,7 @@ Compatibility with SplitLab and MATLAB versions
 
 |StackSplit|SplitLab|MATLAB|
 |---|---|---|
-|dev (main branch)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/) (not tested)|>= 2020a (lower version might work, but not tested yet)|
+|dev (main branch)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/) (not tested)|>= 2020a (< 2020a might work, but not tested yet)|
 |v2.0 (latest release)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|>= 2014b (tested until 2018b)|
 |v1.0|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|<= 2014a|
 
