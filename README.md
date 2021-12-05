@@ -40,11 +40,7 @@ Compatibility with SplitLab and MATLAB versions
 Related topics
 --------------
 
-- The original SplitLab package can be found here: http://splitting.gm.univ-montp2.fr/ => **works with StackSplit**
-
-- A slightly updated version is available from Rob Porritt: https://robporritt.wordpress.com/software/ => **works with StackSplit**
-
-- The most recent SplitLab version can be found here (not fully compatible with StackSplit): https://github.com/IPGP/splitlab
+- The most recent SplitLab version can be found here (not compatible with StackSplit yet): https://github.com/IPGP/splitlab
 
 - Shear wave splitting analysis in Python (based on SplitLab): https://github.com/paudetseis/SplitPy
 
