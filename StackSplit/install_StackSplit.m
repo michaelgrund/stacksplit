@@ -50,7 +50,7 @@ function install_StackSplit()
 %
 % By running this installation file, all original functions are renamed with an
 % end suffix *_ori. The (new) modified ones are copied to their corresponding 
-% pathes and have the same names like the others before renaming. Only their content is
+% paths and have the same names like the others before renaming. Only their content is
 % slightly modified!
 %
 % So, if you are not happy with StackSplit you easily can recover your original 
