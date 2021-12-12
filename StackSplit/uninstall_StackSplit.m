@@ -75,7 +75,7 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-farewellstring={'StackSplit did not fulfil your expectations? Please sent any comments, suggestions for improvements etc. to michael.grund@kit.edu.',...
+farewellstring={'StackSplit did not fulfil your expectations? Simply open a new issue or PR on GitHub to give comments or address suggestions for improvements etc. ',...
     ' ','Do you want to continue uninstalling StackSplit from your system?'};
 
 pos = get(0,'DefaultFigurePosition');
