@@ -103,7 +103,7 @@ end
 
 %############################################################################################
 % check if non-nulls and nulls are selected for stacking together => not
-% sensefull
+% reasonable 
 
 for ii=1:length(use_data)
     restype{ii}=use_data(ii).results.Null;
