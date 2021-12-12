@@ -37,6 +37,8 @@ Compatibility with SplitLab and MATLAB versions
 |[v2.0](https://github.com/michaelgrund/stacksplit/releases/tag/v2.0) (latest release)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|>= [2014b](https://mathworks.com/company/newsroom/mathworks-introduces-new-features-in-matlab-and-simulink.html) (tested up to and including [2018b](https://mathworks.com/help/releases/R2018b/index.html))|
 |[v1.0](https://github.com/michaelgrund/stacksplit/releases/tag/v1.0)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|<= [2014a](https://mathworks.com/company/newsroom/mathworks-announces-release-2014a-of-the-matlab-and-simulink-product-families.html)|
 
+For details regarding the different StackSplit versions see the [Changelog](https://github.com/michaelgrund/stacksplit/blob/main/changelog.md).
+
 Related topics
 --------------
 
