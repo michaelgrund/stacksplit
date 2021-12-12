@@ -110,12 +110,13 @@ function SS_stacksplit_start
 
 global config eqstack
 
-% SS version
+% StackSplit version
 %VVVVVVVVVVVVVVVVVVVVVVV
-config.SS_version='2.0'; 
+config.SS_version='3.0'; 
 
-%1.0 released 2017
+%1.0 released 2017-04-04
 %2.0 released 2019-06-28
+%3.0 upcoming 2021-12-XX
 %VVVVVVVVVVVVVVVVVVVVVVV
 
 clc
@@ -154,7 +155,6 @@ disp('#     Welcome to StackSplit     #')
 disp('#################################')
 disp(['version ' config.SS_version])
 disp(' ')
-
 
 %=============================================================
 % READ/GENERATE global variable for saving stacking results in mat-file
@@ -218,6 +218,28 @@ h=SS_gen_legends(h);
 
 guidata(h.fig,h)
 
+% check screen size 
+%.........................................
+% workaround for Windows 10 OS: by default under
+%
+%    'Settings' => 'System' => 'Display' => 'Scale and Layout' 
+%     => 'Change the size of text, apps, and other items' 
+%
+% the selection sometimes is set to a value different from 100% (e.g. 150%) 
+% which effectively reduces your screen size in pixels: Set it to 125% or 
+% better 100% and check again, mostly then the panel fits on the screen.
+
+screenSize = get(0,'ScreenSize');
+resstr = ['Your current screen resolution is lower than the pre-defined StackSplit panel width. ',...
+    'Some parts may not be displayed correctly! Please adjust! For details see the v3.0 changelog.'];
+
+if screenSize(3) < h.fig.Position(3)
+    warndlg(resstr, 'Resolution issue')
+    warning(resstr)
+end
+   
+%.........................................    
+    
 end
 % END of main function
 %##############################################################################################################

@@ -51,7 +51,7 @@ h.fig=findobj('type','figure','name',['StackSplit ' config.SS_version]);
 
 if isempty(h.fig)
     h.fig=figure('units','pixels','name',['StackSplit ' config.SS_version], 'numbertitle','off','menubar','none');
-    set(h.fig,'position',[150,321,1450,600])
+    set(h.fig, 'position', [150, 21, 1450, 600])
 else
     close(h.fig)
     %.........................................
@@ -59,7 +59,7 @@ else
     %.........................................
 end
 
-set(gcf,'Resize','off');
+set(gcf, 'Resize', 'off');
 
 %==================================================================================================================================  
 %==================================================================================================================================                         
