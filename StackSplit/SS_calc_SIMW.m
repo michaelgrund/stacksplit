@@ -69,18 +69,44 @@ if h.checkmultiSIMW==1 % for h.checkmultiSIMW, see function SS_prep_SIMW
         return
 
     else % although more than one result per event, SIMW continues 
-            
         set(h.panel(6),'visible','on');
-        
     end
 
 else % if not more than one result per event, DEFAULT case
-        
     set(h.panel(6),'visible','on');
-
 end
 %############################################################################################
+% check if non-nulls and nulls are mixed
 
+if h.checkmultiSIMW2==1 % for h.checkmultiSIMW2, see function SS_prep_SIMW
+    
+    % disp dialog if SIMW procedure should be continued or aborted 
+    ask4multi2=questdlg('Your selection contains non-Nulls and Nulls! Mixing both types is not reasonable! Continue?',...
+        'Multiple result selection','No','Yes','No');
+
+    if strcmp(ask4multi2,'No') % set all buttons to visible off since SIMW is aborted 
+            
+        set(h.push(5),'enable','off'); % INVERSION button
+        set(h.panel(6),'visible','off'); %Waveforms panel
+
+        % remove blue dots on worldmap when no option is selected       
+        find_bluedot=findobj(h.EQstatsax,'type','line');
+    
+         if length(find_bluedot) > 4    
+             set(find_bluedot(1:end-4),'Visible','off')
+             delete(find_bluedot(1)) 
+         end
+
+        return
+
+    else % although more than one result per event, SIMW continues    
+        set(h.panel(6),'visible','on');
+    end
+
+else % if not more than one result per event, DEFAULT case 
+    set(h.panel(6),'visible','on');
+end
+%############################################################################################
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % calculate splitting parameters using SIMW from currently visible merged
 % waveforms

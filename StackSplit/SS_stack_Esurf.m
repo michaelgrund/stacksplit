@@ -112,7 +112,7 @@ end
 if length(restype)~=1 
     
     % disp dialog if stacking procedure should be continued or aborted
-    ask4multi2=questdlg('Your selection contains non-Null and Nulls! Mixing both types is not reasonable! Continue?',...
+    ask4multi2=questdlg('Your selection contains non-Nulls and Nulls! Mixing both types is not reasonable! Continue?',...
         'Multiple result selection','No','Yes','No');
 
     if strcmp(ask4multi2,'No') % set all buttons/panels to visible off since stacking is aborted 

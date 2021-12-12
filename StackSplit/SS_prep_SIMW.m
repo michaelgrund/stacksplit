@@ -125,6 +125,19 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
     else
         h.checkmultiSIMW=0;
     end
+    
+    %############################################################################################
+    % check if non-nulls and nulls are mixed in selection
+    for ii=1:length(find_res)
+        restype{ii}=find_res(ii).results.Null;
+    end
+    
+    if length(restype)~=1
+        h.checkmultiSIMW2=1;
+    else
+        h.checkmultiSIMW2=0;
+    end
+    
     %############################################################################################
 
     % enable INVERSION button
