@@ -18,6 +18,7 @@ function h=SS_saveresults(h)
 % Email: michael.grund@kit.edu
 %
 % 2019-04 -MG- saving output also in GMT-ready format (psxy with -SJ flag)
+% 2021-12 -MG- adjustments to allow different output formats with Matlab >= 2020a
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -358,7 +359,7 @@ else
     %change here, if you dont like the figure output (resolution etc)
     switch config.exportformat
         case '.ai'
-            option={ '-dill', '-noui'};
+            option={ '-depsc', '-noui'};
         case '.eps'
             option={ '-depsc2', '-cmyk',   '-r300', '-noui','-tiff', '-loose','-painters'};
         case '.fig'
@@ -385,14 +386,19 @@ else
                 No, config.exportformat);
         No = No+1;
     end
-  
-    print( option{:}, fullfile(config.savedir,fname),'-fillpage');
+ 
+   switch config.exportformat
+       case '.pdf'
+			print( option{:}, fullfile(config.savedir,fname),'-fillpage')
+       case '.ps'
+			print( option{:}, fullfile(config.savedir,fname),'-fillpage')
+       otherwise
+			print( option{:}, fullfile(config.savedir,fname));
+   end	
 
     close(gcf) 
-    
-    
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 end
-
 % EOF
