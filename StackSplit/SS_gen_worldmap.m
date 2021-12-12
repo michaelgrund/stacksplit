@@ -53,7 +53,7 @@ SKSwin=config.eqwin;
 
 % plot parameters
 circleColor='k';
-fontsize_eqwin=6;
+fontsize_eqwin=12;
 
 %vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 % if mapping toolbox is available
@@ -70,28 +70,36 @@ if config.maptool==1
     %imagesc(randn(100,100))
     axis off
     axes(ax)
-    axm=axesm('eqdazim','origin',[thissta.slat,thissta.slong],'Frame','on','FLinewidth',1,'FFaceColor','w');
+    axm=axesm('eqdazim','origin',[thissta.slat,thissta.slong],'Frame','on',...
+        'FLinewidth',1,'FFaceColor','w');
     set(axm, 'ButtonDownFcn', [])
     h.EQstatsax=ax;
     
     % plot plate boundaries & continents
-    plotm(plates_data.PBlat, plates_data.PBlong, 'LineStyle','-','Linewidth',1,'Tag','Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
-    fillm(coast_data.lat,coast_data.long,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag','Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
+    plotm(plates_data.PBlat, plates_data.PBlong, 'LineStyle','-','Linewidth',1,'Tag',...
+        'Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
+    fillm(coast_data.lat,coast_data.long,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
+        'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
 
     % plot circles at distance seletion wdw
     [latlow,lonlow]= scircle1(thissta.slat, thissta.slong, SKSwin(1));
     [latup,lonup]  = scircle1(thissta.slat, thissta.slong, SKSwin(2));
-    plotm(latlow, lonlow, '--', 'Color',circleColor, 'linewidth',1, 'ButtonDownFcn', '', 'HitTest', 'off');%SKSwindow
-    plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1, 'ButtonDownFcn', '', 'HitTest', 'off');   
+    plotm(latlow, lonlow, '--', 'Color',circleColor, 'linewidth',1,...
+        'ButtonDownFcn', '', 'HitTest', 'off');%SKSwindow
+    plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1,...
+        'ButtonDownFcn', '', 'HitTest', 'off');   
   
     wmin=[num2str(SKSwin(1)) '\circ'];
     wmax=[num2str(SKSwin(2)) '\circ'];
 
-    textm(latup(50) ,lonup(50),wmax, 'verticalalignment','top','horizontalalignment',   'center', 'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
-    textm(latlow(50),lonlow(50),wmin,'verticalalignment','Bottom','horizontalalignment','center', 'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
+    textm(latup(50),lonup(50),wmax, 'verticalalignment','top','horizontalalignment', 'center',...
+        'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
+    textm(latlow(50),lonlow(50),wmin,'verticalalignment','Bottom','horizontalalignment','center',...
+        'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
 
     % plot station marker    
-    plotm(thissta.slat, thissta.slong,'k^','MarkerFaceColor','r','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');   
+    plotm(thissta.slat, thissta.slong,'k^','MarkerFaceColor','r','MarkerSize',8,...
+        'ButtonDownFcn', '', 'HitTest', 'off');   
 
     %remove axis etc around plot
     framem('FLinewidth',1,'FFaceColor','w')
@@ -142,12 +150,8 @@ else
     ylabel('Latitude','fontsize',6);
     xlabel('Longitude','fontsize',6);
     set(gca,'fontsize',6)
-
 end
-    
-
 end
 %==================================================================================================================================
 %================================================================================================================================== 
 % EOF
-
