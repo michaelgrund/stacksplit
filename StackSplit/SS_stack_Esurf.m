@@ -109,7 +109,10 @@ for ii=1:length(use_data)
     restype{ii}=use_data(ii).results.Null;
 end
 
-if length(restype)~=1 
+restype=restype(~cellfun(@isempty, restype));
+checkmulti2=unique(restype);
+
+if length(checkmulti2)~=1 
     
     % disp dialog if stacking procedure should be continued or aborted
     ask4multi2=questdlg('Your selection contains non-Nulls and Nulls! Mixing both types is not reasonable! Continue?',...

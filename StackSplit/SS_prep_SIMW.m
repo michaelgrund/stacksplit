@@ -128,11 +128,15 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
     
     %############################################################################################
     % check if non-nulls and nulls are mixed in selection
-    for ii=1:length(find_res)
+    
+    for ii=index
         restype{ii}=find_res(ii).results.Null;
     end
     
-    if length(restype)~=1
+    restype=restype(~cellfun(@isempty, restype));
+    checkmulti2=(unique(restype));
+    
+    if length(checkmulti2)~=1
         h.checkmultiSIMW2=1;
     else
         h.checkmultiSIMW2=0;
