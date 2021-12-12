@@ -1,6 +1,6 @@
 # Changelog
 
-## Release [v2.0](https://github.com/michaelgrund/stacksplit/releases/tag/v2.0) (2021-04-04)
+## Release [v2.0](https://github.com/michaelgrund/stacksplit/releases/tag/v2.0) (2019-06-28)
 
 Adjusted several functions to work also on MATLAB 2018a and b.
 
