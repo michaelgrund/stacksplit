@@ -100,6 +100,53 @@ else % if not more than one result per event, DEFAULT case
         set(h.push(2),'enable','on');
         set(h.push(3),'enable','on');
 end
+
+%############################################################################################
+% check if non-nulls and nulls are selected for stacking together => not
+% sensefull
+
+for ii=1:length(use_data)
+    restype{ii}=use_data(ii).results.Null;
+end
+
+if length(restype)~=1 
+    
+    % disp dialog if stacking procedure should be continued or aborted
+    ask4multi2=questdlg('Your selection contains non-Null and Nulls! Mixing both types is not reasonable! Continue?',...
+        'Multiple result selection','No','Yes','No');
+
+    if strcmp(ask4multi2,'No') % set all buttons/panels to visible off since stacking is aborted 
+        set(h.push(1),'enable','off');   % STACK button
+        set(h.push(2),'enable','off');   % CLEAR button
+        set(h.push(3),'enable','off');   % SAVE button
+        set(h.panel(2),'visible','off'); % Energymap panel
+        set(h.panel(3),'visible','off'); % results panel
+
+            % remove blue dots on worldmap when no option is selected       
+            find_bluedot=findobj(h.EQstatsax,'type','line');
+    
+            if length(find_bluedot) > 4    
+                set(find_bluedot(1:end-4),'Visible','off')
+                delete(find_bluedot(1)) 
+            end
+
+        return
+        
+    else % although more than one result per event, stacking continues and CLEAR & SAVE buttons are set to on
+        set(h.panel(2),'visible','on'); 
+        set(h.panel(3),'visible','on'); 
+        set(h.push(2),'enable','on');
+        set(h.push(3),'enable','on');
+        
+    end
+    
+else % if not more than one result per event, DEFAULT case
+        set(h.panel(2),'visible','on');
+        set(h.panel(3),'visible','on'); 
+        set(h.push(2),'enable','on');
+        set(h.push(3),'enable','on');
+end
+
 %############################################################################################
 % maximum diff of used bazis, dists and inipols
 
