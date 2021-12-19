@@ -81,7 +81,7 @@ end
 if h.checkmultiSIMW2==1 % for h.checkmultiSIMW2, see function SS_prep_SIMW
     
     % disp dialog if SIMW procedure should be continued or aborted 
-    ask4multi2=questdlg('Your selection contains non-Nulls and Nulls! Mixing both types is not reasonable! Continue?',...
+    ask4multi2=questdlg('Your selection contains Splits and Nulls! Mixing both types is not reasonable! Continue?',...
         'Multiple result selection','No','Yes','No');
 
     if strcmp(ask4multi2,'No') % set all buttons to visible off since SIMW is aborted 
