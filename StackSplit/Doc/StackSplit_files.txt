@@ -1,12 +1,10 @@
-StackSplit 1.0
+StackSplit v1.0 -2017/04/04-
+StackSplit v2.0 -2019/06/28-
+StackSplit v3.0 -202x/xx/xx-
 
--2017/04/03- 
-
-The following functions are essential to run StackSplit (besides the original SplitLab package). 
+The following functions are essential to run StackSplit (besides the SplitLab package).
 If any problem occurs or you have suggestions to make StackSplit better please don't hesitate to
-write an email to:
-
-	<<<   michael.grund@kit.edu   >>>.
+open a new issue or PR on GitHub to give comments or address suggestions for improvements etc.
 
 The latest version of StackSplit can be found at:
 
