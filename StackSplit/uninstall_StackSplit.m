@@ -23,7 +23,7 @@ function uninstall_StackSplit()
 % LICENSE
 %
 % Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
-% Email: michael.grund@kit.edu
+% GitHub: https://github.com/michaelgrund
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -43,6 +43,16 @@ function uninstall_StackSplit()
 % StackSplit is provided "as is" and without any warranty. The author cannot be
 % held responsible for anything that happens to you or your equipment. Use it
 % at your own risk.
+
+%==========================================================================
+% Major updates:
+% 
+% - v3.0 (2021): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
+%                Email: yvonne.froehlich@kit.edu
+%                GitHub: https://github.com/yvonnefroehlich
+%                => modifications to fix extraction of start time by SplitLab
+%                (unconsidered milliseconds or seconds of start time)
+%
 %==========================================================================
 
 %==================================================================================================================================
@@ -139,29 +149,67 @@ else
     errordlg('Missing subfolder Tools! Uninstallation aborted!')
 end
 
-% check if original SL function (*_ori.m) is available
+
+%======================================================================
+%######################################################################
+%======================================================================
+
+files2delete{1}='database_editResults.m';
+files2delete{2}='getFileAndEQseconds.m';
+
+files2rename{1}=['database_editResults' filesuffix '.m'];
+files2rename{2}=['getFileAndEQseconds' filesuffix '.m'];
+
+% check if original SL functions (*_ori.m) are available
 dir_orifiles=dir(['*' filesuffix '.m']); 
 
-if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['database_editResults' filesuffix '.m'])
+if ~isempty(dir_orifiles) && length(dir_orifiles)==2
 
-    % first delete the current SS version of the function with correct name
-    dir_edres=dir('database_editResults.m');
-    
-    if ~isempty(dir_edres)
-        delete('database_editResults.m')
-    else
-        errordlg('No file < database_editResults.m > available to delete!')
-        return
+    for ii=1:length(files2rename)
+        strold(ii)=sum(cell2mat(strfind({dir_orifiles.name},files2rename{ii})));
+    end 
+
+    if sum(strold)~=2
+        errordlg(['Missing files with suffix *' filesuffix '!'])
+        return 
     end
-    
-    % then rename back the original SL file (*_ori.m) to the official name without *_ori
-    movefile(dir_orifiles.name,'database_editResults.m')
-    
+
+    %================================================================
+    for ii=1:length(files2delete)
+        
+        % delete SS version of file
+        dir_file2del=dir(files2delete{ii});
+        
+        if ~isempty(dir_file2del)
+            delete(files2delete{ii});
+        else
+           errordlg(['Missing file ' files2delete{ii} '!']) 
+        end
+        
+        % rename original SL files (*_ori.m) to the official name without *_ori
+        dir_file2ren=dir(files2rename{ii});
+                
+        if ~isempty(dir_file2ren)
+            % here we use the names of files2delete to rename the original
+            % SL files to their original name
+            %
+            % files2rename: *.ori.m
+            % files2delete:     *.m
+            movefile(files2rename{ii},files2delete{ii});
+        else
+           errordlg(['Missing file ' files2rename{ii} '!']) 
+        end
+        
+    end
+    %================================================================
+
 else
-    errordlg(['No original SL file < database_editResults' filesuffix '.m > available! Uninstallation aborted!'])
+    errordlg(['Missing files with suffix *' filesuffix '! Uninstallation aborted!'])
     return
-    
 end
+%======================================================================
+%######################################################################
+%======================================================================
 
 cd(folderSL)
 

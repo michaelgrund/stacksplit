@@ -68,7 +68,7 @@ function install_StackSplit()
 % LICENSE
 %
 % Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
-% Email: michael.grund@kit.edu
+% GitHub: https://github.com/michaelgrund
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -88,6 +88,16 @@ function install_StackSplit()
 % StackSplit is provided "as is" and without any warranty. The author cannot be
 % held responsible for anything that happens to you or your equipment. Use it
 % at your own risk.
+
+%==========================================================================
+% Major updates:
+% 
+% - v3.0 (2021): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
+%                Email: yvonne.froehlich@kit.edu
+%                GitHub: https://github.com/yvonnefroehlich
+%                => modifications to fix extraction of start time by SplitLab
+%                (unconsidered milliseconds or seconds of start time)
+%
 %==========================================================================
 
 %==================================================================================================================================
@@ -215,9 +225,9 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% first rename the original mfiles to *_ori
+% first rename the original SplitLab files to *_ori
 
-% in total 8 original files have to be modified for running StackSplit
+% in total 9 original files have to be modified for running StackSplit
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN FOLDER
@@ -336,6 +346,14 @@ if isempty(dir_orifiles)
 
     dir_databaseedit=dir('database_editResults.m');
     movefile(dir_databaseedit.name,['database_editResults' filesuffix '.m'])
+
+    % #8 =====================
+    % < getFileAndEQseconds.m > 
+    %=======================	
+	% changes: fixed start time extraction by SplitLab
+	
+	dir_getfileandeqsec=dir('getFileAndEQseconds.m');
+    movefile(dir_getfileandeqsec.name,['getFileAndEQseconds' filesuffix '.m'])
     
 end
 
@@ -360,7 +378,7 @@ dir_orifiles=dir(['*' filesuffix '.m']);
 
 if isempty(dir_orifiles)
 
-    % #8 =====================
+    % #9 =====================
     % < seisfigbuttons.m > 
     %=======================
     % changes: if an event is deleted after any phase splitting calculation
@@ -390,6 +408,7 @@ copyfile('preSplit_SS.m',pathSWS)
 copyfile('saveresult_SS.m',pathSWS)
 copyfile('splitdiagnosticplot_SS.m',pathSWS)
 copyfile('database_editResults_SS.m',pathTOOL)
+copyfile('getFileAndEQseconds_SS.m',pathTOOL)
 copyfile('seisfigbuttons_SS.m',pathpriv)
 
 % cleanup/remove folder SL_mod
@@ -414,6 +433,7 @@ movefile('splitdiagnosticplot_SS.m','splitdiagnosticplot.m')
 % Tools folder
 cd(pathTOOL)
 movefile('database_editResults_SS.m','database_editResults.m')
+movefile('getFileAndEQseconds_SS.m','getFileAndEQseconds.m')
 
 % private folder
 cd(pathpriv)
@@ -433,7 +453,8 @@ if ~isempty(dir('splitlab.m'))
 
        cd(pathTOOL)
         
-            if ~isempty(dir('database_editResults.m'))
+            if ~isempty(dir('database_editResults.m')) && ...
+				~isempty(dir('getFileAndEQseconds.m'))
                 
               cd(pathpriv)
               
