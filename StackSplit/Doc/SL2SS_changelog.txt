@@ -2,12 +2,12 @@ For full functionality of StackSplit the following (original) SplitLab functions
 within the installation process:
 
 splitlab.m               adjustments for implementation of StackSplit
-geterrorbars.m           fixed taper and ndf calculation (Walsh et al., 2013)
-geterrorbarsRC.m         fixed taper and ndf calculation (Walsh et al., 2013)
+geterrorbars.m           fixed taper and ndf calculation (see Walsh et al., 2013)
+geterrorbarsRC.m         fixed taper and ndf calculation (see Walsh et al., 2013)
 preSplit.m               adjustments to save new outputs temporary
 splitdiagnosticplot.m    adjustments to save new outputs temporary
 saveresult.m             adjustments to save new outputs finally
 database editResults.m   adjustments to avoid database conflicts
 seisfigbuttons.m         adjustments to avoid database conflicts
-
+getFileAndEQseconds.m    fixed start time extraction by SplitLab (v3.0, see Fröhlich et al. 202x)
 
