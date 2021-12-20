@@ -15,7 +15,7 @@ function [merged_str,find_res]=SS_read_SLresults(curr_path2results,curr_staname)
 % LICENSE
 %
 % Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
-% Email: michael.grund@kit.edu
+% GitHub: https://github.com/michaelgrund
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by

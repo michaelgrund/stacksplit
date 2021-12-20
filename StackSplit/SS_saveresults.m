@@ -15,7 +15,7 @@ function h=SS_saveresults(h)
 % LICENSE
 %
 % Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
-% Email: michael.grund@kit.edu
+% GitHub: https://github.com/michaelgrund
 %
 % 2019-04 -MG- saving output also in GMT-ready format (psxy with -SJ flag)
 % 2021-12 -MG- adjustments to allow different output formats with Matlab >= 2020a

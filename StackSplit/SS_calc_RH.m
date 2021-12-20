@@ -18,7 +18,7 @@ function [wf,countN]=SS_calc_RH(SNR,bazi_single,bazi_all,h)
 % LICENSE
 %
 % Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
-% Email: michael.grund@kit.edu
+% GitHub: https://github.com/michaelgrund
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
