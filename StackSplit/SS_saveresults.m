@@ -129,7 +129,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     fname = fullfile(config.savedir,['splitresultsSTACK_' config.project(1:end-4) '_4GMT.dat' ]);
 
     %################
-    % GMT parameters (please adjust for your requirements) 
+    % GMT parameters (please adjust for your needs) 
     scale_bar=60; % scaling factor, set for scaling the plotted bars uniformly with respect to length
     thick_bar=10.5; % define thickness of bars
     %################
@@ -225,8 +225,6 @@ else
         res_remark=[];
         outtext=2;
     end   
-  
-
     %==========================================================================
     % txt-file
     
@@ -243,8 +241,6 @@ else
       string_ev_used=horzcat(string_ev_used,[num2str(yyyyJDs(ii,1)) '.' num2str(yyyyJDs(ii,2)) ' (' phase_used ')   ']);
     end
     %....................................
-
-
     fname = fullfile(config.savedir,['splitresultsSIMW_' config.project(1:end-4) '.txt' ]);
 
     xst   = exist(fname);
@@ -270,8 +266,7 @@ else
         SIMW_temp.phiEV(2), SIMW_temp.dtEV(2),...
         char(SIMW_temp.Q), char(SIMW_temp.AnisoNull), res_remark, string_ev_used);
     fclose(fid);
-    
-    
+
     %==========================================================================
     % txt-file, GMT ready format
     
@@ -375,7 +370,6 @@ else
         case '.tiff'
             option={ '-dtiff', '-r150', '-noui'};
     end
-
 
     fname = sprintf(['Multi_result_SIMW', config.exportformat]);
 

@@ -67,7 +67,6 @@ if isfield(config,'SS_maxbaz') && isfield(config,'SS_maxdist') && isfield(config
         set(h.pop(2),'Value',b);
     else
         set(h.pop(2),'Value',1);
-
     end
 
     [~,b]=ismember(config.SS_maxdist,inputs);
@@ -193,7 +192,7 @@ h_checkbox(1) = h.check(1);
 h_checkbox(2) = h.check(2);
 h_checkbox(3) = h.check(3);
 h_checkbox(4) = h.check(4);
-h.h_checkbox= h_checkbox;
+h.h_checkbox = h_checkbox;
 
 %VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
 % taper
@@ -202,7 +201,6 @@ popupcont=0:0.1:1; % taper 0% (none) - 100% (1)
 
 if isfield(config,'SS_tap') 
     % set popups to corresponding start values, if available in config
-
     inputs=0:10:100;
 
     [~,b]=ismember(config.SS_tap,inputs);
@@ -231,8 +229,7 @@ if isfield(config,'SS_surf')
 
     if strcmp(config.SS_surf,'Esurf')
         h.surf_kind=1;
-        set(h.pop(4),'Value',1);
-        
+        set(h.pop(4),'Value',1); 
     elseif strcmp(config.SS_surf,'EVsurf')
         h.surf_kind=2;
         set(h.pop(4),'Value',2);

@@ -66,10 +66,6 @@ switch splitoption
        optionstr ='        min(\lambda1 * \lambda2)';
 end
 
-%%
-
-
-
 str ={['\rm                     Station: \bf' config.stnname ''];
     ['\rmBackazimuth:    \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],bazi_int) '   \rmDistance:  \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],dist_int) ];
     [''];

@@ -77,8 +77,7 @@ if h.surf_kind==1
 
 elseif h.surf_kind==2
    surf_input='EV';
-   
-   
+
     str ={['          \rmStation: \bf  '        config.stnname '       \rm    Surface input: \bf      ' surf_input ' \rm        Method: \bf      ' h.stacked_meth];
     ['\rmBackazimuth range: \bf   ' sprintf(['%5.1f - %5.1f'],bazi_int) ' (' sprintf(['%5.1f'],mean_bazi)   ') \rm           Distance range: \bf           ' sprintf(['%5.1f - %5.1f'],dist_int) ' (' sprintf(['%5.1f'],mean_dist) ')' ];
     ['  '];
@@ -114,15 +113,12 @@ if config.maptool==1
     set(findtext,'fontsize',10)
     pos=get(ax1,'position');
     set(ax1,'position',[pos(1)-0.02 pos(2)+0.05 pos(3) pos(4)])
-
 else
-    
     copyobj(H2([2 5:end]),ax1);
     axis off
     
     pos=get(ax1,'position');
     set(ax1,'position',[pos(1)-0.02 pos(2)+0.175 pos(3) pos(4)-0.25])
-
 end  
     
 %================================================================================

@@ -62,8 +62,7 @@ if length(index)==1
         Level=find_res(index).results.LevelSC;
         
     elseif h.surf_kind==2 % EV surface
-        
-        
+
         %#######################################
         % check for EV input 
         switch config.splitoption
@@ -71,38 +70,24 @@ if length(index)==1
         case 'Minimum Energy'
             % using min(lambda2) as default EV method when ME is set, see SL function
             % splitSilverChan
-            set(h.panel(2),'title',['EV surface min(' char(hex2dec('03BB')) '2)'])
-            
+            set(h.panel(2),'title',['EV surface min(' char(hex2dec('03BB')) '2)']) 
         case 'Eigenvalue: max(lambda1 / lambda2)'
-            
             set(h.panel(2),'title',['EV surface max(' char(hex2dec('03BB')) '1/' char(hex2dec('03BB')) '2)'])
-        
         case 'Eigenvalue: min(lambda2)'
-
             set(h.panel(2),'title',['EV surface min(' char(hex2dec('03BB')) '2)'])
-
         case 'Eigenvalue: max(lambda1)'
-
             set(h.panel(2),'title',['EV surface max(' char(hex2dec('03BB')) '1)'])
-
         case 'Eigenvalue: min(lambda1 * lambda2)'
-
             set(h.panel(2),'title',['EV surface min(' char(hex2dec('03BB')) '1 * ' char(hex2dec('03BB')) '2)'])
-            
         end
 
         %#######################################
-        
         surf2plot=find_res(index).results.EVmatrix;
-        
         singlephi=find_res(index).results.phiEV;
         singledt=find_res(index).results.dtEV;
-
         Level=find_res(index).results.LevelEV;
-
     end
 
-    
     hold on
     f  = size(surf2plot);
     ts = linspace(0,maxtime,f(2));
@@ -198,8 +183,7 @@ elseif length(index) > 1
     evlon=[h.data(index).long];
 
     find_bluedot=findobj(h.EQstatsax,'type','line');
-    
-    
+
     if config.maptool==1 % if mapping toolbox available
 
         if length(find_bluedot) > 4

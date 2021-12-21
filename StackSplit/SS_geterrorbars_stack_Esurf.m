@@ -57,7 +57,6 @@ if ndf <=K
     errbar_phi = [nan nan];
     errbar_t   = [nan nan];
     Ecrit = Eresult;
-
 else
     
     nu1=K;
@@ -183,4 +182,3 @@ else
     errbar_phi = (rows-1) * dphi-90;
     errbar_t   = (cols-1) * dt;
 end                                                        
- 

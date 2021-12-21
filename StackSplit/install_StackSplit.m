@@ -266,9 +266,6 @@ dir_orifiles=dir(['*' filesuffix '.m']);
 
 if isempty(dir_orifiles)
 
-%     dir_testfile=dir('testfile.m');
-%     movefile(dir_testfile.name,['testfile' filesuffix '.m'])
-
     % #2 =====================
     % < geterrorbars.m > 
     %=======================

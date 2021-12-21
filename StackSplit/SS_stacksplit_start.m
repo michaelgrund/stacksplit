@@ -218,7 +218,8 @@ h=SS_gen_legends(h);
 
 guidata(h.fig,h)
 
-% check screen size 
+% check screen size
+% -introduced in v3.0-
 %.........................................
 % workaround for Windows 10 OS: by default under
 %

@@ -130,12 +130,9 @@ find_res=find_res(index);
 %   results without any furter processing!
 
 zz=1;
-for ii=1:length(find_res)
-    
-    if length(find_res(ii).results) > 1
-        
+for ii=1:length(find_res) 
+    if length(find_res(ii).results) > 1 
         for jj=1:length(find_res(ii).results)
-
             find_res_mod(zz)=find_res(ii);
             find_res_mod(zz).results=find_res(ii).results(jj);
             zz=zz+1;
@@ -144,8 +141,6 @@ for ii=1:length(find_res)
         find_res_mod(zz)=find_res(ii);
         zz=zz+1;
     end 
-    
-
 end
 
 clear find_res
@@ -182,8 +177,6 @@ for ii=1:length(find_res) % color results depending on quality ranking
     % perfecty beneath each other ;)
     
     % BAZ
-
-    
     if find_res(ii).bazi < 100 && round(find_res(ii).bazi*100)/100 < 100 && find_res(ii).bazi > 10
         chbet_baz='<&nbsp ';
         

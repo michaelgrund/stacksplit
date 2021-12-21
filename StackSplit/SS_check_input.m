@@ -56,10 +56,8 @@ for ii=1:length(find_res)
     else
         error('No field dttrace available! Maybe you use an old version of StackSplit!')
     end
-    
     [check_rows(ii),check_cols(ii)]=size(find_res(ii).results.Ematrix);
     [check_rowsC(ii),check_colsC(ii)]=size(find_res(ii).results.Cmatrix);
-
 end
 
 %==========================================================================
@@ -103,9 +101,8 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
         disp(['Data set contains more than one accuracy factor! Resize surfaces!']) 
    else
         disp(['Data set contains more than one sampling rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ')'])
-       disp(['and accuracy factor! Resample all traces to the lowest (' num2str(use_samp) ') and resize surfaces!'])
+        disp(['and accuracy factor! Resample all traces to the lowest (' num2str(use_samp) ') and resize surfaces!'])
    end
-   
 
    for ii=1:length(find_res)
        
@@ -113,7 +110,6 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
 
            %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
            % perform resampling of cut traces if not the same sampling
-           
            dtold=find_res(ii).results.dttrace;
            traceoldQ=find_res(ii).results.Qcut;
            traceoldT=find_res(ii).results.Tcut;
@@ -147,7 +143,6 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
        
             %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             % resize error surfaces 
-            
             size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
            
             Esurfold=find_res(ii).results.Ematrix;
@@ -180,4 +175,3 @@ end
 % EOF
 %==================================================================================================================================
 %==================================================================================================================================
-
