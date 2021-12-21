@@ -16,7 +16,8 @@
 
 ## Release [v2.0](https://github.com/michaelgrund/stacksplit/releases/tag/v2.0) (2019-06-28)
 
-Adjusted several functions to work also on MATLAB 2018a and b.
+* adjusted several functions to work also on MATLAB 2018a and b
+* now results are additionally saved in a text-file which can be used directly in GMT (Generic Mapping Tools)
 
 **Contributors**: [Michael Grund](https://github.com/michaelgrund)
 
