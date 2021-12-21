@@ -9,7 +9,7 @@ Citation
 
 If you make use of StackSplit in your work please acknowledge my paper in which the program is described:
 
-- **_Grund, M. (2017)_**, StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab, Computers & Geosciences, 105, 43-50, https://doi.org/10.1016/j.cageo.2017.04.015.
+- **_Grund, M. (2017)_**, StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab, *Computers & Geosciences*, 105, 43-50, https://doi.org/10.1016/j.cageo.2017.04.015.
 
 Optionally, you can also cite the [Zenodo DOI](https://zenodo.org/record/464385#) given above which is referring this GitHub repository.
 
@@ -18,13 +18,13 @@ Which stacking methods are available?
 
 StackSplit grants easy access to four stacking schemes with which single SWS measurements made with SplitLab can be processed:
 
-1. **WS**: stacking of error surfaces, normalized on minimum/maximum (depending on input) of each single surface (**_Wolfe & Silver, 1998_**)
+1. **WS**: stacking of error surfaces, normalized on minimum/maximum (depending on input) of each single surface ([**_Wolfe & Silver, 1998_**](https://doi.org/10.1029/97JB02023))
 
-2. **RH**: modified WS method with weight depending on SNR of each measurement and normalization regarding the available backazimuth directions (**_Restivo & Helffrich, 1999_**)
+2. **RH**: modified WS method with weight depending on SNR of each measurement and normalization regarding the available backazimuth directions ([**_Restivo & Helffrich, 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x))
 
-3. **no weight**: stacking of error surfaces without weighting following PhD thesis of **_Wüstefeld (2007)_**
+3. **no weight**: stacking of error surfaces without weighting following PhD thesis of [**_Wüstefeld (2007)_**](http://splitting.gm.univ-montp2.fr/)
 
-4. **SIMW**: simultaneous inversion of multiple waveforms in time domain (**_Roy et al., 2017_**)
+4. **SIMW**: simultaneous inversion of multiple waveforms in time domain ([**_Roy et al., 2017_**](https://doi.org/10.1093/gji/ggw470))
 
 ![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
 
@@ -38,6 +38,11 @@ Compatibility with SplitLab and MATLAB versions
 |[v1.0](https://github.com/michaelgrund/stacksplit/releases/tag/v1.0)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|<= [2014a](https://mathworks.com/company/newsroom/mathworks-announces-release-2014a-of-the-matlab-and-simulink-product-families.html)|
 
 For details regarding the different StackSplit versions see the [Changelog](https://github.com/michaelgrund/stacksplit/blob/main/changelog.md).
+
+Contributing
+------------
+
+Did you find a bug or have suggestions for improvements? Simply open a new [issue](https://github.com/michaelgrund/stacksplit/issues) or [pull request](https://github.com/michaelgrund/stacksplit/pulls) here on GitHub.
 
 Related topics
 --------------
