@@ -116,7 +116,7 @@ config.SS_version='3.0';
 
 %1.0 released 2017-04-04
 %2.0 released 2019-06-28
-%3.0 upcoming 2021-12-XX
+%3.0 upcoming 2021-12-23
 %VVVVVVVVVVVVVVVVVVVVVVV
 
 clc
