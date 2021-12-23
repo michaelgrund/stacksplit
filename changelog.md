@@ -1,6 +1,6 @@
 # Changelog
 
-## Release v3.0 (in progress)
+## Release [v3.0](https://github.com/michaelgrund/stacksplit/releases/tag/v3.0) (2021-12-23)
 
 * adjusted and updated several StackSplit functions to work on newer MATLAB versions (>=2020a)
 * removed or replaced deprecated built-in MATLAB functions 

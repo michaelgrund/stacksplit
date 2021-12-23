@@ -36,7 +36,8 @@ Compatibility with SplitLab and MATLAB versions
 |StackSplit|SplitLab|MATLAB|
 |---|---|---|
 |dev ([main branch](https://github.com/michaelgrund/stacksplit))|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/) (not tested)|>= [2020a](https://mathworks.com/help/releases/R2020a/index.html) (< 2020a might work, but not tested yet)|
-|[v2.0](https://github.com/michaelgrund/stacksplit/releases/tag/v2.0) (latest release)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|>= [2014b](https://mathworks.com/company/newsroom/mathworks-introduces-new-features-in-matlab-and-simulink.html) (tested up to and including [2018b](https://mathworks.com/help/releases/R2018b/index.html))|
+|[v3.0](https://github.com/michaelgrund/stacksplit/releases/tag/v3.0) (latest release)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/) (not tested)|>= [2020a](https://mathworks.com/help/releases/R2020a/index.html) (< 2020a might work, but not tested yet)|
+|[v2.0](https://github.com/michaelgrund/stacksplit/releases/tag/v2.0)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|>= [2014b](https://mathworks.com/company/newsroom/mathworks-introduces-new-features-in-matlab-and-simulink.html) (tested up to and including [2018b](https://mathworks.com/help/releases/R2018b/index.html))|
 |[v1.0](https://github.com/michaelgrund/stacksplit/releases/tag/v1.0)|[1.2.1](https://robporritt.wordpress.com/software/), [1.0.5](http://splitting.gm.univ-montp2.fr/)|<= [2014a](https://mathworks.com/company/newsroom/mathworks-announces-release-2014a-of-the-matlab-and-simulink-product-families.html)|
 
 For details regarding the different StackSplit versions see the [Changelog](https://github.com/michaelgrund/stacksplit/blob/main/changelog.md).
