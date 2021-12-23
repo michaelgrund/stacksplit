@@ -445,7 +445,7 @@ hold off
 axis([0 maxtime -90 90])
 set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', [0:1:maxtime] ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
 xlabel('delay time \delta\itt\rm in s', 'Fontsize', fontsize) 
-ylabel('fast axis \phi in N\circE', 'Fontsize', fontsize)
+ylabel('fast axis \phi in \circ', 'Fontsize', fontsize)
 title(['Stacked surfaces: ' num2str(length(use_data))],'fontsize',11)
     
 string1 = char( strcat({'fast: '}, char(num2str(singlephiSTACK(1),'%4.0f')), {'° < '}, ... 

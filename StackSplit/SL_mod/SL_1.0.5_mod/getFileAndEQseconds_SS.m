@@ -13,7 +13,7 @@ function [FIsec, FIyyyy, EQsec, Omarker] = getFileAndEQseconds(F,eqin,offset)
 %==========================================================================
 % Yvonne Fröhlich (YF), Karlsruhe Institute of Technology (KIT), 
 % Email: yvonne.froelich@kit.edu
-% July-Dezember 2021
+% July-December 2021
 %
 % modifications to fix extraction of start time by SplitLab 
 % (unconsidered milliseconds or seconds of start time)
