@@ -74,11 +74,11 @@ If you make use of StackSplit please acknowledge the following contributing pape
 
 **Methods (depending on your use-case and selections):**
 
+* **_Bowman, J. & Ando. M (1987)_**, Shear-wave splitting in the upper-mantle wedge above the Tonga subduction zone, *Geophys. J. Roy. Astron. Soc*. 88, 2541, https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 * **_Restivo, A. & Helffrich, G. (1999)_**, Teleseismic shear wave splitting measurements in noisy environments, *Geophysical Journal International* 137, 821-830, https://doi.org/10.1046/j.1365-246x.1999.00845.x.
 * **_Roy, C., Winter, A., Ritter, J. R. R., Schweitzer, J. (2017)_**, On the improvement of SKS splitting measurements by the simultaneous inversion of multiple waveforms (SIMW), *Geophysical Journal International*, 208, 1508–1523, https://doi.org/10.1093/gji/ggw470.
 * **_Wolfe, C. J. & Silver, P. G. (1998)_**, Seismic anisotropy of oceanic upper mantle: Shear wave splitting methodologies and observations, *Journal of Geophysical Research* 103(B1), 749-771, https://doi.org/10.1029/97JB02023.
 * **_Wüstefeld, A. (2007)_**, Methods and applications of shear wave splitting: The East European Craton. Ph.D. thesis, *Univ. de Montpellier*, France, http://splitting.gm.univ-montp2.fr/.
-* **_Bowman, J. & Ando. M (1987)_**, Shear-wave splitting in the upper-mantle wedge above the Tonga subduction zone, *Geophys. J. Roy. Astron. Soc*. 88, 2541, https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 
 Installation
 ------------
