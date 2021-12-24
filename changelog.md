@@ -1,6 +1,6 @@
 # Changelog
 
-## Release [v3.0](https://github.com/michaelgrund/stacksplit/releases/tag/v3.0) (2021-12-23)
+## Release [v3.0](https://github.com/michaelgrund/stacksplit/releases/tag/v3.0) (2021-12-23) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5802051.svg)](https://doi.org/10.5281/zenodo.5802051)
 
 * adjusted and updated several StackSplit functions to work on newer MATLAB versions (>=2020a)
 * removed or replaced deprecated built-in MATLAB functions 
@@ -21,7 +21,7 @@
 
 **Contributors**: [Michael Grund](https://github.com/michaelgrund)
 
-## Release [v1.0](https://github.com/michaelgrund/stacksplit/releases/tag/v1.0) (2017-04-04)
+## Release [v1.0](https://github.com/michaelgrund/stacksplit/releases/tag/v1.0) (2017-04-04) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.464385.svg)](https://doi.org/10.5281/zenodo.464385)
 
 StackSplit is now available for download.
 
