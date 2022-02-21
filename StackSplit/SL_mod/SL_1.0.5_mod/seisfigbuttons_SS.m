@@ -239,10 +239,10 @@ Amp    = Amp(:,window);
 time   = time(window);
 
 
-if thiseq.system=='ENV'
-    cname ='ENZ';
-elseif thiseq.system=='LTQ'
-    cname ='LTQ';
+if strcmp(thiseq.system,'ENV')
+    cname = 'ENZ';
+elseif strcmp(thiseq.system,'LTQ')
+    cname = 'QTL';
 end
 if ~isfield(thiseq,'a')
     A = -12345;
