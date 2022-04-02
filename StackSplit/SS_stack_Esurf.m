@@ -432,8 +432,12 @@ contour(ts, ps, STACKsurf, nb_contours);
 
 set(hcon,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
 
-line([0 maxtime], [singlephiSTACK(2) singlephiSTACK(2)],'Color',[0 0 1])
-line([singledtSTACK(2) singledtSTACK(2)],[-90 90],'Color',[0 0 1])
+% horizontal line plotted twice for sake of safety
+line([0 maxtime], [singlephiSTACK(2) singlephiSTACK(2)], 'Color',[0 0 1])
+line([0 maxtime], [singlephiSTACK(2) singlephiSTACK(2)], 'Color',[0 0 1])
+% vertical line plotted twice to be also visible in exported diagnostic plot
+line([singledtSTACK(2) singledtSTACK(2)], [-90 90], 'Color',[0 0 1]) 
+line([singledtSTACK(2) singledtSTACK(2)], [-90 90], 'Color',[0 0 1])
 
 colormap(gray)
 
