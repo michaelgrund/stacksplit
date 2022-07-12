@@ -14,6 +14,7 @@ function [FIsec, FIyyyy, EQsec, Omarker] = getFileAndEQseconds(F,eqin,offset)
 
 %==========================================================================
 % Yvonne Fröhlich (YF), Karlsruhe Institute of Technology (KIT), 
+% ORCID: 0000-0002-8566-0619
 % Email: yvonne.froehlich@kit.edu
 % July-December 2021
 %
