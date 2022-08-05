@@ -4,7 +4,7 @@
 
 * adjusted and updated several StackSplit functions to work on newer MATLAB versions (>=2020a)
 * removed or replaced deprecated built-in MATLAB functions 
-* fixed start time extraction by SplitLab (for details see **Fröhlich et al., 202X**)
+* fixed start time extraction by SplitLab (for details see [**_Fröhlich et al., 2022_**](https://doi.org/10.4401/ag-8781))
 * added warning message box if non-nulls and nulls are selected together for stacking (which is not really reasonable)
 * added warning message box if current screen resolution does not allow to display StackSplit's main panel properly:
   * Solution for **Windows 10**: under *Settings* => *System* => *Display* => *Scale and Layout* => *Change the size of text, apps, and other items*
