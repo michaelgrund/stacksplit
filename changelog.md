@@ -14,7 +14,7 @@
   
 **Contributors**: [Michael Grund](https://github.com/michaelgrund), [Yvonne Fröhlich](https://github.com/yvonnefroehlich)
 
-## Release [v2.0](https://github.com/michaelgrund/stacksplit/releases/tag/v2.0) (2019-06-28)
+## Release [v2.0](https://github.com/michaelgrund/stacksplit/releases/tag/v2.0) (2019-06-28) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7118716.svg)](https://doi.org/10.5281/zenodo.7118716)
 
 * adjusted several functions to work also on MATLAB 2018a and b
 * now results are additionally saved in a text-file which can be used directly in GMT (Generic Mapping Tools)
