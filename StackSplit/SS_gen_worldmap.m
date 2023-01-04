@@ -60,8 +60,13 @@ fontsize_eqwin=12;
 
 if config.maptool==1
 
+    matlab_version = SS_check_matlab_version();
     fileparts(mfilename('fullpath'));
-    coast_data = load('coast');        
+    if matlab_version==2  % MATLAB 2023a or higher
+        coast_data = load('coastlines.mat');
+    else
+        coast_data = load('coast');
+	end
     plates_data = load('SS_plates.mat');  
 
     % generate subplot and handles
@@ -78,8 +83,13 @@ if config.maptool==1
     % plot plate boundaries & continents
     plotm(plates_data.PBlat, plates_data.PBlong, 'LineStyle','-','Linewidth',1,'Tag',...
         'Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
+    if matlab_version==2  % MATLAB 2023a or higher
+        fillm(coast_data.coastlat,coast_data.coastlon,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
+            'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
+    else
     fillm(coast_data.lat,coast_data.long,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
-        'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
+            'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
+    end
 
     % plot circles at distance seletion wdw
     [latlow,lonlow]= scircle1(thissta.slat, thissta.slong, SKSwin(1));
