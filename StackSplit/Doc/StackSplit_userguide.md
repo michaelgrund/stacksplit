@@ -85,7 +85,7 @@ Installation
 ------------
 
 1. After unzipping the downloaded/cloned StackSplit package, please copy the whole StackSplit folder into SplitLab's main
-folder where the file install ``splitlab.m`` is located. To find the path to this folder you can use the command:
+folder where the file ``install_SplitLab.m`` is located. To find the path to this folder you can use the command:
 ```
 folderSL = fileparts(which('install_SplitLab.m'))
 ```
@@ -139,8 +139,8 @@ event measurement was saved before, a new graphical user interface (GUI) will op
 ***Fig. 2**: Graphical user interface of StackSplit for two different approaches. Top panel shows an example of five
 stacked minimum energy surfaces using the WS method. Bottom panel shows the concatenated waveforms for the
 same five events when SIMW is selected. Numbers highlighted with colors correspond to the module descriptions in
-the following section. Orange indicates modules that are available if a stacking method (no weight, WS or RH) is selected,
-blue ones belong to SIMW. The red ones are available for both approaches (surface stacking and SIMW).*
+the following section. Orange indicates modules that are available if a stacking method (no weight, WS, or RH)
+is selected, blue ones belong to SIMW. The red ones are available for both approaches (surface stacking and SIMW).*
 
 #### Additional remark
 After running StackSplit the first time, please check if the single listbox entries are aligned below
@@ -157,8 +157,8 @@ the following subsections (please note also the references to **Fig. 2**).
 ### The listbox
 
 **(1)** in **Fig. 2**: Lists all available single event measurements for the current station project.
-If you did more than one measurement for an event (e.g. *SKS*, *SKKS*, *PKS*...) all of these are displayed in
-this list. Additionally, you maybe analyzed the same phase with different filters and saved
+If you did more than one measurement for an event (e.g. *SKS*, *SKKS*, *PKS*, ...) all of these are
+displayed in this list. Additionally, you maybe analyzed the same phase with different filters and saved
 the results. Then these individual results also appear in the list. From left to right the information in
 the list are:
 
@@ -179,10 +179,10 @@ use section.
 
 ### The world map
 
-**(2)**: Displays the currently selected entries from the listbox (blue dots) and the latest station you
-are working on (red triangle). If no Mapping toolbox is available on your system, please
+**(2)**: Displays the currently selected entries from the listbox (blue dots) and the latest station
+you were working on (red triangle). If no Mapping toolbox is available on your system, please
 use the updated SplitLab version of Rob Porritt (see *Requirements*). In this way automatically a
-simplified worldmap is displayed at this position instead of the equidistance map.
+simplified world map is displayed at this position instead of the equidistance map.
 
 ### The Limits panel
 
@@ -208,8 +208,8 @@ before stacking (see **Fig. 3**)
 ![](images/stacksplit_weight_rh.png)
 ***Fig. 3**: Sketch to demonstrate the implemented RH procedure. (a) Weighting function that assigns a weighting
 factor between 0 and 1 to the corresponding error surface depending on the SNR of the event. (b) Each single
-error surface is scaled to a factor of 1/N, with its great-circle direction defining a wedge of +- 10&deg; in which N
-observations fall. The red dot enclosed by the thick black line represents the current
+error surface is scaled to a factor of 1/N, with its great-circle direction defining a wedge of +- 10&deg;
+in which N observations fall. The red dot enclosed by the thick black line represents the current
 used measurement, the black dots the remaining single measurements. The parameters for both, weighting and
 normalization, can be adjusted in function ``SS_calc_RH.m``.*
 
@@ -246,7 +246,7 @@ information about the multi-event measurement. Results are saved in:
 In PyGMT the resulting files can be used as follows e.g. to add the splitting measurements to your map
 using rotated rectangles:
 
-```
+```python
 results = "splitresultsSTACK_OUTPUTNAME_4GMT.dat"
 
 fig.plot(
@@ -278,7 +278,7 @@ first are concatenated in the time domain. Then the merged waveform is inverted 
 using the three different methods that are implemented in SplitLab (RC, SC, and EV).
 Optionally, a taper can be applied on each of the wavelets by adjusting the **% taper** pop up
 window. Please note that SIMW only should be applied to events with similar hypocentral
-parameters (similar BAZ, distance etc.).
+parameters (similar BAZ, epicentral distance etc.).
 
 ### The Waveforms window
 
@@ -293,7 +293,7 @@ for Q and T are displayed and the **Inversion** button becomes active.
 (similar to the diagnostic plots from SplitLab) where the SIMW results are displayed depending
 on the method settings adjusted for the single event measurements (RC, SC, and EV).
 
-Equivalent to the single-event measurements the user can save the results and assign again
+Equivalent to the single event measurements the user can save the results and assign again
 a quality ranking. The results are saved in separate textfiles, similar to the stacked surface
 results (standard and in GMT format, for details see above). Additionally, the results are
 stored in the same mat-file as the surface stacking measurements. Diagnostic plots are
@@ -302,7 +302,7 @@ plot, the user can make a new measurement using SIMW or switch to another method
 
 ![](images/stacksplit_simw.png)
 ***Fig. 5**: SIMW diagnostic plot for five exemplary *SKS* phase records from earthquakes that occurred in the Pacific
-region between fall 2014 and fall 2016. Displayed are the standard SplitLab panels, except the worldmap in the upper
+region between fall 2014 and fall 2016. Displayed are the standard SplitLab panels, except the world map in the upper
 right corner that displays all the used events. The header gives additional information about the measurement and the
 input data.*
 
