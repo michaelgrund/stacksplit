@@ -99,7 +99,7 @@ if length(index)==1
 
     version=SS_check_matlab_version(); % MATLAB 2014b or higher?
     
-    if version>0 % MATLAB 2014b or higher
+    if version>0 % MATLAB 2014b or higher (changed 2023/01/04 YF)
         [~, hcon] = contourf(ts,ps,-surf2plot,-[Level Level]);
     else
         [~, hcon] = contourf('v6',ts,ps,-surf2plot,-[Level Level]);
