@@ -63,7 +63,7 @@ if config.maptool==1
     fileparts(mfilename('fullpath'));
     matlab_version = SS_check_matlab_version();
     if matlab_version==2  % MATLAB R2020b and higher (added 2023/01/04 YF)
-        coast_data = load('coastlines.mat');
+        coast_data = load('coastlines');
     else
         coast_data = load('coast');
 	end
