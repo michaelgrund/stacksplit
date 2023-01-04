@@ -15,9 +15,9 @@ function vers_out=SS_check_matlab_version()
 %  (1) vers_out==0: versions R2014a and lower: -v6 flag is necessary
 %  (2) vers_out==1: versions R2014b and higher: -v6 flag not supported anymore
 %
-% (II) Using the MATLAB build-in coastlines
-%  (1) vers_out==0: versions R2022b and lower: load('coast') with "lon" and "lat"
-%  (2) vers_out>0: versions R2023a and higher: load('coastlines.mat') with "coastlon" and "coastlat"
+% (II) Using the coastlines of the Mapping Toolbox
+%  (1) vers_out==0: versions R2020a and lower: load('coast') with "lon" and "lat"
+%  (2) vers_out>0: versions R2020b and higher: load('coastlines.mat') with "coastlon" and "coastlat"
 %==========================================================================
 % LICENSE
 %
@@ -58,7 +58,7 @@ else
     vers_out=0;
 end
 
-if vers_yyyy >= 2023 % MATLAB R2023a and higher (added 2023/01/04 YF)
+if vers_yyyy > 2020 || (vers_yyyy == 2020 && strcmp(vers_let,'b')) % MATLAB R2020b and higher (added 2023/01/04 YF)
     vers_out = 2;
 end
 
