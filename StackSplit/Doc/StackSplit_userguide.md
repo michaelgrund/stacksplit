@@ -2,8 +2,10 @@
 ======================
 
 December 2021 (v3.0)
+January 2023 (v3.1)
 
-last updated: 2021-12-23 (**Michael Grund**)
+mainly written: 2021-12-23 (**Michael Grund**)
+typo fixes: 2023-01-04 (**Yvonne Fröhlich**)
 
 Contents
 --------
@@ -32,7 +34,7 @@ Requirements
 
 StackSplit should run on every computer system on which the original [SplitLab](http://splitting.gm.univ-montp2.fr/)
 package runs. Thus, MATLAB 7.0 or higher, the Mapping toolbox and for full functionality the Signal Processing
-toolbox are required. If MATLAB 2014b or higher is running on your system or no license for the
+toolbox are required. If MATLAB R2014b or higher is running on your system or no license for the
 Mapping toolbox is available, I recommend to use the [updated SplitLab](https://robporritt.wordpress.com/software/)
 version of Rob Porritt. However, StackSplit was designed to work with both versions (with and without the Mapping
 toolbox) and the installer checks which of both is stored on your system.
@@ -99,7 +101,7 @@ cd([folderSL '/StackSplit'])
 ```
 4. Inside MATLAB's command window type:
 ```
-install StackSplit
+install_StackSplit
 ```
 5. Restart MATLAB.
 
@@ -180,7 +182,7 @@ use section.
 ### The world map
 
 **(2)**: Displays the currently selected entries from the listbox (blue dots) and the latest station
-you were working on (red triangle). If no Mapping toolbox is available on your system, please
+you are working on (red triangle). If no Mapping toolbox is available on your system, please
 use the updated SplitLab version of Rob Porritt (see *Requirements*). In this way automatically a
 simplified world map is displayed at this position instead of the equidistance map.
 
