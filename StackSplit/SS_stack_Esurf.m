@@ -420,9 +420,9 @@ maxi = max(abs(STACKsurf(:)));
 mini = min(abs(STACKsurf(:)));
 nb_contours = floor((1 - mini/maxi)*10);
       
-version=SS_check_matlab_version(); % MATLAB 2014b or higher?
+version=SS_check_matlab_version();
  
-if version>0 % MATLAB 2014b or higher (changed 2023/01/04 YF)
+if version>0 % MATLAB R2014b and higher (changed 2023/01/04 YF)
     [~, hcon] = contourf(ts,ps,-STACKsurf,-[MAPlevel MAPlevel]);
 else
     [~, hcon] = contourf('v6',ts,ps,-STACKsurf,-[MAPlevel MAPlevel]);   

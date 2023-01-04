@@ -9,17 +9,15 @@ function vers_out=SS_check_matlab_version()
 %==========================================================================
 % FILE DESCRIPTION
 %
-% check MATLAB version to distinguish between versions 
-% (I) older or newer than 2014b 
-% (II) older or newer than 2022b  (added 2023/01/04 YF)
+% Check MATLAB version to distinguish between versions:
 %
-% (I) especially necessary for applying the contourf function to create the energy maps 
-% 1) vers_out==0: versions 2014a and lower: -v6 flag is necessary 
-% 2) vers_out==1: versions 2014b or higher: -v6 flag not supported anymore
+% (I) Applying the contourf function to create the energy maps
+%  (1) vers_out==0: versions R2014a and lower: -v6 flag is necessary
+%  (2) vers_out==1: versions R2014b and higher: -v6 flag not supported anymore
 %
-% (II) expecially necessary for using the MATLAB build-in coast lines
-% 1) vers_out==0: versions 2022b and older: load('coast') with "lon" and "lat"
-% 2) vers_out>0: versions 2023a and higher: load('coastlines.mat') with "coastlon" and "coastlat"
+% (II) Using the MATLAB build-in coast lines
+%  (1) vers_out==0: versions R2022b and lower: load('coast') with "lon" and "lat"
+%  (2) vers_out>0: versions R2023a and higher: load('coastlines.mat') with "coastlon" and "coastlat"
 %==========================================================================
 % LICENSE
 %
@@ -54,13 +52,13 @@ vers=version('-release');
 vers_yyyy=str2double(vers(1:4));
 vers_let=vers(5);
 
-if vers_yyyy > 2014 || (vers_yyyy == 2014 && strcmp(vers_let,'b')) % MATLAB 2014b or higher
+if vers_yyyy > 2014 || (vers_yyyy == 2014 && strcmp(vers_let,'b')) % MATLAB R2014b and higher
    vers_out=1;
 else
     vers_out=0;
 end
 
-if vers_yyyy >= 2023 % MATLAB 2023a or higher (added 2023/01/04 YF)
+if vers_yyyy >= 2023 % MATLAB R2023a and higher (added 2023/01/04 YF)
     vers_out = 2;
 end
 
