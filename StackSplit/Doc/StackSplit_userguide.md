@@ -4,8 +4,8 @@
 December 2021 (v3.0)
 January 2023 (v3.1)
 
-mainly written: 2021-12-23 (**Michael Grund**)
-typo fixes: 2023-01-04 (**Yvonne Fröhlich**)
+Mainly written: 2021-12-23 (**Michael Grund**)
+Typo fixes: 2023-01-04 (**Yvonne Fröhlich**)
 
 Contents
 --------
@@ -241,8 +241,8 @@ select again a new list entry which discards the current result without saving. 
 the **Save** button, the user optionally can give a remark to the current result to note additional
 information about the multi-event measurement. Results are saved in:
 
-* a textfile (similar to the single results from SplitLab)
-* a textfile in a format usable in [PyGMT](https://www.pygmt.org/latest/)/[GMT](https://www.generic-mapping-tools.org/)
+* a text file (similar to the single results from SplitLab)
+* a text file in a format usable in [PyGMT](https://www.pygmt.org/latest/)/[GMT](https://www.generic-mapping-tools.org/)
 * a mat-file for further analysis in other programs/functions.
 
 In PyGMT the resulting files can be used as follows e.g. to add the splitting measurements to your map
@@ -262,9 +262,9 @@ For a full PyGMT example in which splitting data is plotted see e.g. the
 [Jupyter Notebook](https://github.com/michaelgrund/GMT-plotting/blob/main/009_paper_GR2020/pygmt_jn_fig_4/GR_2020_Fig_4.ipynb)
 that accompanies our paper on shear-wave splitting analysis in Fennoscandia.
 
-Futhermore, a diagnostic plot is saved for each measurement (see example in **Fig. 4**).
+Furthermore, a diagnostic plot is saved for each measurement (see example in **Fig. 4**).
 If you select listbox entries of more than one phase (or filter) per event, a warning box will
-appear and asks for continuing or dicarding the current calculation. The same happens if nulls and
+appear and asks for continuing or discarding the current calculation. The same happens if nulls and
 non-nulls are selected together. Please note that if any difference between e.g. *SKS* and *SKKS*
 appears stacking would potentially bias the overall result!
 
@@ -296,7 +296,7 @@ for Q and T are displayed and the **Inversion** button becomes active.
 on the method settings adjusted for the single event measurements (RC, SC, and EV).
 
 Equivalent to the single event measurements the user can save the results and assign again
-a quality ranking. The results are saved in separate textfiles, similar to the stacked surface
+a quality ranking. The results are saved in separate text files, similar to the stacked surface
 results (standard and in GMT format, for details see above). Additionally, the results are
 stored in the same mat-file as the surface stacking measurements. Diagnostic plots are
 saved in the pre-selected results folder (see example in **Fig. 5**). After closing the diagnostic
@@ -317,7 +317,7 @@ Uninstall StackSplit
 
 If you are not happy with StackSplit, you can remove the whole package and recover your original
 SplitLab version as before the installation. For this purpose, only type the following command
-(doesn't matter in which folder/directory you currently are) in the MATLAB command window:
+(it doesn't matter in which folder/directory you are currently) in the MATLAB command window:
 
 ```
 uninstall_StackSplit
