@@ -252,10 +252,10 @@ using rotated rectangles:
 results = "splitresultsSTACK_OUTPUTNAME_4GMT.dat"
 
 fig.plot(
-    data = results,
-    style = "J",
-    pen = "0.55p,darkgray",
-    fill = "red",
+    data=results,
+    style="J",
+    pen="0.55p,darkgray",
+    fill="red",
 )
 ```
 For a full PyGMT example in which splitting data is plotted see e.g. the
