@@ -17,7 +17,7 @@ function vers_out=SS_check_matlab_version()
 %
 % (II) Using the coastlines of the Mapping Toolbox
 %  (1) vers_out==0: versions R2020a and lower: load('coast') with "lon" and "lat"
-%  (2) vers_out>0: versions R2020b and higher: load('coastlines.mat') with "coastlon" and "coastlat"
+%  (2) vers_out==2: versions R2020b and higher: load('coastlines.mat') with "coastlon" and "coastlat"
 %==========================================================================
 % LICENSE
 %
