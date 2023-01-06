@@ -47,18 +47,18 @@ function vers_out=SS_check_matlab_version()
 %==========================================================================
 %==========================================================================
 
-vers=version('-release');
+vers = version('-release');
 
-vers_yyyy=str2double(vers(1:4));
-vers_let=vers(5);
+vers_yyyy = str2double(vers(1:4));
+vers_let = vers(5);
 
-if vers_yyyy > 2014 || (vers_yyyy == 2014 && strcmp(vers_let,'b')) % MATLAB R2014b and higher
-   vers_out=1;
+if vers_yyyy>2014 || (vers_yyyy==2014 && strcmp(vers_let,'b')) % MATLAB R2014b and higher
+   vers_out = 1;
 else
-    vers_out=0;
+    vers_out = 0;
 end
 
-if vers_yyyy > 2020 || (vers_yyyy == 2020 && strcmp(vers_let,'b')) % MATLAB R2020b and higher (added 2023/01/04 YF)
+if vers_yyyy>2020 || (vers_yyyy==2020 && strcmp(vers_let,'b')) % MATLAB R2020b and higher (added 2023/01/04 YF)
     vers_out = 2;
 end
 
