@@ -2,8 +2,10 @@
 ======================
 
 December 2021 (v3.0)
+January 2023 (v3.1)
 
-last updated: 2021-12-23 (**Michael Grund**)
+Mainly written: 2021-12-23 (**Michael Grund**)
+Typo fixes: 2023-01-04 (**Yvonne Fröhlich**)
 
 Contents
 --------
@@ -32,7 +34,7 @@ Requirements
 
 StackSplit should run on every computer system on which the original [SplitLab](http://splitting.gm.univ-montp2.fr/)
 package runs. Thus, MATLAB 7.0 or higher, the Mapping toolbox and for full functionality the Signal Processing
-toolbox are required. If MATLAB 2014b or higher is running on your system or no license for the
+toolbox are required. If MATLAB R2014b or higher is running on your system or no license for the
 Mapping toolbox is available, I recommend to use the [updated SplitLab](https://robporritt.wordpress.com/software/)
 version of Rob Porritt. However, StackSplit was designed to work with both versions (with and without the Mapping
 toolbox) and the installer checks which of both is stored on your system.
@@ -56,7 +58,7 @@ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License3 for more d
 If any problems occur while installing/running StackSplit (especially due to MATLAB version issues)
 or you found a potential bug, please feel free to open a new [issue](https://github.com/michaelgrund/stacksplit/issues) or
 [pull request](https://github.com/michaelgrund/stacksplit/pulls) here on GitHub. Please indicate the corresponding function
-that generates the error and/or copy/paste the whole error message output of MATLAB. If StackSplit will not fulfil your
+that generates the error and/or copy/paste the whole error message output of MATLAB. If StackSplit does not fulfill your
 expectations, don't hesitate to provide comments and suggestions for improvements etc.
 
 ### Miscellaneous
@@ -84,12 +86,12 @@ If you make use of StackSplit please acknowledge the following contributing pape
 Installation
 ------------
 
-1. After unzipping the downloaded/cloned StackSplit package, please copy the whole StackSplit folder into SplitLabs main
-folder where the file install ``splitlab.m`` is located. To find the path to this folder you can use the command:
+1. After unzipping the downloaded/cloned StackSplit package, please copy the whole StackSplit folder into SplitLab's main
+folder where the file ``install_SplitLab.m`` is located. To find the path to this folder you can use the command:
 ```
 folderSL = fileparts(which('install_SplitLab.m'))
 ```
-2. Please add the following folder to to your MATLAB search path (for editing the path simply use the command ``pathtool``):
+2. Please add the following folder to your MATLAB search path (for editing the path simply use the command ``pathtool``):
 ```
 SplitlabX.X.X/StackSplit
 ```
@@ -97,9 +99,9 @@ SplitlabX.X.X/StackSplit
 ```
 cd([folderSL '/StackSplit'])
 ```
-4. Inside MATLABs command window type:
+4. Inside MATLAB's command window type:
 ```
-install StackSplit
+install_StackSplit
 ```
 5. Restart MATLAB.
 
@@ -118,19 +120,19 @@ position (**Fig. 1**).
 indicate optional settings.*
 
 If no saved results of single event measurements are available for the current project, of course also no
-stacking is possible at this point. Before stacking single measurement results, you have to analyse your
+stacking is possible at this point. Before stacking single measurement results, you have to analyze your
 event waveforms in SplitLab as before:
 
-1. click button **View Seismograms**
+1. Click button **View Seismograms**
 2. Select a time window around a specific phase
-3. press the enter key to start the inversion
-4. check the diagnostics
-5. discard the result or save it
+3. Press the enter key to start the inversion
+4. Check the diagnostics
+5. Discard the result or save it
 
 If you now save a result, several new struct fields are created for the current event. For example
 the currently shown error maps, the cut waveforms of all components, the degrees of freedom etc.
 For each single station project they are all saved in a mat-file named ``STANAME_eqresults.mat``.
-At this point, thanks to Rob Porritt for initialising this variable in his updated SplitLab version.
+At this point, thanks to Rob Porritt for initializing this variable in his updated SplitLab version.
 To check your single results like before you can browse through the well-known options of SplitLab.
 Additionally, now you can select the **Stacking** button in the main panel. If more than one single
 event measurement was saved before, a new graphical user interface (GUI) will open (**Fig. 2**).
@@ -139,8 +141,8 @@ event measurement was saved before, a new graphical user interface (GUI) will op
 ***Fig. 2**: Graphical user interface of StackSplit for two different approaches. Top panel shows an example of five
 stacked minimum energy surfaces using the WS method. Bottom panel shows the concatenated waveforms for the
 same five events when SIMW is selected. Numbers highlighted with colors correspond to the module descriptions in
-the following section. Orange indicates modules that are available if a stacking method (no weight, WS or RH) is selected,
-blue ones belong to SIMW. The red ones are available for both approaches (surface stacking and SIMW).*
+the following section. Orange indicates modules that are available if a stacking method (no weight, WS, or RH)
+is selected, blue ones belong to SIMW. The red ones are available for both approaches (surface stacking and SIMW).*
 
 #### Additional remark
 After running StackSplit the first time, please check if the single listbox entries are aligned below
@@ -157,8 +159,8 @@ the following subsections (please note also the references to **Fig. 2**).
 ### The listbox
 
 **(1)** in **Fig. 2**: Lists all available single event measurements for the current station project.
-If you did more than one measurement for an event (e.g. *SKS*, *SKKS*, *PKS*...) all of these are displayed in
-this list. Additionally, you maybe analyzed the same phase with different filters and saved
+If you did more than one measurement for an event (e.g. *SKS*, *SKKS*, *PKS*, ...) all of these are
+displayed in this list. Additionally, you maybe analyzed the same phase with different filters and saved
 the results. Then these individual results also appear in the list. From left to right the information in
 the list are:
 
@@ -172,17 +174,17 @@ the list are:
 * used filter in Hz
 * phase name
 
-Quality and Null/non-Null are indicated in color (see the two legends on top of the listbox).
-By default the list is sorted by increasing BAZ. If you want to change this, open function
+Quality and null/non-null are indicated in color (see the two legends on top of the listbox).
+By default, the list is sorted by increasing BAZ. If you want to change this, open function
 ``SS_read_SLresults.m`` and modify the settings in the top row after the license and terms of
 use section.
 
 ### The world map
 
-**(2)**: Displays the currently selected entries from the listbox (blue dots) and the latest station you
-are working on (red triangle). If no Mapping toolbox is available on your system, please
+**(2)**: Displays the currently selected entries from the listbox (blue dots) and the latest station
+you are working on (red triangle). If no Mapping toolbox is available on your system, please
 use the updated SplitLab version of Rob Porritt (see *Requirements*). In this way automatically a
-simplified worldmap is displayed at this position instead of the equidistance map.
+simplified world map is displayed at this position instead of the equidistance map.
 
 ### The Limits panel
 
@@ -206,10 +208,10 @@ depending on the singal-to-noise ratio (SNR) and normalized by backazimuthal cov
 before stacking (see **Fig. 3**)
 
 ![](images/stacksplit_weight_rh.png)
-***Fig. 3**: Sketch to demonstrate the implemented RH procedure. (a) Weighting function that assigns a weigthing
+***Fig. 3**: Sketch to demonstrate the implemented RH procedure. (a) Weighting function that assigns a weighting
 factor between 0 and 1 to the corresponding error surface depending on the SNR of the event. (b) Each single
-error surface is scaled to a factor of 1/N, with its great-circle direction defining a wedge of +- 10&deg; in which N
-observations fall. The red dot enclosed by the thick black line represents the current
+error surface is scaled to a factor of 1/N, with its great-circle direction defining a wedge of +- 10&deg;
+in which N observations fall. The red dot enclosed by the thick black line represents the current
 used measurement, the black dots the remaining single measurements. The parameters for both, weighting and
 normalization, can be adjusted in function ``SS_calc_RH.m``.*
 
@@ -239,29 +241,31 @@ select again a new list entry which discards the current result without saving. 
 the **Save** button, the user optionally can give a remark to the current result to note additional
 information about the multi-event measurement. Results are saved in:
 
-* a textfile (similar to the single results from SplitLab)
-* a textfile in a format usable in [PyGMT](https://www.pygmt.org/latest/)/[GMT](https://www.generic-mapping-tools.org/)
+* a text file (similar to the single results from SplitLab)
+* a text file in a format usable in [PyGMT](https://www.pygmt.org/latest/)/[GMT](https://www.generic-mapping-tools.org/)
 * a mat-file for further analysis in other programs/functions.
 
 In PyGMT the resulting files can be used as follows e.g. to add the splitting measurements to your map
 using rotated rectangles:
 
-```
+```python
 results = "splitresultsSTACK_OUTPUTNAME_4GMT.dat"
 
-fig.plot(data = results,
-         style = "J",
-         pen = "0.55p,darkgray",
-         color = "red")
+fig.plot(
+    data=results,
+    style="J",
+    pen="0.55p,darkgray",
+    fill="red",
+)
 ```
 For a full PyGMT example in which splitting data is plotted see e.g. the
 [Jupyter Notebook](https://github.com/michaelgrund/GMT-plotting/blob/main/009_paper_GR2020/pygmt_jn_fig_4/GR_2020_Fig_4.ipynb)
 that accompanies our paper on shear-wave splitting analysis in Fennoscandia.
 
-Futhermore, a diagnostic plot is saved for each measurement (see example in **Fig. 4**).
-If you select list box entries of more than one phase (or filter) per event, a warning box will
-appear and asks for continuing or dicarding the current calculation. The same happens if Nulls and
-non-Nulls are selected together. Please note that if any difference between e.g. *SKS* and *SKKS*
+Furthermore, a diagnostic plot is saved for each measurement (see example in **Fig. 4**).
+If you select listbox entries of more than one phase (or filter) per event, a warning box will
+appear and asks for continuing or discarding the current calculation. The same happens if nulls and
+non-nulls are selected together. Please note that if any difference between e.g. *SKS* and *SKKS*
 appears stacking would potentially bias the overall result!
 
 ![](images/stacksplit_surfstack.png)
@@ -273,10 +277,10 @@ surfaces. The 95% confidence region is enclosed by the thick black line.*
 
 **(7)**: Apply the SIMW approach (***Roy et al., 2017***) in which the waveforms of the selected events
 first are concatenated in the time domain. Then the merged waveform is inverted simultaneously
-using the three different methods that are implemented in SplitLab (RC, SC and EV).
+using the three different methods that are implemented in SplitLab (RC, SC, and EV).
 Optionally, a taper can be applied on each of the wavelets by adjusting the **% taper** pop up
 window. Please note that SIMW only should be applied to events with similar hypocentral
-parameters (similar BAZ, distance etc.).
+parameters (similar BAZ, epicentral distance etc.).
 
 ### The Waveforms window
 
@@ -289,19 +293,18 @@ for Q and T are displayed and the **Inversion** button becomes active.
 
 **(9)**: By clicking the **Inversion** button, the SIMW calculation will start and a new window opens
 (similar to the diagnostic plots from SplitLab) where the SIMW results are displayed depending
-on the method settings adjusted for the single event measurements (RC, SC and
-EV).
+on the method settings adjusted for the single event measurements (RC, SC, and EV).
 
 Equivalent to the single event measurements the user can save the results and assign again
-a quality ranking. The results are saved in separate textfiles, similar to the stacked surface
+a quality ranking. The results are saved in separate text files, similar to the stacked surface
 results (standard and in GMT format, for details see above). Additionally, the results are
-stored in the same mat-file like the surface stacking measurements. Diagnostic plots are
+stored in the same mat-file as the surface stacking measurements. Diagnostic plots are
 saved in the pre-selected results folder (see example in **Fig. 5**). After closing the diagnostic
 plot, the user can make a new measurement using SIMW or switch to another method.
 
 ![](images/stacksplit_simw.png)
-***Fig. 5**: SIMW diagnostic plot for five exemplary *SKS* phase records from earthquakes that occured in the Pacific
-region between fall 2014 and fall 2016. Displayed are the standard SplitLab panels, except the worldmap in the upper
+***Fig. 5**: SIMW diagnostic plot for five exemplary *SKS* phase records from earthquakes that occurred in the Pacific
+region between fall 2014 and fall 2016. Displayed are the standard SplitLab panels, except the world map in the upper
 right corner that displays all the used events. The header gives additional information about the measurement and the
 input data.*
 
@@ -314,7 +317,7 @@ Uninstall StackSplit
 
 If you are not happy with StackSplit, you can remove the whole package and recover your original
 SplitLab version as before the installation. For this purpose, only type the following command
-(doesn't matter in which folder/directory you currently are) in the MATLAB command window:
+(it doesn't matter in which folder/directory you are currently) in the MATLAB command window:
 
 ```
 uninstall_StackSplit
