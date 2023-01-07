@@ -13,10 +13,10 @@ function vers_out=SS_check_matlab_version()
 %
 % (I) Applying the contourf function to create the energy maps
 %  (1) vers_out==0: versions R2014a and lower: -v6 flag is necessary
-%  (2) vers_out==1: versions R2014b and higher: -v6 flag not supported anymore
+%  (2) vers_out==1 or ==2: versions R2014b and higher: -v6 flag not supported anymore
 %
-% (II) Using the coastlines of the Mapping Toolbox
-%  (1) vers_out==0: versions R2020a and lower: load('coast') with "lon" and "lat"
+% (II) Using the coastlines provided by the Mapping Toolbox (added 2023/01/04 YF)
+%  (1) vers_out==0 or ==1: versions R2020a and lower: load('coast') with "lon" and "lat"
 %  (2) vers_out==2: versions R2020b and higher: load('coastlines.mat') with "coastlon" and "coastlat"
 %==========================================================================
 % LICENSE
@@ -48,17 +48,18 @@ function vers_out=SS_check_matlab_version()
 %==========================================================================
 
 vers = version('-release');
-
 vers_yyyy = str2double(vers(1:4));
 vers_let = vers(5);
 
-if vers_yyyy>2014 || (vers_yyyy==2014 && strcmp(vers_let,'b')) % MATLAB R2014b and higher
+% (I) Applying the contourf function to create the energy maps
+if vers_yyyy>2014 || (vers_yyyy==2014 && strcmp(vers_let,'b')) % R2014b and higher
    vers_out = 1;
 else
     vers_out = 0;
 end
 
-if vers_yyyy>2020 || (vers_yyyy==2020 && strcmp(vers_let,'b')) % MATLAB R2020b and higher (added 2023/01/04 YF)
+% (II) Using the coastlines provided by the Mapping Toolbox
+if vers_yyyy>2020 || (vers_yyyy==2020 && strcmp(vers_let,'b')) % R2020b and higher (added 2023/01/04 YF)
     vers_out = 2;
 end
 
