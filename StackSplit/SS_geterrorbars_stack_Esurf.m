@@ -59,7 +59,6 @@ if ndf <=K
     Ecrit = Eresult;
 else
     
-    nu1=K;
     nu2=ndf-K;
     
     if  nu2 > 100
