@@ -149,7 +149,6 @@ min_inipol=min(inipol);
 
 bazi_int=[min_bazi max_bazi];
 dist_int=[min_dist max_dist];
-inipol_int=[min_inipol max_inipol];
 
 diffbazi=abs(max_bazi-min_bazi);
 diffdist=abs(max_dist-min_dist);
