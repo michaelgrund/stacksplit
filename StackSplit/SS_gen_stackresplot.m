@@ -182,7 +182,7 @@ end
 
 fname = sprintf(['Multi_result_STACK', config.exportformat]);
 
-%check if file alredy exists 
+% check if file already exists
 No=2;
 while exist(fullfile(config.savedir, fname),'file') == 2
     fname = sprintf('Multi_result_STACK[%.0f]%s',...
