@@ -80,7 +80,7 @@ if length(index)==1 % one single event
     tapdesign=tukeywin(length(find_res(index).results.Qcut),h.usetap);
 
     delta=h.EMAP_sampling;
-    timevec=[0:delta:delta*length(find_res(index).results.Qcut)-delta];
+    timevec=0:delta:delta*length(find_res(index).results.Qcut)-delta;
 
     % Q comp
     axes(h.axWF)
@@ -189,7 +189,7 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
     merged_E=vertcat(merged_E,zeros(zerosbe,1)); 
     
     delta=h.EMAP_sampling;
-    timevec=[0:delta:delta*length(merged_Q)-delta];
+    timevec=0:delta:delta*length(merged_Q)-delta;
 
     % Q comp
     axes(h.axWF)
