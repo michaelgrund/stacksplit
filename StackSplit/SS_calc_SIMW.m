@@ -51,7 +51,8 @@ global config SIMW_temp
 if h.checkmultiSIMW==1 % for h.checkmultiSIMW, see function SS_prep_SIMW
     
     % disp dialog if SIMW procedure should be continued or aborted 
-    ask4multi=questdlg('Your selection contains different phases/filters of the same event! Continue?','Multiple result selection','No','Yes','No');
+    ask4multi=questdlg('Your selection contains different phases/filters of the same event! Continue?', ...
+        'Multiple result selection','No','Yes','No');
 
     if strcmp(ask4multi,'No') % set all buttons to visible off since SIMW is aborted 
             
