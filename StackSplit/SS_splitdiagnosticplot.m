@@ -218,7 +218,8 @@ xlabel('delay time in s', 'Fontsize',fontsize-1)
 ylabel('fast axis in N°E', 'Fontsize',fontsize-1)
 
 %label = ['0' sprintf('|%u',1:maxtime) 'sec'];
-set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', [0:1:maxtime] ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
+set(gca, 'Xtick',0:1:maxtime, 'Ytick',-90:30:90, ...
+    'XtickLabel',0:1:maxtime, 'xMinorTick','on', 'yminorTick','on')
 axis([ts(1) ts(end) -90 90])
 set(h1,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
 
@@ -292,7 +293,8 @@ line([dt dt],[-90 90],'Color',[0 0 1])
 
 hold off
 axis([0 maxtime -90 90])
-set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', [0:1:maxtime] ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
+set(gca, 'Xtick',0:1:maxtime, 'Ytick',-90:30:90, ...
+    'XtickLabel', 0:1:maxtime, 'xMinorTick','on', 'yminorTick','on')
 xlabel('delay time in s', 'Fontsize',fontsize-1)
 ylabel('fast axis in N°E', 'Fontsize',fontsize-1)
 title(Maptitle,'FontSize',titlefontsize);
