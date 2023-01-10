@@ -134,7 +134,8 @@ colormap(fig_out,'gray')
 % label = ['0' sprintf('|%u',1:config.maxSplitTime) 'sec'];
 axis square
 axis([0 config.maxSplitTime -90 90])
-set(gca, 'Xtick',[0:1:config.maxSplitTime], 'XtickLabel',[0:1:config.maxSplitTime],'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
+set(gca, 'Xtick',0:1:config.maxSplitTime, 'Ytick',-90:30:90, ...
+    'XtickLabel',0:1:config.maxSplitTime, 'xMinorTick','on', 'yminorTick','on')
 box on
 
 pos=get(ax2,'position');
