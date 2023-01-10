@@ -117,7 +117,8 @@ if length(index)==1
 
     hold off
     axis([0 maxtime -90 90])
-    set(gca, 'Xtick',0:1:maxtime, 'XtickLabel', 0:1:maxtime ,'Ytick',-90:30:90,'xMinorTick','on','yminorTick','on')
+    set(gca, 'Xtick',0:1:maxtime, 'Ytick',-90:30:90, ...
+        'XtickLabel',0:1:maxtime, 'xMinorTick','on', 'yminorTick','on')
     xlabel('delay time \delta\itt\rm in s', 'Fontsize', fontsize)
     ylabel('fast axis \phi in \circ', 'Fontsize',fontsize)
     
