@@ -138,7 +138,7 @@ end
 % check if original SL function is already renamed
 dir_orifiles=dir(['splitlab' filesuffix '.m']); 
 
-% check for unzipped SS folder
+% check for unzipped StackSplit folder
 dirSS=dir('StackSpl*');
 
 if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1 && ~isempty(dir_orifiles)
@@ -238,8 +238,8 @@ end
 % =======================
 % changes: added a new button on the left panel to access StackSplit 
 % (and corresponding callbacks), position depends on the version 
-% (original or from Rob Porritt), add commands to close SS if a new SL
-% project is loaded
+% (original or from Rob Porritt), add commands to close StackSplit if a 
+% new SplitLab project is loaded
 
 dir_splitlab=dir('splitlab.m');
 
@@ -418,7 +418,7 @@ rmdir('SL_mod','s')
 
 % main folder
 cd(folderSL)
-movefile('splitlab_SS.m','splitlab.m') % rename modified SS file to original name
+movefile('splitlab_SS.m','splitlab.m') % rename modified SplitLab file to original name
 
 % SWS folder
 cd(pathSWS)

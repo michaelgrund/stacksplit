@@ -74,7 +74,7 @@ else
     errordlg('No SplitLab version found!')
 end
 
-% check for unzipped SS folder
+% check for unzipped StackSplit folder
 dirSS=dir('StackSpl*');
 
 if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1
@@ -120,7 +120,7 @@ dir_orifiles=dir(['*' filesuffix '.m']);
 
 if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['splitlab' filesuffix '.m'])
 
-    % first delete the current SS version of the function with correct name
+    % first delete the current StackSplit version of the function with correct name
     dir_splitlab=dir('splitlab.m');
     
     if ~isempty(dir_splitlab)
@@ -178,7 +178,7 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==2
     %================================================================
     for ii=1:length(files2delete)
         
-        % delete SS version of file
+        % delete StackSplit version of file
         dir_file2del=dir(files2delete{ii});
         
         if ~isempty(dir_file2del)
@@ -231,7 +231,7 @@ dir_orifiles=dir(['*' filesuffix '.m']);
 
 if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['seisfigbuttons' filesuffix '.m'])
 
-    % first delete the current SS version of the function with correct name
+    % first delete the current StackSplit version of the function with correct name
     dir_seisfig=dir('seisfigbuttons.m');
     
     if ~isempty(dir_seisfig)
@@ -293,7 +293,7 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==5
     %================================================================
     for ii=1:length(files2delete)
         
-        % delete SS version of file
+        % delete StackSplit version of file
         dir_file2del=dir(files2delete{ii});
         
         if ~isempty(dir_file2del)

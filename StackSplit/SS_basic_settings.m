@@ -50,9 +50,9 @@ fontsize_list=13;
 
 global config
 
-% first check if SS fields are already available in config, if yes the user
-% saved the project for this station before with the available settings,
-% otherwise the fields are created in the following
+% first check if StackSplit fields are already available in config,
+% if yes the user saved the project for this station before with the
+% available settings, otherwise the fields are created in the following
 
 %VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
 % default values for max diffBAZ/diffdist/diffinipol selection 
@@ -108,7 +108,7 @@ set(h.check(2),'enable','off'); % WS
 set(h.check(3),'enable','off'); % RH
 set(h.check(4),'enable','off'); % SIMW
 
-% if field exists which method was latest before closing last SS session
+% if field exists which method was latest before closing last StackSplit session
 if isfield(config,'SS_meth')
     
     if strcmp(config.SS_meth,'nw')

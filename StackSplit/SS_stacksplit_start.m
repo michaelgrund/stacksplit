@@ -131,7 +131,8 @@ else
 end
 
 %=============================================================
-% CHECK if a project was already loaded in SL, otherwise SS will not start
+% CHECK if a project was already loaded in SplitLab,
+% otherwise StackSplit will not start
 
 if ~exist('config','var')
     errordlg('Please first start SplitLab to load a project!','SL is not running')
