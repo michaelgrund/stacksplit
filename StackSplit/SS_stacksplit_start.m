@@ -112,11 +112,12 @@ global config eqstack
 
 % StackSplit version
 %VVVVVVVVVVVVVVVVVVVVVVV
-config.SS_version='3.0'; 
+config.SS_version='3.1';
 
-%1.0 released 2017-04-04
-%2.0 released 2019-06-28
-%3.0 upcoming 2021-12-23
+% 1.0 released 2017-04-04
+% 2.0 released 2019-06-28
+% 3.0 released 2021-12-23
+% 3.1 upcoming 2023-01-DD
 %VVVVVVVVVVVVVVVVVVVVVVV
 
 clc
