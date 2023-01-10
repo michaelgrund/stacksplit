@@ -55,7 +55,7 @@ for ii=1:length(find_res)
         samp(ii)=find_res(ii).results.dttrace;
     else
         error(['No field dttrace available! ' ...
-            'Maybe you are using an old version of SplitLab!'])
+            'Maybe you are using an old version of SplitLab?'])
     end
     [check_rows(ii),check_cols(ii)]=size(find_res(ii).results.Ematrix);
     [check_rowsC(ii),check_colsC(ii)]=size(find_res(ii).results.Cmatrix);
