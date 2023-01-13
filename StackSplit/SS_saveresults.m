@@ -148,10 +148,11 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     %==========================================================================
     % mat-file
 
-    % SAVE results to permanent variable eqstack (mat-file) for further analysis 
-    % outside of SL/SS, when variable already exists, it is read in the main 
-    % function and the new result is connected to the end, otherwise a new 
-    % struct is generated and saved in the following
+    % SAVE results to permanent variable eqstack (mat-file) for further
+    % analysis outside of Splitlab / StackSplit, when variable already
+    % exists, it is read in the main function and the new result is
+    % connected to the end, otherwise a new struct is generated and saved
+    % in the following
 
     eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
     eqstack(end).results.meas_sdn=now; % date of measurement, serial date number 
