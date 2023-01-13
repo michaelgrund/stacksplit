@@ -118,8 +118,8 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     %==========================================================================
     % txt-file, PyGMT/GMT ready format
     
-    % format allows to directly use the output file in PyGMT or GMT (5.2.1 or
-    % higher) via the -SJ flag of psxy, for details see the UserGuide
+    % format allows to directly use the output file in PyGMT or GMT (5.2.1
+    % or higher) via the -SJ flag of psxy, for details see the UserGuide
 
     % column description:
     % station lat. | station lon. | phistack | dtstack(scaled by factor scale_bar) | bar thickness | mean BAZ (not used in GMT) | mean dist (not used in GMT) | station name (not used in GMT) 
@@ -267,10 +267,10 @@ else
     fclose(fid);
 
     %==========================================================================
-    % txt-file, GMT ready format
+    % txt-file, PyGMT/GMT ready format
     
-    % format allows to directly use the output file in GMT (5.2.1 or
-    % higher) via the -SJ flag of psxy. 
+    % format allows to directly use the output file in PyGMT or GMT (5.2.1
+    % or higher) via the -SJ flag of psxy, for details see the UserGuide
     
     % EXAMPLE:   psxy splitresultsSIMW_OUTPUTNAME_4GMT.dat -R -J -SJ -W0.25p,blue -Gred -O -K >> $ps
     
