@@ -279,8 +279,7 @@ if length(use_data) > 1 % more than 1 selection
                 % depending on EV input, normalize on minimum or maximum
                 switch config.splitoption
                     case 'Minimum Energy' % minimum normalization;
-                                          % if Minimum Energy is the
-                                          % "splitoption"
+                                          % if Minimum Energy is the "splitoption"
                                           % then automatically min(lambda2)
                                           % is the corresponding EV method
                                           % (see splitSilverChan.m)
@@ -322,8 +321,7 @@ if length(use_data) > 1 % more than 1 selection
                 switch config.splitoption
                     
                     case 'Minimum Energy' % minimum normalization;
-                                          % if Minimum Energy is the
-                                          % "splitoption"
+                                          % if Minimum Energy is the "splitoption"
                                           % then automatically min(lambda2)
                                           % is the corresponding EV method
                                           % (see splitSilverChan.m)
