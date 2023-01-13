@@ -140,8 +140,7 @@ else
     hold on
     
     colormap(gray);
-    plot(plates_data.PBlong,plates_data.PBlat, 'LineStyle','-', ...
-        'Linewidth',1, 'Tag','Platebounds', 'Color',[1.2 1 1]*.8);
+    plot(plates_data.PBlong,plates_data.PBlat, 'LineStyle','-','Linewidth',1,'Tag','Platebounds','Color',[1.2 1 1]*.8);
     plot(coast_data.ncst(:,1),coast_data.ncst(:,2),'k');
     
     % station marker
