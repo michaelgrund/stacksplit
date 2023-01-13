@@ -55,7 +55,7 @@ function SS_stacksplit_start
 %     https://doi.org/10.1016/j.cageo.2017.04.015.
 %
 % Wüstefeld et al. (2008), SplitLab: A shear-wave splitting environment in Matlab, 
-%     Computers & Geosciences 34, 515–528
+%     Computers & Geosciences 34, 515–528, https://doi.org/10.1016/j.cageo.2007.08.002.
 %
 %.................................................
 % USED METHODS (depending on your application)
