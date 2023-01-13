@@ -318,8 +318,10 @@ if length(use_data) > 1 % more than 1 selection
                 % depending on EV input, normalized on minimum or maximum
                 switch config.splitoption
                     
-                    case 'Minimum Energy' % minimum normalization; if Minimum Energy is the split option, then
-                                          % automatically min(lambda2) is the corresponding EV method
+                    case 'Minimum Energy' % minimum normalization;
+                                          % if Minimum Energy is the split option
+                                          % then automatically min(lambda2)
+                                          % is the corresponding EV method
                                           % (see splitSilverChan.m)
                         STACKsurf=STACKsurf+((use_data(ii).results.EVmatrix./...
                             min(min(use_data(ii).results.EVmatrix)))./countN).*wf;
