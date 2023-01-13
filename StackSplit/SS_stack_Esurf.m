@@ -278,8 +278,11 @@ if length(use_data) > 1 % more than 1 selection
               
                 % depending on EV input, normalize on minimum or maximum
                 switch config.splitoption
-                    case 'Minimum Energy' % minimum normalization; if Minimum Energy is the splitoption, then 
-                                          % automatically min(lambda2) is the corresponding EV method
+                    case 'Minimum Energy' % minimum normalization;
+                                          % if Minimum Energy is the
+                                          % "splitoption"
+                                          % then automatically min(lambda2)
+                                          % is the corresponding EV method
                                           % (see splitSilverChan.m)
                         STACKsurf=STACKsurf+use_data(ii).results.EVmatrix./min(min(use_data(ii).results.EVmatrix));
                         sum_ndf=sum_ndf+use_data(ii).results.ndfEV;             
@@ -319,7 +322,8 @@ if length(use_data) > 1 % more than 1 selection
                 switch config.splitoption
                     
                     case 'Minimum Energy' % minimum normalization;
-                                          % if Minimum Energy is the split option
+                                          % if Minimum Energy is the
+                                          % "splitoption"
                                           % then automatically min(lambda2)
                                           % is the corresponding EV method
                                           % (see splitSilverChan.m)
@@ -366,8 +370,10 @@ elseif h.surf_kind==2 % EV surface
     
     switch config.splitoption
         
-        case 'Minimum Energy' % search abs min; if Minimum Energy is the splitoption, then 
-                              % automatically min(lambda2) is the corresponding EV method
+        case 'Minimum Energy' % search abs min;
+                              % if Minimum Energy is the "splitoption",
+                              % then automatically min(lambda2)
+                              % is the corresponding EV method
                               % (see splitSilverChan.m)
             [indexPhi,indexDt]   = find(STACKsurf==min(STACKsurf(:)), 1);      
         case 'Eigenvalue: min(lambda2)' % search abs min
