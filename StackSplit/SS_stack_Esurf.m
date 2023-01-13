@@ -247,7 +247,7 @@ if length(use_data) > 1 % more than 1 selection
     % BEGIN OF STACKING LOOP
     for ii=1:length(use_data)
         %_______________________________________________________________________
-        % standard stacking without weight, the relative topographie of
+        % standard stacking without weight, the relative topography of
         % each measurement is considered, (see e.g. Wüstefeld, 2007; PhD
         % thesis)
         if check_stack{1}==1
