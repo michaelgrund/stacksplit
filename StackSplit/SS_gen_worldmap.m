@@ -115,8 +115,8 @@ else
     h.EQstatsax=ax;
 
     % check for files needed to construct "alternative" map
-    if exist('SL_plates.mat', 'file') == 2 && exist('SL_coasts.mat', 'file') ==2 ...
-             && exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file') ==2 && exist('ncread')
+    if exist('SL_plates.mat', 'file')==2 && exist('SL_coasts.mat', 'file')==2 ...
+             && exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file')==2 && exist('ncread')
 
         % matlab structures included with this distribution
         coast_data = load('SL_coasts.mat');        
