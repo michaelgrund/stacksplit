@@ -80,11 +80,11 @@ if config.maptool==1
     fillm(coast_data.lat,coast_data.long,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
         'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
 
-    % plot circles at distance seletion wdw
+    % plot circles at the limits of the selected epicentral distance window
     [latlow,lonlow]= scircle1(thissta.slat, thissta.slong, SKSwin(1));
     [latup,lonup]  = scircle1(thissta.slat, thissta.slong, SKSwin(2));
     plotm(latlow, lonlow, '--', 'Color',circleColor, 'linewidth',1,...
-        'ButtonDownFcn', '', 'HitTest', 'off');%SKSwindow
+        'ButtonDownFcn', '', 'HitTest', 'off');
     plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1,...
         'ButtonDownFcn', '', 'HitTest', 'off');   
   
@@ -100,7 +100,7 @@ if config.maptool==1
     plotm(thissta.slat, thissta.slong,'k^','MarkerFaceColor','r','MarkerSize',8,...
         'ButtonDownFcn', '', 'HitTest', 'off');   
 
-    %remove axis etc around plot
+    % remove axis etc around plot
     framem('FLinewidth',1,'FFaceColor','w')
     axis off
     
@@ -143,7 +143,7 @@ else
     plot(plates_data.PBlong,plates_data.PBlat, 'LineStyle','-','Linewidth',1,'Tag','Platebounds','Color',[1.2 1 1]*.8);
     plot(coast_data.ncst(:,1),coast_data.ncst(:,2),'k');
     
-    %station marker
+    % station marker
     plot(config.slong, config.slat,'k^','MarkerFaceColor','r','MarkerSize',8);
     axis([-180 180 -90 90])
     ylabel('Latitude','fontsize',6);
