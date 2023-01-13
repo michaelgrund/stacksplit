@@ -304,7 +304,7 @@ if length(use_data) > 1 % more than 1 selection
         % corresponding single event before stacking and scaled on BAZ rate
         elseif check_stack{3}==1
 
-                curr_SNR=use_data(ii).results.SNR(2); % use SNRSC => SNR(2)
+                curr_SNR=use_data(ii).results.SNR(2); % use SNR_SC => SNR(2)
                 [wf,countN]=SS_calc_RH(curr_SNR,use_bazi(ii),use_bazi,h);
 
             if h.surf_kind==1 % energy surface
@@ -315,10 +315,10 @@ if length(use_data) > 1 % more than 1 selection
                 
             elseif h.surf_kind==2 % EV surface
                 
-                % depending on EV input, normalize on minimum or maximum
+                % depending on EV input, normalized on minimum or maximum
                 switch config.splitoption
                     
-                    case 'Minimum Energy' % minimum normalization; if Minimum Energy is the splitoption, then 
+                    case 'Minimum Energy' % minimum normalization; if Minimum Energy is the split option, then
                                           % automatically min(lambda2) is the corresponding EV method
                                           % (see splitSilverChan.m)
                         STACKsurf=STACKsurf+((use_data(ii).results.EVmatrix./...
