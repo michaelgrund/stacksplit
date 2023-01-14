@@ -92,13 +92,14 @@ halfwedge=10;  % DEFAULT: +- 10° from BAZ           %     |  .      *
 % calc wedge with BAZ+-10° for each single BAZ
 bazi_wedge=[bazi_single-halfwedge;bazi_single+halfwedge]';  
 
-% check and convert correctly for wedges containing BAZis < or > true north direction (0°)
+% check and convert correctly for wedges containing BAZs smaller or larger
+% the true north direction (0°)
 index_low=[bazi_wedge(:,1)] < 0;
 index_high=[bazi_wedge(:,2)] > 360; 
 [bazi_wedge(index_low==1,1)]=360-abs([bazi_wedge(index_low==1,1)]); 
 [bazi_wedge(index_high==1,2)]=[bazi_wedge(index_high==1,2)]-360;
         
-% count how many events fall in the defined baz wedges     
+% count how many events fall in the defined BAZ wedges
 if bazi_wedge(1) < bazi_wedge(2)  
     countN=length(find(bazi_all > bazi_wedge(1) & bazi_all < bazi_wedge(2))); 
 else
