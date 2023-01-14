@@ -113,13 +113,13 @@ if length(index)==1 % one single event
 elseif length(index) > 1  % more than one selected => show merged waveforms
 
     %############################################################################################
-    % check if more than one phase per event is selected  by comparing the source times of the 
-    % selected entries
+    % check if more than one phase per event is selected by comparing the
+    % source times of the selected entries
     datevecs=vertcat(find_res(index).date);
     checkmultiSIMW=unique(datenum(datevecs(:,1:6)));
 
     % save check result to handle, questdlg only is opened when INVERSION
-    % button is clicked, see beginning of function SS_calc_SIMW
+    % button is clicked, see beginning of function SS_calc_SIMW.m
     if length(checkmultiSIMW)~=length(index)
         h.checkmultiSIMW=1;
     else
@@ -234,7 +234,7 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
     h.merged_inc=merged_inc;
     h.merged_inipol=merged_inipol;
     
-    % only use merged "real" timeseries for inversion, 
+    % only use merged "real" time series for inversion,
     % zeros at begin & end are not considered
     h.pickwin=zerosbe:length(merged_Q)-zerosbe; 
 
@@ -242,7 +242,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % plot current event location(s) for one or multiple selected
-% events on worldmap
+% events on world map
    
 axes(h.EQstatsax)
  
