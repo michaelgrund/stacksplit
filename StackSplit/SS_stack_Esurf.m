@@ -9,7 +9,7 @@ function h=SS_stack_Esurf(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% stack single error surfaces (min energy, EV) depending on the 
+% stack single error surfaces (minimum energy, EV) depending on the
 % selected approaches (for details, see the corresponding papers):
 %
 % 1) no weighting (e.g. Wüstefeld, 2007; PhD thesis): true "topography" of
@@ -86,7 +86,8 @@ if length(checkmulti)~=length(index)
 
         return
         
-    else % although more than one result per event, stacking continues and CLEAR & SAVE buttons are set to on
+    else % although more than one result per event,
+        % stacking continues and CLEAR & SAVE buttons are set to on
         set(h.panel(2),'visible','on'); 
         set(h.panel(3),'visible','on'); 
         set(h.push(2),'enable','on');
@@ -134,7 +135,8 @@ if length(checkmulti2)~=1
 
         return
         
-    else % although more than one result per event, stacking continues and CLEAR & SAVE buttons are set to on
+    else % although more than one result per event,
+        % stacking continues and CLEAR & SAVE buttons are set to on
         set(h.panel(2),'visible','on'); 
         set(h.panel(3),'visible','on'); 
         set(h.push(2),'enable','on');
@@ -149,7 +151,7 @@ else % if not more than one result per event, DEFAULT case
 end
 
 %############################################################################################
-% maximum diff of used bazis, dists and inipols
+% maximum diff of used bazis, diss, and inipols
 
 use_bazi=[use_data.bazi];
 use_dis=[use_data.dis];
@@ -205,14 +207,14 @@ cla reset
 box on
 
 %======================================================
-% visualisation parameters
+% visualization parameters
 
 maxtime=h.EMAP_maxtime; % maximum time displayed in grid
-sampling=h.EMAP_sampling; % sampling rate of input wavelets in s
+sampling=h.EMAP_sampling; % sampling rate of input wavelets in seconds
 f=h.EMAP_f; % accuracy factor
 
 %======================================================
-% test coordinate systems for single and stacked error surface
+% test coordinate systems for single and stacked error surfaces
 %-------------------------
 % original setup
 
@@ -225,7 +227,7 @@ dt_test  = fix(0:f*1:maxtime/sampling); % test delay times (in samples)
 
 % allocate stacked error surface with size of phi_test x dt_test
 STACKsurf=zeros(length(phi_test),length(dt_test)); 
-% allocate sum of the degrees of freedom of each singe measurement
+% allocate sum of the degrees of freedom of each single measurement
 sum_ndf=0;                                     
 
 %############################################################################################
@@ -276,7 +278,7 @@ if length(use_data) > 1 % more than 1 selection
 
             elseif h.surf_kind==2 % EV surface
               
-                % depending on EV input, normalize on minimum or maximum
+                % depending on EV input, normalized on minimum or maximum
                 switch config.splitoption
                     case 'Minimum Energy' % minimum normalization;
                                           % if Minimum Energy is the "splitoption",
@@ -395,17 +397,17 @@ Eresult(1) = STACKsurf(indexPhi, indexDt, 1);
 [errbar_phi,errbar_t,MAPlevel]=SS_geterrorbars_stack_Esurf(Eresult,sum_ndf,STACKsurf);  
 
 %======================================================
-% find corresponding phi and dt value from absolute minimum/maximum of stacked
-% error surface
-phi_test_ext = (phi_test(indexPhi)/ pi * 180);     % fast axis in Q-T-system
-%phiSC  = mod((phi_test_ext+bazi_in), 180);        % fast axis in E-N-system
+% find corresponding phi and dt value from absolute minimum/maximum of
+% stacked error surface
+phi_test_ext = (phi_test(indexPhi)/ pi * 180);   % fast axis in Q-T-system
+%phiSC  = mod((phi_test_ext+bazi_in), 180);      % fast axis in E-N-system
 phiSTACK  = phi_test_ext;
 
 shift  = dt_test(indexDt); % samples
 dtSTACK   = shift * sampling; % seconds
 
 if phiSTACK>90
-    phiSTACK = phiSTACK-180; %put in [-90:90]
+    phiSTACK = phiSTACK-180; % input [-90:90]
 end
 
 singlephiSTACK=phiSTACK;
