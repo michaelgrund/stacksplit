@@ -11,9 +11,11 @@ function uninstall_StackSplit()
 %
 % To uninstall the StackSplit plugin from your system run 
 %
-%     >> uninstall_StackSplit()    in your command window
+%     >> uninstall_StackSplit
 %
-% includes: 
+% in your command window
+%
+% This includes:
 % 
 % 1) removal of the whole StackSplit content (folder, functions etc.)
 % 2) recovery of your original SplitLab copy as before the installation of
