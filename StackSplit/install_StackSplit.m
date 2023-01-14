@@ -24,7 +24,7 @@ function install_StackSplit()
 %           folderSL = fileparts(which('install_SplitLab.m'))
 %
 %
-% 2) Please add the following folder to to your MATLAB search path:
+% 2) Please add the following folder to your MATLAB search path:
 %    
 %           SplitLabX.X.X/StackSplit
 % 
@@ -43,7 +43,7 @@ function install_StackSplit()
 %
 % GENERAL REMARKS
 %
-% Besides the StackSplit functions the package also contains modified
+% Besides the StackSplit functions, the package also contains modified
 % SplitLab (SL) functions which are necessary to generate the multi-event
 % output. All these functions (except the SL starting function splitlab.m)
 % are located in the original SL folders ShearWaveSplitting, Tools,
@@ -51,7 +51,7 @@ function install_StackSplit()
 %
 % By running this installation file, all original functions are renamed
 % with an end suffix *_ori. The (new) modified ones are copied to their
-% corresponding paths and have the same names like the others before
+% corresponding paths and have the same names as the others before
 % renaming. But their content is slightly modified!
 %
 % So, if you are not happy with StackSplit you easily can recover your
