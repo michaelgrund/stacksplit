@@ -71,12 +71,14 @@ uimenu(m4,'Label',  'Print current figure', 'Callback','printdlg(gcbf)');
 % borders
 fontsize = get(gcf,'DefaultAxesFontsize')-2;
 
+%clf
+%axSeis = axes('units','normalized', 'position',[.08 .78 .43 .2], 'Box','on', 'Fontsize',fontsize); % without world map
 axSeis = axes('units','normalized', 'position',[.08 .78 .26 .2], 'Box','on', 'Fontsize',fontsize);
 
 axRC(1) = axes('units','normalized', 'position',[.08 .42 .19  .28], 'Box','on', 'Fontsize',fontsize);
 axRC(2) = axes('units','normalized', 'position',[.32 .42 .19  .28], 'Box','on', 'Fontsize',fontsize);
 axRC(3) = axes('units','normalized', 'position',[.54 .43 .19  .27], 'Box','on', 'Fontsize',fontsize);
-axRC(4) = axes('units','normalized', 'position',[.77 .42 .19  .28], 'Box','on', 'Fontsize',fontsize,'Layer','top');
+axRC(4) = axes('units','normalized', 'position',[.77 .42 .19  .28], 'Box','on', 'Fontsize',fontsize, 'Layer','top');
 
 axSC(1) = axes('units','normalized', 'position',[.08 .05 .19  .28], 'Box','on', 'Fontsize',fontsize);
 axSC(2) = axes('units','normalized', 'position',[.32 .05 .19  .28], 'Box','on', 'Fontsize',fontsize);
