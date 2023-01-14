@@ -17,9 +17,9 @@ function install_StackSplit()
 %..........................................................................
 %..........................................................................
 %
-% 1) Please unzip your downloaded StackSplit copy into SplitLab's main
-%    folder where the file < install_SplitLab.m > is located. To find the
-%    path to this folder use the command:
+% 1) Please unzip the downloaded StackSplit package and copy it into
+%    SplitLab's main folder where the file < install_SplitLab.m > is located.
+%    To find the path to this folder use the command:
 %
 %           folderSL = fileparts(which('install_SplitLab.m'))
 %
