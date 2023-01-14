@@ -9,9 +9,9 @@ function SS_calc_SIMW(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% calculate splitting parameters (and errors) for concacenated SIMW waveforms 
-% using the rotation correlation (RC) and Silver & Chan (SC) method, for
-% details see SL functions splitSilverChan & splitRotCorr
+% calculate splitting parameters (and errors) for concatenated SIMW waveforms
+% using the rotation-correlation (RC) and Silver & Chan (SC) methods, for
+% details see SL functions splitSilverChan.m & splitRotCorr.m
 % 
 %==========================================================================
 % LICENSE
@@ -88,7 +88,7 @@ if h.checkmultiSIMW2==1 % for h.checkmultiSIMW2, see function SS_prep_SIMW
     if strcmp(ask4multi2,'No') % set all buttons to visible off since SIMW is aborted 
             
         set(h.push(5),'enable','off'); % INVERSION button
-        set(h.panel(6),'visible','off'); %Waveforms panel
+        set(h.panel(6),'visible','off'); % Waveforms panel
 
         % remove blue dots on worldmap when no option is selected       
         find_bluedot=findobj(h.EQstatsax,'type','line');
@@ -180,7 +180,7 @@ if ~ischar(config.SS_maxpol)
 end
 
 % for SIMW the BAZ for the inversion is calculated here as simple mean out
-% of all single event BAZis
+% of all single event bazis
 bazi_mean=mean(bazi);
 
 %############################################################################################
