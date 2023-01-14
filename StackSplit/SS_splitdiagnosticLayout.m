@@ -71,8 +71,6 @@ uimenu(m4,'Label',  'Print current figure', 'Callback','printdlg(gcbf)');
 % borders
 fontsize = get(gcf,'DefaultAxesFontsize')-2;
 
-%clf
-%axSeis = axes('units','normalized', 'position',[.08 .78 .43 .2], 'Box','on', 'Fontsize',fontsize); % without world map
 axSeis = axes('units','normalized', 'position',[.08 .78 .26 .2], 'Box','on', 'Fontsize',fontsize);
 
 axRC(1) = axes('units','normalized', 'position',[.08 .42 .19  .28], 'Box','on', 'Fontsize',fontsize);
