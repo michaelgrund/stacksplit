@@ -309,7 +309,7 @@ if length(use_data) > 1 % more than 1 selection
         % corresponding single event before stacking and scaled on BAZ rate
         elseif check_stack{3}==1
 
-                curr_SNR=use_data(ii).results.SNR(2); % use SNR_SC => SNR(2)
+                curr_SNR=use_data(ii).results.SNR(2); % use SNR SC => SNR(2)
                 [wf,countN]=SS_calc_RH(curr_SNR,use_bazi(ii),use_bazi,h);
 
             if h.surf_kind==1 % energy surface
