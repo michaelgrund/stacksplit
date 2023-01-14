@@ -44,7 +44,7 @@ function SS_splitdiagnosticplot(Q, T, extime, L, E, N, inc, bazi,sampling, maxti
 %==================================================================================================================================
 %==================================================================================================================================
 
-% display the results of a Rotation-Correaltion and a minimum Energy
+% display the results of a rotation-correlation and a minimum energy
 % splitting procedure in a single plot
 % Inputs are expected in the following order:
 %     Q, T
@@ -64,7 +64,7 @@ function SS_splitdiagnosticplot(Q, T, extime, L, E, N, inc, bazi,sampling, maxti
 %     dt_errorSC    - SC delay time estimation error interval
 %     Level         - confidence level for Silver&Chan Energy map
 
-% Andreas Wüstefeld, 12.03.06
+% Andreas Wüstefeld, 12.03.2006
 global config thiseq SIMW_temp 
 
 Synfig = findobj('name', 'SIMW Diagnostic Viewer','type','figure');
@@ -144,7 +144,7 @@ ZEN = M' *[L,  QTcorSC]';
 Esc = ZEN(2,:); 
 Nsc = ZEN(3,:);
 
-s = size(QTcorRC,1);%selection length
+s = size(QTcorRC,1); % selection length
 
 %% x-values for seismogram plots
 t = (0:(s-1))*sampling;
@@ -175,7 +175,7 @@ title('corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})
 xlim([t(1) t(end)])
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% surface Particle motion
+% surface particle motion
 axes(axRC(3))
 plot(E, N, 'b--', Erc, Nrc,'r-','LineWidth',1);
 xlabel('\leftarrowW - E\rightarrow', 'Fontsize',fontsize-1);
@@ -183,7 +183,7 @@ ylabel('\leftarrowS - N\rightarrow', 'Fontsize',fontsize-1);
 title('Particle motion before (\color{blue}--\color{black}) & after (\color{red}-\color{black})','FontSize',titlefontsize);
 axis equal
 
-tmp = max([abs(xlim) abs(ylim)]);%set [0 0] to centre of plot
+tmp = max([abs(xlim) abs(ylim)]); % set [0 0] to centre of plot
 set(gca, 'xlim', [-tmp tmp], 'ylim', [-tmp tmp], 'XtickLabel',[], 'YtickLabel',[])
 set(gca, 'Ytick', get(gca,'Xtick'))
 hold on
@@ -193,16 +193,16 @@ plot( [-X X], [-Y Y], 'k:' )
 hold off
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Correlation Map
-axes(axRC(4))   %
+% correlation map
+axes(axRC(4))
 hold on
 f  = size(Cmatrix);
 ts = linspace(0,maxtime,f(2));
 ps = linspace(-90,90,f(1));
 
-maxi = max(Cmatrix(:));% allways <=  1 since correlation coeffcient (^5)
-mini = min(Cmatrix(:));% allways >= -1
-maxmin = abs(mini - maxi)/2;% allways between 0 and 1
+maxi = max(Cmatrix(:)); % always <=  1 since correlation coeffcient (^5)
+mini = min(Cmatrix(:)); % always >= -1
+maxmin = abs(mini - maxi)/2; % always between 0 and 1
 
 nb_contours = 12;floor((1 - maxmin)*9);
 [~, h1] = contourf(ts,ps,-Cmatrix,-[LevelRC LevelRC]);
@@ -246,14 +246,14 @@ set(gca,'Ytick' , [-1 0 1])
 ylabel(optionstr,'FontSize',titlefontsize)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% corrected seismograms (in Ray-system)
+% corrected seismograms (in ray system)
 axes(axSC(2))
 plot(t, QTcorSC(:,1),'b--',    t, QTcorSC(:,2) ,'r-','LineWidth',1);
 title('corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})','FontSize',titlefontsize);
 xlim([t(1) t(end)])
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% surface Particle motion
+% surface particle motion
 axes(axSC(3))
 hold on
 plot(E, N, 'b--', Esc, Nsc,'r-','LineWidth',1);
@@ -262,7 +262,7 @@ ylabel('\leftarrowS - N\rightarrow', 'Fontsize',fontsize-1);
 title('Particle motion before (\color{blue}--\color{black}) & after (\color{red}-\color{black})','FontSize',titlefontsize);
 axis equal
 
-tmp = max([abs(xlim) abs(ylim)]);%set [0 0] to centre of plot
+tmp = max([abs(xlim) abs(ylim)]); % set [0 0] to centre of plot
 set(gca, 'xlim', [-tmp tmp], 'ylim', [-tmp tmp], 'XtickLabel',[], 'YtickLabel',[])
 set(gca, 'Ytick', get(gca,'Xtick'))
 hold on
@@ -272,7 +272,7 @@ plot( [-X X], [-Y Y], 'k:' )
 hold off
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Energy Map
+% energy map
 axes(axSC(4))
 hold on
 f  = size(Ematrix);
@@ -285,7 +285,7 @@ nb_contours = floor((1 - mini/maxi)*10);
 [~, h1] = contourf(ts,ps,-Ematrix,-[Level Level]);
 contour(ts, ps, Ematrix, nb_contours);
 
-B = mod(bazi,90);%backazimuth lines
+B = mod(bazi,90); % backazimuth lines
 plot([0 0]+sampling, [B B-90],'k>','markersize',5,'linewidth',1,'MarkerFaceColor','k' )
 plot([maxtime maxtime]-sampling, [B B-90],'k<','markersize',5,'linewidth',1,'MarkerFaceColor','k' )
 line([0 maxtime], [phi phi],'Color',[0 0 1])
@@ -300,7 +300,7 @@ ylabel('fast axis in N°E', 'Fontsize',fontsize-1)
 title(Maptitle,'FontSize',titlefontsize);
 set(h1,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
 
-%% plot Initial seismograms %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% plot initial seismograms %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Q
 
@@ -308,7 +308,7 @@ axes(axSeis(1))
 t2 = (0:length(Q)-1)*sampling - extime;
 xx  = [0 0 s s]*sampling;
 yy  = [0 0 1 1 ];
-tmp = fill(xx, yy, [1 1 1]*.90, 'EdgeColor','None');% Selection marker
+tmp = fill(xx, yy, [1 1 1]*.90, 'EdgeColor','None'); % selection marker
 
 hold on
 plot(t2, Q, 'b--','LineWidth',1)
@@ -324,7 +324,7 @@ set(axSeis,'Layer','Top')
 
 axes(axwm)
 
-%get objects from worldmap plot
+% get objects from world map plot
 H2=findall(h.EQstatsax);
 
 if config.maptool==1
