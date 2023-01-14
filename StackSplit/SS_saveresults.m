@@ -9,7 +9,7 @@ function h=SS_saveresults(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% write results of stacked error surfaces/SIMW to textfile, generate mat-file
+% write results of stacked error surfaces/SIMW to txt-file, generate mat-file
 %
 %==========================================================================
 % LICENSE
@@ -78,7 +78,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     % txt-file
     
     %....................................
-    % generate yyyy.JD (phase) for txt file to show which single events/phases
+    % generate yyyy.JD (phase) for txt-file to show which single events/phases
     % were used for stacking
     index=get(h.list,'value'); 
     ev_used=h.data(index);
@@ -110,7 +110,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     end
 
 
-    fseek(fid, 0, 'eof'); %go to end of file
+    fseek(fid, 0, 'eof'); % go to end of file
     fprintf(fid,'\n %s %2.0f   %2.0f    %3.1f    %3.1f    %3.1f     %3.1f   %3.1f   %3.1f  %4.0f < %3.0f < %3.0f   %4.1f < %3.1f < %3.1f     %s        %s       %s           %s',...
         staname, nsurf, ndf, min_bazi, max_bazi, mean(bazis), min_dis, max_dis, mean(dists), phistack, dtstack, stack_meth, surf_input, res_remark, string_ev_used);
     fclose(fid);
@@ -135,7 +135,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     %################
 
     fid   = fopen(fname,'a+');
-    fseek(fid, 0, 'eof'); %go to end of file
+    fseek(fid, 0, 'eof'); % go to end of file
     fprintf(fid,'%5.3f %5.3f %3.1f %3.1f %3.1f %5.3f %5.3f %s \n',...
        config.slong, config.slat, phistack(2), dtstack(2)*scale_bar, thick_bar, mean(bazis), mean(dists), staname);
     fclose(fid);
@@ -251,7 +251,7 @@ else
         fprintf(fid,'\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------');
         fprintf(fid,'\n sta nwave minbaz maxbaz meanbaz mindis maxdis meandis taper   phi_RC   dt_RC        phi_SC           dt_SC        phi_EV  dt_EV  quality  null?  Remark     used events (phases)' );
     end
-    fseek(fid, 0, 'eof'); %go to end of file
+    fseek(fid, 0, 'eof'); % go to end of file
     
     if ~strcmp(SIMW_temp.taper,'none')
         formatstr='\n%4s%3.0f     %3.1f   %3.1f   %3.1f   %3.1f  %3.1f  %3.1f   %3.0f      %3.0f      %3.1f  %4.0f < %3.0f < %3.0f   %4.1f < %3.1f < %3.1f   %3.1f    %3.1f    %4s    %3s    %s           %s';
@@ -290,7 +290,7 @@ else
     %################
 
     fid   = fopen(fname,'a+');
-    fseek(fid, 0, 'eof'); %go to end of file
+    fseek(fid, 0, 'eof'); % go to end of file
     
     formatstr='%5.3f %5.3f %3.1f %3.1f %3.1f %5.3f %5.3f %s \n';
 
@@ -354,7 +354,7 @@ else
     %==========================================================================
     % pdf-plot
 
-    %change here, if you dont like the figure output (resolution etc)
+    % change here, if you don't like the figure output (resolution etc)
     switch config.exportformat
         case '.ai'
             option={ '-depsc', '-noui'};
@@ -376,7 +376,7 @@ else
 
     fname = sprintf(['Multi_result_SIMW', config.exportformat]);
 
-    %check if file alredy exists (phase already splitted)
+    % check if file alredy exists (phase already splitted)
     No=2;
     while exist(fullfile(config.savedir, fname),'file') == 2
         fname = sprintf('Multi_result_SIMW[%.0f]%s',...
