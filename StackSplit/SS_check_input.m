@@ -151,7 +151,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
             Csurfold=find_res(ii).results.Cmatrix;
             
             % if sampling rate varies, matrix is resized to dimension of
-            % smallest dimension in dataset, if accuracy factor varies the
+            % smallest dimension in data set, if accuracy factor varies the
             % same, otherwise the matrices are not resized.
             Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
             EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
