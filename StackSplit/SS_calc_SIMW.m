@@ -48,7 +48,7 @@ global config SIMW_temp
 % check if more than one phase per event is selected by comparing different
 % event basic information
 
-if h.checkmultiSIMW==1 % for h.checkmultiSIMW, see function SS_prep_SIMW
+if h.checkmultiSIMW==1 % for h.checkmultiSIMW, see function SS_prep_SIMW.m
     
     % disp dialog if SIMW procedure should be continued or aborted 
     ask4multi=questdlg('Your selection contains different phases/filters of the same event! Continue?', ...
@@ -57,9 +57,9 @@ if h.checkmultiSIMW==1 % for h.checkmultiSIMW, see function SS_prep_SIMW
     if strcmp(ask4multi,'No') % set all buttons to visible off since SIMW is aborted 
             
         set(h.push(5),'enable','off'); % INVERSION button
-        set(h.panel(6),'visible','off'); %Waveforms panel
+        set(h.panel(6),'visible','off'); % Waveforms panel
 
-        % remove blue dots on worldmap when no option is selected       
+        % remove blue dots on world map when no option is selected
         find_bluedot=findobj(h.EQstatsax,'type','line');
     
          if length(find_bluedot) > 4    
@@ -79,7 +79,7 @@ end
 %############################################################################################
 % check if non-nulls and nulls are mixed
 
-if h.checkmultiSIMW2==1 % for h.checkmultiSIMW2, see function SS_prep_SIMW
+if h.checkmultiSIMW2==1 % for h.checkmultiSIMW2, see function SS_prep_SIMW.m
     
     % disp dialog if SIMW procedure should be continued or aborted 
     ask4multi2=questdlg('Your selection contains Splits and Nulls! Mixing both types is not reasonable! Continue?',...
@@ -90,7 +90,7 @@ if h.checkmultiSIMW2==1 % for h.checkmultiSIMW2, see function SS_prep_SIMW
         set(h.push(5),'enable','off'); % INVERSION button
         set(h.panel(6),'visible','off'); % Waveforms panel
 
-        % remove blue dots on worldmap when no option is selected       
+        % remove blue dots on world map when no option is selected
         find_bluedot=findobj(h.EQstatsax,'type','line');
     
          if length(find_bluedot) > 4    

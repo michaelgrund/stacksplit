@@ -73,10 +73,10 @@ if length(checkmulti)~=length(index)
         set(h.push(1),'enable','off');   % STACK button
         set(h.push(2),'enable','off');   % CLEAR button
         set(h.push(3),'enable','off');   % SAVE button
-        set(h.panel(2),'visible','off'); % Energymap panel
+        set(h.panel(2),'visible','off'); % energy map panel
         set(h.panel(3),'visible','off'); % results panel
 
-            % remove blue dots on worldmap when no option is selected       
+            % remove blue dots on world map when no option is selected
             find_bluedot=findobj(h.EQstatsax,'type','line');
     
             if length(find_bluedot) > 4    
@@ -115,17 +115,18 @@ checkmulti2=unique(restype);
 if length(checkmulti2)~=1 
     
     % disp dialog if stacking procedure should be continued or aborted
-    ask4multi2=questdlg('Your selection contains Splits and Nulls! Mixing both types is not reasonable! Continue?',...
+    ask4multi2=questdlg(['Your selection contains Splits and Nulls!' ...
+        'Mixing both types is not reasonable! Continue?'],...
         'Multiple result selection','No','Yes','No');
 
     if strcmp(ask4multi2,'No') % set all buttons/panels to visible off since stacking is aborted 
         set(h.push(1),'enable','off');   % STACK button
         set(h.push(2),'enable','off');   % CLEAR button
         set(h.push(3),'enable','off');   % SAVE button
-        set(h.panel(2),'visible','off'); % Energymap panel
+        set(h.panel(2),'visible','off'); % energy map panel
         set(h.panel(3),'visible','off'); % results panel
 
-            % remove blue dots on worldmap when no option is selected       
+            % remove blue dots on world map when no option is selected
             find_bluedot=findobj(h.EQstatsax,'type','line');
     
             if length(find_bluedot) > 4    
@@ -389,7 +390,7 @@ end
 
 %======================================================
 % absolute Value in stacked_err_surf, corresponding to the best
-% inversion (e.g. for the SC method min(Energy map))
+% inversion (e.g. for the SC method min(energy map))
 Eresult(1) = STACKsurf(indexPhi, indexDt, 1); 
    
 %======================================================

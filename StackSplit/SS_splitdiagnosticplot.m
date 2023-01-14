@@ -44,7 +44,7 @@ function SS_splitdiagnosticplot(Q, T, extime, L, E, N, inc, bazi,sampling, maxti
 %==================================================================================================================================
 %==================================================================================================================================
 
-% display the results of a rotation-correlation and a minimum energy
+% display the results of a rotation-correlation and a energy minimization
 % splitting procedure in a single plot
 % Inputs are expected in the following order:
 %     Q, T
@@ -62,7 +62,7 @@ function SS_splitdiagnosticplot(Q, T, extime, L, E, N, inc, bazi,sampling, maxti
 %     corFastSlowparticleSC - corrected SC particle motion [F S]
 %     Phi_errorSC   - SC fast axis estimation error interval
 %     dt_errorSC    - SC delay time estimation error interval
-%     Level         - confidence level for Silver&Chan Energy map
+%     Level         - confidence level for SC energy map
 
 % Andreas Wüstefeld, 12.03.2006
 global config thiseq SIMW_temp 
@@ -149,7 +149,7 @@ s = size(QTcorRC,1); % selection length
 %% x-values for seismogram plots
 t = (0:(s-1))*sampling;
 
-%%  Rotation-Correlation Method% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% rotation-correlation method
 % fast/slow seismograms
 axes(axRC(1))
 sumFS1 = sum(abs( corFSrc(:,1) -corFSrc(:,2)));
@@ -225,7 +225,7 @@ set(h1,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
 
 hold off
 
-%%  Silver & Chan
+%% Silver & Chan method
 % fast/slow seismograms
 axes(axSC(1))
 
@@ -300,7 +300,7 @@ ylabel('fast axis in N°E', 'Fontsize',fontsize-1)
 title(Maptitle,'FontSize',titlefontsize);
 set(h1,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
 
-%% plot initial seismograms %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% plot initial seismograms
 
 % Q
 
@@ -320,7 +320,7 @@ yy = [ylim fliplr(ylim)];
 set(tmp,'yData',yy)
 set(axSeis,'Layer','Top')
 
-%% plot worldmap with selected events used for SIMW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% plot world map with selected events used for SIMW
 
 axes(axwm)
 

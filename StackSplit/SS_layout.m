@@ -95,7 +95,7 @@ set(h.ev_info,'String',['                  t0time               JD      BAZ     
 set(h.ev_info,'Position',[45,493,572,15],'fontsize',10)
 set(h.ev_info,'BackgroundColor',[0.7 0.7 0.7]);
 
-% staname beside worldmap
+% staname beside world map
 h.staname_info = uicontrol('style','text','horizontalalignment','left');
 set(h.staname_info,'String',config.stnname)
 set(h.staname_info,'Position',[790+shift_right,550,68,22],'fontsize',15)
