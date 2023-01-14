@@ -93,7 +93,7 @@ folderSL = fileparts(which('install_SplitLab.m'))
 ```
 2. Please add the following folder to your MATLAB search path (for editing the path simply use the command ``pathtool``):
 ```
-SplitlabX.X.X/StackSplit
+SplitLabX.X.X/StackSplit
 ```
 3. Change to the StackSplit folder in the SplitLab main directory:
 ```
