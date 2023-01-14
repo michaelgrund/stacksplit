@@ -9,7 +9,7 @@ function [errbar_phi,errbar_t,Ecrit]=SS_geterrorbars_stack_Esurf(Eresult,sum_ndf
 %==========================================================================
 % FILE DESCRIPTION
 %
-% Calculate errorbars for the stacked error surface using the summed ndfs 
+% Calculate error bars for the stacked error surface using the summed ndfs
 % of each single measurement. Please note that after installation of 
 % StackSplit, in SL the original ndfs are calculated using the corrected 
 % equations of Walsh et al. (2013).
@@ -46,26 +46,26 @@ function [errbar_phi,errbar_t,Ecrit]=SS_geterrorbars_stack_Esurf(Eresult,sum_ndf
 
 %==================================================================================================================================
 %==================================================================================================================================
-% this function is based on parts of the original SL function < geterrorbars >
+% this function is based on parts of the original SL function < geterrorbars.m >
 
-K = 2;%Number of model parameters
+K = 2; % Number of model parameters
 
-ndf=sum_ndf;
+ndf = sum_ndf;
 
-if ndf <=K
+if ndf<=K
     disp('  NDF <= K... There is no resolution of the 95% confidence region; Continuing')
     errbar_phi = [nan nan];
     errbar_t   = [nan nan];
     Ecrit = Eresult;
 else
     
-    nu2=ndf-K;
+    nu2 = ndf-K;
     
-    if  nu2 > 100
+    if  nu2>100
         nu2 = 100;
     end
 
-    data=[...
+    data = [...
     199.5000
     19.0000
     9.5521
@@ -167,14 +167,14 @@ else
     3.0882
     3.0873];
 
-    data=data(nu2);
+    data = data(nu2);
 
     Ecrit = Eresult*(1+K*sign(Eresult) / (ndf-K)*data);
 
     % reconstruct grid
     f     = size(stacked_err_surf);
-    dphi  = 180/(f(1)-1); %grid size in phi direction
-    dt    = 4/(f(2)-1);   %grid size in dt direction
+    dphi  = 180/(f(1)-1); % grid size in phi direction
+    dt    = 4/(f(2)-1);   % grid size in dt direction
 
     [cols, rows] = incontour(stacked_err_surf,Ecrit);
 
