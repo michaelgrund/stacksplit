@@ -118,10 +118,17 @@ global config eqstack
 %VVVVVVVVVVVVVVVVVVVVVVV
 config.SS_version='3.1';
 
-% 1.0 released 2017-04-04
-% 2.0 released 2019-06-28
-% 3.0 released 2021-12-23
-% 3.1 upcoming 2023-01-DD
+% - v1.0 released 2017-04-04
+%   https://github.com/michaelgrund/stacksplit/releases/tag/v1.0
+%   https://doi.org/10.5281/zenodo.464385
+% - v2.0 released 2019-06-28
+%   https://github.com/michaelgrund/stacksplit/releases/tag/v2.0
+%   https://doi.org/10.5281/zenodo.7118716
+% - v3.0 released 2021-12-23
+%   https://github.com/michaelgrund/stacksplit/releases/tag/v3.0
+%   https://doi.org/10.5281/zenodo.5802051
+% - v3.1 upcoming 2023-01-DD
+%   https://github.com/michaelgrund/stacksplit/releases/tag/v3.1
 %VVVVVVVVVVVVVVVVVVVVVVV
 
 clc
