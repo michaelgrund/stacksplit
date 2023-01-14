@@ -68,8 +68,8 @@ if length(index)==1
         switch config.splitoption
 
         case 'Minimum Energy'
-            % using min(lambda2) as default EV method when ME is set, see SL function
-            % splitSilverChan
+            % using min(lambda2) as default EV method when ME is set,
+            % see SL function splitSilverChan.m
             set(h.panel(2),'title',['EV surface min(' char(hex2dec('03BB')) '2)']) 
         case 'Eigenvalue: max(lambda1 / lambda2)'
             set(h.panel(2),'title',['EV surface max(' char(hex2dec('03BB')) '1/' char(hex2dec('03BB')) '2)'])
@@ -145,7 +145,8 @@ if length(index)==1
 
     if config.maptool==1 % if mapping toolbox available
     
-        % the first four values in the handle find_bluedot are used for plateboundaries, SKS wdw lines etc.
+        % the first four values in the handle find_bluedot are used for
+        % plateboundaries, SKS window lines etc.
         % if a fifth value is available a blue dot was set on the map to
         % show the current EQ location that is now removed before the new
         % one is set
