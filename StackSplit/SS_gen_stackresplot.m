@@ -47,7 +47,7 @@ bazi_int=[min_bazi max_bazi];
 dist_int=[min_dis max_dis];
 
 %================================================================================
-% check if figure already is opened
+% check if figure is already opened
 fig_ex=findobj('type','figure','name','StackSplit_stack_results');
 
 if ~isempty(fig_ex)
@@ -97,7 +97,7 @@ set(gca,'visible','off')
 %================================================================================
 % WORLD map
 
-%get objects from worlmap plot
+% get objects from world map plot
 H2=findall(h.EQstatsax);
 ax1=subplot(3,4,[5 6 9 10]);
 
@@ -160,7 +160,7 @@ set(gcf,'PaperPosition', myfiguresize);
 
 %================================================================================
 % SAVE FIGURES 
-% change here, if you dont like the figure output (resolution etc)
+% change here, if you don't like the figure output (resolution etc)
 
 switch config.exportformat
     case '.ai'
