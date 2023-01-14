@@ -12,16 +12,16 @@ function install_StackSplit()
 % Install the StackSplit plugin on your system
 %
 %..........................................................................
-% ..........................................................................
+%..........................................................................
 % !!! Splitlab have to be installed before StackSplit can be installed !!!
 %..........................................................................
 %..........................................................................
 %
-% 1) Please unzip your downloaded StackSplit copy into SplitLabs main folder
-%    where the file < install_splitlab > is located. To find the path to this folder 
-%    use command: 
+% 1) Please unzip your downloaded StackSplit copy into SplitLab's main
+%    folder where the file < install_SplitLab.m > is located. To find the
+%    path to this folder use command:
 %
-%           folderSL=fileparts(which('install_SplitLab.m'))
+%           folderSL = fileparts(which('install_SplitLab.m'))
 %
 %
 % 2) Please add the following folder to to your MATLAB search path:
@@ -34,9 +34,9 @@ function install_StackSplit()
 %
 % 3) Change to the StackSplit folder in the SplitLab main directory
 %
-%            cd(folderSL/StackSplit)
+%            cd(folderSL + '/StackSplit')
 %
-% 4) Run this function < install_StackSplit > in your command window
+% 4) Run this function < install_StackSplit.m > in your command window
 %
 % 5) Restart MATLAB
 %
@@ -44,25 +44,27 @@ function install_StackSplit()
 % GENERAL REMARKS
 %
 % Besides the StackSplit functions the package also contains modified
-% SplitLab functions which are necessary to generate the multi-
-% event output. All these functions (execpt the SL starting function splitlab.m)
-% are located in the original SL folders ShearWaveSplitting, Tools and private.
+% SplitLab (SL) functions which are necessary to generate the multi-event
+% output. All these functions (except the SL starting function splitlab.m)
+% are located in the original SL folders ShearWaveSplitting, Tools,
+% and private.
 %
-% By running this installation file, all original functions are renamed with an
-% end suffix *_ori. The (new) modified ones are copied to their corresponding 
-% paths and have the same names like the others before renaming. Only their content is
-% slightly modified!
+% By running this installation file, all original functions are renamed
+% with an end suffix *_ori. The (new) modified ones are copied to their
+% corresponding paths and have the same names like the others before
+% renaming. Only their content is slightly modified!
 %
-% So, if you are not happy with StackSplit you easily can recover your original 
-% SplitLab settings (see function < uninstall_StackSplit >) without big
-% efforts. Otherwise if you are sure you want to use StackSplit in future without 
-% returning to the standalone SL version, you can also delete the *_ori files manually 
-% or copy them to a place of your choice for backup. 
+% So, if you are not happy with StackSplit you easily can recover your
+% original SplitLab settings (see function < uninstall_StackSplit.m >)
+% without big efforts. Otherwise, if you are sure you want to use
+% StackSplit in future without returning to the standalone SL version,
+% you can also delete the *_ori files manually or copy them to a place of
+% your choice for backup.
 %  
-% The changes in the modified SL functions in general do not affect any calculation 
-% within the functions except < geterrorbars.m > and < geterrorbarsRC.m > where 
-% modified equations for error calculations after Walsh et al. (2013) and a fixed taper
-% application were implemented!
+% The changes in the modified SL functions in general do not affect any
+% calculation within the functions except < geterrorbars.m > and
+% < geterrorbarsRC.m > where modified equations for error calculations
+% after Walsh et al. (2013) and a fixed taper application were implemented!
 %
 %==========================================================================
 % LICENSE
