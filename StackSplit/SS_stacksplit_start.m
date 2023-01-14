@@ -24,21 +24,22 @@ function SS_stacksplit_start
 % For MATLAB version 2014b and higher I recommend to use the updated SplitLab 
 % version by Rob Porritt (available via https://robporritt.wordpress.com/software/)
 % 
-% The use of StackSplit requires small modifications in some of the original Split-
-% Lab functions which partly were taken from Rob Porritts updated version 1.2.1.
-% This modified functions come with this package and must replace the original ones.
-% An overview about this changes is given in SL2SS_changelog.txt in StackSplit/doc.
+% The use of StackSplit requires small modifications in some of the original
+% SplitLab functions which partly were taken from Rob Porritts updated version 1.2.1.
+% These modified functions come with this package and must replace the original ones.
+% An overview about these changes is given in SL2SS_changelog.txt in StackSplit/doc.
 %
 % StackSplit allows to apply up to now 4 stacking schemes for already existing 
-% single SWS splitting measurments (see also REFERENCES section below):
-
-% 1) SIMW: simultaneous inversion of multiple waveforms in timedomain (Roy et al., 2017)
+% single SWS measurements (see also REFERENCES section below):
+%
+% 1) SIMW: simultaneous inversion of multiple waveforms in time domain
+%          (Roy et al., 2017)
 % 2) WS  : stacking of error surfaces, normalized on minimum of each single surface 
 %          (Wolfe & Silver, 1998)
 % 3) RH  : modified WS method with weight depending on SNR of each measurement 
 %          (Restivo & Helffrich, 1999)
-% 4) def : stacking of error surfaces without weighting following e.g. PhD thesis of 
-%          Wüstefeld (2007)
+% 4) def : stacking of error surfaces without weighting following, e.g.,
+%          PhD thesis of Wüstefeld (2007)
 % 
 %==========================================================================
 % REFERENCES
@@ -62,20 +63,21 @@ function SS_stacksplit_start
 % USED METHODS (depending on your application)
 %.................................................
 %
-% Roy et al. (2017), On the improvement of SKS splitting measurements by the
-%    simultaneous inversion of multiple waveforms (SIMW), GJI, doi:10.1093/gji/ggw470
+% Roy et al. (2017), On the improvement of SKS splitting measurements by
+%    the simultaneous inversion of multiple waveforms (SIMW), GJI 208(3),
+%    1508–1523, https://doi.org/10.1093/gji/ggw470
 %
 % Restivo & Helffrich (1999), Teleseismic shear wave splitting 
 %    measurements in noisy environments, GJI 137, 821-830
 %
-% Wolfe & Silver (1998), Seismic anisotropy of oceanic upper mantle: Shear wave 
-%    splitting methodologies and observations, JGR 103(B1), 749-771
+% Wolfe & Silver (1998), Seismic anisotropy of oceanic upper mantle: Shear
+%    wave splitting methodologies and observations, JGR 103(B1), 749-771
 %
-% Silver & Chan (1991), Shear wave splitting and subcontinental mantle deformation,
-%    JGR 96, 16429–16454
+% Silver & Chan (1991), Shear wave splitting and subcontinental mantle
+%    deformation, JGR 96, 16429–16454
 %
-% Bowman & Ando (1987), Shear-wave splitting in the upper-mantle wedge above the Tonga 
-%    subduction zone. Geophys. J. Roy. Astron. Soc. 88, 2541
+% Bowman & Ando (1987), Shear-wave splitting in the upper-mantle wedge
+%    above the Tonga subduction zone. Geophys. J. Roy. Astron. Soc. 88, 2541
 %
 %==========================================================================
 % LICENSE
@@ -206,7 +208,7 @@ h.EMAP_f=f;
 h=SS_basic_settings(h,merged_str,find_res);
 %.........................................
 
-% generate worldmap
+% generate world map
 %.........................................
 h=SS_gen_worldmap(h);
 
@@ -215,7 +217,7 @@ if isfield(h,'quit')
 end
 %.........................................
 
-% generate legends for meas qualities
+% generate legends for measurement qualities
 %.........................................
 h=SS_gen_legends(h);
 %.........................................
@@ -348,7 +350,7 @@ set(h.list,'string',h.list_origin);
 set(h.list,'value',1);
      
 
-% remove blue dots on worldmap when no option is selected       
+% remove blue dots on world map when no option is selected
 find_bluedot=findobj(h.EQstatsax,'type','line');
  
 if config.maptool==1 
@@ -387,7 +389,7 @@ end
 
 h.stacked_remark=remark;
 
-% save stuff to struct or txtfile?
+% save stuff to struct or txt-file?
 %.........................................
 h=SS_saveresults(h);
 %.........................................
@@ -517,7 +519,7 @@ elseif check1{1}==0
     
 end
 
-% remove blue dots on worldmap when no option is selected
+% remove blue dots on world map when no option is selected
 if sum([check1{:}])==0
     
         find_bluedot=findobj(h.EQstatsax,'type','line');
@@ -603,7 +605,7 @@ elseif check1{2}==0
 end
 
 
-% remove blue dots on worldmap when no option is selected
+% remove blue dots on world map when no option is selected
 if sum([check1{:}])==0
     
         find_bluedot=findobj(h.EQstatsax,'type','line');
@@ -690,7 +692,7 @@ elseif check1{3}==0
     
 end
 
-% remove blue dots on worldmap when no option is selected
+% remove blue dots on world map when no option is selected
 if sum([check1{:}])==0
     
         find_bluedot=findobj(h.EQstatsax,'type','line');
@@ -782,7 +784,7 @@ elseif check1{4}==0
     
 end
 
-% remove blue dots on worldmap when no option is selected
+% remove blue dots on world map when no option is selected
 if sum([check1{:}])==0
     
         find_bluedot=findobj(h.EQstatsax,'type','line');
@@ -836,7 +838,7 @@ function call_popSURF(hObject,~,~)
     h=guidata(hObject);
     checkpop=get(h.pop(4),'Value');
 
-    if checkpop==1 % use energysurface
+    if checkpop==1 % use energy surface
         h.surf_kind=1;
         config.SS_surf='Esurf';
     elseif checkpop==2 % use EV surface
