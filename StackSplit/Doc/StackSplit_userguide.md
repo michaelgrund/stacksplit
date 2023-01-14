@@ -1,10 +1,10 @@
 ﻿StackSplit - UserGuide
 ======================
 
-December 2021 (v3.0)
+December 2021 (v3.0) <br>
 January 2023 (v3.1)
 
-Mainly written: 2021-12-23 (**Michael Grund**)
+Mainly written: 2021-12-23 (**Michael Grund**) <br>
 Typo fixes: 2023-01-04 (**Yvonne Fröhlich**)
 
 Contents
