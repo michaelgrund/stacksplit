@@ -39,7 +39,7 @@ function [merged_str,find_res]=SS_read_SLresults(curr_path2results,curr_staname)
 
 %==================================================================================================================================
 %==================================================================================================================================
-% sort input depending on BAZ, if you want to sort for another parameter
+% sort input depending on BAZ, if you want to sort by another parameter
 % change it in the following line:
 
 sortpar='bazi';
@@ -103,8 +103,8 @@ if length([eq.results]) < 2
 end
 
 %=============================================================================================
-% sort input depending on BAZ, if you want to sort for another parameter
-% change it in the following line, e.g. find_res.dis for distance sorting 
+% sort input depending on BAZ, if you want to sort by another parameter
+% change it in the following line, e.g. find_res.dist for distance sorting
      
 if strcmp(sortpar,'bazi')
     [~,index]=sort([find_res.bazi]);
@@ -121,13 +121,13 @@ find_res=find_res(index);
 % struct as follow:
 
 % 1) if more than one result for the event is available (e.g. SKS + SKKS),
-%   first a modifiaction to the loaded input struct is done. Here, the main
-%   struct with info about date, lat, long, bazi etc. is dublicated to the
+%   first a modification to the loaded input struct is done. Here, the main
+%   struct with info about date, lat, long, bazi etc. is duplicated to the
 %   number of results per event => in the list for each result an entry appears. 
-% 2) if more than one entry is selected for ONE event a warning is displayed (e.g. 
-%   if a SKS and SKKS result from one event is selected). 
-%   By listing all results in the same list it is easy to access all 
-%   results without any furter processing!
+% 2) if more than one entry is selected for ONE event a warning is displayed
+%   (e.g. if a SKS and SKKS result from one event is selected).
+%   By listing all results in the same list, it is easy to access all
+%   results without any further processing!
 
 zz=1;
 for ii=1:length(find_res) 
@@ -173,8 +173,8 @@ for ii=1:length(find_res) % color results depending on quality ranking
     datestrings=find_res(ii).date(1:6);
 
     % using html syntax to generate forced spaces depending on the length
-    % of the input character for BAZ, dist, inc, SNR => colums are sorted
-    % perfecty beneath each other ;)
+    % of the input character for BAZ, dist, inc, SNR => columns are sorted
+    % perfectly beneath each other ;)
     
     % BAZ
     if find_res(ii).bazi < 100 && round(find_res(ii).bazi*100)/100 < 100 && find_res(ii).bazi > 10
@@ -246,8 +246,9 @@ for ii=1:length(find_res) % color results depending on quality ranking
     ' | ' chbet_fil num2str(find_res(ii).results.filter(1),'%0.3f') '-' num2str(find_res(ii).results.filter(2),'%0.3f'),...
     ' | ' chbet_phase find_res(ii).results.SplitPhase];
 
-    % using html syntax to generate colored entries, at this point: thanks to Yair Altman's undocumented
-    % Matlab site (http://undocumentedmatlab.com/blog/html-support-in-matlab-uicomponents)
+    % using html syntax to generate coloured entries, at this point:
+    % thanks to Yair Altman's undocumented Matlab site
+    % (http://undocumentedmatlab.com/blog/html-support-in-matlab-uicomponents)
     if strcmp(find_res(ii).results.quality,'good') && strcmp(find_res(ii).results.Null,'No')
        String=['<HTML><font color="#088A29"> &#9650<&nbsp ' sel_qual '</font></HTML>'];
     elseif strcmp(find_res(ii).results.quality,'fair') && strcmp(find_res(ii).results.Null,'No')
