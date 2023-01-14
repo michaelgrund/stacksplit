@@ -13,7 +13,7 @@ function install_StackSplit()
 %
 %..........................................................................
 %..........................................................................
-% !!! Splitlab have to be installed before StackSplit can be installed !!!
+% !!! SplitLab have to be installed before StackSplit can be installed !!!
 %..........................................................................
 %..........................................................................
 %
@@ -26,7 +26,7 @@ function install_StackSplit()
 %
 % 2) Please add the following folder to to your MATLAB search path:
 %    
-%           SplitlabX.X.X/StackSplit 
+%           SplitLabX.X.X/StackSplit
 % 
 %    For editing the path use the command:    
 % 

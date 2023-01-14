@@ -151,7 +151,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     % mat-file
 
     % SAVE results to permanent variable eqstack (mat-file) for further
-    % analysis outside of Splitlab / StackSplit, when variable already
+    % analysis outside of SplitLab / StackSplit, when variable already
     % exists, it is read in the main function and the new result is
     % connected to the end, otherwise a new struct is generated and saved
     % in the following
