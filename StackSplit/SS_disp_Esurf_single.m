@@ -146,7 +146,7 @@ if length(index)==1
     if config.maptool==1 % if mapping toolbox available
     
         % the first four values in the handle find_bluedot are used for
-        % plateboundaries, SKS window lines etc.
+        % plate boundaries, SKS window lines etc.
         % if a fifth value is available a blue dot was set on the map to
         % show the current EQ location that is now removed before the new
         % one is set
