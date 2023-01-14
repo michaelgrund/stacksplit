@@ -19,7 +19,7 @@ function install_StackSplit()
 %
 % 1) Please unzip your downloaded StackSplit copy into SplitLab's main
 %    folder where the file < install_SplitLab.m > is located. To find the
-%    path to this folder use command:
+%    path to this folder use the command:
 %
 %           folderSL = fileparts(which('install_SplitLab.m'))
 %
@@ -52,7 +52,7 @@ function install_StackSplit()
 % By running this installation file, all original functions are renamed
 % with an end suffix *_ori. The (new) modified ones are copied to their
 % corresponding paths and have the same names like the others before
-% renaming. Only their content is slightly modified!
+% renaming. But their content is slightly modified!
 %
 % So, if you are not happy with StackSplit you easily can recover your
 % original SplitLab settings (see function < uninstall_StackSplit.m >)
