@@ -66,13 +66,13 @@ uimenu(m4,'Label',  'Page setup',           'Callback','pagesetupdlg(gcbf)');
 uimenu(m4,'Label',  'Print preview',        'Callback','printpreview(gcbf)');
 uimenu(m4,'Label',  'Print current figure', 'Callback','printdlg(gcbf)');
 
-%% create Axes
+%% create axes
 
 % borders
 fontsize = get(gcf,'DefaultAxesFontsize')-2;
 
 %clf
-%axSeis = axes('units','normalized', 'position',[.08 .78 .43 .2], 'Box','on', 'Fontsize',fontsize); % without worldmap
+%axSeis = axes('units','normalized', 'position',[.08 .78 .43 .2], 'Box','on', 'Fontsize',fontsize); % without world map
 axSeis = axes('units','normalized', 'position',[.08 .78 .26 .2], 'Box','on', 'Fontsize',fontsize);
 
 axRC(1) = axes('units','normalized', 'position',[.08 .42 .19  .28], 'Box','on', 'Fontsize',fontsize);
@@ -85,7 +85,7 @@ axSC(2) = axes('units','normalized', 'position',[.32 .05 .19  .28], 'Box','on', 
 axSC(3) = axes('units','normalized', 'position',[.54 .06 .19  .27], 'Box','on', 'Fontsize',fontsize);
 axSC(4) = axes('units','normalized', 'position',[.77 .05 .19  .28], 'Box','on', 'Fontsize',fontsize,'Layer','top');
 
-% worldmap
+% world map
 if config.maptool==1
     axwm = axes('units','normalized', 'position',[.77 .755 .23 .249]);
 else
@@ -119,7 +119,7 @@ set(tmp1,'String',tmp2);
 
 %% ---------------------------------
 function n_callback(src,~)
-%null menu callback
+% null menu callback
 global SIMW_temp
 % 1) set menu markers
 tmp1 = get(src,'Userdata');
@@ -145,7 +145,7 @@ end
 
 res_remark=inputdlg('Enter a remark to this result', 'Remark');
 
-%if exist h.stacked_remark delete it!!!!!!!!!
+% if exist h.stacked_remark delete it !!!!!!!!!
 if ~isempty(res_remark) && ~strcmp(res_remark,'')
     remark=res_remark;
 elseif isempty(res_remark)
