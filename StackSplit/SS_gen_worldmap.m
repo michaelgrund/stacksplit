@@ -9,7 +9,7 @@ function h=SS_gen_worldmap(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% generate worldmap that displays the station and currently selected events 
+% generate world map that displays the station and currently selected events 
 % from list 
 %
 %==========================================================================
@@ -44,7 +44,7 @@ function h=SS_gen_worldmap(h)
 global config
 
 %==========================================================================
-% plot eq worldmap overview
+% plot eq world map overview
 
 % parameter from global variable config
 thissta.slat=config.slat;
