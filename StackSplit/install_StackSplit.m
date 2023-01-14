@@ -44,15 +44,14 @@ function install_StackSplit()
 % GENERAL REMARKS
 %
 % Besides the StackSplit functions, the package also contains modified
-% SplitLab (SL) functions which are necessary to generate the multi-event
-% output. All these functions (except the SL starting function splitlab.m)
-% are located in the original SL folders ShearWaveSplitting, Tools,
-% and private.
+% SplitLab functions which are necessary to generate the multi-event output.
+% All these functions (except the SL starting function < splitlab.m >) are
+% located in the original SL folders ShearWaveSplitting, Tools, and private.
 %
 % By running this installation file, all original functions are renamed
-% with an end suffix *_ori. The (new) modified ones are copied to their
-% corresponding paths and have the same names as the others before
-% renaming. But their content is slightly modified!
+% with a suffix *_ori. The (new) modified ones are copied to their
+% corresponding paths and have the same names as the others before renaming.
+% But their content is slightly modified!
 %
 % So, if you are not happy with StackSplit you easily can recover your
 % original SplitLab settings (see function < uninstall_StackSplit.m >)
@@ -62,7 +61,7 @@ function install_StackSplit()
 % your choice for backup.
 %  
 % The changes in the modified SL functions in general do not affect any
-% calculation within the functions except < geterrorbars.m > and
+% calculations within the functions except < geterrorbars.m > and
 % < geterrorbarsRC.m > where modified equations for error calculations
 % after Walsh et al. (2013) and a fixed taper application were implemented!
 %
