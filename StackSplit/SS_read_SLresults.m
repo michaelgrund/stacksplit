@@ -53,7 +53,8 @@ dir_eqresults=dir(fullfile(curr_path2results,[curr_staname '_eqresults.mat']));
 
 if isempty(dir_eqresults)
 
-   errordlg('Sorry, no single event results are available for this station!','Missing events')
+   errordlg(['Sorry, no single event results are available for this ' ...
+       'station!'],'Missing events')
 
    merged_str=[];
    find_res=[];
@@ -76,7 +77,9 @@ for ii=1:length(eq)
             find_res(zz)=eq(ii);
             zz=zz+1;
         else
-            errordlg('Available SL results struct was generated before the installation of StackSplit (several struct fields are missing)! Sorry, no stacking possible!')
+            errordlg(['Available SL results struct was generated before ' ...
+                'the installation of StackSplit (several struct fields ' ...
+                'are missing)! Sorry, no stacking possible!'])
             merged_str=[];
             find_res=[];
             return
@@ -93,7 +96,8 @@ end
 
 if length([eq.results]) < 2
     
-   errordlg('Sorry, at least two single event results are necessary for stacking!','Less events')
+   errordlg(['Sorry, at least two single event results are necessary ' ...
+       'for stacking!'],'Less events')
 
    merged_str=[];
    find_res=[];
@@ -154,9 +158,8 @@ checkpre=[find_res.results];
 checkop=unique({checkpre.method});
 
 if length(checkop)~=1
-    errordlg([{'Different splitting options were used for the single event analysis in SL!'},...
-    {' '},... 
-    checkop(:)'],'Input problem')
+    errordlg([{['Different splitting options were used for the single ' ...
+        'event analysis in SplitLab!']}, {' '}, checkop(:)'],'Input problem')
 
     merged_str=[];
     find_res=[];

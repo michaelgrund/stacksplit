@@ -88,8 +88,10 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-farewellstring={'StackSplit did not fulfill your expectations? Simply open a new issue or PR on GitHub to give comments or address suggestions for improvements etc. ',...
-    ' ','Do you want to continue uninstalling StackSplit from your system?'};
+farewellstring = {['StackSplit did not fulfill your expectations? ' ...
+    'Simply open a new issue or PR on GitHub to give comments or ' ...
+    'address suggestions for improvements etc. '], ' ', ...
+    'Do you want to continue uninstalling StackSplit from your system?'};
 
 pos = get(0,'DefaultFigurePosition');
 pos(3:4) = [560 200];
@@ -136,7 +138,8 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name
     movefile(dir_orifiles.name,'splitlab.m')
     
 else
-    errordlg(['No original SL file < splitlab' filesuffix '.m > available! Uninstallation aborted!'])
+    errordlg(['No original SplitLab file < splitlab' filesuffix '.m > ' ...
+        'available! Uninstallation aborted!'])
     return
 end
 
@@ -207,7 +210,8 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==2
     %================================================================
 
 else
-    errordlg(['Missing files with suffix *' filesuffix '! Uninstallation aborted!'])
+    errordlg(['Missing files with suffix *' filesuffix '! ' ...
+        'Uninstallation aborted!'])
     return
 end
 %======================================================================
@@ -231,7 +235,8 @@ end
 % check if original SL function (*_ori.m) is available
 dir_orifiles=dir(['*' filesuffix '.m']); 
 
-if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['seisfigbuttons' filesuffix '.m'])
+if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && ...
+    strcmp(dir_orifiles.name,['seisfigbuttons' filesuffix '.m'])
 
     % first delete the current StackSplit version of the function with correct name
     dir_seisfig=dir('seisfigbuttons.m');
@@ -247,7 +252,8 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name
     movefile(dir_orifiles.name,'seisfigbuttons.m')
     
 else
-    errordlg(['No original SL file < seisfigbuttons' filesuffix '.m > available! Uninstallation aborted!'])
+    errordlg(['No original SplitLab file < seisfigbuttons' filesuffix '.m > ' ...
+        'available! Uninstallation aborted!'])
     return
     
 end
@@ -324,7 +330,8 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==5
     disp(' ')    
     disp('Uninstallation of StackSplit successfully finished!')
 
-    msgbox('StackSplit was successfully removed from your system!','Uninstallation complete');
+    msgbox('StackSplit was successfully removed from your system!', ...
+        'Uninstallation complete');
 
 else
     errordlg(['Missing files with suffix *' filesuffix '! Uninstallation aborted!'])

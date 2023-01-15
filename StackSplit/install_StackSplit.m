@@ -154,7 +154,8 @@ if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1
     disp(' ')
     disp('Start installation of StackSplit...')
 else
-    errordlg('Missing StackSplit folder! Before installing, please first copy the (unzipped) StackSplit folder to the SplitLab main folder!')
+    errordlg(['Missing StackSplit folder! Before installing, please first ' ...
+        'copy the (unzipped) StackSplit folder to the SplitLab main folder!'])
     return
 end
 
@@ -163,8 +164,9 @@ end
 %============
 % welcome
 
-welcomestring={'Welcome to StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab',...
-    ' ','Do you want to continue installing this package on your system?'};
+welcomestring={['Welcome to StackSplit - a plugin for multi-event ' ...
+    'shear wave splitting analyses in SplitLab'], ' ', ...
+    'Do you want to continue installing this package on your system?'};
 
 pos = get(0,'DefaultFigurePosition');
 pos(3:4) = [560 200];
@@ -462,7 +464,8 @@ if ~isempty(dir('splitlab.m'))
                         disp(' ') 
                         disp('Installation complete !')
 
-                        msgbox('StackSplit was successfully installed on your system! Please restart MATLAB!','Installation complete');
+                        msgbox(['StackSplit was successfully installed on your system! ' ...
+                            'Please restart MATLAB!'],'Installation complete');
 
                    end
             end

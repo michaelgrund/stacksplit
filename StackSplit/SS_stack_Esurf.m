@@ -66,7 +66,8 @@ checkmulti=unique(datenum(datevecs(:,1:6)));
 if length(checkmulti)~=length(index) 
     
     % disp dialog if stacking procedure should be continued or aborted
-    ask4multi=questdlg('Your selection contains different phases/filters of the same event! Continue?',...
+    ask4multi=questdlg(['Your selection contains different phases/filters ' ...
+        'of the same event! Do you want to continue?'], ...
         'Multiple result selection','No','Yes','No');
 
     if strcmp(ask4multi,'No') % set all buttons/panels to visible off since stacking is aborted 
@@ -115,9 +116,9 @@ checkmulti2=unique(restype);
 if length(checkmulti2)~=1 
     
     % disp dialog if stacking procedure should be continued or aborted
-    ask4multi2=questdlg(['Your selection contains Splits and Nulls!' ...
-        'Mixing both types is not reasonable! Continue?'],...
-        'Multiple result selection','No','Yes','No');
+    ask4multi2=questdlg(['Your selection contains splits and nulls! ' ...
+        'Mixing both types is not reasonable! Do you want to continue?'], ...
+        'Splits and nulls selection','No','Yes','No');
 
     if strcmp(ask4multi2,'No') % set all buttons/panels to visible off since stacking is aborted 
         set(h.push(1),'enable','off');   % STACK button
@@ -282,7 +283,7 @@ if length(use_data) > 1 % more than 1 selection
                 % depending on EV input, normalized on minimum or maximum
                 switch config.splitoption
                     case 'Minimum Energy' % minimum normalization;
-                                          % if Minimum Energy is the "splitoption",
+                                          % if "Minimum Energy" is the "splitoption",
                                           % then automatically min(lambda2)
                                           % is the corresponding EV method
                                           % (see splitSilverChan.m)
@@ -324,7 +325,7 @@ if length(use_data) > 1 % more than 1 selection
                 switch config.splitoption
                     
                     case 'Minimum Energy' % minimum normalization;
-                                          % if Minimum Energy is the "splitoption",
+                                          % if "Minimum Energy" is the "splitoption",
                                           % then automatically min(lambda2)
                                           % is the corresponding EV method
                                           % (see splitSilverChan.m)
@@ -372,7 +373,7 @@ elseif h.surf_kind==2 % EV surface
     switch config.splitoption
         
         case 'Minimum Energy' % search abs min;
-                              % if Minimum Energy is the "splitoption",
+                              % if "Minimum Energy" is the "splitoption",
                               % then automatically min(lambda2)
                               % is the corresponding EV method
                               % (see splitSilverChan.m)
@@ -389,7 +390,7 @@ elseif h.surf_kind==2 % EV surface
 end
 
 %======================================================
-% absolute Value in stacked_err_surf, corresponding to the best
+% absolute value in stacked_err_surf, corresponding to the best
 % inversion (e.g. for the SC method min(energy map))
 Eresult(1) = STACKsurf(indexPhi, indexDt, 1); 
    
@@ -469,7 +470,8 @@ string2 = [string1 newline char(strcat({'dt:   '}, char(num2str(singledtSTACK(1)
 												   char(num2str(singledtSTACK(2),'%3.1f')), {' s < '}, ...
 												   char(num2str(singledtSTACK(3),'%3.1f')), {' s'}))];
 
-uicontrol(h.panel(3),'Style','text', 'String',string2,'Position',[0.05,0.05,170,40], 'BackgroundColor', 'w','Fontsize',10);
+uicontrol(h.panel(3), 'Style','text', 'String',string2, ...
+    'Position',[0.05,0.05,170,40], 'BackgroundColor', 'w','Fontsize',10);
 
 %======================================================
 % save results to handle

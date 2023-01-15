@@ -91,7 +91,8 @@ fontsize = get(gcf,'DefaultAxesFontsize')-1;
 titlefontsize = fontsize+2;
 
 [axH, axRC, axSC, axSeis,axwm] = SS_splitdiagnosticLayout(Synfig);
-SS_splitdiagnosticSetHeader(axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV, pol, splitoption, bazi_int, dist_int)
+SS_splitdiagnosticSetHeader(axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV, ...
+    pol, splitoption, bazi_int, dist_int)
 
 switch splitoption
     case 'Minimum Energy'
@@ -133,7 +134,8 @@ switch splitoption
         Maptitle = 'Map of Eigenvalues \lambda_1 * \lambda_2';
 end
 
-%% rotate seismograms for plots (backwards == counter-clockwise => use transposed matrix M)
+%% rotate seismograms for plots 
+% (backwards == counter-clockwise => use transposed matrix M)
 M = rot3D(inc, bazi);
 
 ZEN = M' *[L,  QTcorRC]';
@@ -163,7 +165,8 @@ m1 = max(abs( corFSrc(:,1)));
 m2 = max(abs( corFSrc(:,2)));
 plot(t, corFSrc(:,1)/m1,'b--',   t,sig*corFSrc(:,2)/m2,'r-','LineWidth',1);
 xlim([t(1) t(end)])
-title('corrected Fast (\color{blue}--\color{black}) & Slow (\color{red}-\color{black})','FontSize',titlefontsize);
+title('corrected Fast (\color{blue}--\color{black}) & Slow (\color{red}-\color{black})', ...
+    'FontSize',titlefontsize);
 set(gca,'Ytick' , [-1 0 1])
 ylabel('Rotation-Correlation','FontSize',titlefontsize)
 
@@ -171,7 +174,8 @@ ylabel('Rotation-Correlation','FontSize',titlefontsize)
 % corrected seismograms
 axes(axRC(2))
 plot(t, QTcorRC(:,1),'b--',    t, QTcorRC(:,2) ,'r-','LineWidth',1);
-title('corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})','FontSize',titlefontsize);
+title('corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})', ...
+    'FontSize',titlefontsize);
 xlim([t(1) t(end)])
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -180,7 +184,8 @@ axes(axRC(3))
 plot(E, N, 'b--', Erc, Nrc,'r-','LineWidth',1);
 xlabel('\leftarrowW - E\rightarrow', 'Fontsize',fontsize-1);
 ylabel('\leftarrowS - N\rightarrow', 'Fontsize',fontsize-1);
-title('Particle motion before (\color{blue}--\color{black}) & after (\color{red}-\color{black})','FontSize',titlefontsize);
+title('Particle motion before (\color{blue}--\color{black}) & after (\color{red}-\color{black})', ...
+    'FontSize',titlefontsize);
 axis equal
 
 tmp = max([abs(xlim) abs(ylim)]); % set [0 0] to centre of plot
@@ -241,7 +246,8 @@ m2 = max(abs( corFSsc(:,2)));
 plot(  t, corFSsc(:,1)/m1,'b--',    t, sig*corFSsc(:,2)/m2 ,'r-','LineWidth',1);
 xlim([t(1) t(end)])
 ylim([-1 1])
-title('corrected Fast (\color{blue}--\color{black}) & Slow (\color{red}-\color{black})','FontSize',titlefontsize);
+title('corrected Fast (\color{blue}--\color{black}) & Slow (\color{red}-\color{black})', ...
+    'FontSize',titlefontsize);
 set(gca,'Ytick' , [-1 0 1])
 ylabel(optionstr,'FontSize',titlefontsize)
 
@@ -249,7 +255,8 @@ ylabel(optionstr,'FontSize',titlefontsize)
 % corrected seismograms (in ray system)
 axes(axSC(2))
 plot(t, QTcorSC(:,1),'b--',    t, QTcorSC(:,2) ,'r-','LineWidth',1);
-title('corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})','FontSize',titlefontsize);
+title('corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})', ...
+    'FontSize',titlefontsize);
 xlim([t(1) t(end)])
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -259,7 +266,8 @@ hold on
 plot(E, N, 'b--', Esc, Nsc,'r-','LineWidth',1);
 xlabel('\leftarrowW - E\rightarrow', 'Fontsize',fontsize-1);
 ylabel('\leftarrowS - N\rightarrow', 'Fontsize',fontsize-1);
-title('Particle motion before (\color{blue}--\color{black}) & after (\color{red}-\color{black})','FontSize',titlefontsize);
+title('Particle motion before (\color{blue}--\color{black}) & after (\color{red}-\color{black})', ...
+    'FontSize',titlefontsize);
 axis equal
 
 tmp = max([abs(xlim) abs(ylim)]); % set [0 0] to centre of plot

@@ -46,7 +46,7 @@ global config
 
 shift_right=45;
 
-% check if a StackSplit figure window is already open, otherwise create one
+% check if a StackSplit figure window is already opened, otherwise create one
 h.fig=findobj('type','figure','name',['StackSplit ' config.SS_version]);
 
 if isempty(h.fig)

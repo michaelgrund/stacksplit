@@ -131,7 +131,8 @@ else
         contourf(lon,lat',topoElevation);
 
     else
-        errordlg('To run StackSplit you need either the Mapping toolbox or SplitLab version >= 1.2.1!','Version issue')
+        errordlg(['To run StackSplit you need either the Mapping toolbox ' ...
+            'or SplitLab version >= 1.2.1!'],'Version issue')
         close(h.fig)
         h.quit=1;
         return

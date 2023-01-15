@@ -11,7 +11,7 @@ function SS_calc_SIMW(h)
 %
 % calculate splitting parameters (and errors) for concatenated SIMW waveforms
 % using the rotation-correlation (RC) and Silver & Chan (SC) methods, for
-% details see SL functions splitSilverChan.m & splitRotCorr.m
+% details see SL functions splitRotCorr.m & splitSilverChan.m
 % 
 %==========================================================================
 % LICENSE
@@ -51,7 +51,8 @@ global config SIMW_temp
 if h.checkmultiSIMW==1 % for h.checkmultiSIMW, see function SS_prep_SIMW.m
     
     % disp dialog if SIMW procedure should be continued or aborted 
-    ask4multi=questdlg('Your selection contains different phases/filters of the same event! Continue?', ...
+    ask4multi=questdlg(['Your selection contains different phases/filters ' ...
+        'of the same event! Do you want to continue?'], ...
         'Multiple result selection','No','Yes','No');
 
     if strcmp(ask4multi,'No') % set all buttons to visible off since SIMW is aborted 
@@ -82,8 +83,9 @@ end
 if h.checkmultiSIMW2==1 % for h.checkmultiSIMW2, see function SS_prep_SIMW.m
     
     % disp dialog if SIMW procedure should be continued or aborted 
-    ask4multi2=questdlg('Your selection contains Splits and Nulls! Mixing both types is not reasonable! Continue?',...
-        'Multiple result selection','No','Yes','No');
+    ask4multi2=questdlg(['Your selection contains splits and nulls! ' ...
+        'Mixing both types is not reasonable! Do you want to continue?'], ...
+        'Splits and nulls selection','No','Yes','No');
 
     if strcmp(ask4multi2,'No') % set all buttons to visible off since SIMW is aborted 
             
