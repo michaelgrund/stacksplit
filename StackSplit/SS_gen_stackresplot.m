@@ -64,30 +64,24 @@ set(fig_out,'visible','off')
 
 ax0=subplot(3,4,1:4);
 
-str11 = sprintf(['%4.0f <%4.0f <%4.0f'],phi); % phi from stacked surface
-str21 = sprintf('%3.1f < %3.1fs < %3.1f',dt); % dt from stacked surface
+str11 = sprintf('%4.0f <%4.0f <%4.0f',phi); % phi from stacked surface
+str21 = sprintf('%3.1f < %3.1f s < %3.1f',dt); % dt from stacked surface
 
 if h.surf_kind==1 
-    surf_input='Minimum Energy';
-
-    str ={['          \rmStation: \bf  '        config.stnname '       \rm    Surface input: \bf      ' surf_input ' \rm        Method: \bf      ' h.stacked_meth];
-    ['\rmBackazimuth range: \bf   ' sprintf(['%5.1f - %5.1f'],bazi_int) ' (' sprintf(['%5.1f'],mean_bazi)   ') \rm           Distance range: \bf           ' sprintf(['%5.1f - %5.1f'],dist_int) ' (' sprintf(['%5.1f'],mean_dist) ')' ];
-    ['  '];
-    ['\rm                                   \phi: ' str11 '                                              \deltat: ' str21 ]};
-
+   surf_input='Minimum Energy';
 elseif h.surf_kind==2
    surf_input='EV';
+end
 
-    str ={['          \rmStation: \bf  '        config.stnname '       \rm    Surface input: \bf      ' surf_input ' \rm        Method: \bf      ' h.stacked_meth];
-    ['\rmBackazimuth range: \bf   ' sprintf(['%5.1f - %5.1f'],bazi_int) ' (' sprintf(['%5.1f'],mean_bazi)   ') \rm           Distance range: \bf           ' sprintf(['%5.1f - %5.1f'],dist_int) ' (' sprintf(['%5.1f'],mean_dist) ')' ];
-    ['  '];
-    ['\rm                                   \phi: ' str11 '                                              \deltat: ' str21 ]};
+str ={['          \rmStation: \bf' config.stnname '\rm   Surface input: \bf' surf_input '\rm   Method: \bf' h.stacked_meth];
+['\rmBackazimuth range: \bf' sprintf('%5.1f - %5.1f',bazi_int) ' (' sprintf('%5.1f',mean_bazi) ')\rm   Distance range: \bf' sprintf('%5.1f - %5.1f',dist_int) ' (' sprintf('%5.1f',mean_dist) ')' ];
+'  ';
+['\rm                  \phi: ' str11 '       \delta\itt\rm: ' str21]};
 
-end    
 
-text(.05, 0.2,str,...
-    'HorizontalAlignment','left',...
-    'Tag','FigureHeader',...
+text(.05, 0.2, str, ...
+    'HorizontalAlignment','left', ...
+    'Tag','FigureHeader', ...
     'fontname','fixedwidth');
 
 pos=get(ax0,'position');
