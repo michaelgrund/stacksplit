@@ -61,10 +61,13 @@ use_data=h.data(index);
 % check if more than one phase per event is selected by comparing the
 % source times of the selected entries
 datevecs=vertcat(use_data.date);
-checkmulti=unique(datenum(datevecs(:,1:6)));
+% YF 2023-01-16
+% checkmulti=unique(datenum(datevecs(:,1:6)));
+checkmulti = unique(datevecs(:,1:6),'rows'); % each row as one entry
 
-if length(checkmulti)~=length(index) 
-    
+% if length(checkmulti)~=length(index)
+if size(checkmulti,1)~=length(index) % number of columns, i.e. different events
+
     % disp dialog if stacking procedure should be continued or aborted
     ask4multi=questdlg('Your selection contains different phases/filters of the same event! Continue?',...
         'Multiple result selection','No','Yes','No');
