@@ -305,7 +305,7 @@ else
     % datestr() is not recommanded by MATLAB up on R2022b
     % !!! Please note the changed identifiers !!!
     % eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
-    eqstack(end+1).results.meas_dstr=string(datetime("now", 'Format','yyyy-MM-dd_HH:mm:ss'));
+    eqstack(end+1).results.meas_dstr=string(datetime("now", 'Format','yyyy-MM-dd_HH:mm:ss')); % date of measurement
     eqstack(end).results.meas_sdn=now; % date of measurement, serial date number 
     eqstack(end).results.stnname=config.stnname; 
     eqstack(end).results.netw=config.netw; 
