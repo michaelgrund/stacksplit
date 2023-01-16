@@ -116,11 +116,14 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
     % check if more than one phase per event is selected  by comparing the source times of the 
     % selected entries
     datevecs=vertcat(find_res(index).date);
-    checkmultiSIMW=unique(datenum(datevecs(:,1:6)));
+    % YF 2023-01-16
+    % checkmultiSIMW=unique(datenum(datevecs(:,1:6)));
+    checkmultiSIMW = unique(datevecs(:,1:6),'rows'); % each row as one entry
 
     % save check result to handle, questdlg only is opened when INVERSION
     % button is clicked, see beginning of function SS_calc_SIMW
-    if length(checkmultiSIMW)~=length(index)
+    % if length(checkmultiSIMW)~=length(index)
+    if size(checkmultiSIMW,1)~=length(index) % number of columns, i.e. different events
         h.checkmultiSIMW=1;
     else
         h.checkmultiSIMW=0;
