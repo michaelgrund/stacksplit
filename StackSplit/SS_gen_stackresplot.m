@@ -78,6 +78,15 @@ str ={['          \rmStation: \bf' config.stnname '\rm   Surface input: \bf' sur
 '  ';
 ['\rm                  \phi: ' str11 '       \delta\itt\rm: ' str21]};
 
+% In case the header of the exported STACK diagnostic plot does not look
+% appealing to you, you can uncomment the lines below to try this
+% arrangement or you adjust the header on your own.
+%{
+str ={['          \rmStation: \bf  '        config.stnname '       \rm    Surface input: \bf      ' surf_input ' \rm        Method: \bf      ' h.stacked_meth];
+['\rmBackazimuth range: \bf   ' sprintf('%5.1f - %5.1f',bazi_int) ' (' sprintf('%5.1f',mean_bazi)   ') \rm           Distance range: \bf           ' sprintf('%5.1f - %5.1f',dist_int) ' (' sprintf('%5.1f',mean_dist) ')' ];
+'  ';
+['\rm                                   \phi: ' str11 '                                              \deltat: ' str21 ]};
+%}
 
 text(.05, 0.2, str, ...
     'HorizontalAlignment','left', ...
