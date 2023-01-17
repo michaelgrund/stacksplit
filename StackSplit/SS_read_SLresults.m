@@ -238,7 +238,7 @@ for ii=1:length(find_res) % color results depending on quality ranking
     end
 
     % YF 2023-01-16
-    % datestr() in not recommaned by MATLAB up on R2022b
+    % "datestr" in not recommaned by MATLAB up on R2022b
     % !!! Please note the changed identifiers !!!
     % sel_qual=[datestr(datestrings,'yyyy/mm/dd_HH:MM:SS'),...
     sel_qual=[char(datetime(datestrings, 'Format','yyyy/MM/dd_HH:mm:ss')),...
