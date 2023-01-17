@@ -154,7 +154,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
             % same, otherwise the matrices are not resized.
 
             % YF 2023-01-17
-            % resizem() will be removed in a futher release and instead
+            % resizem() will be removed in a future release and instead
             % georesize () or imresize() should be used
             % Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
             % EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
