@@ -339,26 +339,24 @@ button = questdlg({'The current earthquake will be removed', 'from this project 
 switch button
     case 'Yes'
 
-            %====================================================================
+        %====================================================================
 	    % added by MG 2017-02-17
- 
-            if isfield(config,'SS_version')
+
+        if isfield(config,'SS_version')
     
 	      checkSS=findobj('type','figure','name',['StackSplit ' config.SS_version]);
 
-		if ~isempty(checkSS)
-         
-		    warndlg(...
-                    {'Please close StackSplit to perform this operation!',...
-                    'Afterwards simply restart StackSplit to avoid any database conflicts.',...
-                    'Please excuse this inconvenience.'},...
-                    'Close StackSplit!');
-		  return
+            if ~isempty(checkSS)
+		        warndlg(...
+                        {'Please close StackSplit to perform this operation!',...
+                        'Afterwards simply restart StackSplit to avoid any database conflicts.',...
+                        'Please excuse this inconvenience.'},...
+                        'Close StackSplit!');
+		        return
+            end
 
-	        end
-
-	   end
-	   %====================================================================
+        end
+	    %====================================================================
     
         fname = fullfile(config.savedir,['trashfiles_' config.stnname '.log' ]);
         fid   = fopen(char(fname),'a+');
