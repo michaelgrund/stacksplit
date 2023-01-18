@@ -79,7 +79,7 @@ eq(num).results(n).dttrace    =  thiseq.tmpresult.dttrace;
 %eq(num).f = thiseq.f;
 
 %% SAVE FIGURES ==========================================================
-%change here, if you dont like the figure output (resolution etc)
+% change here, if you don't like the figure output (resolution etc)
 switch config.exportformat
     case '.ai'
         option={ '-dill', '-noui'};
@@ -118,7 +118,7 @@ print( option{:}, fullfile(config.savedir,fname));
 eq(num).results(n).resultplot = fname;
 
 
-%% save seimogramm plots
+%% save seismogram plots
 % %make sure, that LTQ plot is saved
 % if thiseq.system=='ENV';
 %     thiseq.system='LTQ';
@@ -138,7 +138,7 @@ eq(num).results(n).seisplot = '';%fname;
 % code by Rob Porritt, if eq is saved at upper position, the plot name of the
 % last saved measurement is missing
 
-% save eq as a mat file for edit/analysis outside of splitlab
+% save eq as a mat file for edit/analysis outside of SplitLab
 fname = sprintf('%s_eqresults.mat',config.stnname);
 mfilename = fullfile(config.savedir,fname);
 save(mfilename,'eq');
