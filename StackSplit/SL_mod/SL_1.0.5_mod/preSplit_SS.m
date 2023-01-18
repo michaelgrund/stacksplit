@@ -1,9 +1,9 @@
 function preSplit
-%% pre-processing of Shear-wave splitting
+%% pre-processing of shear-wave splitting
 % necessary inputs:
 % e, n, z, t   = amplitude and time vectors
 %                raw data in geographic system
-%                these will be rotated, filtered and detrended
+%                these will be rotated, filtered, and detrended
 % bazi, incli  = backazimuth and inclinationn of wave
 % a, f         = begin and end of selection window (in sec)
 %
@@ -71,11 +71,11 @@ L(nn) = L(nn).*taper;     L(nn2) = L(nn2).*taper2;
 % define your filter here.
 % the selected corner frequncies are stored in the varialbe "thiseq.filter"
 % 
-ny    = 1/(2*thiseq.dt);%nyquist freqency of seismogramm
-n     = 3; %filter order
+ny    = 1/(2*thiseq.dt); % nyquist freqency of seismogram
+n     = 3; % filter order
 f1 = thiseq.filter(1);
 f2 = thiseq.filter(2);
-if f1==0 & f2==inf %no filter
+if f1==0 & f2==inf % no filter
     % do nothing
     % we leave the seismograms untouched
 else
