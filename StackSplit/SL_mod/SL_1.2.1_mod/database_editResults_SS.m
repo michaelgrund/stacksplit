@@ -12,14 +12,14 @@ rval = get(r_box,'Value');
 L = get(r_box,'Userdata'); %get displayed results sturcture
 switch option
     case 'del'
-        button = questdlg('Do you want to delete this result from database?','Confirm delete','Yes','No','Yes');
+        button = questdlg('Do you want to delete this result from the database?','Confirm delete','Yes','No','Yes');
         if strcmp(button,'Yes')
             seisfig = findobj('Tag','SeismoFigure');
             if ~isempty(seisfig)
                 warndlg(...
                     {'Please close the SeismoViewer to perfom this operation!',...
                     'An open SeismoViewer may cause database conflicts.',...
-                    'Please excuse this inconvenience'},...
+                    'Please excuse this inconvenience.'},...
                     'Close SeismoViewer!');
                 return
             end
@@ -36,7 +36,7 @@ switch option
 		    warndlg(...
                     {'Please close StackSplit to perform this operation!',...
                     'Afterwards simply restart StackSplit to avoid any database conflicts.',...
-                    'Please excuse this inconvenience'},...
+                    'Please excuse this inconvenience.'},...
                     'Close StackSplit!');
 		  return
 
@@ -69,16 +69,16 @@ switch option
 
             filename    = fullfile(config.projectdir,config.project);
             save(filename,'eq','config');
-            helpdlg('Result files might still be in the output directory')
+            helpdlg('Result files might still be in the output directory!')
     
-            %====================================================================
+        %====================================================================
 	    % added by MG 2017-02-17
         
 	    % if an event is deleted after any phase splitting calculation
 	    % the variable "eq" is saved at this point, otherwise in StackSplit
 	    % the deleted event would still appear in the event list!
 
-	    % save eq as a mat file for edit/analysis outside of splitlab
+	    % save eq as a mat file for edit/analysis outside of SplitLab
 	    fname = sprintf('%s_eqresults.mat',config.stnname);
 	    mfilename2save = fullfile(config.savedir,fname);
 	    save(mfilename2save,'eq');
@@ -144,7 +144,7 @@ switch option
 
             commandstring = strrep(commandline, '$1', resplot);
             if strncmp(computer,'MAC',3)
-                errordlg('Does not yet work for MACINTOSH... sorry')
+                errordlg('Does not yet work for MACINTOSH... sorry!')
                 return;
                 %need of OSAscript on MACINTOSH:
                 commandstring = strrep(commandstring, '!', '!osascript');
@@ -173,7 +173,7 @@ switch option
         res = find(x==1) ;
 
 
-        button = questdlg({'All earthquakes with no results will be removed from database!',...
+        button = questdlg({'All earthquakes with no results will be removed from the database!',...
             ['  ' num2str(length(res)) '   earthquakes with result'],...
             ['  ' num2str(length(eq)-length(res)) '   earthquakes with no result']},...
             'Confirm delete','Go','Cancel','Cancel');
@@ -181,7 +181,7 @@ switch option
             eq=eq(res);
             config.db_index=1;
             beep
-            w = warndlg('Please save the new database!!');
+            w = warndlg('Please save the new database!');
             waitfor(w)
 
             earth = findobj('Type','Figure','Tag','EarthView');
