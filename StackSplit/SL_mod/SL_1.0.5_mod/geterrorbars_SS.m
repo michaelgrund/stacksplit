@@ -5,7 +5,7 @@ ndf = getndf(Tcomp,length(Tcomp),length(Tcomp));
 HatNDF = ndf/length(Tcomp);%In the absense of correlation, this number should approach 1.0 (HATNDF << 1.0 is bad)
 
 
-K = 2;%Nuber of model parameters
+K = 2; % Number of model parameters
 if ndf <=K
     disp('  NDF <= K... There is no resolution of the 95% confidence region; Continuing')
     errbar_phi = [nan nan];
@@ -81,11 +81,11 @@ OUT = fft(A);
 %=================================================================================
 % 2016-07-29 -MG-
 %
-% added modified F4 and NDF to correctly calc degrees of freedom (see Walsh et al.,2013)
+% added modified F4 and NDF to correctly calc degrees of freedom (see Walsh et al., 2013)
 %
 % F4SC & NDFSC are the values calculated with the original definitions
 % implemented in SplitLab which are based on Silver & Chan (1991)
-
+%
 % Walsh, E., R. Arnold and M. K. Savage (2013) "Silver and Chan Revisited", JGR
 %=================================================================================
 
@@ -94,21 +94,21 @@ mag = abs(OUT);
 F2 = sum(mag.^2);
 F4 = sum(mag.^4);
 
-F2 = F2 - 0.5*mag(1).^2 - 0.5*mag(end).^2;   % same for SC (1991) and Walsh et al 2013
+F2 = F2 - 0.5*mag(1).^2 - 0.5*mag(end).^2;   % same for SC (1991) and Walsh et al., 2013
 
 F4SC = F4 - 0.5*mag(1).^4 - 0.5*mag(end).^4; % SC (1991) original
-F4 = (4/3)*F4 - mag(1).^4 - mag(end).^4;     % Walsh et al 2013, adopted from MFAST code (v2.0, http://mfast-package.geo.vuw.ac.nz/) 
+F4 = (4/3)*F4 - mag(1).^4 - mag(end).^4;     % Walsh et al., 2013, adopted from MFAST code (v2.0, http://mfast-package.geo.vuw.ac.nz/)
                                              % in function zndf.f
-                                             
-% based on theory, the following expression should yield
-% the correct number of degrees of freedom.(see appendix of silver
-% and chan, 1990.  In practise, it gives a value that gives
-% a df that is slightly too large.  eg 101 for an original time
-% series of 100.  This is due to the fact that their is a slight
-% positive bias to the estimate using only the linear term.
+                  
+% based on theory, the following expression should yield the correct
+% number of degrees of freedom.(see appendix of Silver & Chan, 1991).
+% In practise, it gives a value that gives a df that is slightly too large,
+% e.g., 101 for an original time series of 100. This is due to the fact
+% that there is a slight positive bias to the estimate using only the
+% linear term.
 
 NDFSC = round(2*(2*F2*F2/F4SC -1) + 0.5); % SC original
-NDF = round(2*(2*F2*F2/F4 -1) + 0.5);   % Walsh et al 2013
+NDF = round(2*(2*F2*F2/F4 -1) + 0.5);   % Walsh et al., 2013
 
 
 if NDF > norig
@@ -119,10 +119,10 @@ end
 
 %%
 function data = inv_f(nu1,  nu2)
-%using tablelook up for finding the Inverse of the F cumulative
-%distribution function. First Degree of Freedom in our case is always 2
-%(2 independant parameter: phi, dt. The second degree of fredom was estimated
-% from transverse component
+% using table look up for finding the inverse of the F cumulative
+% distribution function. First degree of freedom in our case is always 2
+% (2 independant parameters: phi, dt. The second degree of fredom was
+% estimated from transverse component
 
 if nu2>100, nu2 = 100; end %using last value in table, no big change
 
