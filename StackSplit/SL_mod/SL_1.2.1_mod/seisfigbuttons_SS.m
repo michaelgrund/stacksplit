@@ -107,7 +107,7 @@ uipushtool(ht,'CData',icon.config,...
 
 
 %% %USER DEFINED function
-%enter the name of your function; mus be a string
+% enter the name of your function; must be a string
 MyFunction =  strcat('warndlg({''Create your own function:'','' '',',...
     '''* Use function template in Splitlab/PlugIns/template.m '',',...
     '''* Place it in your Matlab search path'',',...
@@ -115,15 +115,15 @@ MyFunction =  strcat('warndlg({''Create your own function:'','' '',',...
     '''* Modify Splitlab/private/seisKeyPress.m'','' '',',...
     '''to access your function''} ,',...
     '''User function'')');
-%create yuor own symbol: assume an indexed GIF image user.gif is located at c:\
-%it has to bee at max 20x20 pixel!
+% create your own symbol: assume an indexed GIF image user.gif is located at c:\
+%it has to be at max 20x20 pixels!
 % uiopen('C:\user.gif',1)
 % %this will gif you the indexmap cdata and a colormap
-% User = ind2rgb(cdata, colormap); %create RGB image
-% Logic = cdata==35; %we are assuming that the transparent color of the image has the index number 35
-% Logic = repmat(Logic,[1,1,3]); %for each colorlayer (Red, Green, Blue)
+% User = ind2rgb(cdata, colormap); % create RGB image
+% Logic = cdata==35; % we are assuming that the transparent color of the image has the index number 35
+% Logic = repmat(Logic,[1,1,3]); % for each colorlayer (Red, Green, Blue)
 % User(Logic)=nan; % image entries with NaNs are 'displayed' transparent
-% %now load the icon.mat variable in /Splitlab/privat/icon.mat
+% % now load the icon.mat variable in /Splitlab/privat/icon.mat
 % icon.user=User;
 % save Splitlab/privat/icon.mat icon
 
@@ -259,7 +259,7 @@ JJJ       = dayofyear(D(1), D(2), D(3));
 
 files=[];
 for m=1:3
-    %access structure using dynamic filed names
+    % access structure using dynamic field names
     tmp  = sl_bsac(time,Amp(m,:));
     tmp = sl_ch(tmp,...
         'DELTA',  mean(diff(time)),...
@@ -337,7 +337,7 @@ global config thiseq eq
 button = questdlg({'The current earthquake will be removed', 'from this project database.', 'Are you sure?'}, ...
     'Remove earthquake','Yes','Cancel','Yes');
 switch button
-    case 'Yes';
+    case 'Yes'
 
             %====================================================================
 	    % added by MG 2017-02-17
@@ -351,7 +351,7 @@ switch button
 		    warndlg(...
                     {'Please close StackSplit to perform this operation!',...
                     'Afterwards simply restart StackSplit to avoid any database conflicts.',...
-                    'Please excuse this inconvenience'},...
+                    'Please excuse this inconvenience.'},...
                     'Close StackSplit!');
 		  return
 
@@ -385,7 +385,7 @@ switch button
         % the variable "eq" is saved at this point, otherwise in StackSplit
         % the deleted event would still appear in the event list!
         
-        % save eq as a mat file for edit/analysis outside of splitlab
+        % save eq as a mat file for edit/analysis outside of SplitLab
         fname = sprintf('%s_eqresults.mat',config.stnname);
         mfilename2save = fullfile(config.savedir,fname);
         save(mfilename2save,'eq');
@@ -462,14 +462,14 @@ function localZoomSeismo(hFig,evt,fig,seismo)
 point1 = get(gca,'CurrentPoint');    % button down detected
 finalRect = rbbox;                   % return figure units
 point2 = get(gca,'CurrentPoint');    % button up detected
-point1 = point1(1);              % extract x and y
+point1 = point1(1);                  % extract x and y
 point2 = point2(1);
 p1 = min(point1,point2);             % calculate locations
 offset = abs(point1-point2);         % and dimensions
 x = [p1(1) p1(1)+offset(1) ];
 
 if x(2)-x(1) < 2
-    %prevent exessive zooming smaller than 2seconds
+    % prevent exessive zooming smaller than 2 seconds
     return
 end
 
