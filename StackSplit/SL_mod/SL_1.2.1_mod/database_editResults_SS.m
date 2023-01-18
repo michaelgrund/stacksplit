@@ -25,25 +25,23 @@ switch option
             end
             
             %====================================================================
-	    % added by MG 2017-02-17
+	        % added by MG 2017-02-17
  
             if isfield(config,'SS_version')
-    
-	      checkSS=findobj('type','figure','name',['StackSplit ' config.SS_version]);
 
-		if ~isempty(checkSS)
-         
-		    warndlg(...
-                    {'Please close StackSplit to perform this operation!',...
-                    'Afterwards simply restart StackSplit to avoid any database conflicts.',...
-                    'Please excuse this inconvenience.'},...
-                    'Close StackSplit!');
-		  return
+                checkSS=findobj('type','figure','name',['StackSplit ' config.SS_version]);
 
-	        end
+                if ~isempty(checkSS)
+		            warndlg(...
+                            {'Please close StackSplit to perform this operation!',...
+                            'Afterwards simply restart StackSplit to avoid any database conflicts.',...
+                            'Please excuse this inconvenience.'},...
+                            'Close StackSplit!');
+                    return
+                end
 
-	   end
-	   %====================================================================
+            end
+	        %====================================================================
 
 
             tmp  = L(L<=rval); %substract header lines from list index
