@@ -13,7 +13,7 @@ warning('off','MATLAB:mir_warning_changing_try_catch');
 SL_checkversion
 config.version='SplitLab1.2.1';
 
-[p,f] = fileparts(mfilename('fullpath'));  % directory of Splitlab
+[p,f] = fileparts(mfilename('fullpath'));  % directory of SplitLab
 set(0,'DefaultFigurecolor', [224   223   227]/255 ,...
       'DefaultFigureWindowStyle','normal',...
       'DefaultUIControlBackgroundColor', [224   223   227]/255) 
@@ -41,7 +41,7 @@ configpanelSTATION;
 configpanelPHASES;
 configpanelSEARCHWIN;
 configpanelUSER;           % panel to create breqfast style requests
-configpanelFETCHTRACES;     % Panel to replace USER with a fetch method
+configpanelFETCHTRACES;    % panel to replace USER with a fetch method
 configpanelFINDFILE;
 
 
@@ -106,7 +106,7 @@ clear tmp
 %-------------------------------------------------------------------------
 pjtlist = getpref('Splitlab','History');
 files   = {};
-for k =1:length(pjtlist);
+for k =1:length(pjtlist)
     [pp,name,ext] = fileparts(pjtlist{k});
     files{k}=[name ext];
 end
@@ -181,12 +181,14 @@ figure(cfig)
 
 
 
-% intrestingly, at startup the first value of the random gegenator is often 0.9501
-% so, generate first dum dummy random numbers, and than in a new round take 
-% two random to state if show postcard or acknowldgement dialogs
-rng('shuffle');  % RWP: Matlab will always generate the same sequence of pseudo random numbers upon startup. By using rng('shuffle'),
-% we force Matlab to set a new sequence of random numbers based on the time
-% that rng was called.
+% Interestingly, at startup the first value of the random generator is
+% often 0.9501. So, generate first dummy random numbers, and then in a new
+% round take two random numbers to state if postcard or acknowledgement
+% dialogs are shown.
+% RWP: Matlab will always generate the same sequence of pseudo random
+% numbers upon startup. By using rng('shuffle'), we force Matlab to set a
+% new sequence of random numbers based on the time that rng was called.
+rng('shuffle');
 % rand(100,100);
 R = rand(1,2);   
 % if R(1)>.92,    postcardware,      end %Delete this line, if you have already sent a PostCard
