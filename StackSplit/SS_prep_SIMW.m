@@ -119,7 +119,7 @@ elseif length(index) > 1  % more than one selected => show merged waveforms
     checkmultiSIMW=unique(datenum(datevecs(:,1:6)));
 
     % save check result to handle, questdlg only is opened when INVERSION
-    % button is clicked, see beginning of function SS_calc_SIMW.m
+    % button is clicked, see beginning of function SS_calc_SIMW
     if length(checkmultiSIMW)~=length(index)
         h.checkmultiSIMW=1;
     else
