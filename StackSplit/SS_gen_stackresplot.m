@@ -64,8 +64,8 @@ set(fig_out,'visible','off')
 
 ax0=subplot(3,4,1:4);
 
-str11 = sprintf('%4.0f <%4.0f <%4.0f',phi); % phi from stacked surface
-str21 = sprintf('%3.1f < %3.1f s < %3.1f',dt); % dt from stacked surface
+str11 = sprintf('%4.0f <%4.0f\\circ <%4.0f',phi); % phi from stacked surface
+str21 = sprintf('%3.1f < %3.1fs < %3.1f',dt); % dt from stacked surface
 
 if h.surf_kind==1 
    surf_input='Minimum Energy';
