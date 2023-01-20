@@ -3,7 +3,7 @@ function [FIsec, FIyyyy, EQsec, Omarker] = getFileAndEQseconds(F,eqin,offset)
 %this works for SAC files created with rdseed4.5.1
 %eg: F = '1993.159.23.15.09.7760.IU.KEV..BHN.D.SAC'
 % if your filnames contains no julian day, please use command
-% dayofyear (in Splitlab/Tools)
+% dayofyear (in SplitLab/Tools)
 % rdseed 5.3.1 format:
 %    F = '2011.070.00.00.00.0195.IU.ANMO.00.BH1.M.SAC'
 

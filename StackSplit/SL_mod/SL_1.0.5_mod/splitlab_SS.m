@@ -1,7 +1,7 @@
 
 function splitlab
 % Main window of the SplitLab toolbox, configure the parameters and projects
-% creating the configuration figure of Splitlab
+% creating the configuration figure of SplitLab
 
 global config eq
 
