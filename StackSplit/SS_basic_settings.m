@@ -102,7 +102,7 @@ end
 %VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
 % stacking method
 
-% fist set all buttons off
+% first set all buttons off
 set(h.check(1),'enable','off'); % no weighting
 set(h.check(2),'enable','off'); % WS
 set(h.check(3),'enable','off'); % RH
@@ -213,8 +213,8 @@ if isfield(config,'SS_tap')
         h.usetap=popupcont(1); 
     end
 
-else %default taper setting 
-    defval_tap=3; %  20% of the wdw is influenced by the taper => 10% at the beginning and 10% at the end
+else % default taper setting
+    defval_tap=3; % 20% of the wdw is influenced by the taper => 10% at the beginning and 10% at the end
     set(h.pop(1),'Value',defval_tap);
     h.usetap=popupcont(defval_tap);
     
@@ -237,7 +237,7 @@ if isfield(config,'SS_surf')
     
 else
     
-    % default surface is energymap
+    % default surface is energy map
     h.surf_kind=1;
     set(h.pop(4),'Value',1);
     config.SS_surf='Esurf';
