@@ -291,7 +291,7 @@ line([dt dt],[-90 90],'Color',[0 0 1])
 
 hold off
 axis([0 maxtime -90 90])
-set(gca, 'Xtick',0:1:maxtime, 'XtickLabel',label ,'Ytick',-90:30:90, 'xMinorTick','on', 'yminorTick','on')
+set(gca, 'Xtick',0:1:maxtime, 'Ytick',-90:30:90, 'xMinorTick','on', 'yminorTick','on')
 xlabel('delay time / s', 'Fontsize',fontsize-1);
 ylabel('fast axis', 'Fontsize',fontsize-1)
 title(Maptitle,'FontSize',titlefontsize);
