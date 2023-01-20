@@ -136,7 +136,8 @@ m1 = max(abs( corFSrc(:,1)));
 m2 = max(abs( corFSrc(:,2)));
 plot(t, corFSrc(:,1)/m1,'b--',   t,sig*corFSrc(:,2)/m2,'r-','LineWidth',1);
 xlim([t(1) t(end)])
-title(['corrected Fast (' char([183 183]) ') & Slow(-)'],'FontSize',titlefontsize);
+%title(['corrected Fast (' char([183 183]) ') & Slow(-)'],'FontSize',titlefontsize);
+title('corrected Fast (\color{blue}--\color{black}) & Slow (\color{red}-\color{black})','FontSize',titlefontsize);
 set(gca,'Ytick' , [-1 0 1])
 ylabel('Rotation-Correlation','FontSize',titlefontsize)
 
@@ -144,7 +145,8 @@ ylabel('Rotation-Correlation','FontSize',titlefontsize)
 % corrected seismograms
 axes(axRC(2))
 plot(t, QTcorRC(:,1),'b--',    t, QTcorRC(:,2) ,'r-','LineWidth',1);
-title([' corrected Q(' char([183 183]) ') & T(-)'],'FontSize',titlefontsize);
+%title([' corrected Q(' char([183 183]) ') & T(-)'],'FontSize',titlefontsize);
+title('corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})','FontSize',titlefontsize);
 xlim([t(1) t(end)])
 
 
@@ -154,7 +156,8 @@ axes(axRC(3))
 plot(E, N, 'b--', Erc, Nrc,'r-','LineWidth',1);
 xlabel('\leftarrowW - E\rightarrow', 'Fontsize',fontsize-1);
 ylabel('\leftarrowS - N\rightarrow', 'Fontsize',fontsize-1);
-title(['Particle motion before (' char([183 183]) ') & after (-)'],'FontSize',titlefontsize);
+%title(['Particle motion before (' char([183 183]) ') & after (-)'],'FontSize',titlefontsize);
+title('Particle motion before (\color{blue}--\color{black}) & after (\color{red}-\color{black})','FontSize',titlefontsize);
 axis equal
 
 tmp = max([abs(xlim) abs(ylim)]); % set [0 0] to centre of plot
@@ -191,10 +194,10 @@ plot([maxtime maxtime]-sampling, [B B-90],'k<','markersize',5,'linewidth',1,'Mar
 line([dtRC(2) dtRC(2)],[-90 90],'Color',[0 0 1])
 line([0 maxtime], [phiRC(2) phiRC(2)],'Color',[0 0 1])
 title('Map of Correlation Coefficient','FontSize',titlefontsize);
-%xlabel('dt [s]', 'Fontsize',fontsize-1);
+xlabel('delay time / s', 'Fontsize',fontsize-1);
 ylabel('fast axis', 'Fontsize',fontsize-1)
-label = ['0' sprintf('|%u',1:maxtime) 'sec'];
-set(gca, 'Xtick',0:1:maxtime, 'XtickLabel',label ,'Ytick',-90:30:90, 'xMinorTick','on', 'yminorTick','on')
+% label = ['0' sprintf('|%u',1:maxtime) 'sec'];
+set(gca, 'Xtick',0:1:maxtime, 'Ytick',-90:30:90, 'xMinorTick','on', 'yminorTick','on')
 axis([ts(1) ts(end) -90 90])
 %set(h,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
 faceobjects = get(h,'Children');
@@ -224,7 +227,8 @@ m2 = max(abs( corFSsc(:,2)));
 plot(  t, corFSsc(:,1)/m1,'b--',    t, sig*corFSsc(:,2)/m2 ,'r-','LineWidth',1);
 xlim([t(1) t(end)])
 ylim([-1 1])
-title(['corrected Fast (' char([183 183]) ') & Slow(-)'],'FontSize',titlefontsize);
+%title(['corrected Fast (' char([183 183]) ') & Slow(-)'],'FontSize',titlefontsize);
+title('corrected Fast (\color{blue}--\color{black}) & Slow (\color{red}-\color{black})','FontSize',titlefontsize);
 set(gca,'Ytick' , [-1 0 1])
 ylabel(optionstr,'FontSize',titlefontsize)
 
@@ -232,7 +236,8 @@ ylabel(optionstr,'FontSize',titlefontsize)
 % corrected seismograms (in ray system)
 axes(axSC(2))
 plot(t, QTcorSC(:,1),'b--',    t, QTcorSC(:,2) ,'r-','LineWidth',1);
-title([' corrected Q(' char([183 183]) ') & T(-)'],'FontSize',titlefontsize);
+%title([' corrected Q(' char([183 183]) ') & T(-)'],'FontSize',titlefontsize);
+title('corrected Q (\color{blue}--\color{black}) & T (\color{red}-\color{black})', 'FontSize',titlefontsize);
 xlim([t(1) t(end)])
 
 
@@ -244,7 +249,8 @@ hold on
 plot(E, N, 'b--', Esc, Nsc,'r-','LineWidth',1);
 xlabel('\leftarrowW - E\rightarrow', 'Fontsize',fontsize-1);
 ylabel('\leftarrowS - N\rightarrow', 'Fontsize',fontsize-1);
-title(['Particle motion before (' char([183 183]) ') & after (-)'],'FontSize',titlefontsize);
+%title(['Particle motion before (' char([183 183]) ') & after (-)'],'FontSize',titlefontsize);
+title('Particle motion before (\color{blue}--\color{black}) & after (\color{red}-\color{black})','FontSize',titlefontsize);
 axis equal
 
 tmp = max([abs(xlim) abs(ylim)]); % set [0 0] to centre of plot
@@ -286,7 +292,7 @@ line([dt dt],[-90 90],'Color',[0 0 1])
 hold off
 axis([0 maxtime -90 90])
 set(gca, 'Xtick',0:1:maxtime, 'XtickLabel',label ,'Ytick',-90:30:90, 'xMinorTick','on', 'yminorTick','on')
-%xlabel('dt [s]', 'Fontsize',fontsize-1);
+xlabel('delay time / s', 'Fontsize',fontsize-1);
 ylabel('fast axis', 'Fontsize',fontsize-1)
 title(Maptitle,'FontSize',titlefontsize);
 %set(h,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
