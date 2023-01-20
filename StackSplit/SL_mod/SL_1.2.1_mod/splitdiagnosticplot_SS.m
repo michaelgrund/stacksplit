@@ -397,5 +397,4 @@ else
         'Fontname','Fixedwidth', 'VerticalAlignment','top','HorizontalAlignment','center')
     
 end
-%% 
-EOF %%
+%% EOF %%
