@@ -52,19 +52,19 @@ global config
 % if StackSplit is in use and SIMW is selected, no taper is applied since
 % concatenated waveforms are already tapered
 if isfield(config,'SS_use_SIMW') && config.SS_use_SIMW==1
-    
+
     A = S;
 
-% for single event measurements a taper is applied on the trace as before  
+% for single event measurements a taper is applied on the trace as before
 elseif (isfield(config,'SS_use_SIMW') && config.SS_use_SIMW==0) || ~isfield(config,'SS_use_SIMW')
 
     A = S;
-    
-    % new taper MG 2016-08-05 since old one generates steps at the end of window 
+
+    % new taper MG 2016-08-05 since old one generates steps at the end of window
     w1=window(@tukeywin,length(S),0.2);
-                   
-    A=w1.*A;             
-    A=w1.*A; 
+
+    A=w1.*A;
+    A=w1.*A;
 
 end
 
@@ -99,7 +99,7 @@ F2 = F2 - 0.5*mag(1).^2 - 0.5*mag(end).^2;   % same for SC (1991) and Walsh et a
 F4SC = F4 - 0.5*mag(1).^4 - 0.5*mag(end).^4; % SC (1991) original
 F4 = (4/3)*F4 - mag(1).^4 - mag(end).^4;     % Walsh et al., 2013, adopted from MFAST code (v2.0, http://mfast-package.geo.vuw.ac.nz/)
                                              % in function zndf.f
-                  
+
 % based on theory, the following expression should yield the correct
 % number of degrees of freedom.(see appendix of Silver & Chan, 1991).
 % In practise, it gives a value that gives a df that is slightly too large,

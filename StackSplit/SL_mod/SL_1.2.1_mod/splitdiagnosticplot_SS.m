@@ -85,7 +85,7 @@ switch splitoption
         dt  = dtEV(2);
         Level =LevelEV;
         Maptitle = 'Map of Eigenvalue \lambda_2';
-        
+
     case 'Eigenvalue: max(lambda1)'
         Ematrix = Ematrix(:,:,2);
         optionstr ='Maximum  \lambda_1';
@@ -109,11 +109,11 @@ end
 M = rot3D(inc, bazi);
 
 ZEN = M' *[L,  QTcorRC]';
-Erc = ZEN(2,:); 
+Erc = ZEN(2,:);
 Nrc = ZEN(3,:);
 
 ZEN = M' *[L,  QTcorSC]';
-Esc = ZEN(2,:); 
+Esc = ZEN(2,:);
 Nsc = ZEN(3,:);
 
 s = size(QTcorRC,1); % selection length
@@ -182,7 +182,7 @@ mini = min(Cmatrix(:)); % always >= -1
 maxmin = abs(mini - maxi)/2; % always between 0 and 1
 
 nb_contours = 12;floor((1 - maxmin)*9);
-%[C, h] = contourf('v6',ts,ps,-Cmatrix,-[LevelRC LevelRC]); 
+%[C, h] = contourf('v6',ts,ps,-Cmatrix,-[LevelRC LevelRC]);
 [C, h] = contourf(ts,ps,-Cmatrix,-[LevelRC LevelRC]);
 contour(ts, ps, Cmatrix, nb_contours);
 
@@ -274,7 +274,7 @@ ps = linspace(-90,90,f(1));
 maxi = max(abs(Ematrix(:)));
 mini = min(abs(Ematrix(:)));
 nb_contours = floor((1 - mini/maxi)*10);
-%[C, h] = contourf('v6',ts,ps,-Ematrix,-[Level Level]); 
+%[C, h] = contourf('v6',ts,ps,-Ematrix,-[Level Level]);
 [C, h] = contourf(ts,ps,-Ematrix,-[Level Level]);
 contour(ts, ps, Ematrix, nb_contours);
 
@@ -354,29 +354,29 @@ else
     % We can break up the phi/dt vector into i,j coordinates and plot as
     % deviation
     % Also plot polar axes at constant inclination for guide
-    
+
     % Location of measurement in inclination-backazimuth space
     x0 = thiseq.tmpInclination * cos((90-bazi)*(pi/180));
     y0 = thiseq.tmpInclination * sin((90-bazi)*(pi/180));
-    
+
     % RC coordinates
     x1RC = x0-(2*dtRC(2) * cos((90-phiRC(2))*pi/180))/2;
     y1RC = y0-(2*dtRC(2) * sin((90-phiRC(2))*pi/180))/2;
     x2RC = x0+(2*dtRC(2) * cos((90-phiRC(2))*pi/180))/2;
     y2RC = y0+(2*dtRC(2) * sin((90-phiRC(2))*pi/180))/2;
-    
+
     % SC coordinates
     x1SC = x0-(2*dtSC(2) * cos((90-phiSC(2))*pi/180))/2;
     y1SC = y0-(2*dtSC(2) * sin((90-phiSC(2))*pi/180))/2;
     x2SC = x0+(2*dtSC(2) * cos((90-phiSC(2))*pi/180))/2;
     y2SC = y0+(2*dtSC(2) * sin((90-phiSC(2))*pi/180))/2;
-    
+
     % EV coordinates
     x1EV = x0-(2*dtEV(2) * cos((90-phiEV(2))*pi/180))/2;
     y1EV = y0-(2*dtEV(2) * sin((90-phiEV(2))*pi/180))/2;
     x2EV = x0+(2*dtEV(2) * cos((90-phiEV(2))*pi/180))/2;
     y2EV = y0+(2*dtEV(2) * sin((90-phiEV(2))*pi/180))/2;
-    
+
     hold on
     % Plot background info
     axis([-10 10 -10 10]);  % Hope this covers the possible inclination space!
@@ -385,16 +385,16 @@ else
     plot(20*cos(0:0.1:2*pi),20*sin(0:0.1:2*pi),'k-')
     % Plot location
     plot(x0,y0,'k*');
-    
+
     % Plot splits
     plot([x1RC, x2RC], [y1RC, y2RC],'g');
     plot([x1SC, x2SC], [y1SC, y2SC],'r');
     plot([x1EV, x2EV], [y1EV, y2EV],'b');
-    
-    
+
+
     L = axis;
     text(0, L(4),['  Inc = \bf' num2str(thiseq.tmpInclination,'%4.1f') char(186)], ...
         'Fontname','Fixedwidth', 'VerticalAlignment','top','HorizontalAlignment','center')
-    
+
 end
 %% EOF %%

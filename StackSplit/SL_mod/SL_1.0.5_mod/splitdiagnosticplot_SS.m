@@ -88,7 +88,7 @@ switch splitoption
         dt  = dtEV(2);
         Level =LevelEV;
         Maptitle = 'Map of Eigenvalue \lambda_2';
-        
+
     case 'Eigenvalue: max(lambda1)'
         Ematrix = Ematrix(:,:,2);
         optionstr ='Maximum  \lambda_1';
@@ -112,11 +112,11 @@ end
 M = rot3D(inc, bazi);
 
 ZEN = M' *[L,  QTcorRC]';
-Erc = ZEN(2,:); 
+Erc = ZEN(2,:);
 Nrc = ZEN(3,:);
 
 ZEN = M' *[L,  QTcorSC]';
-Esc = ZEN(2,:); 
+Esc = ZEN(2,:);
 Nsc = ZEN(3,:);
 
 s = size(QTcorRC,1); % selection length
@@ -187,7 +187,7 @@ mini = min(Cmatrix(:)); % always >= -1
 maxmin = abs(mini - maxi)/2; % always between 0 and 1
 
 nb_contours = 12;floor((1 - maxmin)*9);
-[C, h] = contourf('v6',ts,ps,-Cmatrix,-[LevelRC LevelRC]); 
+[C, h] = contourf('v6',ts,ps,-Cmatrix,-[LevelRC LevelRC]);
 contour(ts, ps, Cmatrix, nb_contours);
 
 
@@ -272,7 +272,7 @@ ps = linspace(-90,90,f(1));
 maxi = max(abs(Ematrix(:)));
 mini = min(abs(Ematrix(:)));
 nb_contours = floor((1 - mini/maxi)*10);
-[C, h] = contourf('v6',ts,ps,-Ematrix,-[Level Level]); 
+[C, h] = contourf('v6',ts,ps,-Ematrix,-[Level Level]);
 contour(ts, ps, Ematrix, nb_contours);
 
 

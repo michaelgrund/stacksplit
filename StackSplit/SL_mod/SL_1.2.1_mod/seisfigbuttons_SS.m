@@ -53,9 +53,9 @@ uipushtool(ht,'CData',icon.back,...
 
 PFig = findobj('Type','Figure','Name','Particle motion');
 if isempty(PFig)
-    state='off';  
+    state='off';
 else
-    ax = get(PFig,'Children'); 
+    ax = get(PFig,'Children');
     delete(get(ax,'Children'))
     state='on';
 end
@@ -162,13 +162,13 @@ uipushtool(ht,'CData',icon.help,...
 %% S U B F U N C T I O N S                                            %%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%
 function goHome(src,evt)
-global thiseq  
+global thiseq
 %jump close to selected phase
     val  = get(findobj('Tag','PhaseSelector'),'Value');
     t_home = floor(thiseq.phase.ttimes(val)/10)*10 - 30; %~30 seconds before phase; at full 10 seconds
     xlim([t_home t_home+150]) % timewindow of 150 sec
-    
-%%    
+
+%%
 function changelockstate(src,event)
 seis  = findobj('Tag','seismo');
 
@@ -207,7 +207,7 @@ y(:,1) = get(seis(1),'Ydata');
 y(:,2) = get(seis(2),'Ydata');
 
 y = y(ia:ib,:); %only selection
-y = y/max(y(:))*1000;%we normalize and amplify the seismogram, to listen 
+y = y/max(y(:))*1000;%we normalize and amplify the seismogram, to listen
                      %to the same loudness for each seismogram
 
 sound(y, 1000)%shift it in audible frequencies
@@ -235,7 +235,7 @@ time     = get(seis(1), 'Xdata');
 %only export current zoom
 xx     = xlim;
 window = find(xx(1) <=time & time<=xx(2));
-Amp    = Amp(:,window); 
+Amp    = Amp(:,window);
 time   = time(window);
 
 
@@ -343,7 +343,7 @@ switch button
 	    % added by MG 2017-02-17
 
         if isfield(config,'SS_version')
-    
+
 	      checkSS=findobj('type','figure','name',['StackSplit ' config.SS_version]);
 
             if ~isempty(checkSS)
@@ -357,12 +357,12 @@ switch button
 
         end
 	    %====================================================================
-    
+
         fname = fullfile(config.savedir,['trashfiles_' config.stnname '.log' ]);
         fid   = fopen(char(fname),'a+');
         fprintf(fid,'%s\n%s\n%s\n',thiseq.seisfiles{1}, thiseq.seisfiles{2}, thiseq.seisfiles{3});
         fclose(fid);
-        
+
         if ispc
             try
                 pathstr = fileparts(mfilename('fullpath'));
@@ -372,29 +372,29 @@ switch button
         end
 
         idx = thiseq.index;
-        L   = [1:idx-1 idx+1:length(eq)];        
+        L   = [1:idx-1 idx+1:length(eq)];
         eq  = eq(L);
         SL_SeismoViewer(idx)
-        
+
         %====================================================================
         % added by MG 2017-02-17
-        
+
         % if an event is deleted after any phase splitting calculation
         % the variable "eq" is saved at this point, otherwise in StackSplit
         % the deleted event would still appear in the event list!
-        
+
         % save eq as a mat file for edit/analysis outside of SplitLab
         fname = sprintf('%s_eqresults.mat',config.stnname);
         mfilename2save = fullfile(config.savedir,fname);
         save(mfilename2save,'eq');
 
         %====================================================================
-        
+
         databaseViewer = findobj('Type','Figure', 'Name','Database Viewer');
         if ~isempty(databaseViewer)
            SL_databaseViewer
         end
-        
+
     case 'Later'
 end
 

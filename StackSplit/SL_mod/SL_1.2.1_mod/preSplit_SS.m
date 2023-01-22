@@ -17,12 +17,12 @@ fprintf(' %s -- Estimating event  %s:%4.0f.%03.0f (%.0f/%.0f) --',...
     datestr(now,13) , config.stnname, thiseq.date(1), thiseq.date(7),config.db_index, length(eq));
 
 
-  
-%% extend selection window    
+
+%% extend selection window
 extime    = 20 ;%extend by 20sec
 o         = thiseq.Amp.time(1);%common offset of all files after hypotime
-extbegin  = floor( (thiseq.a-extime-o) / thiseq.dt); 
-extfinish = floor( (thiseq.f+extime-o) / thiseq.dt); 
+extbegin  = floor( (thiseq.a-extime-o) / thiseq.dt);
+extfinish = floor( (thiseq.f+extime-o) / thiseq.dt);
 extIndex  = extbegin:extfinish;
 
 % indices of selection window relative to extended window
@@ -40,7 +40,7 @@ T = thiseq.Amp.Transv';
 L = thiseq.Amp.Ray';
 
 %% DeTrend & DeMean
-    
+
     E = detrend(E,'linear');E = detrend(E,'constant');
     N = detrend(N,'linear');N = detrend(N,'constant');
     Z = detrend(Z,'linear');Z = detrend(Z,'constant');
@@ -70,7 +70,7 @@ L(nn) = L(nn).*taper;     L(nn2) = L(nn2).*taper2;
 % the seismogram components are not yet filtered
 % define your filter here.
 % the selected corner frequncies are stored in the varialbe "thiseq.filter"
-% 
+%
 ny    = 1/(2*thiseq.dt); % nyquist freqency of seismogram
 n     = 3; % filter order
 f1 = thiseq.filter(1);
@@ -93,10 +93,10 @@ else
     Q = filtfilt(b,a,Q); %Radial     (Q) component in extended time window
     T = filtfilt(b,a,T); %Transverse (T) component in extended time window
     L = filtfilt(b,a,L); %Vertical   (L) component in extended time window
-    
- 
+
+
     E = filtfilt(b,a,E); %East, only needed for particle motion plot
-    N = filtfilt(b,a,N); %North, only needed for particle motion plot  
+    N = filtfilt(b,a,N); %North, only needed for particle motion plot
 end
 
 %% Cut to extended window
@@ -108,21 +108,21 @@ Z = Z(extIndex);
 Q = Q(extIndex);
 T = T(extIndex);
 L = L(extIndex);
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 
 %**************************************************************
 %% SPLITTING METHODS
 
 sbar=findobj('Tag','Statusbar');
-tic 
+tic
    set(sbar,'String','Status: Calculating with Rotation-Correlation method');drawnow
 [phiRC, dtRC, Cmap, FSrc, QTcorRC, Cresult] = ...
-    splitRotCorr(Q, T, thiseq.bazi, w,config.maxSplitTime, thiseq.dt); 
+    splitRotCorr(Q, T, thiseq.bazi, w,config.maxSplitTime, thiseq.dt);
 
 set(sbar,'String',['Status: Calculating ' config.splitoption ' Method']);drawnow
 [phiSC, dtSC, phiEV, dtEV, inipol,  Ematrix,FSsc, QTcorSC, Eresult] = ...
@@ -133,18 +133,18 @@ set(sbar,'String',['Status: Calculating ' config.splitoption ' Method']);drawnow
 
 %**************************************************************
 %Signal-To-Noise ratio
-SNR       = [max(abs(QTcorRC(:,1))) / (2*std(QTcorRC(:,2)));   %SNR_QT on same window after correction (like Restivo & Helffrich,1998) 
-             max(abs(QTcorSC(:,1))) / (2*std(QTcorSC(:,2)));   %SNR_QT on same window after correction (like Restivo & Helffrich,1998) 
+SNR       = [max(abs(QTcorRC(:,1))) / (2*std(QTcorRC(:,2)));   %SNR_QT on same window after correction (like Restivo & Helffrich,1998)
+             max(abs(QTcorSC(:,1))) / (2*std(QTcorSC(:,2)));   %SNR_QT on same window after correction (like Restivo & Helffrich,1998)
              max(abs(  xcorr(FSrc(:,2), FSrc(:,1),'coeff')  ));
-             max(abs(  xcorr(FSsc(:,2), FSsc(:,1),'coeff')  ))];      
+             max(abs(  xcorr(FSsc(:,2), FSsc(:,1),'coeff')  ))];
 
 set(sbar,'String',['Status: Calculating confidence regions']);drawnow
-                       
+
 [errbar_phiRC, errbar_tRC, LevelRC, ndfRC] = geterrorbarsRC(T(w), Cmap, Cresult);            % ndf argument added by MG
 [errbar_phiSC, errbar_tSC, LevelSC, ndfSC] = geterrorbars(T(w), Ematrix(:,:,1), Eresult(1)); % ndf argument added by MG
 [errbar_phiEV, errbar_tEV, LevelEV, ndfEV] = geterrorbars(T(w), Ematrix(:,:,2), Eresult(2)); % ndf argument added by MG
 
-phiRC   = [errbar_phiRC(1)  phiRC   errbar_phiRC(2)];             
+phiRC   = [errbar_phiRC(1)  phiRC   errbar_phiRC(2)];
 dtRC    = [errbar_tRC(1)    dtRC    errbar_tRC(2)];
 phiSC   = [errbar_phiSC(1)  phiSC   errbar_phiSC(2)];
 dtSC    = [errbar_tSC(1)    dtSC    errbar_tSC(2)];
@@ -165,7 +165,7 @@ fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(
     thiseq.tmpresult.dtSC    = dtSC;
     thiseq.tmpresult.phiEV   = phiEV;
     thiseq.tmpresult.dtEV    = dtEV;
-    
+
     thiseq.tmpresult.Qcut    = Q(w);      % added by MG
     thiseq.tmpresult.Tcut    = T(w);      % added by MG
     thiseq.tmpresult.Lcut    = L(w);      % added by MG
@@ -180,11 +180,11 @@ fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(
     thiseq.tmpresult.LevelRC = LevelRC;   % added by MG
     thiseq.tmpresult.dttrace = thiseq.dt; % added by MG
 
-    thiseq.tmpresult.inipol  = inipol; 
+    thiseq.tmpresult.inipol  = inipol;
     thiseq.tmpresult.SNR     = SNR;
-    
+
     thiseq.tmpresult.a       = thiseq.a;
-    thiseq.tmpresult.f       = thiseq.f; 
+    thiseq.tmpresult.f       = thiseq.f;
 
     thiseq.tmpresult.remark  = '';  %default remark
 
@@ -194,24 +194,24 @@ fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(
 val     = get(findobj('Tag','PhaseSelector'),'Value');
 if isempty(val)
             val = strmatch(thiseq.SplitPhase, thiseq.phase.Names,'exact');
-            val = val(1);   
+            val = val(1);
 end
 inc     = thiseq.phase.inclination(val);
 splitdiagnosticplot(Q, T, extime, L(w), E(w), N(w), inc, thiseq.bazi, thiseq.dt, config.maxSplitTime, inipol,...
         phiRC, dtRC, Cmap,    FSrc, QTcorRC,...
         phiSC, dtSC, Ematrix, FSsc, QTcorSC,...
-        phiEV, dtEV, LevelSC, LevelRC, LevelEV, config.splitoption); 
-        
+        phiEV, dtEV, LevelSC, LevelRC, LevelEV, config.splitoption);
 
-    
+
+
 %% finishing  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 set(sbar,'String',['Status:  calculation time: ' num2str(toc,4) ' seconds'])
     drawnow
 
-    
-    
-    
-    
+
+
+
+
 %% Log file; saving all different results
 log = 1; % option for future versions
 if log

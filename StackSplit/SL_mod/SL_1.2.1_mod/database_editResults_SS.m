@@ -23,10 +23,10 @@ switch option
                     'Close SeismoViewer!');
                 return
             end
-            
+
             %====================================================================
 	        % added by MG 2017-02-17
- 
+
             if isfield(config,'SS_version')
 
                 checkSS=findobj('type','figure','name',['StackSplit ' config.SS_version]);
@@ -68,10 +68,10 @@ switch option
             filename    = fullfile(config.projectdir,config.project);
             save(filename,'eq','config');
             helpdlg('Result files might still be in the output directory!')
-    
+
         %====================================================================
 	    % added by MG 2017-02-17
-        
+
 	    % if an event is deleted after any phase splitting calculation
 	    % the variable "eq" is saved at this point, otherwise in StackSplit
 	    % the deleted event would still appear in the event list!
@@ -80,12 +80,12 @@ switch option
 	    fname = sprintf('%s_eqresults.mat',config.stnname);
 	    mfilename2save = fullfile(config.savedir,fname);
 	    save(mfilename2save,'eq');
-	    
+
 	    %====================================================================
 
-	           
-	end 
-	    
+
+	end
+
     case 'Edit'
         tmp = L(L<rval);
         if isempty(tmp); return; end %nothing selected
