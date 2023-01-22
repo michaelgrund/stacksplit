@@ -1,6 +1,7 @@
 StackSplit v1.0 -2017/04/04-
 StackSplit v2.0 -2019/06/28-
-StackSplit v3.0 -202x/xx/xx-
+StackSplit v3.0 -2021/12/23-
+StackSplit v3.1 -2023/xx/xx-
 
 The following functions are essential to run StackSplit (besides the SplitLab package).
 If any problem occurs or you have suggestions to make StackSplit better please don't hesitate to
