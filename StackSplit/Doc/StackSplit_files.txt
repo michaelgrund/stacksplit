@@ -21,10 +21,10 @@ Files
     SS_disp_Esurf_single.m             - display single error surface of selected list entry
     SS_gen_legends.m                   - subfunction to generate the GUI legends with splits and nulls above listbox
     SS_gen_stackresplot.m              - generate output plot after using SAVE button in the surface stacking procedure
-    SS_gen_worldmap.m                  - subfunction to generate the GUI worldmap for displaying the selected event locations
+    SS_gen_worldmap.m                  - subfunction to generate the GUI world map for displaying the selected event locations
     SS_geterrorbars_stack_Esurf.m      - calculate errors for stacked surfaces
     SS_layout.m                        - generate GUI layout
-    SS_plates.mat                      - file containing the plate boundaries for the worldmap
+    SS_plates.mat                      - file containing the plate boundaries for the world map
     SS_prep_SIMW.m                     - display single and concatenated waveforms after selection in listbox
     SS_read_SLresults.m                - read individual single event results saved from SL
     SS_saveresults.m                   - save multi-event results (error surfaces, SIMW) to mat-file
