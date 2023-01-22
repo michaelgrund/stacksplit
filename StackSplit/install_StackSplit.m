@@ -462,10 +462,10 @@ if ~isempty(dir('splitlab.m'))
                    if ~isempty(dir('seisfigbuttons.m'))
                 
                         disp(' ') 
-                        disp('Installation complete !')
+                        disp('Installation completed!')
 
                         msgbox(['StackSplit was successfully installed on your system! ' ...
-                            'Please restart MATLAB!'],'Installation complete');
+                            'Please restart MATLAB!'],'Installation completed');
 
                    end
             end
