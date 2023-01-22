@@ -376,7 +376,7 @@ else
 
     fname = sprintf(['Multi_result_SIMW', config.exportformat]);
 
-    % check if file alredy exists (phase already splitted)
+    % check if file already exists (phase already split)
     No=2;
     while exist(fullfile(config.savedir, fname),'file') == 2
         fname = sprintf('Multi_result_SIMW[%.0f]%s',...
