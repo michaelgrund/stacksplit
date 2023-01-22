@@ -45,11 +45,11 @@ global thiseq config
 
 axes(axH);
 str11 = sprintf('%4.0f <%4.0f\\circ <%4.0f', phiRC);
-str21 = sprintf('%3.1f < %3.1fs < %3.1f', dtRC);
+str21 = sprintf('%3.1f < %3.1f s < %3.1f', dtRC);
 str12 = sprintf('%4.0f <%4.0f\\circ <%4.0f', phiSC);
-str22 = sprintf('%3.1f < %3.1fs < %3.1f', dtSC);
+str22 = sprintf('%3.1f < %3.1f s < %3.1f', dtSC);
 str13 = sprintf('%4.0f <%4.0f\\circ <%4.0f', phiEV);
-str23 = sprintf('%3.1f < %3.1fs < %3.1f', dtEV);
+str23 = sprintf('%3.1f < %3.1f s < %3.1f', dtEV);
 
 %% 
 
