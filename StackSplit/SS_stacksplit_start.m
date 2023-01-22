@@ -12,8 +12,8 @@ function SS_stacksplit_start
 % main function of StackSplit
 %
 % StackSplit is a plugin for the MATLAB toolbox SplitLab (Wüstefeld et al.,
-% 2008) which allows to apply multi-event techniques for shear wave splitting 
-% measurements directly from within the main program. 
+% 2008) which allows to apply multi-event techniques for shear wave splitting
+% measurements directly from within the main program.
 %
 %
 % !!! NOTE: StackSplit cannot operate without an installed SplitLab version !!!
@@ -21,31 +21,31 @@ function SS_stacksplit_start
 % !!! Before using StackSplit, take a look into the UserGuide !!!
 %
 %
-% For MATLAB version 2014b and higher I recommend to use the updated SplitLab 
+% For MATLAB version 2014b and higher I recommend to use the updated SplitLab
 % version by Rob Porritt (available via https://robporritt.wordpress.com/software/)
-% 
+%
 % The use of StackSplit requires small modifications in some of the original
 % SplitLab functions which partly were taken from Rob Porritts updated version 1.2.1.
 % These modified functions come with this package and must replace the original ones.
 % An overview about these changes is given in SL2SS_changelog.txt in StackSplit/doc.
 %
-% StackSplit allows to apply up to now 4 stacking schemes for already existing 
+% StackSplit allows to apply up to now 4 stacking schemes for already existing
 % single SWS measurements (see also REFERENCES section below):
 %
 % 1) SIMW: simultaneous inversion of multiple waveforms in time domain
 %          (Roy et al., 2017)
-% 2) WS  : stacking of error surfaces, normalized on minimum of each single surface 
+% 2) WS  : stacking of error surfaces, normalized on minimum of each single surface
 %          (Wolfe & Silver, 1998)
-% 3) RH  : modified WS method with weight depending on SNR of each measurement 
+% 3) RH  : modified WS method with weight depending on SNR of each measurement
 %          (Restivo & Helffrich, 1999)
 % 4) def : stacking of error surfaces without weighting following, e.g.,
 %          PhD thesis of Wüstefeld (2007)
-% 
+%
 %==========================================================================
 % REFERENCES
 %
-% If you make use of StackSplit for shear wave splitting measurements, 
-% please refer to the following contributing articles: 
+% If you make use of StackSplit for shear wave splitting measurements,
+% please refer to the following contributing articles:
 %
 %.................................................
 % SOFTWARE OVERALL
@@ -67,7 +67,7 @@ function SS_stacksplit_start
 %    the simultaneous inversion of multiple waveforms (SIMW), GJI 208(3),
 %    1508–1523, https://doi.org/10.1093/gji/ggw470
 %
-% Restivo & Helffrich (1999), Teleseismic shear wave splitting 
+% Restivo & Helffrich (1999), Teleseismic shear wave splitting
 %    measurements in noisy environments, GJI 137, 821-830
 %
 % Wolfe & Silver (1998), Seismic anisotropy of oceanic upper mantle: Shear
@@ -82,22 +82,22 @@ function SS_stacksplit_start
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
-% 
+%
 % TERMS OF USE
 %
 % StackSplit is provided "as is" and without any warranty. The author cannot be
@@ -160,7 +160,7 @@ end
 
 if isempty(merged_str) && isempty(find_res)
    return
-end  
+end
 
 disp(' ')
 disp('#################################')
@@ -208,7 +208,7 @@ h=SS_layout(@call_pushSTACK,@call_pushCLEAR,@call_pushSAVE,@call_pushEXIT,@call_
 
 % Emap settings
 h.EMAP_sampling=sampling;
-h.EMAP_maxtime=config.maxSplitTime; 
+h.EMAP_maxtime=config.maxSplitTime;
 h.EMAP_f=f;
 
 %.........................................
@@ -236,11 +236,11 @@ guidata(h.fig,h)
 %.........................................
 % workaround for Windows 10 OS: by default under
 %
-%    'Settings' => 'System' => 'Display' => 'Scale and Layout' 
-%     => 'Change the size of text, apps, and other items' 
+%    'Settings' => 'System' => 'Display' => 'Scale and Layout'
+%     => 'Change the size of text, apps, and other items'
 %
-% the selection sometimes is set to a value different from 100% (e.g. 150%) 
-% which effectively reduces your screen size in pixels: Set it to 125% or 
+% the selection sometimes is set to a value different from 100% (e.g. 150%)
+% which effectively reduces your screen size in pixels: Set it to 125% or
 % better 100% and check again, mostly then the panel fits on the screen.
 
 screenSize = get(0,'ScreenSize');
@@ -251,19 +251,19 @@ if screenSize(3) < h.fig.Position(3)
     warndlg(resstr, 'Resolution issue')
     warning(resstr)
 end
-   
-%.........................................    
-    
+
+%.........................................
+
 end
 % END of main function
 %##############################################################################################################
 %##############################################################################################################
-  
+
 %==============================================================================================================
 
 % CALLBACK FUNCTIONS
 %##############################################################################################################
-%############################################################################################################## 
+%##############################################################################################################
 % call LISTBOX
 
 function call_listbox(hObject, ~, ~)
@@ -275,28 +275,28 @@ check1=get(h.h_checkbox,'Value');
 %==================================================================================================================================
 % SIMW selected
 if check1{4}==1
-  
+
     %.........................................
     h=SS_prep_SIMW(h);
     %.........................................
-    
+
     set(h.panel(6),'visible','on');
-    set(h.panel(2),'visible','off');     
+    set(h.panel(2),'visible','off');
     set(h.panel(3),'visible','off');
-    
-%==================================================================================================================================    
-% ERR SURF stack selected    
+
+%==================================================================================================================================
+% ERR SURF stack selected
 else
 
     axes(h.axEmap);
-    
+
     set(h.push(1),'enable','off');
     set(h.push(2),'enable','off');
     set(h.push(3),'enable','off');
 
     index=get(h.list,'value');
 
-    set(h.panel(2),'visible','on');     
+    set(h.panel(2),'visible','on');
     set(h.panel(3),'visible','on');
     set(h.panel(6),'visible','off');
 
@@ -313,7 +313,7 @@ guidata(hObject,h);
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call STACK button (no weight, WS, RH), stack error surfaces and disp stacked Emap
 
 function call_pushSTACK(hObject,~,~)
@@ -329,7 +329,7 @@ guidata(hObject, h);
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call CLEAR button
 
 function call_pushCLEAR(hObject,~,~)
@@ -349,25 +349,25 @@ set(h.push(1),'enable','off');
 set(h.push(2),'enable','off');
 set(h.push(3),'enable','off');
 
-set(h.panel(2),'visible','off'); 
-set(h.panel(3),'visible','off'); 
+set(h.panel(2),'visible','off');
+set(h.panel(3),'visible','off');
 
 set(h.list,'value',0);
 set(h.list,'string',h.list_origin);
 set(h.list,'value',1);
-     
+
 
 % remove blue dots on world map when no option is selected
 find_bluedot=findobj(h.EQstatsax,'type','line');
- 
-if config.maptool==1 
-    if length(find_bluedot) > 4    
+
+if config.maptool==1
+    if length(find_bluedot) > 4
         set(find_bluedot(1:end-4),'Visible','off')
-        delete(find_bluedot(1)) 
-    end    
+        delete(find_bluedot(1))
+    end
 else
-    if length(find_bluedot) > 3  
-        set(find_bluedot(1:end-3),'Visible','off') 
+    if length(find_bluedot) > 3
+        set(find_bluedot(1:end-3),'Visible','off')
         delete(find_bluedot(1))
     end
 end
@@ -377,7 +377,7 @@ guidata(hObject, h);
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call SAVE button
 
 function call_pushSAVE(hObject,~,~)
@@ -406,7 +406,7 @@ guidata(hObject, h);
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call INVERSION button (SIMW)
 
 function call_pushINV(hObject,~,~)
@@ -424,7 +424,7 @@ config.SS_use_SIMW=0;
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call Exit button
 
 function call_pushEXIT(hObject,~,~)
@@ -434,18 +434,18 @@ h=guidata(hObject);
 exit=get(h.push(4),'Value');
 
 if exit==1
-    
+
     choice = questdlg('Really want to exit?','Exit menu','Yes','No','Yes');
 
     switch choice
-    case 'Yes'  
-        
+    case 'Yes'
+
         h.fig
         close(h.fig)
-        
+
         basews=evalin('base','who');
         existeqstack=ismember('eqstack',[basews(:)]);
-        
+
         if ~isempty(existeqstack)
             evalin('base','clearvars -global eqstack');
         end
@@ -460,7 +460,7 @@ end
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call NO WEIGHT radio button
 
 function call_checkNW(hObject,~,~)
@@ -469,13 +469,13 @@ global config
 
 h=guidata(hObject);
 
-set(h.panel(2),'visible','off'); 
-set(h.panel(3),'visible','off'); 
-set(h.panel(6),'visible','off'); 
+set(h.panel(2),'visible','off');
+set(h.panel(3),'visible','off');
+set(h.panel(6),'visible','off');
 
-set(h.push(1),'visible','on'); 
-set(h.push(2),'visible','on'); 
-set(h.push(3),'visible','on'); 
+set(h.push(1),'visible','on');
+set(h.push(2),'visible','on');
+set(h.push(3),'visible','on');
 
 check1=get(h.h_checkbox,'Value');
 
@@ -485,59 +485,59 @@ if check1{1}==1
     set(h.h_checkbox(2),'enable','off');
     set(h.h_checkbox(3),'enable','off');
     set(h.h_checkbox(4),'enable','off');
-    
+
     set(h.taptext,'enable','off');
-    
+
     set(h.list,'enable','on');
-    
+
     set(h.pop(1),'enable','off')
-    
-    set(h.pop(4),'enable','off') % surf input 
+
+    set(h.pop(4),'enable','off') % surf input
     set(h.inputtext,'enable','off')
-    
+
     config.SS_meth='nw';
 
 elseif check1{1}==0
-    
+
     set(h.h_checkbox(1),'Value',0)
     set(h.h_checkbox(2),'enable','on');
     set(h.h_checkbox(3),'enable','on');
     set(h.h_checkbox(4),'enable','on');
-    
+
     set(h.push(1),'enable','off');
     set(h.push(2),'enable','off');
     set(h.push(3),'enable','off');
     set(h.push(1),'visible','off');
     set(h.push(2),'visible','off');
     set(h.push(3),'visible','off');
-    
+
     set(h.taptext,'enable','off');
-    
+
     set(h.list,'enable','off');
-    
+
     set(h.pop(1),'enable','off')
-    
-    set(h.pop(4),'enable','on') % surf input 
+
+    set(h.pop(4),'enable','on') % surf input
     set(h.inputtext,'enable','on')
     set(h.list,'value',[])
 
-    
-    
+
+
 end
 
 % remove blue dots on world map when no option is selected
 if sum([check1{:}])==0
-    
+
         find_bluedot=findobj(h.EQstatsax,'type','line');
-        
-        if config.maptool==1 
-            if length(find_bluedot) > 4    
+
+        if config.maptool==1
+            if length(find_bluedot) > 4
                 set(find_bluedot(1:end-4),'Visible','off')
-                delete(find_bluedot(1)) 
-            end    
+                delete(find_bluedot(1))
+            end
         else
-            if length(find_bluedot) > 3  
-                set(find_bluedot(1:end-3),'Visible','off') 
+            if length(find_bluedot) > 3
+                set(find_bluedot(1:end-3),'Visible','off')
                 delete(find_bluedot(1))
             end
         end
@@ -547,7 +547,7 @@ end
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call WS radio button
 
 function call_checkWS(hObject,~,~)
@@ -556,12 +556,12 @@ global config
 
 h=guidata(hObject);
 
-set(h.panel(2),'visible','off'); 
-set(h.panel(3),'visible','off'); 
+set(h.panel(2),'visible','off');
+set(h.panel(3),'visible','off');
 set(h.panel(6),'visible','off');
 
-set(h.push(1),'visible','on'); 
-set(h.push(2),'visible','on'); 
+set(h.push(1),'visible','on');
+set(h.push(2),'visible','on');
 set(h.push(3),'visible','on');
 
 check1=get(h.h_checkbox,'Value');
@@ -572,25 +572,25 @@ if check1{2}==1
     set(h.h_checkbox(1),'enable','off');
     set(h.h_checkbox(3),'enable','off');
     set(h.h_checkbox(4),'enable','off');
-    
+
     set(h.taptext,'enable','off');
-    
+
     set(h.list,'enable','on');
-    
+
     set(h.pop(1),'enable','off')
-   
-    set(h.pop(4),'enable','off')  % surf input 
+
+    set(h.pop(4),'enable','off')  % surf input
     set(h.inputtext,'enable','off')
 
     config.SS_meth='WS';
-    
+
 elseif check1{2}==0
-    
+
     set(h.h_checkbox(2),'Value',0)
     set(h.h_checkbox(1),'enable','on');
     set(h.h_checkbox(3),'enable','on');
     set(h.h_checkbox(4),'enable','on');
-    
+
     set(h.push(1),'enable','off');
     set(h.push(2),'enable','off');
     set(h.push(3),'enable','off');
@@ -599,12 +599,12 @@ elseif check1{2}==0
     set(h.push(3),'visible','off');
 
     set(h.taptext,'enable','off');
-    
+
     set(h.list,'enable','off');
-    
+
     set(h.pop(1),'enable','off')
-    
-    set(h.pop(4),'enable','on') % surf input 
+
+    set(h.pop(4),'enable','on') % surf input
     set(h.inputtext,'enable','on')
     set(h.list,'value',[])
 
@@ -613,17 +613,17 @@ end
 
 % remove blue dots on world map when no option is selected
 if sum([check1{:}])==0
-    
+
         find_bluedot=findobj(h.EQstatsax,'type','line');
-        
-        if config.maptool==1 
-            if length(find_bluedot) > 4    
+
+        if config.maptool==1
+            if length(find_bluedot) > 4
                 set(find_bluedot(1:end-4),'Visible','off')
-                delete(find_bluedot(1)) 
-            end    
+                delete(find_bluedot(1))
+            end
         else
-            if length(find_bluedot) > 3  
-                set(find_bluedot(1:end-3),'Visible','off') 
+            if length(find_bluedot) > 3
+                set(find_bluedot(1:end-3),'Visible','off')
                 delete(find_bluedot(1))
             end
         end
@@ -633,7 +633,7 @@ end
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call RH radio button
 
 function call_checkRH(hObject,~,~)
@@ -642,12 +642,12 @@ global config
 
 h=guidata(hObject);
 
-set(h.panel(2),'visible','off'); 
+set(h.panel(2),'visible','off');
 set(h.panel(3),'visible','off');
 set(h.panel(6),'visible','off');
 
-set(h.push(1),'visible','on'); 
-set(h.push(2),'visible','on'); 
+set(h.push(1),'visible','on');
+set(h.push(2),'visible','on');
 set(h.push(3),'visible','on');
 
 check1=get(h.h_checkbox,'Value');
@@ -658,59 +658,59 @@ if check1{3}==1
     set(h.h_checkbox(1),'enable','off');
     set(h.h_checkbox(2),'enable','off');
     set(h.h_checkbox(4),'enable','off');
-    
+
     set(h.taptext,'enable','off');
-    
+
     set(h.list,'enable','on');
-    
+
     set(h.pop(1),'enable','off')
-    
-    set(h.pop(4),'enable','off')  % surf input 
+
+    set(h.pop(4),'enable','off')  % surf input
     set(h.inputtext,'enable','off')
-    
+
     config.SS_meth='RH';
 
 elseif check1{3}==0
-    
+
     set(h.h_checkbox(3),'Value',0)
     set(h.h_checkbox(1),'enable','on');
     set(h.h_checkbox(2),'enable','on');
     set(h.h_checkbox(4),'enable','on');
-    
+
     set(h.push(1),'enable','off');
     set(h.push(2),'enable','off');
-    set(h.push(3),'enable','off'); 
+    set(h.push(3),'enable','off');
     set(h.push(1),'visible','off');
     set(h.push(2),'visible','off');
     set(h.push(3),'visible','off');
 
     set(h.taptext,'enable','off');
-    
+
     set(h.list,'enable','off');
-    
+
     set(h.pop(1),'enable','off')
-    
-    set(h.pop(4),'enable','on') % surf input 
+
+    set(h.pop(4),'enable','on') % surf input
     set(h.inputtext,'enable','on')
     set(h.list,'value',[])
-    
 
-    
+
+
 end
 
 % remove blue dots on world map when no option is selected
 if sum([check1{:}])==0
-    
+
         find_bluedot=findobj(h.EQstatsax,'type','line');
-        
-        if config.maptool==1 
-            if length(find_bluedot) > 4    
+
+        if config.maptool==1
+            if length(find_bluedot) > 4
                 set(find_bluedot(1:end-4),'Visible','off')
-                delete(find_bluedot(1)) 
-            end    
+                delete(find_bluedot(1))
+            end
         else
-            if length(find_bluedot) > 3  
-                set(find_bluedot(1:end-3),'Visible','off') 
+            if length(find_bluedot) > 3
+                set(find_bluedot(1:end-3),'Visible','off')
                 delete(find_bluedot(1))
             end
         end
@@ -719,7 +719,7 @@ end
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call SIMW radio button
 
 function call_checkSIMW(hObject,~,~)
@@ -728,8 +728,8 @@ global config
 
 h=guidata(hObject);
 
-set(h.panel(2),'visible','off'); 
-set(h.panel(3),'visible','off'); 
+set(h.panel(2),'visible','off');
+set(h.panel(3),'visible','off');
 set(h.panel(6),'visible','off');
 
 
@@ -745,28 +745,28 @@ if check1{4}==1
     set(h.h_checkbox(3),'enable','off')
     set(h.h_checkbox(1),'enable','off');
     set(h.h_checkbox(2),'enable','off');
-    
+
     set(h.push(5),'enable','off');
     set(h.push(5),'visible','on');
-    
+
     set(h.taptext,'enable','on');
-    
+
     set(h.list,'enable','on');
-    
+
     set(h.pop(1),'enable','on')
-    
+
     set(h.pop(4),'enable','off')
     set(h.inputtext,'enable','off')
-    
+
     config.SS_meth='SIMW';
 
 elseif check1{4}==0
-    
+
     set(h.h_checkbox(4),'Value',0)
     set(h.h_checkbox(3),'enable','on')
     set(h.h_checkbox(1),'enable','on');
     set(h.h_checkbox(2),'enable','on');
-    
+
     set(h.push(1),'enable','off');
     set(h.push(1),'visible','off');
     set(h.push(2),'visible','off');
@@ -775,34 +775,34 @@ elseif check1{4}==0
     set(h.push(3),'enable','off');
     set(h.push(5),'enable','off');
     set(h.push(5),'visible','off');
-    
+
     set(h.taptext,'enable','off');
-    
+
     set(h.list,'enable','off');
 
     set(h.pop(1),'enable','off')
-    
+
     set(h.pop(4),'enable','on')
     set(h.inputtext,'enable','on')
-    
+
     set(h.list,'value',[])
-    
-    
+
+
 end
 
 % remove blue dots on world map when no option is selected
 if sum([check1{:}])==0
-    
+
         find_bluedot=findobj(h.EQstatsax,'type','line');
-        
-        if config.maptool==1 
-            if length(find_bluedot) > 4    
+
+        if config.maptool==1
+            if length(find_bluedot) > 4
                 set(find_bluedot(1:end-4),'Visible','off')
-                delete(find_bluedot(1)) 
-            end    
+                delete(find_bluedot(1))
+            end
         else
-            if length(find_bluedot) > 3  
-                set(find_bluedot(1:end-3),'Visible','off') 
+            if length(find_bluedot) > 3
+                set(find_bluedot(1:end-3),'Visible','off')
                 delete(find_bluedot(1))
             end
         end
@@ -811,8 +811,8 @@ end
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
-% call TAPER popup 
+%==================================================================================================================================
+% call TAPER popup
 
 function call_popTAP(hObject,~,~)
 
@@ -824,23 +824,23 @@ function call_popTAP(hObject,~,~)
     popupcont=0:0.1:1; % assign corresponding value to selected position in popup menu, 0 corresponds to none
     usetap=popupcont(checkpop);
     h.usetap=usetap;
-    
+
     inputs={'none', 10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
-    
+
     config.SS_tap=cell2mat(inputs(checkpop));
-    
+
     guidata(hObject, h);
 
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % call SURF popup, Esurf or EVsurf
 
 function call_popSURF(hObject,~,~)
 
-    global config 
-    
+    global config
+
     h=guidata(hObject);
     checkpop=get(h.pop(4),'Value');
 
@@ -851,14 +851,14 @@ function call_popSURF(hObject,~,~)
         h.surf_kind=2;
         config.SS_surf='EVsurf';
     end
-    
+
     guidata(hObject, h);
-    
+
 end
 
 %==================================================================================================================================
-%================================================================================================================================== 
-% call maxBAZ popup 
+%==================================================================================================================================
+% call maxBAZ popup
 
 function call_popMAXBAZ(hObject,~,~)
 
@@ -869,12 +869,12 @@ function call_popMAXBAZ(hObject,~,~)
 
     inputs={'none', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     config.SS_maxbaz=cell2mat(inputs(checkpop));
-    
+
     guidata(hObject, h);
 
 end
 
-% call maxdist popup 
+% call maxdist popup
 function call_popMAXDIST(hObject,~,~)
 
     global config
@@ -889,7 +889,7 @@ function call_popMAXDIST(hObject,~,~)
 
 end
 
-% call maxpol popup 
+% call maxpol popup
 function call_popMAXPOL(hObject,~,~)
 
     global config
@@ -905,5 +905,5 @@ function call_popMAXPOL(hObject,~,~)
 end
 
 %##############################################################################################################
-%############################################################################################################## 
+%##############################################################################################################
 % END of CALLBACK FUNCTIONS

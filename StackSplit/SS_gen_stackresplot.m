@@ -10,24 +10,24 @@ function SS_gen_stackresplot(h,min_bazi,max_bazi,min_dis,max_dis,mean_bazi,mean_
 % FILE DESCRIPTION
 %
 % export final stacked surface to pdf, note for each saved measurement a
-% corresponding diagnostic plot is saved 
+% corresponding diagnostic plot is saved
 %
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
@@ -67,7 +67,7 @@ ax0=subplot(3,4,1:4);
 str11 = sprintf(['%4.0f <%4.0f <%4.0f'],phi); % phi from stacked surface
 str21 = sprintf('%3.1f < %3.1fs < %3.1f',dt); % dt from stacked surface
 
-if h.surf_kind==1 
+if h.surf_kind==1
     surf_input='Minimum Energy';
 
     str ={['          \rmStation: \bf  '        config.stnname '       \rm    Surface input: \bf      ' surf_input ' \rm        Method: \bf      ' h.stacked_meth];
@@ -83,7 +83,7 @@ elseif h.surf_kind==2
     ['  '];
     ['\rm                                   \phi: ' str11 '                                              \deltat: ' str21 ]};
 
-end    
+end
 
 text(.05, 0.2,str,...
     'HorizontalAlignment','left',...
@@ -103,7 +103,7 @@ ax1=subplot(3,4,[5 6 9 10]);
 
 if config.maptool==1
 
-    copyobj(H2(2:end),ax1); 
+    copyobj(H2(2:end),ax1);
     colormap(fig_out,'gray')
 
     axis square
@@ -116,18 +116,18 @@ if config.maptool==1
 else
     copyobj(H2([2 5:end]),ax1);
     axis off
-    
+
     pos=get(ax1,'position');
     set(ax1,'position',[pos(1)-0.02 pos(2)+0.175 pos(3) pos(4)-0.25])
-end  
-    
+end
+
 %================================================================================
 % STACKED surface
 
 % get objects from Emap plot
 H1=findall(h.axEmap);
 ax2=subplot(3,4,[7 8 11 12]);
-copyobj(H1(3:end),ax2); 
+copyobj(H1(3:end),ax2);
 colormap(fig_out,'gray')
 
 % set axes parameters again
@@ -159,7 +159,7 @@ myfiguresize=[left-0.3, bottom+0.5, width, height];
 set(gcf,'PaperPosition', myfiguresize);
 
 %================================================================================
-% SAVE FIGURES 
+% SAVE FIGURES
 % change here, if you don't like the figure output (resolution etc)
 
 switch config.exportformat

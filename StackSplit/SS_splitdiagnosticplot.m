@@ -18,19 +18,19 @@ function SS_splitdiagnosticplot(Q, T, extime, L, E, N, inc, bazi,sampling, maxti
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
@@ -65,7 +65,7 @@ function SS_splitdiagnosticplot(Q, T, extime, L, E, N, inc, bazi,sampling, maxti
 %     Level         - confidence level for SC energy map
 
 % Andreas Wüstefeld, 12.03.2006
-global config thiseq SIMW_temp 
+global config thiseq SIMW_temp
 
 Synfig = findobj('name', 'SIMW Diagnostic Viewer','type','figure');
 
@@ -116,7 +116,7 @@ switch splitoption
         dt  = dtEV(2);
         Level =LevelEV;
         Maptitle = 'Map of Eigenvalue \lambda_2';
-        
+
     case 'Eigenvalue: max(lambda1)'
         Ematrix = Ematrix(:,:,2);
         optionstr ='Maximum  \lambda_1';
@@ -134,16 +134,16 @@ switch splitoption
         Maptitle = 'Map of Eigenvalues \lambda_1 * \lambda_2';
 end
 
-%% rotate seismograms for plots 
+%% rotate seismograms for plots
 % (backwards == counter-clockwise => use transposed matrix M)
 M = rot3D(inc, bazi);
 
 ZEN = M' *[L,  QTcorRC]';
-Erc = ZEN(2,:); 
+Erc = ZEN(2,:);
 Nrc = ZEN(3,:);
 
 ZEN = M' *[L,  QTcorSC]';
-Esc = ZEN(2,:); 
+Esc = ZEN(2,:);
 Nsc = ZEN(3,:);
 
 s = size(QTcorRC,1); % selection length
@@ -336,10 +336,10 @@ axes(axwm)
 H2=findall(h.EQstatsax);
 
 if config.maptool==1
-    
+
     copyobj(H2(2:end),axwm);
 
-	axis equal 
+	axis equal
 	axis off
 
     findtext=findobj(gca,'type','text');
@@ -349,9 +349,9 @@ if config.maptool==1
     set(findtext,'markersize',6)
 
 else
-    
+
     copyobj(H2([2 5:end]),axwm);
-    
+
     axis off
 
 end

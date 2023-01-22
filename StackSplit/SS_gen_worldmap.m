@@ -9,28 +9,28 @@ function h=SS_gen_worldmap(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% generate world map that displays the station and currently selected events 
-% from list 
+% generate world map that displays the station and currently selected events
+% from list
 %
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
-% 
+%
 % TERMS OF USE
 %
 % StackSplit is provided "as is" and without any warranty. The author cannot be
@@ -39,7 +39,7 @@ function h=SS_gen_worldmap(h)
 %==========================================================================
 
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 
 global config
 
@@ -61,8 +61,8 @@ fontsize_eqwin=12;
 if config.maptool==1
 
     fileparts(mfilename('fullpath'));
-    coast_data = load('coast');        
-    plates_data = load('SS_plates.mat');  
+    coast_data = load('coast');
+    plates_data = load('SS_plates.mat');
 
     % generate subplot and handles
     ax=subplot(1,1,1,'Parent',h.panel(1));
@@ -73,7 +73,7 @@ if config.maptool==1
         'FLinewidth',1,'FFaceColor','w');
     set(axm, 'ButtonDownFcn', [])
     h.EQstatsax=ax;
-    
+
     % plot plate boundaries & continents
     plotm(plates_data.PBlat, plates_data.PBlong, 'LineStyle','-','Linewidth',1,'Tag',...
         'Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
@@ -86,8 +86,8 @@ if config.maptool==1
     plotm(latlow, lonlow, '--', 'Color',circleColor, 'linewidth',1,...
         'ButtonDownFcn', '', 'HitTest', 'off');
     plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1,...
-        'ButtonDownFcn', '', 'HitTest', 'off');   
-  
+        'ButtonDownFcn', '', 'HitTest', 'off');
+
     wmin=[num2str(SKSwin(1)) '\circ'];
     wmax=[num2str(SKSwin(2)) '\circ'];
 
@@ -96,22 +96,22 @@ if config.maptool==1
     textm(latlow(50),lonlow(50),wmin,'verticalalignment','Bottom','horizontalalignment','center',...
         'Color', circleColor,'fontsize',fontsize_eqwin, 'ButtonDownFcn', '', 'HitTest', 'off');
 
-    % plot station marker    
+    % plot station marker
     plotm(thissta.slat, thissta.slong,'k^','MarkerFaceColor','r','MarkerSize',8,...
-        'ButtonDownFcn', '', 'HitTest', 'off');   
+        'ButtonDownFcn', '', 'HitTest', 'off');
 
     % remove axis etc around plot
     framem('FLinewidth',1,'FFaceColor','w')
     axis off
-    
+
 %vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 % if no mapping toolbox is available, use map proposed by Rob Porritt for
 % SL version 1.2.1
 else
-    
+
     % generate subplot and handles
     ax=subplot(1,1,1,'Parent',h.panel(1),'Position',[0.71 0.63 0.27 0.30]);
-    axes(ax) 
+    axes(ax)
     h.EQstatsax=ax;
 
     % check for files needed to construct "alternative" map
@@ -119,14 +119,14 @@ else
              && exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file')==2 && exist('ncread')
 
         % matlab structures included with this distribution
-        coast_data = load('SL_coasts.mat');        
-        plates_data = load('SL_plates.mat'); 
+        coast_data = load('SL_coasts.mat');
+        plates_data = load('SL_plates.mat');
 
         % etopo from http://www.ngdc.noaa.gov/mgg/global/global.html
         topoElevation = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','z');
-        topoLatitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lat');  
-        topoLongitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lon');   
-        lon=repmat(topoLongitude,1,length(topoLatitude));  
+        topoLatitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lat');
+        topoLongitude = ncread('ETOPO1_Ice_g_gmt4_1deg.grd','lon');
+        lon=repmat(topoLongitude,1,length(topoLatitude));
         lat=repmat(topoLatitude,1,length(topoLongitude));
         contourf(lon,lat',topoElevation);
 
@@ -137,14 +137,14 @@ else
         h.quit=1;
         return
     end
-    
+
     hold on
-    
+
     colormap(gray);
     plot(plates_data.PBlong,plates_data.PBlat, 'LineStyle','-', ...
         'Linewidth',1, 'Tag','Platebounds', 'Color',[1.2 1 1]*.8);
     plot(coast_data.ncst(:,1),coast_data.ncst(:,2),'k');
-    
+
     % station marker
     plot(config.slong, config.slat,'k^','MarkerFaceColor','r','MarkerSize',8);
     axis([-180 180 -90 90])
@@ -154,5 +154,5 @@ else
 end
 end
 %==================================================================================================================================
-%================================================================================================================================== 
+%==================================================================================================================================
 % EOF

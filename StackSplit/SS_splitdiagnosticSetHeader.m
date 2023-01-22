@@ -15,19 +15,19 @@ function SS_splitdiagnosticSetHeader(axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV,
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
@@ -51,9 +51,9 @@ str22 = sprintf('%3.1f < %3.1f s < %3.1f', dtSC);
 str13 = sprintf('%4.0f <%4.0f\\circ <%4.0f', phiEV);
 str23 = sprintf('%3.1f < %3.1f s < %3.1f', dtEV);
 
-%% 
+%%
 
-switch splitoption 
+switch splitoption
     case 'Minimum Energy'
        optionstr ='      Minimum Energy';
     case 'Eigenvalue: max(lambda1)'

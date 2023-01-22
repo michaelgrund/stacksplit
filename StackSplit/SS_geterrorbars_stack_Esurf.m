@@ -10,26 +10,26 @@ function [errbar_phi,errbar_t,Ecrit]=SS_geterrorbars_stack_Esurf(Eresult,sum_ndf
 % FILE DESCRIPTION
 %
 % Calculate error bars for the stacked error surface using the summed ndfs
-% of each single measurement. Please note that after installation of 
-% StackSplit, in SL the original ndfs are calculated using the corrected 
+% of each single measurement. Please note that after installation of
+% StackSplit, in SL the original ndfs are calculated using the corrected
 % equations of Walsh et al. (2013).
 %
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
@@ -58,9 +58,9 @@ if ndf<=K
     errbar_t   = [nan nan];
     Ecrit = Eresult;
 else
-    
+
     nu2 = ndf-K;
-    
+
     if  nu2>100
         nu2 = 100;
     end
@@ -180,4 +180,4 @@ else
 
     errbar_phi = (rows-1) * dphi-90;
     errbar_t   = (cols-1) * dt;
-end                                                        
+end
