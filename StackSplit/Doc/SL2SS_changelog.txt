@@ -9,5 +9,5 @@ splitdiagnosticplot.m    adjustments to save new outputs temporary
 saveresult.m             adjustments to save new outputs finally
 database editResults.m   adjustments to avoid database conflicts
 seisfigbuttons.m         adjustments to avoid database conflicts
-getFileAndEQseconds.m    fixed start time extraction by SplitLab (v3.0, see Fröhlich et al. 202x)
+getFileAndEQseconds.m    fixed start time extraction by SplitLab (v3.0, see Fröhlich et al., 2022)
 
