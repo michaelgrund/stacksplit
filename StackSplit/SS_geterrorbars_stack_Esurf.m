@@ -9,27 +9,27 @@ function [errbar_phi,errbar_t,Ecrit]=SS_geterrorbars_stack_Esurf(Eresult,sum_ndf
 %==========================================================================
 % FILE DESCRIPTION
 %
-% Calculate errorbars for the stacked error surface using the summed ndfs 
-% of each single measurement. Please note that after installation of 
-% StackSplit, in SL the original ndfs are calculated using the corrected 
+% Calculate error bars for the stacked error surface using the summed ndfs
+% of each single measurement. Please note that after installation of
+% StackSplit, in SL the original ndfs are calculated using the corrected
 % equations of Walsh et al. (2013).
 %
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
@@ -46,27 +46,26 @@ function [errbar_phi,errbar_t,Ecrit]=SS_geterrorbars_stack_Esurf(Eresult,sum_ndf
 
 %==================================================================================================================================
 %==================================================================================================================================
-% this function is based on parts of the original SL function < geterrorbars >
+% this function is based on parts of the original SL function < geterrorbars.m >
 
-K = 2;%Number of model parameters
+K = 2; % Number of model parameters
 
-ndf=sum_ndf;
+ndf = sum_ndf;
 
-if ndf <=K
+if ndf<=K
     disp('  NDF <= K... There is no resolution of the 95% confidence region; Continuing')
     errbar_phi = [nan nan];
     errbar_t   = [nan nan];
     Ecrit = Eresult;
 else
-    
-    nu1=K;
-    nu2=ndf-K;
-    
-    if  nu2 > 100
+
+    nu2 = ndf-K;
+
+    if  nu2>100
         nu2 = 100;
     end
 
-    data=[...
+    data = [...
     199.5000
     19.0000
     9.5521
@@ -168,17 +167,17 @@ else
     3.0882
     3.0873];
 
-    data=data(nu2);
+    data = data(nu2);
 
     Ecrit = Eresult*(1+K*sign(Eresult) / (ndf-K)*data);
 
     % reconstruct grid
     f     = size(stacked_err_surf);
-    dphi  = 180/(f(1)-1); %grid size in phi direction
-    dt    = 4/(f(2)-1);   %grid size in dt direction
+    dphi  = 180/(f(1)-1); % grid size in phi direction
+    dt    = 4/(f(2)-1);   % grid size in dt direction
 
     [cols, rows] = incontour(stacked_err_surf,Ecrit);
 
     errbar_phi = (rows-1) * dphi-90;
     errbar_t   = (cols-1) * dt;
-end                                                        
+end

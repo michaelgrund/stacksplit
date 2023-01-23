@@ -3,8 +3,8 @@ function [FIsec, FIyyyy, EQsec, Omarker] = getFileAndEQseconds(F,eqin,offset)
 %this works for SAC files created with rdseed4.5.1
 %eg: F = '1993.159.23.15.09.7760.IU.KEV..BHN.D.SAC'
 % if your filnames contains no julian day, please use command
-% dayofyear (in Splitlab/Tools)
-% 
+% dayofyear (in SplitLab/Tools)
+%
 
 % Windows user can try a renamer , for example 1-4aren (one-for all renamer)
 % http://www.1-4a.com/rename/ perhaps this adress is still valid
@@ -36,13 +36,13 @@ if config.UseHeaderTimes | strcmp(config.FileNameConvention, '*.e; *.n; *.z')
             sac = rsacsun([config.datadir filesep F(k,:)]);
         end
 %        [FIyyyy(k), FIddd(k), FIHH(k), FIMM(k), FISS(k)] =...
-%            lh(sac, 'NZYEAR','NZJDAY','NZHOUR','NZMIN', 'NZSEC'); 
+%            lh(sac, 'NZYEAR','NZJDAY','NZHOUR','NZMIN', 'NZSEC');
          [FIyyyy(k), FIddd(k), FIHH(k), FIMM(k), FISS(k), FImmm(k)] =...
-            lh(sac, 'NZYEAR','NZJDAY','NZHOUR','NZMIN', 'NZSEC', 'NZMSEC'); % YF add msec 2021/06/24 
+            lh(sac, 'NZYEAR','NZJDAY','NZHOUR','NZMIN', 'NZSEC', 'NZMSEC'); % YF add msec 2021/06/24
         Omarker(k) = lh(sac, 'O');
     end
-    
-     Omarker(Omarker == -12345) = 0;  %verify, if O-marker is set   
+
+     Omarker(Omarker == -12345) = 0;  %verify, if O-marker is set
 %     FIsec  =  FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400 + Omarker;
      FIsec  =  FImmm/1000 + FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400 + Omarker; % YF add msec 2021/06/24
 
@@ -54,11 +54,11 @@ else % USE FILENAME
 	% YF add warning 2021/Nov/28
     msgbox( {'When extracting the \bfstart time\rm from the \bffile name\rm be sure that this time is \bf\itreally\rm the exact \bfstart time\rm of the \bftrace!'}, ...
             'Check start time' ,'warn', ...
-            struct('WindowStyle',{'modal'},'Interpreter',{'tex'}) ); 
+            struct('WindowStyle',{'modal'},'Interpreter',{'tex'}) );
 
     switch config.FileNameConvention
         case 'RDSEED'
-            % RDSEED format '1993.159.23.15.09.7760.IU.KEV..BHN.D.SAC' 
+            % RDSEED format '1993.159.23.15.09.7760.IU.KEV..BHN.D.SAC'
             FIyyyy = str2num(F(:,1:4));
             FIddd  = str2num(F(:,6:8));
             FIHH   = str2num(F(:,10:11));
@@ -66,12 +66,12 @@ else % USE FILENAME
             FISS   = str2num(F(:,16:17));
             FIMMMM = str2num(F(:,18:22));
             FIsec  = FIMMMM + FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400;
-			% YF no division by 1000 or 10000 for msec to get sec 
+			% YF no division by 1000 or 10000 for msec to get sec
 			% because position 18 is the dot therefore .xxxx, so 0.xxxx
 
         case 'SEISAN'
             % SEISAN format '2003-05-26-0947-20S.HOR___003_HORN__BHZ__SAC'
-            
+
 			% YF add warning 2021/Nov/28
 			msgbox( 'Only correct for traces with start times of \bfzero milliseconds\rm!', ...
                     'Check milliseconds' ,'warn', ...
@@ -119,7 +119,7 @@ else % USE FILENAME
 
             FIddd = dayofyear(FIyyyy',FImonth',FIdd')';%julian Day
             FIsec  =  FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400;
-            
+
         case 'YYYY_MM_DD_hhmm_stnn.sac.e';
             % Format: 2005_03_02_1155_pptl.sac (LDG/CEA data)
 
@@ -133,7 +133,7 @@ else % USE FILENAME
             FIdd   = str2num(F(:,9:10));
             FIHH   = str2num(F(:,12:13));
             FIMM   = str2num(F(:,14:15));
-            
+
             FIddd = dayofyear(FIyyyy',FImonth',FIdd')';%julian Day
             FIsec = FIMM*60 + FIHH*3600 + (FIddd)*86400;
 
@@ -155,9 +155,9 @@ else % USE FILENAME
 
             FIddd = dayofyear(FIyyyy',FImonth',FIdd')';%julian Day
             FIsec = FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400;
-            
+
     end
-    
+
     Omarker = zeros(size(FIsec));
 end
 
