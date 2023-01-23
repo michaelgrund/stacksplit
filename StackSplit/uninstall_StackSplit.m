@@ -9,12 +9,14 @@ function uninstall_StackSplit()
 %==========================================================================
 % FILE DESCRIPTION
 %
-% To uninstall the StackSplit plugin from your system run 
+% To uninstall the StackSplit plugin from your system run
 %
-%     >> uninstall_StackSplit()    in your command window
+%     >> uninstall_StackSplit
 %
-% includes: 
-% 
+% in your command window
+%
+% This includes:
+%
 % 1) removal of the whole StackSplit content (folder, functions etc.)
 % 2) recovery of your original SplitLab copy as before the installation of
 %    StackSplit
@@ -22,22 +24,22 @@ function uninstall_StackSplit()
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
-% 
+%
 % TERMS OF USE
 %
 % StackSplit is provided "as is" and without any warranty. The author cannot be
@@ -46,7 +48,7 @@ function uninstall_StackSplit()
 
 %==========================================================================
 % Major updates:
-% 
+%
 % - v3.0 (2021): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
 %                ORCID: 0000-0002-8566-0619
 %                Email: yvonne.froehlich@kit.edu
@@ -65,7 +67,7 @@ filesuffix='_ori';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% search for original SL folder 
+% search for original SL folder
 [folderSL, ~, ~]=fileparts(which('install_SplitLab'));
 
 if ~isempty(folderSL)
@@ -74,7 +76,7 @@ else
     errordlg('No SplitLab version found!')
 end
 
-% check for unzipped SS folder
+% check for unzipped StackSplit folder
 dirSS=dir('StackSpl*');
 
 if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1
@@ -86,8 +88,10 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-farewellstring={'StackSplit did not fulfil your expectations? Simply open a new issue or PR on GitHub to give comments or address suggestions for improvements etc. ',...
-    ' ','Do you want to continue uninstalling StackSplit from your system?'};
+farewellstring = {['StackSplit did not fulfill your expectations? ' ...
+    'Simply open a new issue or PR on GitHub to give comments or ' ...
+    'address suggestions for improvements etc. '], ' ', ...
+    'Do you want to continue uninstalling StackSplit from your system?'};
 
 pos = get(0,'DefaultFigurePosition');
 pos(3:4) = [560 200];
@@ -116,25 +120,26 @@ rmdir(dirSS.name,'s')
 % MAIN FOLDER
 
 % check if original SL function (*_ori.m) is available
-dir_orifiles=dir(['*' filesuffix '.m']); 
+dir_orifiles=dir(['*' filesuffix '.m']);
 
 if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['splitlab' filesuffix '.m'])
 
-    % first delete the current SS version of the function with correct name
+    % first delete the current StackSplit version of the function with correct name
     dir_splitlab=dir('splitlab.m');
-    
+
     if ~isempty(dir_splitlab)
         delete('splitlab.m')
     else
         errordlg('No file < splitlab.m > available to delete!')
         return
     end
-    
+
     % then rename back the original SL file (*_ori.m) to the official name without *_ori
     movefile(dir_orifiles.name,'splitlab.m')
-    
+
 else
-    errordlg(['No original SL file < splitlab' filesuffix '.m > available! Uninstallation aborted!'])
+    errordlg(['No original SplitLab file < splitlab' filesuffix '.m > ' ...
+        'available! Uninstallation aborted!'])
     return
 end
 
@@ -162,34 +167,34 @@ files2rename{1}=['database_editResults' filesuffix '.m'];
 files2rename{2}=['getFileAndEQseconds' filesuffix '.m'];
 
 % check if original SL functions (*_ori.m) are available
-dir_orifiles=dir(['*' filesuffix '.m']); 
+dir_orifiles=dir(['*' filesuffix '.m']);
 
 if ~isempty(dir_orifiles) && length(dir_orifiles)==2
 
     for ii=1:length(files2rename)
         strold(ii)=sum(cell2mat(strfind({dir_orifiles.name},files2rename{ii})));
-    end 
+    end
 
     if sum(strold)~=2
         errordlg(['Missing files with suffix *' filesuffix '!'])
-        return 
+        return
     end
 
     %================================================================
     for ii=1:length(files2delete)
-        
-        % delete SS version of file
+
+        % delete StackSplit version of file
         dir_file2del=dir(files2delete{ii});
-        
+
         if ~isempty(dir_file2del)
             delete(files2delete{ii});
         else
-           errordlg(['Missing file ' files2delete{ii} '!']) 
+           errordlg(['Missing file ' files2delete{ii} '!'])
         end
-        
+
         % rename original SL files (*_ori.m) to the official name without *_ori
         dir_file2ren=dir(files2rename{ii});
-                
+
         if ~isempty(dir_file2ren)
             % here we use the names of files2delete to rename the original
             % SL files to their original name
@@ -198,14 +203,15 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==2
             % files2delete:     *.m
             movefile(files2rename{ii},files2delete{ii});
         else
-           errordlg(['Missing file ' files2rename{ii} '!']) 
+           errordlg(['Missing file ' files2rename{ii} '!'])
         end
-        
+
     end
     %================================================================
 
 else
-    errordlg(['Missing files with suffix *' filesuffix '! Uninstallation aborted!'])
+    errordlg(['Missing files with suffix *' filesuffix '! ' ...
+        'Uninstallation aborted!'])
     return
 end
 %======================================================================
@@ -227,27 +233,29 @@ else
 end
 
 % check if original SL function (*_ori.m) is available
-dir_orifiles=dir(['*' filesuffix '.m']); 
+dir_orifiles=dir(['*' filesuffix '.m']);
 
-if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['seisfigbuttons' filesuffix '.m'])
+if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && ...
+    strcmp(dir_orifiles.name,['seisfigbuttons' filesuffix '.m'])
 
-    % first delete the current SS version of the function with correct name
+    % first delete the current StackSplit version of the function with correct name
     dir_seisfig=dir('seisfigbuttons.m');
-    
+
     if ~isempty(dir_seisfig)
         delete('seisfigbuttons.m')
     else
         errordlg('No file < seisfigbuttons.m > available to delete!')
         return
     end
-    
+
     % then rename back the original SL file (*_ori.m) to the official name without *_ori
     movefile(dir_orifiles.name,'seisfigbuttons.m')
-    
+
 else
-    errordlg(['No original SL file < seisfigbuttons' filesuffix '.m > available! Uninstallation aborted!'])
+    errordlg(['No original SplitLab file < seisfigbuttons' filesuffix '.m > ' ...
+        'available! Uninstallation aborted!'])
     return
-    
+
 end
 
 cd(folderSL)
@@ -277,34 +285,34 @@ files2rename{4}=['saveresult' filesuffix '.m'];
 files2rename{5}=['splitdiagnosticplot' filesuffix '.m'];
 
 % check if original SL functions (*_ori.m) are available
-dir_orifiles=dir(['*' filesuffix '.m']); 
+dir_orifiles=dir(['*' filesuffix '.m']);
 
 if ~isempty(dir_orifiles) && length(dir_orifiles)==5
 
     for ii=1:length(files2rename)
         strold(ii)=sum(cell2mat(strfind({dir_orifiles.name},files2rename{ii})));
-    end 
+    end
 
-    if sum(strold)~=5  
+    if sum(strold)~=5
         errordlg(['Missing files with suffix *' filesuffix '!'])
-        return 
+        return
     end
 
     %================================================================
     for ii=1:length(files2delete)
-        
-        % delete SS version of file
+
+        % delete StackSplit version of file
         dir_file2del=dir(files2delete{ii});
-        
+
         if ~isempty(dir_file2del)
             delete(files2delete{ii});
         else
-           errordlg(['Missing file ' files2delete{ii} '!']) 
+           errordlg(['Missing file ' files2delete{ii} '!'])
         end
-        
+
         % rename original SL files (*_ori.m) to the official name without *_ori
         dir_file2ren=dir(files2rename{ii});
-                
+
         if ~isempty(dir_file2ren)
             % here we use the names of files2delete to rename the original
             % SL files to their original name
@@ -313,16 +321,17 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==5
             % files2delete:     *.m
             movefile(files2rename{ii},files2delete{ii});
         else
-           errordlg(['Missing file ' files2rename{ii} '!']) 
+           errordlg(['Missing file ' files2rename{ii} '!'])
         end
-        
+
     end
     %================================================================
-    
-    disp(' ')    
+
+    disp(' ')
     disp('Uninstallation of StackSplit successfully finished!')
 
-    msgbox('StackSplit was successfully removed from your system!','Uninstallation complete');
+    msgbox('StackSplit was successfully removed from your system!', ...
+        'Uninstallation complete');
 
 else
     errordlg(['Missing files with suffix *' filesuffix '! Uninstallation aborted!'])

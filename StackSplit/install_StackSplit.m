@@ -12,74 +12,75 @@ function install_StackSplit()
 % Install the StackSplit plugin on your system
 %
 %..........................................................................
-% ..........................................................................
-% !!! Splitlab have to be installed before StackSplit can be installed !!!
+%..........................................................................
+% !!! SplitLab has to be installed before StackSplit can be installed !!!
 %..........................................................................
 %..........................................................................
 %
-% 1) Please unzip your downloaded StackSplit copy into SplitLabs main folder
-%    where the file < install_splitlab > is located. To find the path to this folder 
-%    use command: 
+% 1) Please unzip the downloaded StackSplit package and copy it into
+%    SplitLab's main folder where the file < install_SplitLab.m > is located.
+%    To find the path to this folder use the command:
 %
-%           folderSL=fileparts(which('install_SplitLab.m'))
+%           folderSL = fileparts(which('install_SplitLab.m'))
 %
 %
-% 2) Please add the following folder to to your MATLAB search path:
-%    
-%           SplitlabX.X.X/StackSplit 
-% 
-%    For editing the path use the command:    
-% 
-%            pathtool 
+% 2) Please add the following folder to your MATLAB search path:
+%
+%           SplitLabX.X.X/StackSplit
+%
+%    For editing the path use the command:
+%
+%            pathtool
 %
 % 3) Change to the StackSplit folder in the SplitLab main directory
 %
-%            cd(folderSL/StackSplit)
+%            cd(folderSL + '/StackSplit')
 %
-% 4) Run this function < install_StackSplit > in your command window
+% 4) Run this function < install_StackSplit.m > in your command window
 %
 % 5) Restart MATLAB
 %
 %
 % GENERAL REMARKS
 %
-% Besides the StackSplit functions the package also contains modified
-% SplitLab functions which are necessary to generate the multi-
-% event output. All these functions (execpt the SL starting function splitlab.m)
-% are located in the original SL folders ShearWaveSplitting, Tools and private.
+% Besides the StackSplit functions, the package also contains modified
+% SplitLab functions which are necessary to generate the multi-event output.
+% All these functions (except the SL starting function < splitlab.m >) are
+% located in the original SL folders ShearWaveSplitting, Tools, and private.
 %
-% By running this installation file, all original functions are renamed with an
-% end suffix *_ori. The (new) modified ones are copied to their corresponding 
-% paths and have the same names like the others before renaming. Only their content is
-% slightly modified!
+% By running this installation file, all original functions are renamed
+% with a suffix *_ori. The (new) modified ones are copied to their
+% corresponding paths and have the same names as the others before renaming.
+% But their content is slightly modified!
 %
-% So, if you are not happy with StackSplit you easily can recover your original 
-% SplitLab settings (see function < uninstall_StackSplit >) without big
-% efforts. Otherwise if you are sure you want to use StackSplit in future without 
-% returning to the standalone SL version, you can also delete the *_ori files manually 
-% or copy them to a place of your choice for backup. 
-%  
-% The changes in the modified SL functions in general do not affect any calculation 
-% within the functions except < geterrorbars.m > and < geterrorbarsRC.m > where 
-% modified equations for error calculations after Walsh et al. (2013) and a fixed taper
-% application were implemented!
+% So, if you are not happy with StackSplit you easily can recover your
+% original SplitLab settings (see function < uninstall_StackSplit.m >)
+% without big efforts. Otherwise, if you are sure you want to use
+% StackSplit in future without returning to the standalone SL version,
+% you can also delete the *_ori files manually or copy them to a place of
+% your choice for backup.
+%
+% The changes in the modified SL functions in general do not affect any
+% calculations within the functions except < geterrorbars.m > and
+% < geterrorbarsRC.m > where modified equations for error calculations
+% after Walsh et al. (2013) and a fixed taper application were implemented!
 %
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
@@ -91,7 +92,7 @@ function install_StackSplit()
 
 %==========================================================================
 % Major updates:
-% 
+%
 % - v3.0 (2021): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
 %                ORCID: 0000-0002-8566-0619
 %                Email: yvonne.froehlich@kit.edu
@@ -112,7 +113,7 @@ function install_StackSplit()
 filesuffix='_ori';
 %========================
 
-% search for original SL folder 
+% search for original SL folder
 [folderSL, ~, ~]=fileparts(which('install_SplitLab.m'));
 
 % check if RP version is available
@@ -136,9 +137,9 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % check if original SL function is already renamed
-dir_orifiles=dir(['splitlab' filesuffix '.m']); 
+dir_orifiles=dir(['splitlab' filesuffix '.m']);
 
-% check for unzipped SS folder
+% check for unzipped StackSplit folder
 dirSS=dir('StackSpl*');
 
 if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1 && ~isempty(dir_orifiles)
@@ -149,11 +150,12 @@ if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1 && ~isempty(dir_o
 end
 
 if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1
-    pathSS=[folderSL '/StackSplit']; 
+    pathSS=[folderSL '/StackSplit'];
     disp(' ')
     disp('Start installation of StackSplit...')
 else
-    errordlg('Missing StackSplit folder! Before installing, please first copy the (unzipped) StackSplit folder to the SplitLab main folder!')
+    errordlg(['Missing StackSplit folder! Before installing, please first ' ...
+        'copy the (unzipped) StackSplit folder to the SplitLab main folder!'])
     return
 end
 
@@ -162,8 +164,9 @@ end
 %============
 % welcome
 
-welcomestring={'Welcome to StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab',...
-    ' ','Do you want to continue installing this package on your system?'};
+welcomestring={['Welcome to StackSplit - a plugin for multi-event ' ...
+    'shear wave splitting analyses in SplitLab'], ' ', ...
+    'Do you want to continue installing this package on your system?'};
 
 pos = get(0,'DefaultFigurePosition');
 pos(3:4) = [560 200];
@@ -232,14 +235,14 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN FOLDER
-  
+
 % #1 =====================
-% < splitlab.m > 
+% < splitlab.m >
 % =======================
-% changes: added a new button on the left panel to access StackSplit 
-% (and corresponding callbacks), position depends on the version 
-% (original or from Rob Porritt), add commands to close SS if a new SL
-% project is loaded
+% changes: added a new button on the left panel to access StackSplit
+% (and corresponding callbacks), position depends on the version
+% (original or from Rob Porritt), add commands to close StackSplit if a
+% new SplitLab project is loaded
 
 dir_splitlab=dir('splitlab.m');
 
@@ -261,14 +264,14 @@ else
     errordlg('Missing subfolder ShearWaveSplitting!')
     return
 end
-      
+
 % check if original SL functions are already renamed
-dir_orifiles=dir(['*' filesuffix '.m']); 
+dir_orifiles=dir(['*' filesuffix '.m']);
 
 if isempty(dir_orifiles)
 
     % #2 =====================
-    % < geterrorbars.m > 
+    % < geterrorbars.m >
     %=======================
     % changes: fixed taper, fixed NDF calculation based on Walsh et al. (2013),
     % new output argument ndf
@@ -277,36 +280,36 @@ if isempty(dir_orifiles)
     movefile(dir_geterrors1.name,['geterrorbars' filesuffix '.m'])
 
     % #3 ====================
-    % < geterrorbarsRC.m > 
+    % < geterrorbarsRC.m >
     %=======================
     % changes: fixed taper, fixed NDF calculation based on Walsh et al. (2013),
     % new output argument ndf
-    
+
     dir_geterrors2=dir('geterrorbarsRC.m');
     movefile(dir_geterrors2.name,['geterrorbarsRC' filesuffix '.m'])
 
     % #4 ====================
-    % < preSplit.m > 
+    % < preSplit.m >
     %=======================
-    % changes: added further output information to temporary variable 
+    % changes: added further output information to temporary variable
     % thiseq.tmpresult, like cut component traces, ndfs etc.
-    
+
     dir_preSplit=dir('preSplit.m');
     movefile(dir_preSplit.name,['preSplit' filesuffix '.m'])
 
     % #5 ====================
-    % < saveresult.m > 
+    % < saveresult.m >
     %=======================
-    % changes: added further output information to permanent variable eq, 
-    % like cut component traces, ndfs etc., 
-    
+    % changes: added further output information to permanent variable eq,
+    % like cut component traces, ndfs etc.,
+
     dir_saveresult=dir('saveresult.m');
     movefile(dir_saveresult.name,['saveresult' filesuffix '.m'])
-    
+
     % #6 ====================
-    % < splitdiagnosticplot.m > 
+    % < splitdiagnosticplot.m >
     %=======================
-    % changes: changed the position where Emap and Cmap are saved and 
+    % changes: changed the position where Emap and Cmap are saved and
     % separated EVmap to additionally save it
 
     dir_diagplot=dir('splitdiagnosticplot.m');
@@ -331,12 +334,12 @@ else
 end
 
 % check if original SL functions are already renamed
-dir_orifiles=dir(['*' filesuffix '.m']); 
+dir_orifiles=dir(['*' filesuffix '.m']);
 
 if isempty(dir_orifiles)
 
     % #7 =====================
-    % < database_editResults.m > 
+    % < database_editResults.m >
     %=======================
     % changes: if a phase result/event is deleted after any phase splitting calculation
 	% in the database viewer, the variable "eq" is saved in this function, otherwise in StackSplit
@@ -346,13 +349,13 @@ if isempty(dir_orifiles)
     movefile(dir_databaseedit.name,['database_editResults' filesuffix '.m'])
 
     % #8 =====================
-    % < getFileAndEQseconds.m > 
-    %=======================	
+    % < getFileAndEQseconds.m >
+    %=======================
 	% changes: fixed start time extraction by SplitLab
-	
+
 	dir_getfileandeqsec=dir('getFileAndEQseconds.m');
     movefile(dir_getfileandeqsec.name,['getFileAndEQseconds' filesuffix '.m'])
-    
+
 end
 
 cd(folderSL)
@@ -372,12 +375,12 @@ else
 end
 
 % check if original SL functions are already renamed
-dir_orifiles=dir(['*' filesuffix '.m']); 
+dir_orifiles=dir(['*' filesuffix '.m']);
 
 if isempty(dir_orifiles)
 
     % #9 =====================
-    % < seisfigbuttons.m > 
+    % < seisfigbuttons.m >
     %=======================
     % changes: if an event is deleted after any phase splitting calculation
 	% in the SeismoViewer, the variable "eq" is saved in this function, otherwise in StackSplit
@@ -385,18 +388,18 @@ if isempty(dir_orifiles)
 
     dir_seisfig=dir('seisfigbuttons.m');
     movefile(dir_seisfig.name,['seisfigbuttons' filesuffix '.m'])
-    
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % now copy the modified versions into the corresponding folders depending
-% on the used SL version  
+% on the used SL version
 
 if SL_version==1
     cd([pathSS '/SL_mod/SL_1.0.5_mod'])
 elseif SL_version==2
-    cd([pathSS '/SL_mod/SL_1.2.1_mod'])  
+    cd([pathSS '/SL_mod/SL_1.2.1_mod'])
 end
 
 copyfile('splitlab_SS.m',folderSL)
@@ -418,15 +421,15 @@ rmdir('SL_mod','s')
 
 % main folder
 cd(folderSL)
-movefile('splitlab_SS.m','splitlab.m') % rename modified SS file to original name
+movefile('splitlab_SS.m','splitlab.m') % rename modified SplitLab file to original name
 
 % SWS folder
 cd(pathSWS)
 movefile('geterrorbars_SS.m','geterrorbars.m')
-movefile('geterrorbarsRC_SS.m','geterrorbarsRC.m') 
-movefile('preSplit_SS.m','preSplit.m') 
-movefile('saveresult_SS.m','saveresult.m') 
-movefile('splitdiagnosticplot_SS.m','splitdiagnosticplot.m') 
+movefile('geterrorbarsRC_SS.m','geterrorbarsRC.m')
+movefile('preSplit_SS.m','preSplit.m')
+movefile('saveresult_SS.m','saveresult.m')
+movefile('splitdiagnosticplot_SS.m','splitdiagnosticplot.m')
 
 % Tools folder
 cd(pathTOOL)
@@ -439,29 +442,30 @@ movefile('seisfigbuttons_SS.m','seisfigbuttons.m')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% final check  
+% final check
 
 cd(folderSL)
 if ~isempty(dir('splitlab.m'))
    cd(pathSWS)
-    
+
    if sum(isempty(dir('preSplit.m')) && isempty(dir('geterrorbars.m')) && ...
            isempty(dir('geterrorbarsRC.m')) && isempty(dir('saveresults.m')) && ...
            isempty(dir('splitdiagnosticplot.m')))==0
 
        cd(pathTOOL)
-        
+
             if ~isempty(dir('database_editResults.m')) && ...
 				~isempty(dir('getFileAndEQseconds.m'))
-                
-              cd(pathpriv)
-              
-                   if ~isempty(dir('seisfigbuttons.m'))
-                
-                        disp(' ') 
-                        disp('Installation complete !')
 
-                        msgbox('StackSplit was successfully installed on your system! Please restart MATLAB!','Installation complete');
+              cd(pathpriv)
+
+                   if ~isempty(dir('seisfigbuttons.m'))
+
+                        disp(' ')
+                        disp('Installation completed!')
+
+                        msgbox(['StackSplit was successfully installed on your system! ' ...
+                            'Please restart MATLAB!'],'Installation completed');
 
                    end
             end

@@ -1,11 +1,13 @@
 ﻿StackSplit - UserGuide
 ======================
 
-December 2021 (v3.0)
-January 2023 (v3.1)
+Versions
+- December 2021 (v3.0)
+- January 2023 (v3.1)
 
-Mainly written: 2021-12-23 (**Michael Grund**)
-Typo fixes: 2023-01-04 (**Yvonne Fröhlich**)
+Changes
+- Mainly written: 2021-12-23 (**Michael Grund**)
+- Typo fixes: 2023-01-04 (**Yvonne Fröhlich**)
 
 Contents
 --------
@@ -93,7 +95,7 @@ folderSL = fileparts(which('install_SplitLab.m'))
 ```
 2. Please add the following folder to your MATLAB search path (for editing the path simply use the command ``pathtool``):
 ```
-SplitlabX.X.X/StackSplit
+SplitLabX.X.X/StackSplit
 ```
 3. Change to the StackSplit folder in the SplitLab main directory:
 ```

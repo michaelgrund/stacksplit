@@ -9,27 +9,27 @@ function h=SS_saveresults(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% write results of stacked error surfaces/SIMW to textfile, generate mat-file
+% write results of stacked error surfaces/SIMW to txt-file, generate mat-file
 %
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
 %
 % 2019-04 -MG- saving output also in GMT-ready format (psxy with -SJ flag)
 % 2021-12 -MG- adjustments to allow different output formats with Matlab >= 2020a
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %
@@ -55,15 +55,15 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     dtstack=h.stacked_err_surf_dt;
     level=h.stacked_err_surf_level;
     nsurf=h.stacked_nsurf;
-    stack_meth=h.stacked_meth;   
+    stack_meth=h.stacked_meth;
     ndf=h.stacked_err_surf_ndf;
     bazis=h.stacked_bazis;
-    dists=h.stacked_dists;   
+    dists=h.stacked_dists;
 
     max_bazi=max(bazis);
     min_bazi=min(bazis);
     max_dis=max(dists);
-    min_dis=min(dists);  
+    min_dis=min(dists);
 
     % check if a remark was added to the current result
     if ~isempty(h.stacked_remark)
@@ -76,15 +76,15 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
 
     %==========================================================================
     % txt-file
-    
+
     %....................................
-    % generate yyyy.JD (phase) for txt file to show which single events/phases
+    % generate yyyy.JD (phase) for txt-file to show which single events/phases
     % were used for stacking
-    index=get(h.list,'value'); 
+    index=get(h.list,'value');
     ev_used=h.data(index);
     datesall=vertcat(ev_used.date);
     yyyyJDs=[datesall(:,1) datesall(:,7)];
-    
+
     string_ev_used=[];
     for ii=1:length(ev_used)
       phase_used=ev_used(ii).results.SplitPhase;
@@ -110,30 +110,32 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     end
 
 
-    fseek(fid, 0, 'eof'); %go to end of file
+    fseek(fid, 0, 'eof'); % go to end of file
     fprintf(fid,'\n %s %2.0f   %2.0f    %3.1f    %3.1f    %3.1f     %3.1f   %3.1f   %3.1f  %4.0f < %3.0f < %3.0f   %4.1f < %3.1f < %3.1f     %s        %s       %s           %s',...
         staname, nsurf, ndf, min_bazi, max_bazi, mean(bazis), min_dis, max_dis, mean(dists), phistack, dtstack, stack_meth, surf_input, res_remark, string_ev_used);
     fclose(fid);
 
     %==========================================================================
     % txt-file, PyGMT/GMT ready format
-    
-    % format allows to directly use the output file in PyGMT or GMT (5.2.1 or
-    % higher) via the -SJ flag of psxy, for details see the UserGuide
+
+    % format allows to directly use the output file in PyGMT or GMT (5.2.1
+    % or higher) via the -SJ flag of psxy, for details see the UserGuide
+    % at stacksplit/StackSplit/Doc/StackSplit_userguide.md
+    % https://github.com/michaelgrund/stacksplit/blob/main/StackSplit/Doc/StackSplit_userguide.md
 
     % column description:
-    % station lat. | station lon. | phistack | dtstack(scaled by factor scale_bar) | bar thickness | mean BAZ (not used in GMT) | mean dist (not used in GMT) | station name (not used in GMT) 
+    % station lat. | station lon. | phistack | dtstack(scaled by factor scale_bar) | bar thickness | mean BAZ (not used in GMT) | mean dist (not used in GMT) | station name (not used in GMT)
 
     fname = fullfile(config.savedir,['splitresultsSTACK_' config.project(1:end-4) '_4GMT.dat' ]);
 
     %################
-    % GMT parameters (please adjust for your needs) 
+    % GMT parameters (please adjust for your needs)
     scale_bar=60; % scaling factor, set for scaling the plotted bars uniformly with respect to length
     thick_bar=10.5; % define thickness of bars
     %################
 
     fid   = fopen(fname,'a+');
-    fseek(fid, 0, 'eof'); %go to end of file
+    fseek(fid, 0, 'eof'); % go to end of file
     fprintf(fid,'%5.3f %5.3f %3.1f %3.1f %3.1f %5.3f %5.3f %s \n',...
        config.slong, config.slat, phistack(2), dtstack(2)*scale_bar, thick_bar, mean(bazis), mean(dists), staname);
     fclose(fid);
@@ -148,17 +150,18 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     %==========================================================================
     % mat-file
 
-    % SAVE results to permanent variable eqstack (mat-file) for further analysis 
-    % outside of SL/SS, when variable already exists, it is read in the main 
-    % function and the new result is connected to the end, otherwise a new 
-    % struct is generated and saved in the following
+    % SAVE results to permanent variable eqstack (mat-file) for further
+    % analysis outside of SplitLab / StackSplit, when variable already
+    % exists, it is read in the main function and the new result is
+    % connected to the end, otherwise a new struct is generated and saved
+    % in the following
 
     eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
-    eqstack(end).results.meas_sdn=now; % date of measurement, serial date number 
-    eqstack(end).results.stnname=config.stnname; 
-    eqstack(end).results.netw=config.netw; 
-    eqstack(end).results.slat=config.slat; 
-    eqstack(end).results.slong=config.slong; 
+    eqstack(end).results.meas_sdn=now; % date of measurement, serial date number
+    eqstack(end).results.stnname=config.stnname;
+    eqstack(end).results.netw=config.netw;
+    eqstack(end).results.slat=config.slat;
+    eqstack(end).results.slong=config.slong;
     eqstack(end).results.stack_meth=stack_meth;
     eqstack(end).results.nsurf=nsurf;
     eqstack(end).results.surf_in=surf_input;
@@ -176,7 +179,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     eqstack(end).results.dist_max=max_dis;
     eqstack(end).results.dist_mean=mean(dists);
     eqstack(end).results.remark=res_remark;
-    
+
     % add structs of input events, including all used content such as Emap,
     % EVmap, ndfs, singlephi, singledt etc.
     eqstack(end).results.events_in=h.data(index);
@@ -196,9 +199,9 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SAVE SIMW results 
+% SAVE SIMW results
 else
-    
+
     % check if qual and isnull are selected
     null= ~isfield(SIMW_temp,'AnisoNull');
     qual= ~isfield(SIMW_temp,'Q');
@@ -213,8 +216,8 @@ else
         end
         errordlg(char(str,' ' ,'or select "Discard" in the Result menu...'),'Error');
         return
-    end  
-    
+    end
+
     % check if a remark was added to the current result
     if isfield(SIMW_temp,'remark') && ~isempty(SIMW_temp.remark)
         res_remark=SIMW_temp.remark {1:end};
@@ -222,17 +225,17 @@ else
     else
         res_remark=[];
         outtext=2;
-    end   
+    end
     %==========================================================================
     % txt-file
-    
+
     %....................................
-    % generate yyyy.JD (phase) for txt file, to show which single events/phases 
+    % generate yyyy.JD (phase) for txt file, to show which single events/phases
     % where used for SIMW analysis
     ev_used=SIMW_temp.events;
     datesall=vertcat(ev_used.date);
     yyyyJDs=[datesall(:,1) datesall(:,7)];
-    
+
     string_ev_used=[];
     for ii=1:length(ev_used)
       phase_used=ev_used(ii).results.SplitPhase;
@@ -248,8 +251,8 @@ else
         fprintf(fid,'\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------');
         fprintf(fid,'\n sta nwave minbaz maxbaz meanbaz mindis maxdis meandis taper   phi_RC   dt_RC        phi_SC           dt_SC        phi_EV  dt_EV  quality  null?  Remark     used events (phases)' );
     end
-    fseek(fid, 0, 'eof'); %go to end of file
-    
+    fseek(fid, 0, 'eof'); % go to end of file
+
     if ~strcmp(SIMW_temp.taper,'none')
         formatstr='\n%4s%3.0f     %3.1f   %3.1f   %3.1f   %3.1f  %3.1f  %3.1f   %3.0f      %3.0f      %3.1f  %4.0f < %3.0f < %3.0f   %4.1f < %3.1f < %3.1f   %3.1f    %3.1f    %4s    %3s    %s           %s';
     else
@@ -266,27 +269,29 @@ else
     fclose(fid);
 
     %==========================================================================
-    % txt-file, GMT ready format
-    
-    % format allows to directly use the output file in GMT (5.2.1 or
-    % higher) via the -SJ flag of psxy. 
-    
+    % txt-file, PyGMT/GMT ready format
+
+    % format allows to directly use the output file in PyGMT or GMT (5.2.1
+    % or higher) via the -SJ flag of psxy, for details see the UserGuide
+    % at stacksplit/StackSplit/Doc/StackSplit_userguide.md
+    % https://github.com/michaelgrund/stacksplit/blob/main/StackSplit/Doc/StackSplit_userguide.md
+
     % EXAMPLE:   psxy splitresultsSIMW_OUTPUTNAME_4GMT.dat -R -J -SJ -W0.25p,blue -Gred -O -K >> $ps
-    
+
     % column description:
-    % station lat. | station lon. | phistack | dtstack(scaled by factor scale_bar) | bar thickness | mean BAZ (not used in GMT) | mean dist (not used in GMT) | station name (not used in GMT) 
+    % station lat. | station lon. | phistack | dtstack(scaled by factor scale_bar) | bar thickness | mean BAZ (not used in GMT) | mean dist (not used in GMT) | station name (not used in GMT)
 
     fname = fullfile(config.savedir,['splitresultsSIMW_' config.project(1:end-4) '_4GMT.dat' ]);
-    
+
     %################
-    % GMT parameters (please adjust for your requirements) 
+    % GMT parameters (please adjust for your requirements)
     scale_bar=60; % scaling factor, set for scaling the plotted bars uniformly with respect to length
     thick_bar=10.5; % define thickness of bars
     %################
 
     fid   = fopen(fname,'a+');
-    fseek(fid, 0, 'eof'); %go to end of file
-    
+    fseek(fid, 0, 'eof'); % go to end of file
+
     formatstr='%5.3f %5.3f %3.1f %3.1f %3.1f %5.3f %5.3f %s \n';
 
     fprintf(fid,formatstr,...
@@ -296,10 +301,11 @@ else
     %==========================================================================
     % mat-file
 
-    % SAVE results to permanent variable eqstack (mat-file) for further analysis 
-    % outside of SL/SS, when variable already exists, it is read in the main 
-    % function and the new result is connected to the end, otherwise a new 
-    % struct is generated and saved in the following
+    % SAVE results to permanent variable eqstack (mat-file) for further
+    % analysis outside of SplitLab / StackSplit, when variable already
+    % exists, it is read in the main function and the new result is
+    % connected to the end, otherwise a new struct is generated and saved
+    % in the following
 
     % YF 2023-01-16
     % "datestr" is not recommanded by MATLAB up on R2022b
@@ -340,7 +346,7 @@ else
     eqstack(end).results.events_in=SIMW_temp.events;
 
     save(fullfile(config.savedir,[config.stnname '_stackresults.mat']),'eqstack');
-    
+
     %==========================================================================
 
     disp(' ')
@@ -356,7 +362,7 @@ else
     %==========================================================================
     % pdf-plot
 
-    %change here, if you dont like the figure output (resolution etc)
+    % change here, if you don't like the figure output (resolution etc)
     switch config.exportformat
         case '.ai'
             option={ '-depsc', '-noui'};
@@ -378,14 +384,14 @@ else
 
     fname = sprintf(['Multi_result_SIMW', config.exportformat]);
 
-    %check if file alredy exists (phase already splitted)
+    % check if file already exists (phase already split)
     No=2;
     while exist(fullfile(config.savedir, fname),'file') == 2
         fname = sprintf('Multi_result_SIMW[%.0f]%s',...
                 No, config.exportformat);
         No = No+1;
     end
- 
+
    switch config.exportformat
        case '.pdf'
 			print( option{:}, fullfile(config.savedir,fname),'-fillpage')
@@ -393,10 +399,10 @@ else
 			print( option{:}, fullfile(config.savedir,fname),'-fillpage')
        otherwise
 			print( option{:}, fullfile(config.savedir,fname));
-   end	
+   end
 
-    close(gcf) 
-  
+    close(gcf)
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 end

@@ -1,4 +1,4 @@
-For full functionality of StackSplit the following (original) SplitLab functions are modified 
+For full functionality of StackSplit the following (original) SplitLab functions are modified
 within the installation process:
 
 splitlab.m               adjustments for implementation of StackSplit
@@ -9,5 +9,5 @@ splitdiagnosticplot.m    adjustments to save new outputs temporary
 saveresult.m             adjustments to save new outputs finally
 database editResults.m   adjustments to avoid database conflicts
 seisfigbuttons.m         adjustments to avoid database conflicts
-getFileAndEQseconds.m    fixed start time extraction by SplitLab (v3.0, see Fröhlich et al. 202x)
+getFileAndEQseconds.m    fixed start time extraction by SplitLab (v3.0, see FrÃ¶hlich et al., 2022)
 
