@@ -14,22 +14,22 @@ function h=SS_gen_legends(h)
 %==========================================================================
 % LICENSE
 %
-% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT), 
+% Copyright (C) 2016  Michael Grund, Karlsruhe Institute of Technology (KIT),
 % GitHub: https://github.com/michaelgrund
-% 
+%
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
 % the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.
-% 
+%
 % This program is distributed in the hope that it will be useful,
 % but WITHOUT ANY WARRANTY; without even the implied warranty of
 % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 % GNU General Public License for more details.
-% 
+%
 % You should have received a copy of the GNU General Public License
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
-% 
+%
 % TERMS OF USE
 %
 % StackSplit is provided "as is" and without any warranty. The author cannot be
@@ -39,16 +39,16 @@ function h=SS_gen_legends(h)
 
 %==================================================================================================================================
 %==================================================================================================================================
-%GENERATE axes
-                         
+% GENERATE axes
+
 hax1=axes('Parent',h.panel(1),'Units','pixel',...
-                             'Position',[200 417+45 92 82]);                       
+                             'Position',[200 417+45 92 82]);
 hax2=axes('Parent',h.panel(1),'Units','pixel',...
-                             'Position',[450 417+45 92 82]);                         
-                         
+                             'Position',[450 417+45 92 82]);
+
 %=================================================================================
 %=================================================================================
-%SET font paramerters
+% SET font parameters
 
 lwleg=2;
 

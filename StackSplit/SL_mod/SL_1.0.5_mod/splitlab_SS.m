@@ -1,7 +1,7 @@
 
 function splitlab
 % Main window of the SplitLab toolbox, configure the parameters and projects
-% creating the configuration figure of Splitlab
+% creating the configuration figure of SplitLab
 
 global config eq
 
@@ -9,10 +9,10 @@ global config eq
 SL_checkversion
 config.version='SplitLab1.0.4';
 
-[p,f] = fileparts(mfilename('fullpath'));  % directory of Splitlab
+[p,f] = fileparts(mfilename('fullpath'));  % directory of SplitLab
 set(0,'DefaultFigurecolor', [224   223   227]/255 ,...
       'DefaultFigureWindowStyle','normal',...
-      'DefaultUIControlBackgroundColor', [224   223   227]/255) 
+      'DefaultUIControlBackgroundColor', [224   223   227]/255)
 cfig=findobj('type','Figure','name',['Configure ' config.version]);
 if isempty(cfig)
     cfig=figure('name',['Configure ' config.version],...
@@ -96,7 +96,7 @@ h.menu(100) = uicontrol(...
     'String','Stacking',...
     'BackgroundColor','w',...
     'pos',[10 10 100 25],'parent',h.menu(1),'HandleVisibility','off',...
-    'Callback','SS_stacksplit_start');   
+    'Callback','SS_stacksplit_start');
 %===================================================
 %###################################################
 %===================================================
@@ -115,7 +115,7 @@ clear tmp
 %-------------------------------------------------------------------------
 pjtlist = getpref('Splitlab','History');
 files   = {};
-for k =1:length(pjtlist);
+for k =1:length(pjtlist)
     [pp,name,ext] = fileparts(pjtlist{k});
     files{k}=[name ext];
 end
@@ -164,7 +164,7 @@ h.menu(99) = uicontrol(...
     'pos',[7 380 106 22],'parent',h.menu(1),'HandleVisibility','off',...
     'Callback','SL_preferences(config);  helpdlg(''Preferences succesfully saved!'',''Preferences'')');
 
-%==============================================================    
+%==============================================================
 
 set(h.menu(1),'SelectionChangeFcn',@selcbk);
 set(h.menu(1),'SelectedObject',[h.menu(2)]);
@@ -175,11 +175,12 @@ figure(cfig)
 
 
 
-% intrestingly, at startup the first value of the random gegenator is often 0.9501
-% so, generate first dum dummy random numbers, and than in a new round take 
-% two random to state if show postcard or acknowldgement dialogs
+% Interestingly, at startup the first value of the random generator is
+% often 0.9501. So, generate first dummy random numbers, and then in a new
+% round take two random numbers to state if postcard or acknowledgement
+% dialogs are shown.
 rand(100,100);
-R = rand(1,2);   
+R = rand(1,2);
 %if R(1)>.92,    postcardware,      end %Delete this line, if you have already sent a PostCard
 %if R(2)>.92,    acknowledgement,   end
 
@@ -209,10 +210,10 @@ global config eq
 %===================================================
 % StackSplit content, 2016-12-02 -MG-
 
-% if open, close StackSplit when a new/other project is loaded  
+% if open, close StackSplit when a new/other project is loaded
 
 if isfield(config,'SS_version')
-    
+
     checkSS=findobj('type','figure','name',['StackSplit ' config.SS_version]);
 
     if ~isempty(checkSS)
@@ -222,10 +223,10 @@ if isfield(config,'SS_version')
     basews=evalin('base','who');
     existeqstack=ismember('eqstack',[basews(:)]);
 
-    if ~isempty(existeqstack) 
+    if ~isempty(existeqstack)
         evalin('base','clearvars -global eqstack');
     end
-    
+
 end
 %===================================================
 %###################################################
@@ -240,8 +241,8 @@ elseif  val == 2 %Browse...
         '*.mat', '*.mat - MatLab files';
         '*.*',     '* - All files'};
     pjtlist = getpref('Splitlab','History');
-    
-   [tmp1,pathstr] = uigetfile( str ,'Project file', [config.projectdir, filesep]) ; 
+
+   [tmp1,pathstr] = uigetfile( str ,'Project file', [config.projectdir, filesep]) ;
     if isstr(pathstr) %user did not cancle
         load('-mat',fullfile(pathstr,tmp1))
         newfile = fullfile(pathstr,tmp1);
@@ -270,7 +271,7 @@ else
     L       = 1:length(pjtlist);
     new     = [n setdiff(L,n)];
     pjtlist = pjtlist(new);
-    
+
     files = get(gcbo,'Userdata'); %need full path name, which is stored in userdata
     load('-mat',files{n})
     [pathstr,name] = fileparts(files{n});
@@ -323,10 +324,10 @@ if isstr(tmp2)
     loadstr={'    Load Project','    Browse...', files{:}};
     loadUIcontrol = get(gcbo,'Userdata');
     set(loadUIcontrol,'UserData', pjtlist, 'String', loadstr)
-    
+
     pjtfield = findobj('String',oldpjt,'type','uicontrol');
     set(pjtfield,'String',config.project)
-    
+
 end
 
 clear tmp*
@@ -335,18 +336,18 @@ clear tmp*
 % © 2006 Andreas Wüstefeld, Université de Montpellier, France
 %
 % DISCLAIMER:
-% 
+%
 % 1) TERMS OF USE
 % SplitLab is provided "as is" and without any warranty. The author cannot be
 % held responsible for anything that happens to you or your equipment. Use it
 % at your own risk.
-% 
+%
 % 2) LICENSE:
 % SplitLab is free software; you can redistribute it and/or modifyit under the
-% terms of the GNU General Public License as published by the Free Software 
-% Foundation; either version 2 of the License, or(at your option) any later 
+% terms of the GNU General Public License as published by the Free Software
+% Foundation; either version 2 of the License, or(at your option) any later
 % version.
 % This program is distributed in the hope that it will be useful, but WITHOUT
-% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
-% FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for 
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+% FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
 % more details.
