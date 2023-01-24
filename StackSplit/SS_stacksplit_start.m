@@ -435,12 +435,12 @@ exit=get(h.push(4),'Value');
 
 if exit==1
 
-    choice = questdlg('Really want to exit?','Exit menu','Yes','No','Yes');
+    choice = questdlg('Do you really want to exit?','Exit menu','Yes','No','Yes');
 
     switch choice
     case 'Yes'
 
-        h.fig
+        h.fig;
         close(h.fig)
 
         basews=evalin('base','who');
