@@ -440,7 +440,6 @@ if exit==1
     switch choice
     case 'Yes'
 
-        h.fig;
         close(h.fig)
 
         basews=evalin('base','who');
