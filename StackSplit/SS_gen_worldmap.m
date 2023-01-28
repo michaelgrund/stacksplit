@@ -62,7 +62,9 @@ if config.maptool==1
 
     fileparts(mfilename('fullpath'));
     matlab_version = SS_check_matlab_version();
-    if matlab_version==2  % MATLAB R2020b and higher (added 2023/01/04 YF)
+	% YF 2023-01-04
+	% for details please see SS_check_matlab_version.m
+    if matlab_version==2 % MATLAB R2020b and higher
         coast_data = load('coastlines');
     else
         coast_data = load('coast');
@@ -82,7 +84,9 @@ if config.maptool==1
     % plot plate boundaries & continents
     plotm(plates_data.PBlat, plates_data.PBlong, 'LineStyle','-','Linewidth',1,'Tag',...
         'Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
-    if matlab_version==2  % MATLAB R2020b and higher (added 2023/01/04 YF)
+	% YF 2023-01-04
+	% for details please see SS_check_matlab_version.m
+    if matlab_version==2 % MATLAB R2020b and higher
         fillm(coast_data.coastlat,coast_data.coastlon,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
             'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
     else
