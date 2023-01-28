@@ -429,7 +429,7 @@ ps = linspace(-90,90,f(1));
 maxi = max(abs(STACKsurf(:)));
 mini = min(abs(STACKsurf(:)));
 nb_contours = floor((1 - mini/maxi)*10);
-      
+
 version=SS_check_matlab_version();
 
 % YF 2023-01-04
