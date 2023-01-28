@@ -146,7 +146,7 @@ if length(index)==1
 
     find_bluedot=findobj(h.EQstatsax,'type','line');
 
-    if config.maptool==1 % if mapping toolbox available
+    if config.maptool==1 % if Mapping Toolbox available
 
         % the first four values in the handle find_bluedot are used for
         % plate boundaries, SKS window lines etc.
@@ -160,7 +160,7 @@ if length(index)==1
 
         plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');
 
-    else % if no mapping toolbox available
+    else % if no Mapping Toolbox available
 
         % here the fourth value corresponds to the blue dot
 
@@ -189,7 +189,7 @@ elseif length(index) > 1
 
     find_bluedot=findobj(h.EQstatsax,'type','line');
 
-    if config.maptool==1 % if mapping toolbox available
+    if config.maptool==1 % if Mapping Toolbox available
 
         if length(find_bluedot) > 4
             set(find_bluedot(1),'Visible','off')
@@ -198,7 +198,7 @@ elseif length(index) > 1
 
         plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');
 
-    else % if no mapping toolbox available
+    else % if no Mapping Toolbox available
 
         if length(find_bluedot) > 3
             set(find_bluedot(1),'Visible','off')

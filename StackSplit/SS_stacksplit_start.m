@@ -134,7 +134,7 @@ config.SS_version='3.1';
 clc
 
 %=============================================================
-% CHECK for mapping toolbox
+% CHECK for Mapping Toolbox
 
 if license('test', 'MAP_Toolbox')
   config.maptool=1;

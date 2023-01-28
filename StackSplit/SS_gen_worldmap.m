@@ -56,7 +56,7 @@ circleColor='k';
 fontsize_eqwin=12;
 
 %vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-% if mapping toolbox is available
+% if Mapping Toolbox is available
 
 if config.maptool==1
 
@@ -119,7 +119,7 @@ if config.maptool==1
     axis off
 
 %vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-% if no mapping toolbox is available, use map proposed by Rob Porritt for
+% if no Mapping Toolbox is available, use map proposed by Rob Porritt for
 % SL version 1.2.1
 else
 
@@ -145,7 +145,7 @@ else
         contourf(lon,lat',topoElevation);
 
     else
-        errordlg(['To run StackSplit you need either the Mapping toolbox ' ...
+        errordlg(['To run StackSplit you need either the Mapping Toolbox ' ...
             'or SplitLab version >= 1.2.1!'],'Version issue')
         close(h.fig)
         h.quit=1;

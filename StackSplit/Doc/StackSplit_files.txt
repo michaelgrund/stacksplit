@@ -17,7 +17,7 @@ Files
     SS_calc_RH.m                       - apply the RH method, calculate SNR-weight and BAZ-normalization
     SS_calc_SIMW.m                     - apply SIMW on selected waveforms using the predefined methods (RC,SC,EV)
     SS_check_inputs.m                  - check consistency of input data like sampling rate (apply resampling if necessary), phi-dt grid parameters etc.
-    SS_check_matlab_version.m          - check current MATLAB version to avoid problems in some functions with 2014b or newer
+    SS_check_matlab_version.m          - check current MATLAB version to avoid problems in some functions with R2014b or newer
     SS_disp_Esurf_single.m             - display single error surface of selected list entry
     SS_gen_legends.m                   - subfunction to generate the GUI legends with splits and nulls above listbox
     SS_gen_stackresplot.m              - generate output plot after using SAVE button in the surface stacking procedure
@@ -26,7 +26,7 @@ Files
     SS_layout.m                        - generate GUI layout
     SS_plates.mat                      - file containing the plate boundaries for the world map
     SS_prep_SIMW.m                     - display single and concatenated waveforms after selection in listbox
-    SS_read_SLresults.m                - read individual single event results saved from SL
+    SS_read_SLresults.m                - read individual single event results saved from SplitLab
     SS_saveresults.m                   - save multi-event results (error surfaces, SIMW) to mat-file
     SS_splitdiagnosticLayout.m         - generate layout for diagnostic plot using SIMW
     SS_splitdiagnosticplot.m           - make diagnostic plot using SIMW

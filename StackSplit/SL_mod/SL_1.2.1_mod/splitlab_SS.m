@@ -185,8 +185,8 @@ figure(cfig)
 % often 0.9501. So, generate first dummy random numbers, and then in a new
 % round take two random numbers to state if postcard or acknowledgement
 % dialogs are shown.
-% RWP: Matlab will always generate the same sequence of pseudo random
-% numbers upon startup. By using rng('shuffle'), we force Matlab to set a
+% RWP: MATLAB will always generate the same sequence of pseudo random
+% numbers upon startup. By using rng('shuffle'), we force MATLAB to set a
 % new sequence of random numbers based on the time that rng was called.
 rng('shuffle');
 % rand(100,100);
