@@ -101,7 +101,7 @@ if length(index)==1
     
 	% YF 2023-01-04
 	% for details please see SS_check_matlab_version.m
-    % if version==1 % MATLAB R2014b and higher
+    % if version==1
     if version>0 % MATLAB R2014b and higher
         [~, hcon] = contourf(ts,ps,-surf2plot,-[Level Level]);
     else
