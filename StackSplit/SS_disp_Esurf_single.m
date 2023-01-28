@@ -99,8 +99,8 @@ if length(index)==1
 
     version=SS_check_matlab_version();
 
-	% YF 2023-01-04
-	% for details please see SS_check_matlab_version.m
+    % YF 2023-01-04
+    % for details please see SS_check_matlab_version.m
     % if version==1
     if version>0 % MATLAB R2014b and higher
         [~, hcon] = contourf(ts,ps,-surf2plot,-[Level Level]);
@@ -129,12 +129,12 @@ if length(index)==1
     set(gca,'layer','top')
 
     % disp result in white box
-	string1 = char( strcat({'fast: '}, char(num2str(singlephi(1),'%4.0f')), {'° < '}, ...
-									   char(num2str(singlephi(2),'%4.0f')), {'° < '}, ...
-									   char(num2str(singlephi(3),'%4.0f')), {'°'}) );
-	string2 = [string1 newline char(strcat({'dt: '}, char(num2str(singledt(1),'%3.1f')), {' s < '}, ...
-												     char(num2str(singledt(2),'%3.1f')), {' s < '}, ....
-													 char(num2str(singledt(3),'%3.1f')), {' s'}))];
+    string1 = char( strcat({'fast: '}, char(num2str(singlephi(1),'%4.0f')), {'° < '}, ...
+                                       char(num2str(singlephi(2),'%4.0f')), {'° < '}, ...
+                                       char(num2str(singlephi(3),'%4.0f')), {'°'}) );
+    string2 = [string1 newline char(strcat({'dt: '}, char(num2str(singledt(1),'%3.1f')), {' s < '}, ...
+                                                     char(num2str(singledt(2),'%3.1f')), {' s < '}, ....
+                                                     char(num2str(singledt(3),'%3.1f')), {' s'}))];
 
     uicontrol(h.panel(3),'Style','text', 'String',string2,'Position',[0.05,0.05,170,40], 'BackgroundColor', 'w','Fontsize',10);
 
