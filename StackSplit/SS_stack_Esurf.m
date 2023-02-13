@@ -47,8 +47,8 @@ function h=SS_stack_Esurf(h)
 % at your own risk.
 %==========================================================================
 
-%==================================================================================================================================
-%==================================================================================================================================
+%==========================================================================
+%==========================================================================
 
 global config
 
@@ -430,9 +430,12 @@ maxi = max(abs(STACKsurf(:)));
 mini = min(abs(STACKsurf(:)));
 nb_contours = floor((1 - mini/maxi)*10);
 
-version=SS_check_matlab_version(); % MATLAB 2014b or higher?
+version=SS_check_matlab_version();
 
-if version==1
+% YF 2023-01-04
+% for details please see SS_check_matlab_version.m
+% if version==1
+if version>0 % MATLAB R2014b and higher
     [~, hcon] = contourf(ts,ps,-STACKsurf,-[MAPlevel MAPlevel]);
 else
     [~, hcon] = contourf('v6',ts,ps,-STACKsurf,-[MAPlevel MAPlevel]);
@@ -464,11 +467,11 @@ ylabel('fast axis \phi in \circ', 'Fontsize', fontsize)
 title(['Stacked surfaces: ' num2str(length(use_data))],'fontsize',11)
 
 string1 = char( strcat({'fast: '}, char(num2str(singlephiSTACK(1),'%4.0f')), {'° < '}, ...
-								   char(num2str(singlephiSTACK(2),'%4.0f')), {'° < '}, ...
-								   char(num2str(singlephiSTACK(3),'%4.0f')), {'°'}) );
+                                   char(num2str(singlephiSTACK(2),'%4.0f')), {'° < '}, ...
+                                   char(num2str(singlephiSTACK(3),'%4.0f')), {'°'}) );
 string2 = [string1 newline char(strcat({'dt:   '}, char(num2str(singledtSTACK(1),'%3.1f')), {' s < '}, ...
-												   char(num2str(singledtSTACK(2),'%3.1f')), {' s < '}, ...
-												   char(num2str(singledtSTACK(3),'%3.1f')), {' s'}))];
+                                                   char(num2str(singledtSTACK(2),'%3.1f')), {' s < '}, ...
+                                                   char(num2str(singledtSTACK(3),'%3.1f')), {' s'}))];
 
 uicontrol(h.panel(3), 'Style','text', 'String',string2, ...
     'Position',[0.05,0.05,170,40], 'BackgroundColor', 'w','Fontsize',10);

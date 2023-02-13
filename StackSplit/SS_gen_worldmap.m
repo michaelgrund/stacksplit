@@ -38,8 +38,8 @@ function h=SS_gen_worldmap(h)
 % at your own risk.
 %==========================================================================
 
-%==================================================================================================================================
-%==================================================================================================================================
+%==========================================================================
+%==========================================================================
 
 global config
 
@@ -56,12 +56,19 @@ circleColor='k';
 fontsize_eqwin=12;
 
 %vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-% if mapping toolbox is available
+% if Mapping Toolbox is available
 
 if config.maptool==1
 
     fileparts(mfilename('fullpath'));
-    coast_data = load('coast');
+    matlab_version = SS_check_matlab_version();
+    % YF 2023-01-04
+    % for details please see SS_check_matlab_version.m
+    if matlab_version==2 % MATLAB R2020b and higher
+        coast_data = load('coastlines');
+    else
+        coast_data = load('coast');
+    end
     plates_data = load('SS_plates.mat');
 
     % generate subplot and handles
@@ -77,8 +84,15 @@ if config.maptool==1
     % plot plate boundaries & continents
     plotm(plates_data.PBlat, plates_data.PBlong, 'LineStyle','-','Linewidth',1,'Tag',...
         'Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
-    fillm(coast_data.lat,coast_data.long,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
-        'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
+    % YF 2023-01-04
+    % for details please see SS_check_matlab_version.m
+    if matlab_version==2 % MATLAB R2020b and higher
+        fillm(coast_data.coastlat,coast_data.coastlon,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
+            'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
+    else
+        fillm(coast_data.lat,coast_data.long,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
+            'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
+    end
 
     % plot circles at the limits of the selected epicentral distance window
     [latlow,lonlow]= scircle1(thissta.slat, thissta.slong, SKSwin(1));
@@ -105,7 +119,7 @@ if config.maptool==1
     axis off
 
 %vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-% if no mapping toolbox is available, use map proposed by Rob Porritt for
+% if no Mapping Toolbox is available, use map proposed by Rob Porritt for
 % SL version 1.2.1
 else
 
@@ -131,7 +145,7 @@ else
         contourf(lon,lat',topoElevation);
 
     else
-        errordlg(['To run StackSplit you need either the Mapping toolbox ' ...
+        errordlg(['To run StackSplit you need either the Mapping Toolbox ' ...
             'or SplitLab version >= 1.2.1!'],'Version issue')
         close(h.fig)
         h.quit=1;
@@ -153,6 +167,7 @@ else
     set(gca,'fontsize',6)
 end
 end
-%==================================================================================================================================
-%==================================================================================================================================
+
+%==========================================================================
+%==========================================================================
 % EOF

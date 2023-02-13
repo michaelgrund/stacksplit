@@ -97,9 +97,12 @@ if length(index)==1
     mini = min(abs(surf2plot(:)));
     nb_contours = floor((1 - mini/maxi)*10);
 
-    version=SS_check_matlab_version(); % MATLAB 2014b or higher?
+    version=SS_check_matlab_version();
 
-    if version==1
+    % YF 2023-01-04
+    % for details please see SS_check_matlab_version.m
+    % if version==1
+    if version>0 % MATLAB R2014b and higher
         [~, hcon] = contourf(ts,ps,-surf2plot,-[Level Level]);
     else
         [~, hcon] = contourf('v6',ts,ps,-surf2plot,-[Level Level]);
@@ -126,12 +129,12 @@ if length(index)==1
     set(gca,'layer','top')
 
     % disp result in white box
-	string1 = char( strcat({'fast: '}, char(num2str(singlephi(1),'%4.0f')), {'° < '}, ...
-									   char(num2str(singlephi(2),'%4.0f')), {'° < '}, ...
-									   char(num2str(singlephi(3),'%4.0f')), {'°'}) );
-	string2 = [string1 newline char(strcat({'dt: '}, char(num2str(singledt(1),'%3.1f')), {' s < '}, ...
-												     char(num2str(singledt(2),'%3.1f')), {' s < '}, ....
-													 char(num2str(singledt(3),'%3.1f')), {' s'}))];
+    string1 = char( strcat({'fast: '}, char(num2str(singlephi(1),'%4.0f')), {'° < '}, ...
+                                       char(num2str(singlephi(2),'%4.0f')), {'° < '}, ...
+                                       char(num2str(singlephi(3),'%4.0f')), {'°'}) );
+    string2 = [string1 newline char(strcat({'dt: '}, char(num2str(singledt(1),'%3.1f')), {' s < '}, ...
+                                                     char(num2str(singledt(2),'%3.1f')), {' s < '}, ....
+                                                     char(num2str(singledt(3),'%3.1f')), {' s'}))];
 
     uicontrol(h.panel(3),'Style','text', 'String',string2,'Position',[0.05,0.05,170,40], 'BackgroundColor', 'w','Fontsize',10);
 
@@ -143,7 +146,7 @@ if length(index)==1
 
     find_bluedot=findobj(h.EQstatsax,'type','line');
 
-    if config.maptool==1 % if mapping toolbox available
+    if config.maptool==1 % if Mapping Toolbox available
 
         % the first four values in the handle find_bluedot are used for
         % plate boundaries, SKS window lines etc.
@@ -157,7 +160,7 @@ if length(index)==1
 
         plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');
 
-    else % if no mapping toolbox available
+    else % if no Mapping Toolbox available
 
         % here the fourth value corresponds to the blue dot
 
@@ -186,7 +189,7 @@ elseif length(index) > 1
 
     find_bluedot=findobj(h.EQstatsax,'type','line');
 
-    if config.maptool==1 % if mapping toolbox available
+    if config.maptool==1 % if Mapping Toolbox available
 
         if length(find_bluedot) > 4
             set(find_bluedot(1),'Visible','off')
@@ -195,7 +198,7 @@ elseif length(index) > 1
 
         plotm(evlat, evlon,'ko','MarkerFaceColor','b','MarkerSize',8, 'ButtonDownFcn', '', 'HitTest', 'off');
 
-    else % if no mapping toolbox available
+    else % if no Mapping Toolbox available
 
         if length(find_bluedot) > 3
             set(find_bluedot(1),'Visible','off')

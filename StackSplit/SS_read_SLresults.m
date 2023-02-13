@@ -250,7 +250,7 @@ for ii=1:length(find_res) % color results depending on quality ranking
     ' | ' chbet_phase find_res(ii).results.SplitPhase];
 
     % using html syntax to generate coloured entries, at this point:
-    % thanks to Yair Altman's undocumented Matlab site
+    % thanks to Yair Altman's undocumented MATLAB site
     % (http://undocumentedmatlab.com/blog/html-support-in-matlab-uicomponents)
     if strcmp(find_res(ii).results.quality,'good') && strcmp(find_res(ii).results.Null,'No')
        String=['<HTML><font color="#088A29"> &#9650<&nbsp ' sel_qual '</font></HTML>'];
