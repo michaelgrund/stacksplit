@@ -153,9 +153,16 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
             % if sampling rate varies, matrix is resized to dimension of
             % smallest dimension in data set, if accuracy factor varies the
             % same, otherwise the matrices are not resized.
-            Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
-            EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
-            Csurfnew = resizem(Csurfold,[check_accC size_dt_test]);
+
+            % YF 2023-01-17
+            % "resizem" will be removed in a future release and instead
+            % "georesize" or "imresize" should be used
+            % Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
+            % EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
+            % Csurfnew = resizem(Csurfold,[check_accC size_dt_test]);
+            Esurfnew = imresize(Esurfold,[check_acc size_dt_test], "nearest");
+            EVsurfnew = imresize(EVsurfold,[check_acc size_dt_test], "nearest");
+            Csurfnew = imresize(Csurfold,[check_accC size_dt_test], "nearest");
 
             find_res(ii).results.Ematrix=Esurfnew;
             find_res(ii).results.EVmatrix=EVsurfnew;
