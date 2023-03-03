@@ -321,7 +321,6 @@ else
     eqstack(end).results.netw=config.netw; 
     eqstack(end).results.slat=config.slat; 
     eqstack(end).results.slong=config.slong; 
-
     eqstack(end).results.stack_meth='SIMW';
     eqstack(end).results.nwave=SIMW_temp.noc;
     eqstack(end).results.taper=SIMW_temp.taper;
