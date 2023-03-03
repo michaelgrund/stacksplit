@@ -310,8 +310,9 @@ else
     % YF 2023-01-16
     % "datestr" is not recommanded by MATLAB up on R2022b
     % !!! Please note the changed identifiers !!!
-    % https://de.mathworks.com/help/matlab/ref/datetime.html#buhzxmk-1-Format
+    % see https://de.mathworks.com/help/matlab/ref/datetime.html#buhzxmk-1-Format
     % eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
+
 
     eqstack(end+1).results.meas_dstr=char(datetime("now", 'Format','yyyy-MM-dd_HH:mm:ss')); % date of measurement
     % YF 2023-01-17
