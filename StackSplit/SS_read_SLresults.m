@@ -241,7 +241,7 @@ for ii=1:length(find_res) % color results depending on quality ranking
     end
 
     % YF 2023-01-16
-    % "datestr" in not recommaned by MATLAB up on R2022b
+    % "datestr" in not recommended by MATLAB up on R2022b
     % !!! Please note the changed identifiers !!!
     % see https://de.mathworks.com/help/matlab/ref/datetime.html#buhzxmk-1-Format
     % sel_qual=[datestr(datestrings,'yyyy/mm/dd_HH:MM:SS'),...
