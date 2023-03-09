@@ -315,7 +315,8 @@ else
     % eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
     eqstack(end+1).results.meas_dstr=char(datetime("now", 'Format','yyyy-MM-dd_HH:mm:ss')); % date of measurement
     % YF 2023-01-17
-    % "now" is not recommanded by MATLAB up on R2022b
+    % "now" is not recommended by MATLAB up on R2022b
+
     % eqstack(end).results.meas_sdn=now; % date of measurement, serial date number
     eqstack(end).results.meas_sdn=convertTo(datetime("now"),"datenum"); % date of measurement, serial date number
     eqstack(end).results.stnname=config.stnname; 
