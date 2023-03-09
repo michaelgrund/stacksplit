@@ -307,12 +307,22 @@ else
     % connected to the end, otherwise a new struct is generated and saved
     % in the following
 
-    eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
-    eqstack(end).results.meas_sdn=now; % date of measurement, serial date number
-    eqstack(end).results.stnname=config.stnname;
-    eqstack(end).results.netw=config.netw;
-    eqstack(end).results.slat=config.slat;
-    eqstack(end).results.slong=config.slong;
+    % YF 2023-01-16
+    % "datestr" is not recommended by MATLAB up on R2022b
+
+    % !!! Please note the changed identifiers !!!
+    % see https://de.mathworks.com/help/matlab/ref/datetime.html#buhzxmk-1-Format
+    % eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
+    eqstack(end+1).results.meas_dstr=char(datetime("now", 'Format','yyyy-MM-dd_HH:mm:ss')); % date of measurement
+    % YF 2023-01-17
+    % "now" is not recommended by MATLAB up on R2022b
+
+    % eqstack(end).results.meas_sdn=now; % date of measurement, serial date number
+    eqstack(end).results.meas_sdn=convertTo(datetime("now"),"datenum"); % date of measurement, serial date number
+    eqstack(end).results.stnname=config.stnname; 
+    eqstack(end).results.netw=config.netw; 
+    eqstack(end).results.slat=config.slat; 
+    eqstack(end).results.slong=config.slong; 
     eqstack(end).results.stack_meth='SIMW';
     eqstack(end).results.nwave=SIMW_temp.noc;
     eqstack(end).results.taper=SIMW_temp.taper;
