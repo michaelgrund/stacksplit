@@ -156,7 +156,8 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     % connected to the end, otherwise a new struct is generated and saved
     % in the following
 
-    % YF 2023-20-06
+    % YF 2023-06-20
+
     % "datestr" is not recommended by MATLAB up on R2022b
     % !!! Please note the changed identifiers !!!
     % see https://de.mathworks.com/help/matlab/ref/datetime.html#buhzxmk-1-Format
