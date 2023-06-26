@@ -156,8 +156,20 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     % connected to the end, otherwise a new struct is generated and saved
     % in the following
 
-    eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
-    eqstack(end).results.meas_sdn=now; % date of measurement, serial date number
+    % YF 2023-06-20
+
+    % "datestr" is not recommended by MATLAB up on R2022b
+    % !!! Please note the changed identifiers !!!
+    % see https://de.mathworks.com/help/matlab/ref/datetime.html#buhzxmk-1-Format
+    % eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
+    eqstack(end+1).results.meas_dstr=char(datetime("now", 'Format','yyyy-MM-dd_HH:mm:ss')); % date of measurement
+
+    % YF 2023-06-20
+
+    % "now" is not recommended by MATLAB up on R2022b
+    % eqstack(end).results.meas_sdn=now; % date of measurement, serial date number
+    eqstack(end).results.meas_sdn=convertTo(datetime("now"),"datenum"); % date of measurement, serial date number
+
     eqstack(end).results.stnname=config.stnname;
     eqstack(end).results.netw=config.netw;
     eqstack(end).results.slat=config.slat;
@@ -309,16 +321,16 @@ else
 
     % YF 2023-01-16
     % "datestr" is not recommended by MATLAB up on R2022b
-
     % !!! Please note the changed identifiers !!!
     % see https://de.mathworks.com/help/matlab/ref/datetime.html#buhzxmk-1-Format
     % eqstack(end+1).results.meas_dstr=datestr(now,'yyyy-mm-dd_HH:MM:SS'); % date of measurement
     eqstack(end+1).results.meas_dstr=char(datetime("now", 'Format','yyyy-MM-dd_HH:mm:ss')); % date of measurement
+
     % YF 2023-01-17
     % "now" is not recommended by MATLAB up on R2022b
-
     % eqstack(end).results.meas_sdn=now; % date of measurement, serial date number
     eqstack(end).results.meas_sdn=convertTo(datetime("now"),"datenum"); % date of measurement, serial date number
+
     eqstack(end).results.stnname=config.stnname; 
     eqstack(end).results.netw=config.netw; 
     eqstack(end).results.slat=config.slat; 
