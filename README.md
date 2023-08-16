@@ -48,14 +48,12 @@ Contributing
 
 Did you find a bug or have suggestions for improvements? Simply open a new [issue](https://github.com/michaelgrund/stacksplit/issues) or [pull request](https://github.com/michaelgrund/stacksplit/pulls) here on GitHub.
 
-Related topics
---------------
+Use Cases 
+----------
+Peer-reviewed work in which StackSplit was used:
 
-- The most recent SplitLab version can be found here (not compatible with StackSplit yet): https://github.com/IPGP/splitlab
+- 
 
-- Shear wave splitting analysis in Python (based on SplitLab): https://github.com/paudetseis/SplitPy
-
-- Shear wave splitting analysis in Julia: https://github.com/anowacki/SeisSplit.jl
 
 References
 ----------
@@ -65,3 +63,12 @@ References
 - **_Wolfe, C. J. & Silver, P. G. (1998)_**, Seismic anisotropy of oceanic upper mantle: Shear wave splitting methodologies and observations, Journal of Geophysical Research 103(B1), 749-771, https://doi.org/10.1029/97JB02023.
 - **_Wüstefeld, A. (2007)_**, Methods and applications of shear wave splitting: The East European Craton. Ph.D. thesis, Univ. de Montpellier, France, http://splitting.gm.univ-montp2.fr/.
 - **_Wüstefeld, A., Bokelmann, G., Zaroli, C., Barruol, G. (2008)_**, SplitLab: A shear-wave splitting environment in Matlab, Computers & Geosciences 34, 515–528, https://doi.org/10.1016/j.cageo.2007.08.002.
+
+Related topics
+--------------
+
+- The most recent SplitLab version can be found here (not compatible with StackSplit yet): https://github.com/IPGP/splitlab
+
+- Shear wave splitting analysis in Python (based on SplitLab): https://github.com/paudetseis/SplitPy
+
+- Shear wave splitting analysis in Julia: https://github.com/anowacki/SeisSplit.jl
