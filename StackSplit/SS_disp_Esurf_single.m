@@ -97,12 +97,11 @@ if length(index)==1
     mini = min(abs(surf2plot(:)));
     nb_contours = floor((1 - mini/maxi)*10);
 
-    version=SS_check_matlab_version();
+    matlab_version = SS_check_matlab_version();
 
     % YF 2023-01-04
     % for details please see SS_check_matlab_version.m
-    % if version==1
-    if version>0 % MATLAB R2014b and higher
+    if matlab_version > 0  % MATLAB R2014b and higher
         [~, hcon] = contourf(ts,ps,-surf2plot,-[Level Level]);
     else
         [~, hcon] = contourf('v6',ts,ps,-surf2plot,-[Level Level]);
