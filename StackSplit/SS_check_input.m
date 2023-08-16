@@ -155,7 +155,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
             % same, otherwise the matrices are not resized.
 
             % YF 2023-01-17, 2023-08-16
-            % "resizem" was removed R2023b; instead "imresize" should be used
+            % "resizem" was removed in R2023b; instead "imresize" should be used
             matlab_version = SS_check_matlab_version();
             if matlab_version == 3  % MATLAB R2023b or higher
                 Esurfnew = imresize(Esurfold,[check_acc size_dt_test], "nearest");
@@ -185,3 +185,4 @@ end
 % EOF
 %==================================================================================================================================
 %==================================================================================================================================
+

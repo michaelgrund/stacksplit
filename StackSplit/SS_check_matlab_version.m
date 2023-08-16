@@ -12,16 +12,16 @@ function vers_out=SS_check_matlab_version()
 % Check MATLAB version to distinguish between versions:
 %
 % (I) Applying the contourf function to create the energy maps
-%  (1) vers_out==0: versions R2014a and lower: -v6 flag is necessary
-%  (2) vers_out>0: versions R2014b and higher: -v6 flag not supported anymore
+%  (1) vers_out == 0: versions R2014a and lower: -v6 flag is necessary
+%  (2) vers_out > 0: versions R2014b and higher: -v6 flag not supported anymore
 %
 % (II) Using the coastlines provided by the Mapping Toolbox (YF 2023-01-04)
-%  (1) vers_out<2: versions R2020a and lower: load('coast') with "lon" and "lat"
-%  (2) vers_out>=2: versions R2020b and higher: load('coastlines') with "coastlon" and "coastlat"
+%  (1) vers_out < 2: versions R2020a and lower: load('coast') with "lon" and "lat"
+%  (2) vers_out >= 2: versions R2020b and higher: load('coastlines') with "coastlon" and "coastlat"
 %
 % (III) Using "imresize" instead of "resizem" up on R2023b (YF 2023-08-16)
-%  (1) vers_out<3: versions R2022b and lower: use "resizem"
-%  (2) vers_out==3: versions R2023b and higher: use "imresize"
+%  (1) vers_out < 3: versions R2022b and lower: use "resizem"
+%  (2) vers_out == 3: versions R2023b and higher: use "imresize"
 %==========================================================================
 % LICENSE
 %
@@ -55,7 +55,7 @@ vers = version('-release');
 vers_yyyy = str2double(vers(1:4));
 vers_let = vers(5);
 
-% Do NOT change to oder of these queries!
+% Do NOT change the oder of these queries!
 
 vers_out = 0
 
