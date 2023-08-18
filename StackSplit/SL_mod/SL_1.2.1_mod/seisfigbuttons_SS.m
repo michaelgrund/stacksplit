@@ -1,5 +1,5 @@
 function seisfigbuttons(fig,seismo)
-%create buttons for seismogram plot SL_SeismoViewer and assings callbacks
+% create buttons for seismogram plot SL_SeismoViewer and assign callbacks
 global thiseq
 
 if nargin<1
