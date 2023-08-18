@@ -47,7 +47,14 @@ function vers_out=SS_check_matlab_version()
 % held responsible for anything that happens to you or your equipment. Use it
 % at your own risk.
 %==========================================================================
-
+% Major updates:
+%
+% - v3.1 (2023): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
+%                ORCID: 0000-0002-8566-0619
+%                Email: yvonne.froehlich@kit.edu
+%                Add quries (II) and (III) and adjust quary (I)
+%                Affected functions are SS_check_input.m, SS_disp_Esurf_single.m,
+%                SS_gen_worldmap.m, and SS_stack_Esurf.m
 %==========================================================================
 %==========================================================================
 
