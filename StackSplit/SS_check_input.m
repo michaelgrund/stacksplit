@@ -160,7 +160,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
             % For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
             % This issue was reported to and confirmed by the MATLAB Support
             matlab_version = SS_check_matlab_version();
-            if matlab_version == 3  % MATLAB R2023b or higher
+            if matlab_version == 3  % MATLAB R2023b and higher
                 Esurfnew = imresize(Esurfold,[check_acc size_dt_test], "nearest");
                 EVsurfnew = imresize(EVsurfold,[check_acc size_dt_test], "nearest");
                 Csurfnew = imresize(Csurfold,[check_accC size_dt_test], "nearest");
