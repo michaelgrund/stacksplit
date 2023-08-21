@@ -13,7 +13,7 @@ function vers_out=SS_check_matlab_version()
 %
 % (I) Applying the contourf function to create the energy maps
 %  (1) vers_out == 0: R2014a and lower: -v6 flag is necessary
-%  (2) vers_out > 0:  R2014b and higher: -v6 flag not supported anymore
+%  (2) vers_out > 0:  R2014b and higher: -v6 flag is not supported anymore
 %
 % (II) Using the coastlines provided by the Mapping Toolbox (YF 2023-01-04)
 %  (1) vers_out < 2: R2020a and lower: load('coast') with "lon" and "lat"
