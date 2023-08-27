@@ -69,6 +69,7 @@ vers_out = 0
 % (I) Applying the contourf function to create the energy maps
 if (vers_yyyy==2014 && strcmp(vers_let,'b')) || vers_yyyy>2014  % R2014b and higher
    vers_out = 1;
+end
 
 % YF 2023-01-04
 % (II) Using the coastlines provided by the Mapping Toolbox
