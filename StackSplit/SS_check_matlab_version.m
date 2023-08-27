@@ -11,7 +11,7 @@ function vers_out=SS_check_matlab_version()
 %
 % Check MATLAB version to distinguish between versions:
 %
-% (I) Applying the contourf function to create the energy maps
+% (I) Applying the "contourf" function to create the energy maps
 %  (1) vers_out == 0: R2014a and lower: -v6 flag is necessary
 %  (2) vers_out > 0:  R2014b and higher: -v6 flag is not supported anymore
 %
