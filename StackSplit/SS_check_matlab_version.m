@@ -19,7 +19,7 @@ function vers_out=SS_check_matlab_version()
 %  (1) vers_out < 2: R2020a and lower: load('coast') with "lon" and "lat"
 %  (2) vers_out > 1: R2020b and higher: load('coastlines') with "coastlon" and "coastlat"
 %
-% (III) Using "imresize" instead of "resizem", which was remod in R2023b (YF 2023-08-16)
+% (III) Using "imresize" instead of "resizem", which was removed in R2023b (YF 2023-08-16)
 %       Please note that the results of these two functions are not always identical
 %       For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
 %       This issue was reported to and confirmed by the MATLAB Support
