@@ -177,6 +177,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
                 Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
                 EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
                 Csurfnew = resizem(Csurfold,[check_accC size_dt_test]);
+            end
 
             find_res(ii).results.Ematrix=Esurfnew;
             find_res(ii).results.EVmatrix=EVsurfnew;
