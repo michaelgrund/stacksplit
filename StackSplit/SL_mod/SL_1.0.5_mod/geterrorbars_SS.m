@@ -2,7 +2,7 @@ function [errbar_phi,errbar_t,Ecrit,ndf] = geterrorbars(Tcomp, Ematrix, Eresult)
 % estimate Degrees-of-Freedom and calculate 95% confidence interval
 
 ndf = getndf(Tcomp,length(Tcomp),length(Tcomp));
-HatNDF = ndf/length(Tcomp);%In the absense of correlation, this number should approach 1.0 (HATNDF << 1.0 is bad)
+HatNDF = ndf/length(Tcomp);%In the absence of correlation, this number should approach 1.0 (HATNDF << 1.0 is bad)
 
 
 K = 2; % Number of model parameters
@@ -121,7 +121,7 @@ end
 function data = inv_f(nu1,  nu2)
 % using table look up for finding the inverse of the F cumulative
 % distribution function. First degree of freedom in our case is always 2
-% (2 independant parameters: phi, dt. The second degree of fredom was
+% (2 independent parameters: phi, dt. The second degree of fredom was
 % estimated from transverse component
 
 if nu2>100, nu2 = 100; end %using last value in table, no big change
