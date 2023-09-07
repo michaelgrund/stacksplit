@@ -23,11 +23,11 @@ StackSplit grants easy access to four stacking schemes with which single SWS mea
 
 1. **WS**: stacking of error surfaces, normalized on the minimum/maximum (depending on input) of each single surface ([**_Wolfe & Silver, 1998_**](https://doi.org/10.1029/97JB02023))
 
-2. **RH**: modified WS method with weight depending on SNR of each measurement and normalization regarding the available backazimuth directions ([**_Restivo & Helffrich, 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x))
+2. **RH**: modified WS method with weight depending on the SNR of each measurement and normalization regarding the available backazimuth directions ([**_Restivo & Helffrich, 1999_**](https://doi.org/10.1046/j.1365-246x.1999.00845.x))
 
-3. **no weight**: stacking of error surfaces without weighting following PhD thesis of [**_Wüstefeld (2007)_**](http://splitting.gm.univ-montp2.fr/)
+3. **no weight**: stacking of error surfaces without weighting following the PhD thesis of [**_Wüstefeld (2007)_**](http://splitting.gm.univ-montp2.fr/)
 
-4. **SIMW**: simultaneous inversion of multiple waveforms in time domain ([**_Roy et al., 2017_**](https://doi.org/10.1093/gji/ggw470))
+4. **SIMW**: simultaneous inversion of multiple waveforms in the time domain ([**_Roy et al., 2017_**](https://doi.org/10.1093/gji/ggw470))
 
 ![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
 
