@@ -51,7 +51,7 @@ Did you find a bug or have suggestions for improvements? Simply open a new [issu
 Related topics
 --------------
 
-- The most recent SplitLab version can be found at (not compatible with StackSplit yet): https://github.com/IPGP/splitlab
+- Most recent SplitLab version (not compatible with StackSplit yet): https://github.com/IPGP/splitlab
 
 - Shear wave splitting analysis in Python (based on SplitLab): https://github.com/paudetseis/SplitPy
 
