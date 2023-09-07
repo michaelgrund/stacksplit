@@ -71,7 +71,7 @@ L(nn) = L(nn).*taper;     L(nn2) = L(nn2).*taper2;
 % define your filter here.
 % the selected corner frequencies are stored in the variable "thiseq.filter"
 %
-ny    = 1/(2*thiseq.dt); % nyquist freqency of seismogram
+ny    = 1/(2*thiseq.dt); % nyquist frequency of seismogram
 n     = 3; % filter order
 f1 = thiseq.filter(1);
 f2 = thiseq.filter(2);
