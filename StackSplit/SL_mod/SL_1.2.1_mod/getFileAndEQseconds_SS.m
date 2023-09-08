@@ -9,7 +9,7 @@ function [FIsec, FIyyyy, EQsec, Omarker] = getFileAndEQseconds(F,eqin,offset)
 
 
 % Windows user can try a renamer , for example 1-4aren (one-for all renamer)
-% http://www.1-4a.com/rename/ perhaps this adress is still valid
+% http://www.1-4a.com/rename/ perhaps this address is still valid
 
 
 %==========================================================================

@@ -182,7 +182,7 @@ f  = size(Cmatrix);
 ts = linspace(0,maxtime,f(2));
 ps = linspace(-90,90,f(1));
 
-maxi = max(Cmatrix(:)); % always <=  1 since correlation coeffcient (^5)
+maxi = max(Cmatrix(:)); % always <=  1 since correlation coefficient (^5)
 mini = min(Cmatrix(:)); % always >= -1
 maxmin = abs(mini - maxi)/2; % always between 0 and 1
 
