@@ -103,7 +103,7 @@ fname = sprintf('%4.0f.%03.0f.%02.0f_result_%s%s',...
     thiseq.date([1 7 4]), thiseq.SplitPhase, config.exportformat);
 
 
-%check if file alredy exists (phase already splitted)
+%check if file already exists (phase already split)
 No=2;
 while exist(fullfile(config.savedir, fname),'file') == 2
     fname = sprintf('%4.0f.%03.0f.%02.0f_result_%s[%.0f]%s',...
@@ -186,7 +186,7 @@ fprintf(fid,'\n%s  %4s  %5s  %6.2f %5.2f [%4.2f %3.1f]  %6.2f  %6.2f    %4.0f<%3
     char(thiseq.Q), char(thiseq.AnisoNull), thiseq.tmpresult.remark);
 fclose(fid);
 
-%% Re-plot Seismogram figure, with recently splited window marked
+%% Re-plot Seismogram figure, with recently split window marked
 SL_SeismoViewer(thiseq.index)
 
 %% This program is part of SplitLab

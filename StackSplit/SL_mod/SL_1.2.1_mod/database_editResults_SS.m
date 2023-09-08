@@ -9,7 +9,7 @@ rbut  = findobj('Tag','ResultsButton');
 lval = get(l_box,'Value');
 rval = get(r_box,'Value');
 
-L = get(r_box,'Userdata'); %get displayed results sturcture
+L = get(r_box,'Userdata'); %get displayed results structure
 switch option
     case 'del'
         button = questdlg('Do you want to delete this result from the database?','Confirm delete','Yes','No','Yes');
@@ -17,7 +17,7 @@ switch option
             seisfig = findobj('Tag','SeismoFigure');
             if ~isempty(seisfig)
                 warndlg(...
-                    {'Please close the SeismoViewer to perfom this operation!',...
+                    {'Please close the SeismoViewer to perform this operation!',...
                     'An open SeismoViewer may cause database conflicts.',...
                     'Please excuse this inconvenience.'},...
                     'Close SeismoViewer!');
@@ -44,7 +44,7 @@ switch option
 	        %====================================================================
 
 
-            tmp  = L(L<=rval); %substract header lines from list index
+            tmp  = L(L<=rval); %subtract header lines from list index
             num  = lval(length(tmp));    %to retrieve index of eq
             val  = rval - tmp(end);      %index of result of eq(num)
             val2 = 1:length(eq(num).results);
