@@ -63,7 +63,7 @@ function vers_out=SS_check_matlab_version()
 
 vers = version('-release');
 vers_yyyy = str2double(vers(1:4));
-vers_let = vers(5);
+vers_char = vers(5);
 
 % Do NOT change the oder of these queries!
 
@@ -71,19 +71,19 @@ vers_let = vers(5);
 vers_out = 0
 
 % (I) Applying the contourf function to create the energy maps
-if (vers_yyyy==2014 && strcmp(vers_let,'b')) || vers_yyyy>2014  % R2014b and higher
+if (vers_yyyy==2014 && strcmp(vers_char,'b')) || vers_yyyy>2014  % R2014b and higher
    vers_out = 1;
 end
 
 % YF 2023-01-04
 % (II) Using the coastlines provided by the Mapping Toolbox
-if (vers_yyyy==2020 && strcmp(vers_let,'b')) || vers_yyyy>2020  % R2020b and higher
+if (vers_yyyy==2020 && strcmp(vers_char,'b')) || vers_yyyy>2020  % R2020b and higher
     vers_out = 2;
 end
 
 % YF 2023-08-16
 % (III) Using "imresize" instead of "resizem"
-if (vers_yyyy==2023 && strcmp(vers_let,'b')) || vers_yyyy>2023  % R2023b and higher
+if (vers_yyyy==2023 && strcmp(vers_char,'b')) || vers_yyyy>2023  % R2023b and higher
     vers_out = 3;
 end
 %}
@@ -91,17 +91,17 @@ end
 vers_out = 0
 
 % (I) Applying the contourf function to create the energy maps
-if (vers_yyyy==2014 && strcmp(vers_let,'b')) || vers_yyyy>2014  % R2014b and higher
+if (vers_yyyy==2014 && strcmp(vers_char,'b')) || vers_yyyy>2014  % R2014b and higher
    vers_out = 1;
 
     % YF 2023-01-04
     % (II) Using the coastlines provided by the Mapping Toolbox
-    if (vers_yyyy==2020 && strcmp(vers_let,'b')) || vers_yyyy>2020  % R2020b and higher
+    if (vers_yyyy==2020 && strcmp(vers_char,'b')) || vers_yyyy>2020  % R2020b and higher
         vers_out = 2;
 
         % YF 2023-08-16
         % (III) Using "imresize" instead of "resizem"
-        if (vers_yyyy==2023 && strcmp(vers_let,'b')) || vers_yyyy>2023  % R2023b and higher
+        if (vers_yyyy==2023 && strcmp(vers_char,'b')) || vers_yyyy>2023  % R2023b and higher
             vers_out = 3;
         end
 
