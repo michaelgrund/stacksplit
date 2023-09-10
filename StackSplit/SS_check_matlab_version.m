@@ -25,6 +25,7 @@ function vers_out=SS_check_matlab_version()
 % (III) Using "imresize" instead of "resizem", which was removed in R2023b (YF 2023-08-16)
 %       For context see PR https://github.com/michaelgrund/stacksplit/pull/13
 %       Please note that the results of these two functions are not always identical
+%       For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
 %       This issue was reported to and confirmed by the MATLAB Support
 %  (1) vers_out < 3:  R2023a and lower: "resizem" is available
 %  (2) vers_out == 3: R2023b and higher: "imresize" is used
