@@ -65,9 +65,9 @@ vers = version('-release');
 vers_yyyy = str2double(vers(1:4));
 vers_char = vers(5);
 
-% Do NOT change the oder of these queries!
-
 %{
+% Do NOT change the order of these queries!
+
 vers_out = 0
 
 % (I) Applying the contourf function to create the energy maps
@@ -87,6 +87,9 @@ if (vers_yyyy==2023 && strcmp(vers_char,'b')) || vers_yyyy>2023  % R2023b and hi
     vers_out = 3;
 end
 %}
+
+
+% Do NOT change the order of these queries!
 
 vers_out = 0
 
