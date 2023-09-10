@@ -67,7 +67,7 @@ vers_char = vers(5);
 
 % Do NOT change the order of the following queries!
 
-vers_out = 0
+vers_out = 0;
 
 % (I) Applying the contourf function to create the energy maps
 if (vers_yyyy==2014 && strcmp(vers_char,'b')) || vers_yyyy>2014  % R2014b and higher
