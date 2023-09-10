@@ -12,16 +12,19 @@ function vers_out=SS_check_matlab_version()
 % Check MATLAB version to distinguish between versions:
 %
 % (I) Applying the "contourf" function to create the energy maps
-%  (1) vers_out == 0: R2014a and lower: -v6 flag is necessary
-%  (2) vers_out > 0:  R2014b and higher: -v6 flag is not supported anymore
+%      For context see https://de.mathworks.com/matlabcentral/answers/100852-why-do-i-receive-incorrect-results-when-using-contourf-function-in-matlab-7-1-r14sp3
+%      (last access 2023-09-10)
+%  (1) vers_out == 0: R2014a and lower: 'v6' argument is necessary
+%  (2) vers_out > 0:  R2014b and higher: 'v6' argument is not supported anymore
 %
 % (II) Using the coastlines provided by the Mapping Toolbox (YF 2023-01-04)
+%      For context see PR https://github.com/michaelgrund/stacksplit/pull/9
 %  (1) vers_out < 2: R2020a and lower: load('coast') with "lon" and "lat"
 %  (2) vers_out > 1: R2020b and higher: load('coastlines') with "coastlon" and "coastlat"
 %
 % (III) Using "imresize" instead of "resizem", which was removed in R2023b (YF 2023-08-16)
+%       For context see PR https://github.com/michaelgrund/stacksplit/pull/13
 %       Please note that the results of these two functions are not always identical
-%       For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
 %       This issue was reported to and confirmed by the MATLAB Support
 %  (1) vers_out < 3:  R2023a and lower: "resizem" is available
 %  (2) vers_out == 3: R2023b and higher: "imresize" is used

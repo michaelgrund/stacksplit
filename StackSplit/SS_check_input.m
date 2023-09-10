@@ -45,6 +45,7 @@ function [f,sampling,find_res]=SS_check_input(find_res)
 %                Email: yvonne.froehlich@kit.edu
 %                Replace "resizem" by "imresize" for MATLAB R2023b and higher
 %                as "resizem" was removed in R2023b
+%                For context see PR https://github.com/michaelgrund/stacksplit/pull/13
 %                Please note that the results of these two functions are not always identical
 %                For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
 %                This issue was reported to and confirmed by the MATLAB Support
@@ -165,6 +166,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
 
             % YF 2023-01-17, 2023-08-16
             % "resizem" was removed in R2023b and instead "imresize" should be used
+            % For context see PR https://github.com/michaelgrund/stacksplit/pull/13
             % Please note that the results of these two functions are not always identical
             % For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
             % This issue was reported to and confirmed by the MATLAB Support
