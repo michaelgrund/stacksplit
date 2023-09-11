@@ -166,8 +166,8 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
        Csurfold=find_res(ii).results.Cmatrix;
 
        % if the sampling rate varies, the matrices are resized to the
-       % smallest dimension in data set, if the accuracy factor varies
-       % the same, otherwise the matrices are not resized.
+       % smallest dimension in the data set, if the accuracy factor
+       % varies the same, otherwise the matrices are not resized.
 
        % YF 2023-01-17, 2023-08-16
        % "resizem" was removed in R2023b and instead "imresize" should be used
