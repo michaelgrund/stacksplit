@@ -107,12 +107,12 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
 
    if length(unique(samp)) > 1
         disp(['Data set contains more than one sampling rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ')!'])
-        disp(['Resample all traces to the lowest (' num2str(use_samp) ') and resize surfaces!'])
+        disp(['Resample all traces to the lowest sampling rate (' num2str(use_samp) ') and resize surfaces!'])
    elseif length(unique(check_rows)) > 1
         disp('Data set contains more than one accuracy factor! Resize surfaces!')
    else
-        disp(['Data set contains more than one sampling rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ')'])
-        disp(['and accuracy factor! Resample all traces to the lowest (' num2str(use_samp) ') and resize surfaces!'])
+        disp(['Data set contains more than one sampling rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ') and one accuracy factor!'])
+        disp(['Resample all traces to the lowest sampling rate (' num2str(use_samp) ') and resize surfaces!'])
    end
 
    for ii=1:length(find_res)
