@@ -154,7 +154,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
 
        %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
        % resize error surfaces
-	   resizemeth = 'nearst';
+	   resizemeth = 'nearest';
        size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
 
        Esurfold=find_res(ii).results.Ematrix;
