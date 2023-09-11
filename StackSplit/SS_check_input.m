@@ -152,39 +152,39 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
 
        end
 
-            %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            % resize error surfaces
-            size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
+       %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+       % resize error surfaces
+       size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
 
-            Esurfold=find_res(ii).results.Ematrix;
-            EVsurfold=find_res(ii).results.EVmatrix;
-            Csurfold=find_res(ii).results.Cmatrix;
+       Esurfold=find_res(ii).results.Ematrix;
+       EVsurfold=find_res(ii).results.EVmatrix;
+       Csurfold=find_res(ii).results.Cmatrix;
 
-            % if sampling rate varies, matrix is resized to dimension of
-            % smallest dimension in data set, if accuracy factor varies the
-            % same, otherwise the matrices are not resized.
+       % if sampling rate varies, matrix is resized to dimension of
+       % smallest dimension in data set, if accuracy factor varies the
+       % same, otherwise the matrices are not resized.
 
-            % YF 2023-01-17, 2023-08-16
-            % "resizem" was removed in R2023b and instead "imresize" should be used
-            % For context see PR https://github.com/michaelgrund/stacksplit/pull/13
-            % Please note that the results of these two functions are not always identical
-            % For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
-            % This issue was reported to and confirmed by the MATLAB Support
-            matlab_version = SS_check_matlab_version();
-            if matlab_version == 3  % MATLAB R2023b and higher
-                Esurfnew = imresize(Esurfold,[check_acc size_dt_test], "nearest");
-                EVsurfnew = imresize(EVsurfold,[check_acc size_dt_test], "nearest");
-                Csurfnew = imresize(Csurfold,[check_accC size_dt_test], "nearest");
-            else
-                Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
-                EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
-                Csurfnew = resizem(Csurfold,[check_accC size_dt_test]);
-            end
+       % YF 2023-01-17, 2023-08-16
+       % "resizem" was removed in R2023b and instead "imresize" should be used
+       % For context see PR https://github.com/michaelgrund/stacksplit/pull/13
+       % Please note that the results of these two functions are not always identical
+       % For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
+       % This issue was reported to and confirmed by the MATLAB Support
+       matlab_version = SS_check_matlab_version();
+       if matlab_version == 3  % MATLAB R2023b and higher
+           Esurfnew = imresize(Esurfold,[check_acc size_dt_test], "nearest");
+           EVsurfnew = imresize(EVsurfold,[check_acc size_dt_test], "nearest");
+           Csurfnew = imresize(Csurfold,[check_accC size_dt_test], "nearest");
+       else
+           Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
+           EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
+           Csurfnew = resizem(Csurfold,[check_accC size_dt_test]);
+       end
 
-            find_res(ii).results.Ematrix=Esurfnew;
-            find_res(ii).results.EVmatrix=EVsurfnew;
-            find_res(ii).results.Cmatrix=Csurfnew;
-            %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+       find_res(ii).results.Ematrix=Esurfnew;
+       find_res(ii).results.EVmatrix=EVsurfnew;
+       find_res(ii).results.Cmatrix=Csurfnew;
+       %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
    end
 
