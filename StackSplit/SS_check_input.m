@@ -154,6 +154,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
 
        %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
        % resize error surfaces
+	   resizemeth = 'nearst';
        size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
 
        Esurfold=find_res(ii).results.Ematrix;
@@ -172,9 +173,9 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
        % This issue was reported to and confirmed by the MATLAB Support
        matlab_version = SS_check_matlab_version();
        if matlab_version == 3  % MATLAB R2023b and higher
-           Esurfnew = imresize(Esurfold,[check_acc size_dt_test], "nearest");
-           EVsurfnew = imresize(EVsurfold,[check_acc size_dt_test], "nearest");
-           Csurfnew = imresize(Csurfold,[check_accC size_dt_test], "nearest");
+           Esurfnew = imresize(Esurfold,[check_acc size_dt_test], resizemeth);
+           EVsurfnew = imresize(EVsurfold,[check_acc size_dt_test], resizemeth);
+           Csurfnew = imresize(Csurfold,[check_accC size_dt_test], resizemeth);
        else
            Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
            EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
