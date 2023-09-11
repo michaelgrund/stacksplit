@@ -106,13 +106,17 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
    use_samp=max(unique(samp));
 
    if length(unique(samp)) > 1
-        disp(['Data set contains more than one sampling rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ')!'])
-        disp(['Resample all traces to the lowest sampling rate (' num2str(use_samp) ') and resize surfaces!'])
+        disp(['Data set contains more than one sampling'])
+        disp(['rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ')!'])
+        disp(['Resample all traces to the lowest sampling'])
+        disp(['rate (' num2str(use_samp) ') and resize surfaces!'])
    elseif length(unique(check_rows)) > 1
         disp('Data set contains more than one accuracy factor! Resize surfaces!')
    else
-        disp(['Data set contains more than one sampling rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ') and one accuracy factor!'])
-        disp(['Resample all traces to the lowest sampling rate (' num2str(use_samp) ') and resize surfaces!'])
+        disp(['Data set contains more than one sampling'])
+        disp(['rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ') and one accuracy factor!'])
+        disp(['Resample all traces to the lowest sampling'])
+        disp(['rate (' num2str(use_samp) ') and resize surfaces!'])
    end
 
    for ii=1:length(find_res)
@@ -154,7 +158,7 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
 
        %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
        % resize error surfaces
-	   resizemeth = 'nearest';
+       resizemeth = 'nearest';
        size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
 
        Esurfold=find_res(ii).results.Ematrix;
