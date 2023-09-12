@@ -74,17 +74,20 @@ vers_char = vers(5);
 vers_out = 0;
 
 % (I) Applying the contourf function to create the energy maps
-if (vers_yyyy==2014 && strcmp(vers_char,'b')) || vers_yyyy>2014  % R2014b and higher
+% R2014b and higher
+if (vers_yyyy==2014 && strcmp(vers_char,'b')) || vers_yyyy>2014
    vers_out = 1;
 
     % YF 2023-01-04
     % (II) Using the coastlines provided by the Mapping Toolbox
-    if (vers_yyyy==2020 && strcmp(vers_char,'b')) || vers_yyyy>2020  % R2020b and higher
+    % R2020b and higher
+    if (vers_yyyy==2020 && strcmp(vers_char,'b')) || vers_yyyy>2020
         vers_out = 2;
 
         % YF 2023-08-16
         % (III) Using "imresize" instead of "resizem"
-        if (vers_yyyy==2023 && strcmp(vers_char,'b')) || vers_yyyy>2023  % R2023b and higher
+        % R2023b and higher
+        if (vers_yyyy==2023 && strcmp(vers_char,'b')) || vers_yyyy>2023
             vers_out = 3;
         end
 
