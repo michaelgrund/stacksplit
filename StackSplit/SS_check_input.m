@@ -161,9 +161,9 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
        resizemeth = 'nearest';
        size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
 
-       Esurfold=find_res(ii).results.Ematrix;
-       EVsurfold=find_res(ii).results.EVmatrix;
-       Csurfold=find_res(ii).results.Cmatrix;
+       Esurfold = find_res(ii).results.Ematrix;
+       EVsurfold = find_res(ii).results.EVmatrix;
+       Csurfold = find_res(ii).results.Cmatrix;
 
        % if the sampling rate varies, the matrices are resized to the
        % smallest dimension in the data set, if the accuracy factor
@@ -177,18 +177,18 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
        % This issue was reported to and confirmed by the MATLAB Support
        matlab_version = SS_check_matlab_version();
        if matlab_version == 3  % MATLAB R2023b and higher
-           Esurfnew = imresize(Esurfold,[check_acc size_dt_test], resizemeth);
-           EVsurfnew = imresize(EVsurfold,[check_acc size_dt_test], resizemeth);
-           Csurfnew = imresize(Csurfold,[check_accC size_dt_test], resizemeth);
+           Esurfnew = imresize(Esurfold, [check_acc size_dt_test], resizemeth);
+           EVsurfnew = imresize(EVsurfold, [check_acc size_dt_test], resizemeth);
+           Csurfnew = imresize(Csurfold, [check_accC size_dt_test], resizemeth);
        else
-           Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
-           EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
-           Csurfnew = resizem(Csurfold,[check_accC size_dt_test]);
+           Esurfnew = resizem(Esurfold, [check_acc size_dt_test]);
+           EVsurfnew = resizem(EVsurfold, [check_acc size_dt_test]);
+           Csurfnew = resizem(Csurfold, [check_accC size_dt_test]);
        end
 
-       find_res(ii).results.Ematrix=Esurfnew;
-       find_res(ii).results.EVmatrix=EVsurfnew;
-       find_res(ii).results.Cmatrix=Csurfnew;
+       find_res(ii).results.Ematrix = Esurfnew;
+       find_res(ii).results.EVmatrix = EVsurfnew;
+       find_res(ii).results.Cmatrix = Csurfnew;
        %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
    end
