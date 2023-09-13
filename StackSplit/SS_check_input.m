@@ -83,7 +83,8 @@ end
 
 % define accuracy factor f for further calculations
 
-% 1==using all possibilities, which is slowest; only values: 2^n,
+% only values: 2^n
+% f=1: using all possibilities, which is slowest
 
 % !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 % - only valid when using the SC method
