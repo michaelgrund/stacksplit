@@ -81,16 +81,19 @@ else
    check_accC=unique(check_rowsC);
 end
 
-% define f for further calculations
+% define accuracy factor f for further calculations
 
-% f: accuracy factor, 1==using all possibilities, which is slowest; only values: 2^n,
-% value must be the same like in function splitSilverChan.m
-% !!! if you use an other setting, please add a corresponding line in the
-% following if query !!!
+% 1==using all possibilities, which is slowest; only values: 2^n,
+
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+% - only valid when using the SC method
+% - value must be the same as in function splitSilverChan.m
+% - for another setting, please add a corresponding line in the query below
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 if check_acc==180
-     f=1;
-elseif check_acc==90 % default in SL
+    f=1;
+elseif check_acc==90 % default in SplitLab for SC method
     f=2;
 elseif check_acc==45
     f=4;
