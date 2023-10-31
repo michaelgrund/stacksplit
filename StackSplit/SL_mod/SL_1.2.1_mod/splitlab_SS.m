@@ -154,7 +154,7 @@ h.menu(99) = uicontrol(...
     'ToolTipString','Save current configuration as preference',...
     'BackgroundColor','w',...
     'pos',[7 380 106 22],'parent',h.menu(1),'HandleVisibility','off',...
-    'Callback','SL_preferences(config);  helpdlg(''Preferences succesfully saved!'',''Preferences'')');
+    'Callback','SL_preferences(config);  helpdlg(''Preferences successfully saved!'',''Preferences'')');
 
 %===================================================
 %###################################################
@@ -260,7 +260,7 @@ elseif  val == 2 %Browse...
     pjtlist = getpref('Splitlab','History');
 
    [tmp1,pathstr] = uigetfile( str ,'Project file', [config.projectdir, filesep]) ;
-    if isstr(pathstr) %user did not cancle
+    if isstr(pathstr) %user did not cancel
         load('-mat',fullfile(pathstr,tmp1))
         newfile = fullfile(pathstr,tmp1);
         match = find(strcmp(newfile, pjtlist));
@@ -277,7 +277,7 @@ elseif  val == 2 %Browse...
             new     = [match setdiff(L,match)];
             pjtlist = pjtlist(new);
         end
-      else %user did cancle
+      else %user did cancel
           return
     end
 
