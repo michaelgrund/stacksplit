@@ -39,7 +39,9 @@ eq(num).results(n).f          =  thiseq.tmpresult.f;
 eq(num).results(n).SNR        =  thiseq.tmpresult.SNR;
 eq(num).results(n).remark     =  thiseq.tmpresult.remark;
 eq(num).results(n).method     =  config.splitoption;
-eq(num).results(n).timestamp  =  datestr(now);
+% "datestr" and "now" are not recommended by MATLAB up on R2022b
+% eq(num).results(n).timestamp  =  datestr(now);  % YF 2023-11-03
+eq(num).results(n).timestamp  =  char(datetime("now"));
 eq(num).results(n).Cmatrix    =  thiseq.tmpresult.Cmatrix;
 eq(num).results(n).Ematrix    =  thiseq.tmpresult.Ematrix;
 
