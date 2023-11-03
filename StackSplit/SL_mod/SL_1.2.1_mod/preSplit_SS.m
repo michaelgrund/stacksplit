@@ -186,7 +186,7 @@ fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(
     thiseq.tmpresult.a       = thiseq.a;
     thiseq.tmpresult.f       = thiseq.f;
 
-    thiseq.tmpresult.remark  = '';  %default remark
+    thiseq.tmpresult.remark  = '';  % default remark
 
 
 %% diagnostic plot

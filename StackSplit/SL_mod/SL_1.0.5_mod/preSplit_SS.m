@@ -154,7 +154,7 @@ dtEV    = [errbar_tEV(1)    dtEV    errbar_tEV(2)];
 fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(2),phiEV(2), dtRC(2),dtSC(2), dtEV(2));
 
 %% Assign results field to global variable
-% first temporary, since we don't know if results will be used
+% First temporary, since we don't know if results will be used
 % Later, within the diagnostic plot, the result may be assigned to the
 % permanent eq.results-structure
 %
@@ -186,7 +186,7 @@ fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(
     thiseq.tmpresult.a       = thiseq.a;
     thiseq.tmpresult.f       = thiseq.f;
 
-    thiseq.tmpresult.remark  = '';  %default remark
+    thiseq.tmpresult.remark  = '';  % default remark
 
 
 %% diagnostic plot

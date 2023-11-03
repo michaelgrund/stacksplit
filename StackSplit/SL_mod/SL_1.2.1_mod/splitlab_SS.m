@@ -250,7 +250,7 @@ end
 %===================================================
 
 val =get(gcbo,'Value');
-if  val ==1;
+if  val ==1
     %"Load" string... do nothing!
     return
 elseif  val == 2 %Browse...
@@ -334,7 +334,7 @@ if isstr(tmp2)
     save(fullfile(tmp2,tmp1),    'config','eq')
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     files   = {};
-    for k =1:length(pjtlist);
+    for k =1:length(pjtlist)
         [pp,name,ext] = fileparts(pjtlist{k});
         files{k}=[name ext];
     end
