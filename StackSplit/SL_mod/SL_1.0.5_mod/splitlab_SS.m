@@ -115,7 +115,7 @@ clear tmp
 %-------------------------------------------------------------------------
 pjtlist = getpref('Splitlab','History');
 files   = {};
-for k =1:length(pjtlist)
+for k = 1:length(pjtlist)
     [pp,name,ext] = fileparts(pjtlist{k});
     files{k}=[name ext];
 end
@@ -232,12 +232,12 @@ end
 %###################################################
 %===================================================
 
-val =get(gcbo,'Value');
-if  val ==1
+val = get(gcbo,'Value');
+if  val == 1
     %"Load" string... do nothing!
     return
 elseif  val == 2 %Browse...
-    str ={'*.pjt', '*.pjt - SplitLab projects files';
+    str = {'*.pjt', '*.pjt - SplitLab projects files';
         '*.mat', '*.mat - MatLab files';
         '*.*',     '* - All files'};
     pjtlist = getpref('Splitlab','History');
@@ -286,10 +286,10 @@ splitlab
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function savecallback(src,e)
 global config eq
-str ={'*.pjt', '*.pjt - SplitLab projects files';
+str = {'*.pjt', '*.pjt - SplitLab projects files';
     '*.mat', '*.mat - MatLab files';
     '*.*',     '* - All files'};
-[tmp1,tmp2]=uiputfile( str ,'Project file', ...
+[tmp1,tmp2] = uiputfile(str,'Project file', ...
     [config.projectdir, filesep, config.project]);
 
 if isstr(tmp2)
@@ -317,7 +317,7 @@ if isstr(tmp2)
     save(fullfile(tmp2,tmp1),    'config','eq')
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     files   = {};
-    for k =1:length(pjtlist)
+    for k = 1:length(pjtlist)
         [pp,name,ext] = fileparts(pjtlist{k});
         files{k}=[name ext];
     end
