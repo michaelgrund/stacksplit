@@ -4,7 +4,7 @@ function preSplit
 % e, n, z, t   = amplitude and time vectors
 %                raw data in geographic system
 %                these will be rotated, filtered, and detrended
-% bazi, incli  = backazimuth and inclinationn of wave
+% bazi, incli  = backazimuth and inclination of wave
 % a, f         = begin and end of selection window (in sec)
 %
 % OUTPUT:
