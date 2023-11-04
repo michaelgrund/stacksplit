@@ -3,7 +3,7 @@
 
 Versions
 - December 2021 (v3.0)
-- xxx 2023 (v3.1)
+- Monat YYYY (v3.1)
 
 Changes
 - Mainly written: 2021-12-23 (**Michael Grund**)
