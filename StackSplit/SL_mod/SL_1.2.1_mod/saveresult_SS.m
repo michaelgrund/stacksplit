@@ -4,17 +4,17 @@ function saveresult(next)
 global eq thiseq config
 
 %% checking
-null= ~isfield(thiseq,'AnisoNull');
-qual= ~isfield(thiseq,'Q');
+null = ~isfield(thiseq,'AnisoNull');
+qual = ~isfield(thiseq,'Q');
 if any([qual,null])
-    str=[];
+    str = [];
     if qual
-        str=strvcat(str,'Please select QUALITY of this result');
+        str = char(str,'Please select QUALITY of this result');
     end
     if null
-        str=strvcat(str,'Please select if this result is a NULL');
+        str = char(str,'Please select if this result is a NULL');
     end
-    errordlg(strvcat(str,' ' ,'or select "Discard" in the Result menu...'),'Error');
+    errordlg(char(str,' ','or select "Discard" in the Result menu...'),'Error');
     return
 end
 
