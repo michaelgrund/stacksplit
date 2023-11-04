@@ -201,7 +201,7 @@ fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(
 val     = get(findobj('Tag','PhaseSelector'),'Value');
 if isempty(val)
             % YF 2023-11-04
-            % "strmatch" not recommended by MATLAB
+            % "strmatch" is not recommended by MATLAB anymore
             % val = strmatch(thiseq.SplitPhase, thiseq.phase.Names,'exact');
             % val = val(1);
             val_log = strcmp(thiseq.SplitPhase, thiseq.phase.Names);  % logical array

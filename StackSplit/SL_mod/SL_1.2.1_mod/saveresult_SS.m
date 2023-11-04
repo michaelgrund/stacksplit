@@ -9,7 +9,7 @@ qual = ~isfield(thiseq,'Q');
 if any([qual,null])
     str = [];
     % YF 2023-11-04
-    % "strvcat" not recommended by MATLAB
+    % "strvcat" is not recommended by MATLAB anymore
     if qual
         str = char(str,'Please select QUALITY of this result');
     end
