@@ -8,6 +8,8 @@ null = ~isfield(thiseq,'AnisoNull');
 qual = ~isfield(thiseq,'Q');
 if any([qual,null])
     str = [];
+    % YF 2023-11-04
+    % "strvcat" not recommended by MATLAB
     if qual
         str = char(str,'Please select QUALITY of this result');
     end
@@ -39,8 +41,9 @@ eq(num).results(n).f          =  thiseq.tmpresult.f;
 eq(num).results(n).SNR        =  thiseq.tmpresult.SNR;
 eq(num).results(n).remark     =  thiseq.tmpresult.remark;
 eq(num).results(n).method     =  config.splitoption;
+% YF 2023-11-03
 % "datestr" and "now" are not recommended by MATLAB up on R2022b
-% eq(num).results(n).timestamp  =  datestr(now);  % YF 2023-11-03
+% eq(num).results(n).timestamp  =  datestr(now);
 eq(num).results(n).timestamp  =  char(datetime("now"));
 
 %============================================================
