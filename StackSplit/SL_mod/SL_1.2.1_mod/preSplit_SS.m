@@ -200,8 +200,13 @@ fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(
   set(sbar,'String','Status: drawing...');drawnow
 val     = get(findobj('Tag','PhaseSelector'),'Value');
 if isempty(val)
-            val = strmatch(thiseq.SplitPhase, thiseq.phase.Names,'exact');
-            val = val(1);
+            % YF 2023-11-04
+            % "strmatch" not recommended by MATLAB
+            % val = strmatch(thiseq.SplitPhase, thiseq.phase.Names,'exact');
+            % val = val(1);
+            val_log = strcmp(thiseq.SplitPhase, thiseq.phase.Names);  % logical array
+            val_ind = find(val_log);  % indices of non-zero elemments
+            val = val_ind(1);
 end
 inc     = thiseq.phase.inclination(val);
 splitdiagnosticplot(Q, T, extime, L(w), E(w), N(w), inc, thiseq.bazi, thiseq.dt, config.maxSplitTime, inipol,...
