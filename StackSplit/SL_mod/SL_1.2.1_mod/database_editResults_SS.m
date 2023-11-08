@@ -123,9 +123,9 @@ switch option
                 if isequal(filename,0)
                 else
                     try
-                        winopen( fullfile(pathname, filename))
+                        winopen(fullfile(pathname, filename))
                     catch
-                        errordlg( lasterr,'Error')
+                        errordlg(lasterr,'Error')
                     end
                 end
             end
@@ -134,7 +134,7 @@ switch option
             [p,f,ext] = fileparts(resplot);
             found     = strfind(asso(:,1),ext);
             index     = find(~cellfun('isempty',found));
-            if strcmp (ext, '.fig');
+            if strcmp (ext, '.fig')
                 commandline = 'open($1);';
             else
                 commandline   = ['!' asso{index, 2}];
