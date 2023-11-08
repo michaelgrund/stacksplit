@@ -108,7 +108,7 @@ fname = sprintf('%4.0f.%03.0f.%02.0f_result_%s%s',...
     thiseq.date([1 7 4]), thiseq.SplitPhase, config.exportformat);
 
 
-%check if file already exists (phase already split)
+% check if file already exists (phase already split)
 No=2;
 while exist(fullfile(config.savedir, fname),'file') == 2
     fname = sprintf('%4.0f.%03.0f.%02.0f_result_%s[%.0f]%s',...

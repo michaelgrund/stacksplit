@@ -4,7 +4,7 @@ function preSplit
 % e, n, z, t   = amplitude and time vectors
 %                raw data in geographic system
 %                these will be rotated, filtered, and detrended
-% bazi, incli  = backazimuth and inclinationn of wave
+% bazi, incli  = backazimuth and inclination of wave
 % a, f         = begin and end of selection window (in sec)
 %
 % OUTPUT:
@@ -91,11 +91,11 @@ else
         [b,a]  = butter(n, [f1 f2]/ny);
     elseif f1==0 &  f2 < inf
         %lowpass
-        [b,a]  = butter(n, [f2]/ny,'low');
+        [b,a]  = butter(n, f2/ny,'low');
 
     elseif f1>0 &  f2 == inf
         %highpass
-        [b,a]  = butter(n, [f1]/ny, 'high');
+        [b,a]  = butter(n, f1/ny, 'high');
     end
     Q = filtfilt(b,a,Q); %Radial     (Q) component in extended time window
     T = filtfilt(b,a,T); %Transverse (T) component in extended time window
@@ -145,7 +145,7 @@ SNR       = [max(abs(QTcorRC(:,1))) / (2*std(QTcorRC(:,2)));   %SNR_QT on same w
              max(abs(  xcorr(FSrc(:,2), FSrc(:,1),'coeff')  ));
              max(abs(  xcorr(FSsc(:,2), FSsc(:,1),'coeff')  ))];
 
-set(sbar,'String',['Status: Calculating confidence regions']);drawnow
+set(sbar,'String','Status: Calculating confidence regions');drawnow
 
 [errbar_phiRC, errbar_tRC, LevelRC, ndfRC] = geterrorbarsRC(T(w), Cmap, Cresult);            % ndf argument added by MG
 [errbar_phiSC, errbar_tSC, LevelSC, ndfSC] = geterrorbars(T(w), Ematrix(:,:,1), Eresult(1)); % ndf argument added by MG
