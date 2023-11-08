@@ -102,7 +102,7 @@ else % USE FILENAME
             FISS   = str2num(F(:,16:17));
             FIsec  = FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400;
 
-        case 'YYYY.MM.DD-hh.mm.ss.stn.sac.e';
+        case 'YYYY.MM.DD-hh.mm.ss.stn.sac.e'
             % Format: 2003.10.07-05.07.15.DALA.sac.z
 
 			% YF add warning 2021/Nov/28
@@ -120,7 +120,7 @@ else % USE FILENAME
             FIddd = dayofyear(FIyyyy',FImonth',FIdd')';%julian Day
             FIsec  =  FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400;
 
-        case 'YYYY_MM_DD_hhmm_stnn.sac.e';
+        case 'YYYY_MM_DD_hhmm_stnn.sac.e'
             % Format: 2005_03_02_1155_pptl.sac (LDG/CEA data)
 
 			% YF add warning 2021/Nov/28
@@ -163,7 +163,7 @@ end
 
 
 % get earthquake origin times
-for a=1:length(eqin);
+for a=1:length(eqin)
     EQsec(a) = eqin(a).date(6) + eqin(a).date(5)*60 + eqin(a).date(4)*3600 + eqin(a).date(7)*86400;
 end
 

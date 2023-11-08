@@ -331,7 +331,7 @@ if ~isempty(dir_orifiles) && length(dir_orifiles)==5
     disp('Uninstallation of StackSplit successfully finished!')
 
     msgbox('StackSplit was successfully removed from your system!', ...
-        'Uninstallation complete');
+        'Uninstallation completed');
 
 else
     errordlg(['Missing files with suffix *' filesuffix '! Uninstallation aborted!'])
