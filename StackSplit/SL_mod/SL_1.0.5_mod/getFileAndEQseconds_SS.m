@@ -2,7 +2,7 @@ function [FIsec, FIyyyy, EQsec, Omarker] = getFileAndEQseconds(F,eqin,offset)
 %calculate start times of the files in seconds after midnight, January 1st
 %this works for SAC files created with rdseed4.5.1
 %eg: F = '1993.159.23.15.09.7760.IU.KEV..BHN.D.SAC'
-% if your filnames contains no julian day, please use command
+% if your filenames contains no julian day, please use command
 % dayofyear (in SplitLab/Tools)
 %
 
