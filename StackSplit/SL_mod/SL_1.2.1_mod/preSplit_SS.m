@@ -13,9 +13,16 @@ function preSplit
 %%
 global thiseq config eq
 
-fprintf(' %s -- Estimating event  %s:%4.0f.%03.0f (%.0f/%.0f) --',...
-    datestr(now,13) , config.stnname, thiseq.date(1), thiseq.date(7),config.db_index, length(eq));
-
+% YF 2023-11-04
+% "datestr" and "now" are not recommended by MATLAB up on R2022b
+% fprintf(' %s -- Estimating event  %s:%4.0f.%03.0f (%.0f/%.0f) --',...
+%    datestr(now,13) , config.stnname, thiseq.date(1), thiseq.date(7),config.db_index, length(eq));
+current_datetime = char(datetime("now"));
+fprintf( ...
+    ' %s -- Estimating event  %s:%4.0f.%03.0f (%.0f/%.0f) --', ...
+    current_datetime(13:end), config.stnname, ...
+    thiseq.date(1), thiseq.date(7), config.db_index, length(eq) ...
+);
 
 
 %% extend selection window
@@ -193,8 +200,13 @@ fprintf(' Phi = %5.1f; %5.1f; %5.1f    dt = %.1f; %.1f; %.1f\n', phiRC(2),phiSC(
   set(sbar,'String','Status: drawing...');drawnow
 val     = get(findobj('Tag','PhaseSelector'),'Value');
 if isempty(val)
-            val = strmatch(thiseq.SplitPhase, thiseq.phase.Names,'exact');
-            val = val(1);
+            % YF 2023-11-04
+            % "strmatch" is not recommended by MATLAB anymore
+            % val = strmatch(thiseq.SplitPhase, thiseq.phase.Names,'exact');
+            % val = val(1);
+            val_log = strcmp(thiseq.SplitPhase, thiseq.phase.Names);  % logical array
+            val_ind = find(val_log);  % indices of non-zero elemments
+            val = val_ind(1);
 end
 inc     = thiseq.phase.inclination(val);
 splitdiagnosticplot(Q, T, extime, L(w), E(w), N(w), inc, thiseq.bazi, thiseq.dt, config.maxSplitTime, inipol,...
