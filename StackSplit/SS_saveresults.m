@@ -94,7 +94,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
 
     fname = fullfile(config.savedir,['splitresultsSTACK_' config.project(1:end-4) '.txt' ]);
 
-    xst   = exist(fname);
+    xst   = exist(fname,'file');
     fid   = fopen(fname,'a+');
     if ~xst
         fprintf(fid,'Stacked surface (ME or EV) splitting results, methods: nw (no weight), WS (Wolfe & Silver, 1998), RH (Restivo & Helffrich, 1999)');
@@ -256,7 +256,7 @@ else
     %....................................
     fname = fullfile(config.savedir,['splitresultsSIMW_' config.project(1:end-4) '.txt' ]);
 
-    xst   = exist(fname);
+    xst   = exist(fname,'file');
     fid   = fopen(fname,'a+');
     if ~xst
         fprintf(fid,'Splitting results from SIMW analysis' );
