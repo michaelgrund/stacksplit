@@ -1,4 +1,4 @@
-function [f,sampling,find_res]=SS_check_input(find_res)
+function [f, sampling, find_res] = SS_check_input(find_res)
 %==========================================================================
 %##########################################################################
 %#                                                                        #

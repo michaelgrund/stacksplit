@@ -1,7 +1,9 @@
-function SS_splitdiagnosticplot(Q, T, extime, L, E, N, inc, bazi,sampling, maxtime, pol,...
+function SS_splitdiagnosticplot( ...
+    Q, T, extime, L, E, N, inc, bazi,sampling, maxtime, pol,...
     phiRC, dtRC, Cmatrix, corFSrc, QTcorRC,...
     phiSC, dtSC, Ematrix, corFSsc, QTcorSC,...
-    phiEV, dtEV, LevelSC, LevelRC, LevelEV, splitoption, bazi_int, dist_int,h)
+    phiEV, dtEV, LevelSC, LevelRC, LevelEV, splitoption, bazi_int, dist_int, h ...
+)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -65,7 +67,7 @@ function SS_splitdiagnosticplot(Q, T, extime, L, E, N, inc, bazi,sampling, maxti
 %     Level         - confidence level for SC energy map
 
 % Andreas Wüstefeld, 12.03.2006
-global config thiseq SIMW_temp
+global config % thiseq SIMW_temp
 
 Synfig = findobj('name', 'SIMW Diagnostic Viewer','type','figure');
 

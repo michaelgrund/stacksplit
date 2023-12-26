@@ -1,4 +1,6 @@
-function [merged_str,find_res]=SS_read_SLresults(curr_path2results,curr_staname)
+function [merged_str, find_res] = SS_read_SLresults( ...
+    curr_path2results, curr_staname ...
+)
 %==========================================================================
 %##########################################################################
 %#                                                                        #

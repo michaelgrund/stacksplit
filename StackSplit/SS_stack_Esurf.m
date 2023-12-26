@@ -1,4 +1,4 @@
-function h=SS_stack_Esurf(h)
+function h = SS_stack_Esurf(h)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -161,6 +161,7 @@ end
 use_bazi=[use_data.bazi];
 use_dis=[use_data.dis];
 
+use_inipol = zeros(length(use_data),1);
 for ii=1:length(use_data)
     use_inipol(ii)=use_data(ii).results.inipol;
 end

@@ -1,4 +1,6 @@
-function SS_gen_stackresplot(h,min_bazi,max_bazi,min_dis,max_dis,mean_bazi,mean_dist,phi,dt)
+function SS_gen_stackresplot( ...
+    h, min_bazi, max_bazi, min_dis, max_dis, mean_bazi, mean_dist, phi, dt ...
+)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,8 +11,8 @@ function SS_gen_stackresplot(h,min_bazi,max_bazi,min_dis,max_dis,mean_bazi,mean_
 %==========================================================================
 % FILE DESCRIPTION
 %
-% export final stacked surface to pdf, note for each saved measurement a
-% corresponding diagnostic plot is saved
+% export final stacked surface to the selected file format, note for each
+% saved measurement a corresponding diagnostic plot is saved
 %
 %==========================================================================
 % LICENSE

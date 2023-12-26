@@ -1,4 +1,4 @@
-function [axH, axRC, axSC,axSeis, axwm] = SS_splitdiagnosticLayout(Synfig)
+function [axH, axRC, axSC, axSeis, axwm] = SS_splitdiagnosticLayout(Synfig)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -157,8 +157,8 @@ end
 SIMW_temp.remark=remark;
 
 %% xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-function localSavePicture(hFig,evt)
-global config thiseq SIMW_temp
+function localSavePicture(~, ~)
+% global config thiseq SIMW_temp
 defaultname = 'Multi_result_SIMW';
 defaultextension = '.pdf';
 exportfiguredlg(gcbf, [defaultname defaultextension])

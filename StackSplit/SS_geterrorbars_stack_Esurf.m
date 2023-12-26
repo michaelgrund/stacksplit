@@ -1,4 +1,6 @@
-function [errbar_phi,errbar_t,Ecrit]=SS_geterrorbars_stack_Esurf(Eresult,sum_ndf,stacked_err_surf)
+function [errbar_phi, errbar_t, Ecrit] = SS_geterrorbars_stack_Esurf( ...
+    Eresult, sum_ndf, stacked_err_surf ...
+)
 %==========================================================================
 %##########################################################################
 %#                                                                        #

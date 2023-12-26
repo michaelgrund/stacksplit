@@ -1,4 +1,4 @@
-function h=SS_basic_settings(h,merged_str,find_res)
+function h = SS_basic_settings(h, merged_str, find_res)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
