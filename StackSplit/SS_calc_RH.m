@@ -1,4 +1,4 @@
-function [wf, countN] = SS_calc_RH(SNR, bazi_single, bazi_all, ~)
+function [wf, countN] = SS_calc_RH(SNR, bazi_single, bazi_all, ~)  % h
 %==========================================================================
 %##########################################################################
 %#                                                                        #

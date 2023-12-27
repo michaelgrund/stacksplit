@@ -1,6 +1,6 @@
 function SS_splitdiagnosticSetHeader( ...
     axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV, ...
-    ~, ~, bazi_int, dist_int ... % splitoption
+    ~, ~, bazi_int, dist_int ...  % pol, splitoption
 )
 %==========================================================================
 %##########################################################################
