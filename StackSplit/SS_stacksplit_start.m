@@ -12,34 +12,36 @@ function SS_stacksplit_start
 % Main function of StackSplit
 %
 % StackSplit is a plugin for the MATLAB toolbox SplitLab (Wüstefeld et al.,
-% 2008) which allows to apply multi-event techniques for shear wave splitting
-% measurements directly from within the main program.
+% 2008) which allows to apply multi-event techniques for shear wave
+% splitting measurements directly from within the main program.
 %
 %
-% !!! NOTE: StackSplit cannot operate without an installed SplitLab version !!!
+% !!! StackSplit cannot operate without an installed SplitLab version !!!
 %
 % !!! Before using StackSplit, take a look into the UserGuide !!!
 %
 %
-% For MATLAB version 2014b and higher I recommend to use the updated SplitLab
-% version by Rob Porritt (available via https://robporritt.wordpress.com/software/)
+% For MATLAB version 2014b and higher I recommend to use the updated
+% SplitLab version by Rob Porritt, available at
+% https://robporritt.wordpress.com/software/
 %
-% The use of StackSplit requires small modifications in some of the original
-% SplitLab functions which partly were taken from Rob Porritts updated version 1.2.1.
-% These modified functions come with this package and must replace the original ones.
-% An overview about these changes is given in SL2SS_changelog.txt in StackSplit/doc.
+% The use of StackSplit requires modifications in some of the original 
+% SplitLab functions which partly were taken from Rob Porritts updated
+% version 1.2.1. These modified functions come with this package and must
+% replace the original ones. An overview about these changes is given in 
+% SL2SS_changelog.txt in StackSplit/doc.
 %
-% StackSplit allows to apply up to now 4 stacking schemes for already existing
-% single SWS measurements (see also REFERENCES section below):
+% StackSplit allows to apply up to now 4 stacking schemes for already
+% existing single SWS measurements (see also REFERENCES section below):
 %
-% 1) SIMW: simultaneous inversion of multiple waveforms in time domain
-%          (Roy et al., 2017)
-% 2) WS  : stacking of error surfaces, normalized on minimum of each single surface
-%          (Wolfe & Silver, 1998)
-% 3) RH  : modified WS method with weight depending on SNR of each measurement
-%          (Restivo & Helffrich, 1999)
-% 4) no weight: stacking of error surfaces without weighting following, e.g.,
-%          PhD thesis of Wüstefeld (2007)
+% 1) SIMW      : simultaneous inversion of multiple waveforms in the time
+%                domain (Roy et al., 2017)
+% 2) WS        : stacking of error surfaces, normalized on the minimum of
+%                each single surface (Wolfe & Silver, 1998)
+% 3) RH        : modified WS method with weight depending on the SNR of
+%                each single measurement (Restivo & Helffrich, 1999)
+% 4) no weight : stacking of error surfaces without weighting following,
+%                e.g., PhD thesis of Wüstefeld (2007)
 %
 %==========================================================================
 % REFERENCES
@@ -67,6 +69,10 @@ function SS_stacksplit_start
 %    the simultaneous inversion of multiple waveforms (SIMW), GJI 208(3),
 %    1508–1523, https://doi.org/10.1093/gji/ggw470.
 %
+% Wüstefeld, A. (2007), Methods and applications of shear wave splitting:
+%    The East European Craton. PhD thesis, Univ. de Montpellier, France, 
+%    http://splitting.gm.univ-montp2.fr/, last accessed 11 January 2019.
+% 
 % Restivo & Helffrich (1999), Teleseismic shear wave splitting
 %    measurements in noisy environments, GJI 137, 821-830,
 %    https://doi.org/10.1046/j.1365-246x.1999.00845.x.

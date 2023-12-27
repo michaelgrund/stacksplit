@@ -10,7 +10,7 @@ function h = SS_saveresults(h)
 % FILE DESCRIPTION
 %
 % Write results of stacked error surfaces and SIMW to separate txt-files,
-% generate common mat-file. 
+% generate common mat-file.
 % For SIMW, export the diagnostic plot to the selected file format, note
 % for each saved measurement a corresponding diagnostic plot is saved.
 

@@ -10,8 +10,8 @@ function SS_calc_SIMW(h)
 % FILE DESCRIPTION
 %
 % Calculate splitting parameters (and errors) for concatenated SIMW waveforms
-% using the rotation-correlation (RC) and Silver & Chan (SC) methods, for
-% details see the SplitLab functions splitRotCorr.m & splitSilverChan.m
+% using the rotation-correlation (RC) and Silver and Chan (SC) methods, for
+% details see the SplitLab functions splitRotCorr.m and splitSilverChan.m
 %
 %==========================================================================
 % LICENSE
