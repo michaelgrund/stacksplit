@@ -106,9 +106,10 @@ else % if not more than one result per event, DEFAULT case
 end
 
 %############################################################################################
-% check if non-nulls and nulls are selected for stacking together => not
-% reasonable
+% check if non-nulls and nulls are selected for stacking together
+% => not reasonable
 
+restype = cell(length(use_data), 1);
 for ii=1:length(use_data)
     restype{ii}=use_data(ii).results.Null;
 end

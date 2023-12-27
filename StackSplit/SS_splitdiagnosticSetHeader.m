@@ -1,6 +1,6 @@
 function SS_splitdiagnosticSetHeader( ...
     axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV, ...
-    ~, splitoption, bazi_int, dist_int ...
+    ~, ~, bazi_int, dist_int ... % splitoption
 )
 %==========================================================================
 %##########################################################################
@@ -44,7 +44,7 @@ function SS_splitdiagnosticSetHeader( ...
 %==================================================================================================================================
 %==================================================================================================================================
 
-global thiseq config
+global config  %thiseq
 
 axes(axH);
 str11 = sprintf('%4.0f <%4.0f\\circ <%4.0f', phiRC);
@@ -56,26 +56,26 @@ str23 = sprintf('%3.1f < %3.1f s < %3.1f', dtEV);
 
 %%
 
-switch splitoption
-    case 'Minimum Energy'
-       optionstr ='      Minimum Energy';
-    case 'Eigenvalue: max(lambda1)'
-       optionstr ='             max(\lambda1)';
-    case 'Eigenvalue: max(lambda1 / lambda2)'
-       optionstr ='        max(\lambda1 / \lambda2)';
-    case 'Eigenvalue: min(lambda2)'
-       optionstr ='             min(\lambda2)  ';
-    case 'Eigenvalue: min(lambda1 * lambda2)'
-       optionstr ='        min(\lambda1 * \lambda2)';
-end
+% switch splitoption
+%     case 'Minimum Energy'
+%        optionstr ='      Minimum Energy';
+%     case 'Eigenvalue: max(lambda1)'
+%        optionstr ='             max(\lambda1)';
+%     case 'Eigenvalue: max(lambda1 / lambda2)'
+%        optionstr ='        max(\lambda1 / \lambda2)';
+%     case 'Eigenvalue: min(lambda2)'
+%        optionstr ='             min(\lambda2)  ';
+%     case 'Eigenvalue: min(lambda1 * lambda2)'
+%        optionstr ='        min(\lambda1 * \lambda2)';
+% end
 
 str ={['\rm                     Station: \bf' config.stnname ''];
     ['\rmBackazimuth:    \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],bazi_int) '   \rmDistance:  \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],dist_int) ];
-    [''];
+    '';
     ['\rmRotation-Correlation: ' str11 '     ' str21 ];
     ['\rm      Minimum Energy: ' str12 '     ' str22 ];
     ['\rm          Eigenvalue: ' str13 '     ' str23 ];
-    ['             \rmQuality: \bf ?       \rm     IsNull: \bf ? \rm ']};
+    '             \rmQuality: \bf ?       \rm     IsNull: \bf ? \rm '};
 
 %%% without world map
 % text(.6, .5,str,...
