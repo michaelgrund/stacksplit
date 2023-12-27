@@ -9,8 +9,8 @@ function h = SS_gen_worldmap(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% Generate world map that displays the station and currently selected events
-% from list
+% Generate world map that displays the station and currently selected
+% events from list
 %
 %==========================================================================
 % LICENSE

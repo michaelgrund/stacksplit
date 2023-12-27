@@ -79,8 +79,8 @@ function SS_stacksplit_start
 %    deformation, JGR 96, 16429–16454, https://doi.org/10.1029/91JB00899.
 %
 % Bowman & Ando (1987), Shear-wave splitting in the upper-mantle wedge
-%    above the Tonga subduction zone. Geophys. J. Roy. Astron. Soc. 88, 2541
-%    https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
+%    above the Tonga subduction zone. Geophys. J. Roy. Astron. Soc. 88,
+%    2541, https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 %
 %==========================================================================
 % LICENSE
