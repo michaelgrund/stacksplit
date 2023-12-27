@@ -58,7 +58,7 @@ global config
 % default values for max diffBAZ/diffdist/diffinipol selection
 
 if isfield(config,'SS_maxbaz') && isfield(config,'SS_maxdist') && isfield(config,'SS_maxpol')
-    % set popups to corresponding start values, if available in config
+    % set pop ups to corresponding start values, if available in config
 
     inputs=0:1:10;
 
@@ -200,7 +200,7 @@ h.h_checkbox = h_checkbox;
 popupcont=0:0.1:1; % taper 0% (none) - 100% (1)
 
 if isfield(config,'SS_tap')
-    % set popups to corresponding start values, if available in config
+    % set pop ups to corresponding start values, if available in config
     inputs=0:10:100;
 
     [~,b]=ismember(config.SS_tap,inputs);

@@ -211,7 +211,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     if outtext==1
         disp(['Saved result to file < splitresultsSTACK_' config.project(1:end-4) '.txt > (with remark)!'])
     else
-        disp(['Saved result to file << splitresultsSTACK_' config.project(1:end-4) '.txt >> (without remark)!'])
+        disp(['Saved result to file < splitresultsSTACK_' config.project(1:end-4) '.txt > (without remark)!'])
     end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -375,7 +375,7 @@ else
     if outtext==1
         disp(['Saved result to file < splitresultsSIMW_' config.project(1:end-4) '.txt > (with remark)!'])
     else
-        disp(['Saved result to file << splitresultsSIMW_' config.project(1:end-4) '.txt >> (without remark)!'])
+        disp(['Saved result to file < splitresultsSIMW_' config.project(1:end-4) '.txt > (without remark)!'])
     end
 
     %==========================================================================

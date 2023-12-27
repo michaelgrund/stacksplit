@@ -820,7 +820,7 @@ end
 
 %==================================================================================================================================
 %==================================================================================================================================
-% call TAPER popup
+% call TAPER pop up
 
 function call_popTAP(hObject,~,~)
 
@@ -829,7 +829,7 @@ function call_popTAP(hObject,~,~)
     h=guidata(hObject);
     checkpop=get(h.pop(1),'Value');
 
-    popupcont=0:0.1:1; % assign corresponding value to selected position in popup menu, 0 corresponds to none
+    popupcont=0:0.1:1; % assign corresponding value to selected position in pop up menu, 0 corresponds to none
     usetap=popupcont(checkpop);
     h.usetap=usetap;
 
@@ -843,7 +843,7 @@ end
 
 %==================================================================================================================================
 %==================================================================================================================================
-% call SURF popup, Esurf or EVsurf
+% call SURF pop up, Esurf or EVsurf
 
 function call_popSURF(hObject,~,~)
 
@@ -866,7 +866,7 @@ end
 
 %==================================================================================================================================
 %==================================================================================================================================
-% call maxBAZ popup
+% call maxBAZ pop up
 
 function call_popMAXBAZ(hObject,~,~)
 
@@ -882,7 +882,7 @@ function call_popMAXBAZ(hObject,~,~)
 
 end
 
-% call maxdist popup
+% call maxdist pop up
 function call_popMAXDIST(hObject,~,~)
 
     global config
@@ -897,7 +897,7 @@ function call_popMAXDIST(hObject,~,~)
 
 end
 
-% call maxpol popup
+% call maxpol pop up
 function call_popMAXPOL(hObject,~,~)
 
     global config
