@@ -9,7 +9,8 @@ function h = SS_saveresults(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% write results of stacked error surfaces/SIMW to txt-file, generate mat-file
+% Write results of stacked error surfaces and SIMW to separate txt-files,
+% generate common mat-file
 %
 %==========================================================================
 % LICENSE

@@ -9,7 +9,7 @@ function h = SS_disp_Esurf_single(h, index)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% plot corresponding energy/EV surface of selected event from list
+% Plot corresponding energy/EV surface of selected event from list
 %
 %==========================================================================
 % LICENSE

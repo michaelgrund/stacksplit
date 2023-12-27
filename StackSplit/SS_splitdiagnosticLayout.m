@@ -9,8 +9,8 @@ function [axH, axRC, axSC, axSeis, axwm] = SS_splitdiagnosticLayout(Synfig)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% generate diagnostic plot for SIMW analysis, this function is a modified
-% version of the original SL function < splitdiagnosticLayout.m >
+% Generate diagnostic plot for SIMW analysis, this function is a modified
+% version of the original SplitLab function < splitdiagnosticLayout.m >
 %
 %==========================================================================
 % LICENSE

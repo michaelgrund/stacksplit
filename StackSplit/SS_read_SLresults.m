@@ -11,7 +11,7 @@ function [merged_str, find_res] = SS_read_SLresults( ...
 %==========================================================================
 % FILE DESCRIPTION
 %
-% read SL results of single event measurements
+% Read SplitLab results of single event measurements
 %
 %==========================================================================
 % LICENSE

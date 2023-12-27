@@ -9,7 +9,7 @@ function h = SS_basic_settings(h, merged_str, find_res)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% set basic settings for GUI (buttons, axes etc.)
+% Set basic settings for GUI (buttons, axes etc.)
 %
 %==========================================================================
 % LICENSE

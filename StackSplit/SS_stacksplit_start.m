@@ -9,7 +9,7 @@ function SS_stacksplit_start
 %==========================================================================
 % FILE DESCRIPTION
 %
-% main function of StackSplit
+% Main function of StackSplit
 %
 % StackSplit is a plugin for the MATLAB toolbox SplitLab (Wüstefeld et al.,
 % 2008) which allows to apply multi-event techniques for shear wave splitting
@@ -38,7 +38,7 @@ function SS_stacksplit_start
 %          (Wolfe & Silver, 1998)
 % 3) RH  : modified WS method with weight depending on SNR of each measurement
 %          (Restivo & Helffrich, 1999)
-% 4) def : stacking of error surfaces without weighting following, e.g.,
+% 4) no weight: stacking of error surfaces without weighting following, e.g.,
 %          PhD thesis of Wüstefeld (2007)
 %
 %==========================================================================
@@ -65,19 +65,22 @@ function SS_stacksplit_start
 %
 % Roy et al. (2017), On the improvement of SKS splitting measurements by
 %    the simultaneous inversion of multiple waveforms (SIMW), GJI 208(3),
-%    1508–1523, https://doi.org/10.1093/gji/ggw470
+%    1508–1523, https://doi.org/10.1093/gji/ggw470.
 %
 % Restivo & Helffrich (1999), Teleseismic shear wave splitting
-%    measurements in noisy environments, GJI 137, 821-830
+%    measurements in noisy environments, GJI 137, 821-830,
+%    https://doi.org/10.1046/j.1365-246x.1999.00845.x.
 %
 % Wolfe & Silver (1998), Seismic anisotropy of oceanic upper mantle: Shear
-%    wave splitting methodologies and observations, JGR 103(B1), 749-771
+%    wave splitting methodologies and observations, JGR 103(B1), 749-771,
+%    https://doi.org/10.1029/97JB02023.
 %
 % Silver & Chan (1991), Shear wave splitting and subcontinental mantle
-%    deformation, JGR 96, 16429–16454
+%    deformation, JGR 96, 16429–16454, https://doi.org/10.1029/91JB00899.
 %
 % Bowman & Ando (1987), Shear-wave splitting in the upper-mantle wedge
 %    above the Tonga subduction zone. Geophys. J. Roy. Astron. Soc. 88, 2541
+%    https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 %
 %==========================================================================
 % LICENSE

@@ -9,7 +9,7 @@ function h = SS_prep_SIMW(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% prepare waveforms of selected events for application of SIMW
+% Prepare waveforms of selected events for application of SIMW
 %
 %==========================================================================
 % LICENSE

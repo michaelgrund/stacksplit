@@ -15,7 +15,7 @@ function h = SS_layout( ...
 %==========================================================================
 % FILE DESCRIPTION
 %
-% generate and setup layout for StackSplit plugin
+% Generate and setup layout for StackSplit plugin
 %
 %==========================================================================
 % LICENSE

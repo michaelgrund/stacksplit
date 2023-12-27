@@ -14,8 +14,8 @@ function SS_splitdiagnosticplot( ...
 %==========================================================================
 % FILE DESCRIPTION
 %
-% display diagnostic plot for SIMW analysis, this function is a modified
-% SplitLab function
+% Generate diagnostic plot for SIMW analysis, this function is a modified
+% version of the original SplitLab function < splitdiagnosticplot.m >
 %
 %==========================================================================
 % LICENSE

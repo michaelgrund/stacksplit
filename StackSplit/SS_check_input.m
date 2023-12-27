@@ -9,9 +9,9 @@ function [f, sampling, find_res] = SS_check_input(find_res)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% check if input data (results of SplitLab) fulfill several criteria for
-% the sampling rate and the accuracy factor for plotting stacked error
-% surfaces
+% Check if input data (results of SplitLab) fulfill several criteria
+% regarding the sampling rate and the accuracy factor for plotting
+% stacked error surfaces
 %
 %==========================================================================
 % LICENSE

@@ -9,7 +9,7 @@ function h = SS_stack_Esurf(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% stack single error surfaces (minimum energy, EV) depending on the
+% Stack single error surfaces (minimum energy, EV) depending on the
 % selected approaches (for details, see the corresponding papers):
 %
 % 1) no weighting (e.g. Wüstefeld, 2007; PhD thesis): true "topography" of

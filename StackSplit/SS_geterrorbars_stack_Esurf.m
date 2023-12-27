@@ -13,8 +13,8 @@ function [errbar_phi, errbar_t, Ecrit] = SS_geterrorbars_stack_Esurf( ...
 %
 % Calculate error bars for the stacked error surface using the summed ndfs
 % of each single measurement. Please note that after installation of
-% StackSplit, in SL the original ndfs are calculated using the corrected
-% equations of Walsh et al. (2013).
+% StackSplit, in SplitLab the original ndfs are calculated using the
+% corrected equations of Walsh et al. (2013).
 %
 %==========================================================================
 % LICENSE

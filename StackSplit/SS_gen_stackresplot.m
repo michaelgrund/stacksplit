@@ -11,7 +11,7 @@ function SS_gen_stackresplot( ...
 %==========================================================================
 % FILE DESCRIPTION
 %
-% export final stacked surface to the selected file format, note for each
+% Export final stacked surface to the selected file format, note for each
 % saved measurement a corresponding diagnostic plot is saved
 %
 %==========================================================================
