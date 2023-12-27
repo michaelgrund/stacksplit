@@ -157,7 +157,7 @@ end
 SIMW_temp.remark=remark;
 
 %% xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-function localSavePicture(~, ~)
+function localSavePicture(~, ~)  % hFig, evt
 % global config thiseq SIMW_temp
 defaultname = 'Multi_result_SIMW';
 defaultextension = '.pdf';
