@@ -1,4 +1,5 @@
-function [wf, countN] = SS_calc_RH(SNR, bazi_single, bazi_all, ~)  % h
+function [wf, countN] = SS_calc_RH(SNR, bazi_single, bazi_all, h)
+% h needed for plotting weighting function uncomment lines up on 68
 %==========================================================================
 %##########################################################################
 %#                                                                        #
