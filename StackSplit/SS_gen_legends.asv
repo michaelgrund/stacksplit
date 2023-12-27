@@ -9,8 +9,8 @@ function h = SS_gen_legends(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% Generate legends to display the qualities of the single measurements
-% separately for nulls and splits
+% Generate legends to display the qualities of the single measurements for 
+% nulls and splits separately
 %
 %==========================================================================
 % LICENSE
