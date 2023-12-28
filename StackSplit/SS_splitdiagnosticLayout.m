@@ -157,8 +157,8 @@ end
 SIMW_temp.remark=remark;
 
 %% xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-function localSavePicture(~, ~)  % hFig, evt
-% global config thiseq SIMW_temp
+function localSavePicture(~, ~)  % hFig, evt -> un-used input arguments YF 2023-12-27
+% global config thiseq SIMW_temp  % -> un-used global variables YF 2023-12-27
 defaultname = 'Multi_result_SIMW';
 defaultextension = '.pdf';
 exportfiguredlg(gcbf, [defaultname defaultextension])

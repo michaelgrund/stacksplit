@@ -1,6 +1,6 @@
 function SS_splitdiagnosticSetHeader( ...
     axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV, ...
-    ~, ~, bazi_int, dist_int ...  % pol, splitoption
+    ~, ~, bazi_int, dist_int ...  % pol, splitoption -> un-used input arguments YF 2023-12-27
 )
 %==========================================================================
 %##########################################################################
@@ -44,7 +44,7 @@ function SS_splitdiagnosticSetHeader( ...
 %==================================================================================================================================
 %==================================================================================================================================
 
-global config  % thiseq
+global config  % thiseq % -> un-used global variable YF 2023-12-27
 
 axes(axH);
 str11 = sprintf('%4.0f <%4.0f\\circ <%4.0f', phiRC);

@@ -106,7 +106,7 @@ else % if not more than one result per event, DEFAULT case
 end
 
 %############################################################################################
-% check if non-nulls and nulls are selected for stacking together
+% check if splits and nulls are selected for stacking together
 % => not reasonable
 
 restype = cell(length(use_data), 1);

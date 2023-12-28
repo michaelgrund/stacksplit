@@ -67,7 +67,7 @@ function SS_splitdiagnosticplot( ...
 %     Level         - confidence level for SC energy map
 
 % Andreas Wüstefeld, 12.03.2006
-global config % thiseq SIMW_temp
+global config % thiseq SIMW_temp % -> un-used global variables YF 2023-12-27
 
 Synfig = findobj('name', 'SIMW Diagnostic Viewer','type','figure');
 
