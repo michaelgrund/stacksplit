@@ -13,7 +13,8 @@ function SS_splitdiagnosticSetHeader( ...
 % FILE DESCRIPTION
 %
 % Set header for diagnostic plot of SIMW analysis, this function is a
-% modified SplitLab function < splitdiagnosticSetHeader.m >
+% modified version of the original SplitLab function
+% < splitdiagnosticSetHeader.m >
 %
 %==========================================================================
 % LICENSE
