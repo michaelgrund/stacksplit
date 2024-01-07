@@ -75,7 +75,8 @@ index=get(h.list,'value');
 %=============================================================================
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-if length(index)==1 % one single event
+% if length(index)==1 % one single event  % YF 2024/01/07
+if isscalar(index) % one single event
 
     tapdesign=tukeywin(length(find_res(index).results.Qcut),h.usetap);
 
