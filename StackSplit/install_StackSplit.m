@@ -100,6 +100,11 @@ function install_StackSplit()
 %                => modifications to fix extraction of start time by SplitLab
 %                (unconsidered milliseconds or seconds of start time)
 %
+% - v3.1 (2024): Yvonne Fröhlich
+%                ORCID: 0000-0002-8566-0619
+%                Up on MATLAB R2024a, recommendation "To improve
+%                performance, use isscalar instead of length comparison."
+%                => Update length(xyz)==1 to isscalar(xyz)
 %==========================================================================
 
 %==================================================================================================================================
