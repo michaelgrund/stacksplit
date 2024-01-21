@@ -147,7 +147,7 @@ dir_orifiles=dir(['splitlab' filesuffix '.m']);
 % check for unzipped StackSplit folder
 dirSS=dir('StackSpl*');
 
-% if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1 && ~isempty(dir_orifiles)  % YF 2024/01/11
+% if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1 && ~isempty(dir_orifiles)  % YF 2024-01-11
 if ~isempty(dirSS) && isfolder(dirSS.name) && isscalar(dirSS) && ~isempty(dir_orifiles)
     disp(' ')
     disp('Installation aborted. Found installed version of StackSplit!')
@@ -155,7 +155,7 @@ if ~isempty(dirSS) && isfolder(dirSS.name) && isscalar(dirSS) && ~isempty(dir_or
     return
 end
 
-% if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1  % YF 2024/01/11
+% if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1  % YF 2024-01-11
 if ~isempty(dirSS) && isfolder(dirSS.name) && isscalar(dirSS)
     pathSS=[folderSL '/StackSplit'];
     disp(' ')
@@ -264,7 +264,7 @@ end
 
 dir_SWS=dir('*WaveSplitting');
 
-% if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && length(dir_SWS)==1  % YF 2024/01/11
+% if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && length(dir_SWS)==1  % YF 2024-01-11
 if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && isscalar(dir_SWS)
     cd(dir_SWS.name)
     pathSWS=pwd;
@@ -333,7 +333,7 @@ cd(folderSL)
 
 dir_TOOL=dir('*Tools');
 
-% if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && length(dir_TOOL)==1  % YF 2024/01/11
+% if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && length(dir_TOOL)==1  % YF 2024-01-11
 if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && isscalar(dir_TOOL)
     cd(dir_TOOL.name)
     pathTOOL=pwd;
@@ -375,7 +375,7 @@ cd(folderSL)
 
 dir_priv=dir('*private');
 
-% if ~isempty(dir_priv) && isfolder(dir_priv.name) && length(dir_priv)==1  % YF 2024/01/11
+% if ~isempty(dir_priv) && isfolder(dir_priv.name) && length(dir_priv)==1  % YF 2024-01-11
 if ~isempty(dir_priv) && isfolder(dir_priv.name) && isscalar(dir_priv)
     cd(dir_priv.name)
     pathpriv=pwd;
