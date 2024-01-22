@@ -147,7 +147,7 @@ dir_orifiles=dir(['splitlab' filesuffix '.m']);
 % check for unzipped StackSplit folder
 dirSS=dir('StackSpl*');
 
-if ~isempty(dirSS) && isfolder(dirSS.name) && isscalar(dirSS) && ~isempty(dir_orifiles)   % YF 2024-01-11
+if ~isempty(dirSS) && isfolder(dirSS.name) && isscalar(dirSS) && ~isempty(dir_orifiles)  % YF 2024-01-11
     disp(' ')
     disp('Installation aborted. Found installed version of StackSplit!')
     errordlg('StackSplit was already installed on your system!')
