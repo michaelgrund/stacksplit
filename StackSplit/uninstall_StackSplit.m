@@ -155,8 +155,8 @@ else
     errordlg('Missing subfolder Tools! Uninstallation aborted!')
 end
 
-dircheckmattaupclass = dir('checkmattaupclass.m');
-delete([dircheckmattaupclass.folder '/' dircheckmattaupclass.name]);
+dir_checkmattaupclass = dir('checkmattaupclass.m');
+delete([dir_checkmattaupclass.folder filesep dir_checkmattaupclass.name]);  % Directory separator for this platform
 
 %======================================================================
 %######################################################################
@@ -216,8 +216,6 @@ else
         'Uninstallation aborted!'])
     return
 end
-
-
 %======================================================================
 %######################################################################
 %======================================================================
