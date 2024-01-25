@@ -436,7 +436,7 @@ movefile('splitdiagnosticplot_SS.m','splitdiagnosticplot.m')
 cd(pathTOOL)
 movefile('database_editResults_SS.m','database_editResults.m')
 movefile('getFileAndEQseconds_SS.m','getFileAndEQseconds.m')
-movefile('checkmattaupclass_SS.m','checkmattaupclasss.m')
+movefile('checkmattaupclass_SS.m','checkmattaupclass.m')
 
 % private folder
 cd(pathpriv)
