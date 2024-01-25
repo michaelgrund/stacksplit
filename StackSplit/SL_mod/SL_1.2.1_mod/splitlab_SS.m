@@ -13,6 +13,11 @@ warning('off','MATLAB:mir_warning_changing_try_catch');
 SL_checkversion
 config.version='SplitLab1.2.1';
 
+
+ok = checkmattaupclass; % add function checkmattaupclass from Splitlab 1.9.0 for matTaup; YF 22.12.2019
+if ok==0; warning('Troubles loading matTaup'); end
+
+
 [p,f] = fileparts(mfilename('fullpath'));  % directory of SplitLab
 set(0,'DefaultFigurecolor', [224   223   227]/255 ,...
       'DefaultFigureWindowStyle','normal',...
