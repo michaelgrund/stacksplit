@@ -155,6 +155,8 @@ else
     errordlg('Missing subfolder Tools! Uninstallation aborted!')
 end
 
+dircheckmattaupclass = dir('checkmattaupclass.m')
+delete([dircheckmattaupclass.folder dircheckmattaupclass.name])
 
 %======================================================================
 %######################################################################
@@ -162,7 +164,6 @@ end
 
 files2delete{1}='database_editResults.m';
 files2delete{2}='getFileAndEQseconds.m';
-files2delete{3}='checkmattaupclass.m';
 
 files2rename{1}=['database_editResults' filesuffix '.m'];
 files2rename{2}=['getFileAndEQseconds' filesuffix '.m'];
@@ -215,6 +216,8 @@ else
         'Uninstallation aborted!'])
     return
 end
+
+
 %======================================================================
 %######################################################################
 %======================================================================

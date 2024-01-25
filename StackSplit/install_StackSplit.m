@@ -410,6 +410,7 @@ copyfile('saveresult_SS.m',pathSWS)
 copyfile('splitdiagnosticplot_SS.m',pathSWS)
 copyfile('database_editResults_SS.m',pathTOOL)
 copyfile('getFileAndEQseconds_SS.m',pathTOOL)
+copyfile('checkmattaupclass_SS.m',pathTOOL)
 copyfile('seisfigbuttons_SS.m',pathpriv)
 
 % cleanup/remove folder SL_mod
@@ -435,6 +436,7 @@ movefile('splitdiagnosticplot_SS.m','splitdiagnosticplot.m')
 cd(pathTOOL)
 movefile('database_editResults_SS.m','database_editResults.m')
 movefile('getFileAndEQseconds_SS.m','getFileAndEQseconds.m')
+movefile('checkmattaupclass_SS.m','checkmattaupclasss.m')
 
 % private folder
 cd(pathpriv)
