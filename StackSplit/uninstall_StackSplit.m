@@ -55,7 +55,10 @@ function uninstall_StackSplit()
 %                GitHub: https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
 %                => modifications to fix extraction of start time by SplitLab
 %                (unconsidered milliseconds or seconds of start time)
-%
+% - v3.1 (2024): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
+%                ORCID: 0000-0002-8566-0619
+%                Email: yvonne.froehlich@kit.edu
+%                => improvments to load matTaup java class
 %==========================================================================
 
 %==================================================================================================================================
@@ -155,13 +158,9 @@ else
     errordlg('Missing subfolder Tools! Uninstallation aborted!')
 end
 
-dir_checkmattaupclass = dir('checkmattaupclass.m');
-delete([dir_checkmattaupclass.folder filesep dir_checkmattaupclass.name]);  % Directory separator for this platform
-
 %======================================================================
 %######################################################################
 %======================================================================
-
 files2delete{1}='database_editResults.m';
 files2delete{2}='getFileAndEQseconds.m';
 
@@ -216,6 +215,12 @@ else
         'Uninstallation aborted!'])
     return
 end
+
+% Delete directly as there is no orignal SplitLab file (SL 1.0.5 and 1.2.1)
+dir_checkmattaupclass = dir('checkmattaupclass.m');
+% Use directory separator of current plattform
+delete([dir_checkmattaupclass.folder filesep dir_checkmattaupclass.name]);
+
 %======================================================================
 %######################################################################
 %======================================================================

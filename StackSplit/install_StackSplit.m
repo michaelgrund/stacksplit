@@ -99,7 +99,10 @@ function install_StackSplit()
 %                GitHub: https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
 %                => modifications to fix extraction of start time by SplitLab
 %                (unconsidered milliseconds or seconds of start time)
-%
+% - v3.1 (2024): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
+%                ORCID: 0000-0002-8566-0619
+%                Email: yvonne.froehlich@kit.edu
+%                => improvments to load matTaup java class
 %==========================================================================
 
 %==================================================================================================================================
@@ -231,7 +234,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % first rename the original SplitLab files to *_ori
 
-% in total 9 original files have to be modified for running StackSplit
+% in total
+% - 9 original files have to be modified
+% - 1 new files has to be added
+% for running StackSplit
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN FOLDER
@@ -417,8 +423,7 @@ copyfile('seisfigbuttons_SS.m',pathpriv)
 cd(pathSS)
 rmdir('SL_mod','s')
 
-% cd to the four corresponding folders and rename *_SS.m version to original
-% names
+% cd to the four corresponding folders and rename *_SS.m version to original names
 
 % main folder
 cd(folderSL)
