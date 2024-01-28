@@ -1,28 +1,28 @@
 function out = checkmattaupclass
 
-%##########################################################################
+% #########################################################################
 % Load matTaup java class for SplitLab
 % Modified from same function of SplitLab 1.9.0
-%==========================================================================
+% =========================================================================
 % created: 2024/01/25
 % contact: yvonne.froehlich@kit.edu
-%##########################################################################
+% #########################################################################
 
 
 global thiseq eq config
 
 
-jpath = javaclasspath('-all');
-f     = strfind(jpath,'matTaup.jar');
-e     = cellfun('isempty',f);
+java_paths = javaclasspath('-all');
+find_taup = strfind(java_paths,'matTaup.jar');
+not_found_taup = cellfun('isempty',find_taup);
 path2jar = which('matTaup.jar');
 
 
-if all(e) % no match found in classpath
+if all(not_found_taup) % no match found in classpath
 
-    p = fileparts(which('taup.m'));
+    path_taup = fileparts(which('taup.m'));
 
-    if isempty(p)
+    if isempty(path_taup)
         disp('Error: Could not establish matTaup java path. No phases will be calculated.')
         out = false;
         return
