@@ -58,7 +58,7 @@ function uninstall_StackSplit()
 % - v3.1 (2024): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
 %                ORCID: 0000-0002-8566-0619
 %                Email: yvonne.froehlich@kit.edu
-%                => improvments to load matTaup java class
+%                => improvements to load matTaup java class
 %==========================================================================
 
 %==================================================================================================================================
