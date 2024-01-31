@@ -1,4 +1,6 @@
-function [merged_str,find_res]=SS_read_SLresults(curr_path2results,curr_staname)
+function [merged_str, find_res] = SS_read_SLresults( ...
+    curr_path2results, curr_staname ...
+)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,7 +11,7 @@ function [merged_str,find_res]=SS_read_SLresults(curr_path2results,curr_staname)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% read SL results of single event measurements
+% Read SplitLab results of single event measurements
 %
 %==========================================================================
 % LICENSE
@@ -70,12 +72,14 @@ eq=fload.eq;
 %=============================================================================================
 % check variable eq for results
 
-zz=1;
+zz = 1;
 for ii=1:length(eq)
     if ~isempty(eq(ii).results)
-        if isfield(eq(ii).results,'ndfSC') && isfield(eq(ii).results,'LevelSC')  && isfield(eq(ii).results,'Qcut')
-            find_res(zz)=eq(ii);
-            zz=zz+1;
+        if isfield(eq(ii).results,'ndfSC') && ...
+           isfield(eq(ii).results,'LevelSC') && ...
+           isfield(eq(ii).results,'Qcut')
+           find_res(zz) = eq(ii);
+            zz = zz+1;
         else
             errordlg(['Available SplitLab results struct was generated ' ...
                 'before the installation of StackSplit (several struct ' ...
