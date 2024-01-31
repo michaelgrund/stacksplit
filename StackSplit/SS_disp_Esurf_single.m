@@ -1,4 +1,4 @@
-function h=SS_disp_Esurf_single(h,index)
+function h = SS_disp_Esurf_single(h, index)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,7 +9,7 @@ function h=SS_disp_Esurf_single(h,index)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% plot corresponding energy/EV surface of selected event from list
+% Plot minimum energy or EV surface of selected event from list
 %
 %==========================================================================
 % LICENSE

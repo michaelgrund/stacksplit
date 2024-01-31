@@ -1,4 +1,4 @@
-function h=SS_gen_worldmap(h)
+function h = SS_gen_worldmap(h)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,8 +9,8 @@ function h=SS_gen_worldmap(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% generate world map that displays the station and currently selected events
-% from list
+% Generate world map that displays the station and currently selected
+% events from list
 %
 %==========================================================================
 % LICENSE
@@ -129,8 +129,10 @@ else
     h.EQstatsax=ax;
 
     % check for files needed to construct "alternative" map
-    if exist('SL_plates.mat', 'file')==2 && exist('SL_coasts.mat', 'file')==2 ...
-             && exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file')==2 && exist('ncread')
+    if exist('SL_plates.mat', 'file')==2 && ...
+       exist('SL_coasts.mat', 'file')==2 && ...
+       exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file')==2 && ...
+       exist('ncread', 'builtin')
 
         % matlab structures included with this distribution
         coast_data = load('SL_coasts.mat');

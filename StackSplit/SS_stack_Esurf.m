@@ -1,4 +1,4 @@
-function h=SS_stack_Esurf(h)
+function h = SS_stack_Esurf(h)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,7 +9,7 @@ function h=SS_stack_Esurf(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% stack single error surfaces (minimum energy, EV) depending on the
+% Stack single error surfaces (minimum energy, EV) depending on the
 % selected approaches (for details, see the corresponding papers):
 %
 % 1) no weighting (e.g. Wüstefeld, 2007; PhD thesis): true "topography" of
@@ -106,9 +106,10 @@ else % if not more than one result per event, DEFAULT case
 end
 
 %############################################################################################
-% check if non-nulls and nulls are selected for stacking together => not
-% reasonable
+% check if splits and nulls are selected for stacking together
+% => not reasonable
 
+restype = cell(length(use_data), 1);
 for ii=1:length(use_data)
     restype{ii}=use_data(ii).results.Null;
 end
@@ -161,6 +162,7 @@ end
 use_bazi=[use_data.bazi];
 use_dis=[use_data.dis];
 
+use_inipol = zeros(length(use_data),1);
 for ii=1:length(use_data)
     use_inipol(ii)=use_data(ii).results.inipol;
 end
