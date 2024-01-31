@@ -46,7 +46,7 @@ maxtime=h.EMAP_maxtime; % maximum time displayed in grid
 find_res=h.data;
 
 %=================================================================================
-if length(index)==1
+if isscalar(index)  % YF 2024-01-07
 
     cla reset
 
