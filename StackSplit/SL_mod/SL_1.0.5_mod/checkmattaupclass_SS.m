@@ -1,13 +1,14 @@
 function out = checkmattaupclass
 
 % #########################################################################
-% Load matTaup java class for SplitLab
-% Modified from same function of SplitLab 1.9.0
+% Load matTaup Java class for SplitLab
+% Modified from the checkmattaupclass function of SplitLab 1.9.0
 % https://github.com/IPGP/splitlab/blob/master/SplitLab1.9.0/Tools/checkmattaupclass.m
 % last access 2024/01/30
 % =========================================================================
 % created: 2024/01/25
-% contact: yvonne.froehlich@kit.edu
+% author: Yvonne Fröhlich
+% contact: https://github.com/yvonnefroehlich, https://orcid.org/0000-0002-8566-0619
 % #########################################################################
 
 
@@ -20,7 +21,7 @@ not_found_taup = cellfun('isempty',find_taup);
 path2jar = which('matTaup.jar');
 
 
-if all(not_found_taup) % no match found in classpath
+if all(not_found_taup)  % no match found in classpath
 
     path_taup = fileparts(which('taup.m'));
 
