@@ -1,7 +1,7 @@
 function out = checkmattaupclass
 
 % #########################################################################
-% Load matTaup Java class for SplitLab
+% Load matTaup Java classes for SplitLab
 % Modified from the checkmattaupclass function of SplitLab 1.9.0
 % https://github.com/IPGP/splitlab/blob/master/SplitLab1.9.0/Tools/checkmattaupclass.m
 % last access 2024/01/30
@@ -26,12 +26,12 @@ if all(not_found_taup)  % no match found in classpath
     path_taup = fileparts(which('taup.m'));
 
     if isempty(path_taup)
-        disp('Error: Could not establish matTaup java path. No phases will be calculated.')
+        disp('Error: Could not establish matTaup Java path. No phases will be calculated.')
         out = false;
         return
     else
 
-        fprintf(2,'The matTaup JAVA Classes will now be loaded.\n')
+        fprintf(2,'The matTaup Java classes will now be loaded.\n')
         fprintf(2,'Please wait...')
 
         if exist(path2jar,'file')
@@ -46,7 +46,7 @@ if all(not_found_taup)  % no match found in classpath
         evalin('caller','global eq thiseq config')  % these have been cleard previously by javaaddpath....
 
         fprintf(2,'Done\n')
-        fprintf(2,'Java classes of matTaup have been loaded for this session of Matlab.\n')
+        fprintf(2,'The matTaup Java classes have been loaded for this session of Matlab.\n')
         fprintf(2,'You can now continue with your work\n\n')
 
         out = -1;

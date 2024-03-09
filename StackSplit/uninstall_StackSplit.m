@@ -63,7 +63,7 @@ function uninstall_StackSplit()
 %   Update length(xyz)==1 to isscalar(xyz)
 %
 % - v3.1 (2024) - YF
-%   Improvements to load matTaup java class
+%   Improvements to load matTaup Java classes
 %==========================================================================
 
 %==================================================================================================================================
