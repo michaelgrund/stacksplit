@@ -17,7 +17,7 @@ config.version='SplitLab1.2.1';
 % Add modified function checkmattaupclass from Splitlab 1.9.0 for matTaup; YF 22.12.2019
 taup_ok = checkmattaupclass;
 if taup_ok==0
-    warning('Troubles loading matTaup')
+    warning('Troubles loading matTaup!')
 end
 
 [p,f] = fileparts(mfilename('fullpath'));  % directory of SplitLab
