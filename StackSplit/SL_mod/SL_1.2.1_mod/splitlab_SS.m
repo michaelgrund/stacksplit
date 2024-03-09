@@ -13,8 +13,9 @@ warning('off','MATLAB:mir_warning_changing_try_catch');
 SL_checkversion
 config.version='SplitLab1.2.1';
 
+% YF 2019-12-22
 % Modification due to StackSplit up on v3.1
-% Add modified function checkmattaupclass from Splitlab 1.9.0 for matTaup; YF 22.12.2019
+% Add modified function checkmattaupclass from Splitlab 1.9.0 for matTaup
 taup_ok = checkmattaupclass;
 if taup_ok==0
     warning('Troubles loading matTaup!')

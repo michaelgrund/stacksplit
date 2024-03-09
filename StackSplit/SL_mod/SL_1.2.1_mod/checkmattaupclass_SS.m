@@ -4,9 +4,9 @@ function out = checkmattaupclass
 % Load matTaup Java classes for SplitLab
 % Modified from the checkmattaupclass function of SplitLab 1.9.0
 % https://github.com/IPGP/splitlab/blob/master/SplitLab1.9.0/Tools/checkmattaupclass.m
-% last access 2024/01/30
+% last access 2024-01-30
 % =========================================================================
-% created: 2024/01/25
+% created: 2024-01-25
 % author: Yvonne Fröhlich
 % contact: https://github.com/yvonnefroehlich, https://orcid.org/0000-0002-8566-0619
 % #########################################################################
