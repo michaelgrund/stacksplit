@@ -55,7 +55,7 @@ function uninstall_StackSplit()
 % - v3.0 (2021) - YF
 %   Modifications to fix extraction of start time by SplitLab
 %   (unconsidered milliseconds or seconds of start time)
-%   see also https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
+%   See also https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
 %
 % - v3.1 (2024) - YF
 %   Up on MATLAB R2024a, recommendation "To improve performance, use
