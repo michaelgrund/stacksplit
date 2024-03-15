@@ -53,15 +53,17 @@ function vers_out=SS_check_matlab_version()
 % StackSplit is provided "as is" and without any warranty. The author cannot be
 % held responsible for anything that happens to you or your equipment. Use it
 % at your own risk.
+%
 %==========================================================================
 % Major updates:
 %
-% - v3.1 (2023): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
-%                ORCID: 0000-0002-8566-0619
-%                Email: yvonne.froehlich@kit.edu
-%                Add queries (II) and (III) and adjust query (I)
-%                Affected StackSplit functions are SS_check_input.m,
-%                SS_disp_Esurf_single.m, SS_gen_worldmap.m, SS_stack_Esurf.m
+% Yvonne Fröhlich (YF)
+% https://github.com/yvonnefroehlich, https://orcid.org/0000-0002-8566-0619
+%
+% - v3.1 (2024) - YF
+%   Add queries (II) and (III) and adjust query (I)
+%   Affected StackSplit functions are SS_check_input.m,
+%   SS_disp_Esurf_single.m, SS_gen_worldmap.m, SS_stack_Esurf.m
 %==========================================================================
 %==========================================================================
 

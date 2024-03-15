@@ -37,20 +37,22 @@ function [f,sampling,find_res]=SS_check_input(find_res)
 % StackSplit is provided "as is" and without any warranty. The author cannot be
 % held responsible for anything that happens to you or your equipment. Use it
 % at your own risk.
+%
 %==========================================================================
 % Major updates:
 %
-% - v3.1 (2023): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
-%                ORCID: 0000-0002-8566-0619
-%                Email: yvonne.froehlich@kit.edu
-%                Replace "resizem" by "imresize" for MATLAB R2023b and higher
-%                as "resizem" was removed in R2023b
-%                For context see PR https://github.com/michaelgrund/stacksplit/pull/13
-%                Please note that the results of these two functions are not always identical
-%                For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
-%                This issue was reported to and confirmed by the MATLAB Support
-%==================================================================================================================================
-%==================================================================================================================================
+% Yvonne Fröhlich (YF)
+% https://github.com/yvonnefroehlich, https://orcid.org/0000-0002-8566-0619
+%
+% - v3.1 (2024) - YF
+%   Replace "resizem" by "imresize" for MATLAB R2023b and higher as
+%   "resizem" was removed in R2023b
+%   For context see PR https://github.com/michaelgrund/stacksplit/pull/13
+%   Please note that the results of these two functions are not always identical
+%   For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
+%   This issue was reported to and confirmed by the MATLAB Support
+%==========================================================================
+%==========================================================================
 
 global config
 
