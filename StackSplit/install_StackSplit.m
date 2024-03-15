@@ -100,7 +100,11 @@ function install_StackSplit()
 %   Modifications to fix extraction of start time by SplitLab
 %   (unconsidered milliseconds or seconds of start time)
 %   See also https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
-%==========================================================================
+%
+% - v3.1 (2024) - YF
+%   Up on MATLAB R2024a, recommendation "To improve performance, use
+%   isscalar instead of length comparison."
+%   Update length(xyz)==1 to isscalar(xyz)
 %==========================================================================
 
 
@@ -141,14 +145,14 @@ dir_orifiles=dir(['splitlab' filesuffix '.m']);
 % check for unzipped StackSplit folder
 dirSS=dir('StackSpl*');
 
-if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1 && ~isempty(dir_orifiles)
+if ~isempty(dirSS) && isfolder(dirSS.name) && isscalar(dirSS) && ~isempty(dir_orifiles)  % YF 2024-01-11
     disp(' ')
     disp('Installation aborted. Found installed version of StackSplit!')
     errordlg('StackSplit was already installed on your system!')
     return
 end
 
-if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1
+if ~isempty(dirSS) && isfolder(dirSS.name) && isscalar(dirSS)  % YF 2024-01-11
     pathSS=[folderSL '/StackSplit'];
     disp(' ')
     disp('Start installation of StackSplit...')
@@ -256,7 +260,7 @@ end
 
 dir_SWS=dir('*WaveSplitting');
 
-if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && length(dir_SWS)==1
+if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && isscalar(dir_SWS)  % YF 2024-01-11
     cd(dir_SWS.name)
     pathSWS=pwd;
 else
@@ -324,7 +328,7 @@ cd(folderSL)
 
 dir_TOOL=dir('*Tools');
 
-if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && length(dir_TOOL)==1
+if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && isscalar(dir_TOOL)  % YF 2024-01-11
     cd(dir_TOOL.name)
     pathTOOL=pwd;
 else
@@ -365,7 +369,7 @@ cd(folderSL)
 
 dir_priv=dir('*private');
 
-if ~isempty(dir_priv) && isfolder(dir_priv.name) && length(dir_priv)==1
+if ~isempty(dir_priv) && isfolder(dir_priv.name) && isscalar(dir_priv)  % YF 2024-01-11
     cd(dir_priv.name)
     pathpriv=pwd;
 else

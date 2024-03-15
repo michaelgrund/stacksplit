@@ -56,7 +56,11 @@ function uninstall_StackSplit()
 %   Modifications to fix extraction of start time by SplitLab
 %   (unconsidered milliseconds or seconds of start time)
 %   See also https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
-%==========================================================================
+%
+% - v3.1 (2024) - YF
+%   Up on MATLAB R2024a, recommendation "To improve performance, use
+%   isscalar instead of length comparison."
+%   Update length(xyz)==1 to isscalar(xyz)
 %==========================================================================
 
 
@@ -78,7 +82,7 @@ end
 % check for unzipped StackSplit folder
 dirSS=dir('StackSpl*');
 
-if ~isempty(dirSS) && isfolder(dirSS.name) && length(dirSS)==1
+if ~isempty(dirSS) && isfolder(dirSS.name) && isscalar(dirSS)  % YF 2024-01-11
     disp('Uninstall StackSplit...')
 else
     errordlg('Missing StackSplit folder! Uninstallation aborted!')
@@ -121,7 +125,8 @@ rmdir(dirSS.name,'s')
 % check if original SL function (*_ori.m) is available
 dir_orifiles=dir(['*' filesuffix '.m']);
 
-if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && strcmp(dir_orifiles.name,['splitlab' filesuffix '.m'])
+if ~isempty(dir_orifiles) && isscalar(dir_orifiles) && ...
+    strcmp(dir_orifiles.name,['splitlab' filesuffix '.m'])  % YF 2024-01-11
 
     % first delete the current StackSplit version of the function with correct name
     dir_splitlab=dir('splitlab.m');
@@ -148,7 +153,7 @@ end
 
 dir_TOOL=dir('*Tools');
 
-if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && length(dir_TOOL)==1
+if ~isempty(dir_TOOL) && isfolder(dir_TOOL.name) && isscalar(dir_TOOL)  % YF 2024-01-11
     cd(dir_TOOL.name)
 else
     errordlg('Missing subfolder Tools! Uninstallation aborted!')
@@ -225,7 +230,7 @@ cd(folderSL)
 
 dir_priv=dir('*private');
 
-if ~isempty(dir_priv) && isfolder(dir_priv.name) && length(dir_priv)==1
+if ~isempty(dir_priv) && isfolder(dir_priv.name) && isscalar(dir_priv)  % YF 2024-01-11
     cd(dir_priv.name)
 else
     errordlg('Missing subfolder private! Uninstallation aborted!')
@@ -234,8 +239,8 @@ end
 % check if original SL function (*_ori.m) is available
 dir_orifiles=dir(['*' filesuffix '.m']);
 
-if ~isempty(dir_orifiles) && length(dir_orifiles)==1 && ...
-    strcmp(dir_orifiles.name,['seisfigbuttons' filesuffix '.m'])
+if ~isempty(dir_orifiles) && isscalar(dir_orifiles) && ...
+    strcmp(dir_orifiles.name,['seisfigbuttons' filesuffix '.m'])  % YF 2024-01-11
 
     % first delete the current StackSplit version of the function with correct name
     dir_seisfig=dir('seisfigbuttons.m');
@@ -265,7 +270,7 @@ cd(folderSL)
 
 dir_SWS=dir('*WaveSplitting');
 
-if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && length(dir_SWS)==1
+if ~isempty(dir_SWS) && isfolder(dir_SWS.name) && isscalar(dir_SWS)  % YF 2024-01-11
     cd(dir_SWS.name)
 else
     errordlg('Missing subfolder ShearWaveSplitting! Uninstallation aborted!')
