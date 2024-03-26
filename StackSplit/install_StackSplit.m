@@ -93,18 +93,21 @@ function install_StackSplit()
 %==========================================================================
 % Major updates:
 %
-% - v3.0 (2021): Yvonne Fröhlich, Karlsruhe Institute of Technology (KIT),
-%                ORCID: 0000-0002-8566-0619
-%                Email: yvonne.froehlich@kit.edu
-%                GitHub: https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
-%                => modifications to fix extraction of start time by SplitLab
-%                (unconsidered milliseconds or seconds of start time)
+% Yvonne Fröhlich (YF)
+% https://github.com/yvonnefroehlich, https://orcid.org/0000-0002-8566-0619
 %
-% - v3.1 (2024): Yvonne Fröhlich
-%                ORCID: 0000-0002-8566-0619
-%                Up on MATLAB R2024a, recommendation "To improve
-%                performance, use isscalar instead of length comparison."
-%                => Update length(xyz)==1 to isscalar(xyz)
+% - v3.0 (2021) - YF
+%   Modifications to fix extraction of start time by SplitLab
+%   (unconsidered milliseconds or seconds of start time)
+%   See also https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
+%
+% - v3.1 (2024) - YF
+%   Up on MATLAB R2024a, recommendation "To improve performance, use
+%   isscalar instead of length comparison."
+%   Update length(xyz)==1 to isscalar(xyz)
+%
+% - v3.1 (2024) - YF
+%   Improvements to load matTaup Java classes
 %==========================================================================
 
 %==================================================================================================================================
@@ -236,7 +239,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % first rename the original SplitLab files to *_ori
 
-% in total 9 original files have to be modified for running StackSplit
+% in total
+% - 9 original files have to be modified
+% - 1 new files has to be added
+% for running StackSplit
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN FOLDER
@@ -415,14 +421,14 @@ copyfile('saveresult_SS.m',pathSWS)
 copyfile('splitdiagnosticplot_SS.m',pathSWS)
 copyfile('database_editResults_SS.m',pathTOOL)
 copyfile('getFileAndEQseconds_SS.m',pathTOOL)
+copyfile('checkmattaupclass_SS.m',pathTOOL)
 copyfile('seisfigbuttons_SS.m',pathpriv)
 
 % cleanup/remove folder SL_mod
 cd(pathSS)
 rmdir('SL_mod','s')
 
-% cd to the four corresponding folders and rename *_SS.m version to original
-% names
+% cd to the four corresponding folders and rename *_SS.m version to original names
 
 % main folder
 cd(folderSL)
@@ -440,6 +446,7 @@ movefile('splitdiagnosticplot_SS.m','splitdiagnosticplot.m')
 cd(pathTOOL)
 movefile('database_editResults_SS.m','database_editResults.m')
 movefile('getFileAndEQseconds_SS.m','getFileAndEQseconds.m')
+movefile('checkmattaupclass_SS.m','checkmattaupclass.m')
 
 % private folder
 cd(pathpriv)

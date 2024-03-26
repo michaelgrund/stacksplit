@@ -9,6 +9,14 @@ global config eq
 SL_checkversion
 config.version='SplitLab1.0.4';
 
+% YF 2019-12-22
+% Modification due to StackSplit up on v3.1
+% Add modified function checkmattaupclass from Splitlab 1.9.0 for matTaup
+taup_ok = checkmattaupclass;
+if taup_ok==0
+    warning('Troubles loading matTaup!')
+end
+
 [p,f] = fileparts(mfilename('fullpath'));  % directory of SplitLab
 set(0,'DefaultFigurecolor', [224   223   227]/255 ,...
       'DefaultFigureWindowStyle','normal',...
