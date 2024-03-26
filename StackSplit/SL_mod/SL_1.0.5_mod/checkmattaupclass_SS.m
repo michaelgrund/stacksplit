@@ -26,28 +26,28 @@ if all(not_found_taup)  % no match found in classpath
     path_taup = fileparts(which('taup.m'));
 
     if isempty(path_taup)
-        disp('Error: Could not establish matTaup Java path. No phases will be calculated.')
+        disp('Error: Could not establish matTaup Java path. No phases will be calculated!')
         out = false;
         return
     else
 
         fprintf(2,'The matTaup Java Classes will now be loaded.\n')
-        fprintf(2,'Please wait...')
+        fprintf(2,'Please wait ...')
 
         if exist(path2jar,'file')
             javaaddpath(path2jar)
         else
-            disp('Error: Could not find matTaup.jar')
+            disp('Error: Could not find matTaup.jar!')
             out = 0;
             return
         end
 
         evalin('base','global eq thiseq config');
-        evalin('caller','global eq thiseq config')  % these have been cleard previously by javaaddpath....
+        evalin('caller','global eq thiseq config')  % These have been cleared previously by javaaddpath ...
 
-        fprintf(2,'Done\n')
+        fprintf(2,'Done!\n')
         fprintf(2,'The matTaup Java Classes have been loaded for this session of Matlab.\n')
-        fprintf(2,'You can now continue with your work\n\n')
+        fprintf(2,'You can now continue with your work.\n\n')
 
         out = -1;
     end
