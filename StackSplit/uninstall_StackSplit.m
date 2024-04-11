@@ -224,7 +224,7 @@ end
 
 % Delete directly as there is no original SplitLab file (SL 1.0.5 and 1.2.1)
 dir_checkmattaupclass = dir('checkmattaupclass.m');
-% Use directory separator of current plattform
+% Use directory separator of current platform
 delete([dir_checkmattaupclass.folder filesep dir_checkmattaupclass.name]);
 
 %======================================================================
