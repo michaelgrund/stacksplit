@@ -56,14 +56,17 @@ function uninstall_StackSplit()
 %   Modifications to fix extraction of start time by SplitLab
 %   (unconsidered milliseconds or seconds of start time)
 %   See also https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
+%   Commit https://github.com/michaelgrund/stacksplit/commit/eb33a612e9fe2fe84aa5e359bcb102ca25de356c
 %
 % - v3.1 (2024) - YF
 %   Up on MATLAB R2024a, recommendation "To improve performance, use
 %   isscalar instead of length comparison."
 %   Update length(xyz)==1 to isscalar(xyz)
+%   PR #25 https://github.com/michaelgrund/stacksplit/pull/25 
 %
 % - v3.1 (2024) - YF
-%   Improvements to load matTaup Java classes
+%   Improvements regarding loading the matTaup Java classes
+%   PR #26 https://github.com/michaelgrund/stacksplit/pull/26
 %==========================================================================
 
 

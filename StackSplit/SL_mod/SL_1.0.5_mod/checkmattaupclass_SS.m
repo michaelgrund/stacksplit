@@ -2,6 +2,7 @@ function out = checkmattaupclass
 
 % #########################################################################
 % Load matTaup Java classes for SplitLab
+% PR: https://github.com/michaelgrund/stacksplit/pull/26
 % Modified from the checkmattaupclass function of SplitLab 1.9.0
 % https://github.com/IPGP/splitlab/blob/master/SplitLab1.9.0/Tools/checkmattaupclass.m
 % last access 2024-01-30

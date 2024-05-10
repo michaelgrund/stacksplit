@@ -11,7 +11,8 @@ config.version='SplitLab1.0.4';
 
 % YF 2019-12-22
 % Modification due to StackSplit up on v3.1
-% Add modified function checkmattaupclass from Splitlab 1.9.0 for matTaup
+% Add function checkmattaupclass for loading the matTaup Java classes
+% (modified from SplitLab 1.9.0)
 taup_ok = checkmattaupclass;
 if taup_ok==0
     warning('Troubles loading matTaup!')
