@@ -56,11 +56,18 @@ function uninstall_StackSplit()
 %   Modifications to fix extraction of start time by SplitLab
 %   (unconsidered milliseconds or seconds of start time)
 %   See also https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment
+%   Commit https://github.com/michaelgrund/stacksplit/commit/eb33a612e9fe2fe84aa5e359bcb102ca25de356c
 %
 % - v3.1 (2024) - YF
 %   Up on MATLAB R2024a, recommendation "To improve performance, use
 %   isscalar instead of length comparison."
 %   Update length(xyz)==1 to isscalar(xyz)
+%   PR #25 https://github.com/michaelgrund/stacksplit/pull/25 
+%
+% - v3.1 (2024) - YF
+%   Improvements regarding loading the matTaup Java classes
+%   The calculation of travel paths and curves is not affected
+%   PR #26 https://github.com/michaelgrund/stacksplit/pull/26
 %==========================================================================
 
 
@@ -159,11 +166,9 @@ else
     errordlg('Missing subfolder Tools! Uninstallation aborted!')
 end
 
-
 %======================================================================
 %######################################################################
 %======================================================================
-
 files2delete{1}='database_editResults.m';
 files2delete{2}='getFileAndEQseconds.m';
 
@@ -218,6 +223,12 @@ else
         'Uninstallation aborted!'])
     return
 end
+
+% Delete directly as there is no original SplitLab file (SL 1.0.5 and 1.2.1)
+dir_checkmattaupclass = dir('checkmattaupclass.m');
+% Use directory separator of current platform
+delete([dir_checkmattaupclass.folder filesep dir_checkmattaupclass.name]);
+
 %======================================================================
 %######################################################################
 %======================================================================
