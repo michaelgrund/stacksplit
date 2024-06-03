@@ -2,6 +2,7 @@ function out = checkmattaupclass
 
 % #########################################################################
 % Load matTaup Java classes for SplitLab
+% The calculation of travel paths and curves is not affected
 % PR #26 https://github.com/michaelgrund/stacksplit/pull/26
 % Modified from the checkmattaupclass function of SplitLab 1.9.0
 % https://github.com/IPGP/splitlab/blob/master/SplitLab1.9.0/Tools/checkmattaupclass.m

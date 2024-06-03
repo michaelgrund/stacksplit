@@ -66,6 +66,7 @@ function uninstall_StackSplit()
 %
 % - v3.1 (2024) - YF
 %   Improvements regarding loading the matTaup Java classes
+%   The calculation of travel paths and curves is not affected
 %   PR #26 https://github.com/michaelgrund/stacksplit/pull/26
 %==========================================================================
 

@@ -12,6 +12,7 @@ config.version='SplitLab1.0.4';
 % YF 2019-12-22
 % Modification due to StackSplit up on v3.1
 % Add function checkmattaupclass for loading the matTaup Java classes
+% The calculation of travel paths and curves is not affected
 % (modified from SplitLab 1.9.0)
 taup_ok = checkmattaupclass;
 if taup_ok==0
