@@ -13,6 +13,16 @@ warning('off','MATLAB:mir_warning_changing_try_catch');
 SL_checkversion
 config.version='SplitLab1.2.1';
 
+% YF 2019-12-22
+% Modification due to StackSplit up on v3.1
+% Add function checkmattaupclass for loading the matTaup Java classes
+% The calculation of travel paths and curves is not affected
+% (modified from SplitLab 1.9.0)
+taup_ok = checkmattaupclass;
+if taup_ok==0
+    warning('Troubles loading matTaup!')
+end
+
 [p,f] = fileparts(mfilename('fullpath'));  % directory of SplitLab
 set(0,'DefaultFigurecolor', [224   223   227]/255 ,...
       'DefaultFigureWindowStyle','normal',...
