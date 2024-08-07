@@ -7,8 +7,8 @@ StackSplit is a plugin for the MATLAB toolbox [SplitLab](http://splitting.gm.uni
 
 For details regarding installation and usage, see the [UserGuide](https://github.com/michaelgrund/stacksplit/blob/main/StackSplit/Doc/StackSplit_userguide.md).
 
-Citation
---------
+
+## Citation
 
 If you make use of StackSplit in your work, please acknowledge my paper in which the program is described:
 
@@ -16,8 +16,8 @@ If you make use of StackSplit in your work, please acknowledge my paper in which
 
 Optionally, you can also cite the [Zenodo DOI](https://zenodo.org/record/5802051#) given above, which refers to the latest version of this GitHub repository.
 
-Which stacking methods are available?
--------------------------------------
+
+## Which stacking methods are available?
 
 StackSplit grants easy access to four stacking schemes with which single SWS measurements made with SplitLab can be processed:
 
@@ -31,8 +31,8 @@ StackSplit grants easy access to four stacking schemes with which single SWS mea
 
 ![fig4github](https://user-images.githubusercontent.com/23025878/56716351-6d3d2a80-673a-11e9-8b34-2191c119d780.png)
 
-Compatibility with SplitLab and MATLAB versions
------------------------------------------------
+
+## Compatibility with SplitLab and MATLAB versions
 
 |StackSplit|SplitLab|MATLAB|
 |---|---|---|
@@ -43,13 +43,13 @@ Compatibility with SplitLab and MATLAB versions
 
 For details regarding the different StackSplit versions, see the [Changelog](https://github.com/michaelgrund/stacksplit/blob/main/changelog.md).
 
-Contributing
-------------
+
+## Contributing
 
 Did you find a bug or have suggestions for improvements? Simply open a new [issue](https://github.com/michaelgrund/stacksplit/issues) or [pull request](https://github.com/michaelgrund/stacksplit/pulls) here on GitHub.
 
-Related topics
---------------
+
+## Related topics
 
 - SplitLab [1.2.1](https://robporritt.wordpress.com/software/): Updated and expanded version (recommended to use with StackSplit)
 
@@ -63,8 +63,8 @@ Related topics
   
 - [SeisSplit.jl](https://github.com/anowacki/SeisSplit.jl): Shear wave splitting analysis in Julia
 
-References
-----------
+
+## References
 
 - **_Restivo, A. & Helffrich, G. (1999)_**, Teleseismic shear wave splitting measurements in noisy environments, Geophysical Journal International 137, 821-830, https://doi.org/10.1046/j.1365-246x.1999.00845.x.
 - **_Roy, C., Winter, A., Ritter, J. R. R., Schweitzer, J. (2017)_**, On the improvement of SKS splitting measurements by the simultaneous inversion of multiple waveforms (SIMW), Geophysical Journal International, 208, 1508–1523, https://doi.org/10.1093/gji/ggw470.
