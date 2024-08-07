@@ -12,9 +12,23 @@ Citation
 
 If you make use of StackSplit in your work, please acknowledge my paper in which the program is described:
 
-- **_Grund, M. (2017)_**, StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab, *Computers & Geosciences*, 105, 43-50, https://doi.org/10.1016/j.cageo.2017.04.015.
+- [**_Grund, M. (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015).
+StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
+*Computers & Geosciences*, 105, 43-50.
+https://doi.org/10.1016/j.cageo.2017.04.015.
 
-Optionally, you can also cite the [Zenodo DOI](https://zenodo.org/record/5802051#) given above, which refers to the latest version of this GitHub repository.
+Optionally, you can also cite the [Zenodo DOI](https://zenodo.org/record/5802051#) given above, which refers to the latest release of this GitHub repository.
+It's recommanded to cite also the included corrections:
+
+- [**_Walsh, E., Arnold, R. & Savage, M. K. (2013)_**](https://doi.org/10.1002/jgrb.50386).
+Silver and Chan revisited.
+*Journal of Geophysical Research: Solid Earth*, volume 118, issue 10, pages 5500-5515.
+https://doi.org/10.1002/jgrb.50386.
+
+- [**_Fröhlich, Y., Grund, M. & Ritter, J. R. R. (2022)_**](https://doi.org/10.4401/ag-8781).
+On the effects of wrongly aligned seismogram components for shear wave splitting analysis.
+*Annals of Geophysics*, volume 66, issue 2.
+https://doi.org/10.4401/ag-8781.
 
 Which stacking methods are available?
 -------------------------------------
