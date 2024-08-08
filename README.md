@@ -51,14 +51,18 @@ Did you find a bug or have suggestions for improvements? Simply open a new [issu
 Related topics
 --------------
 
-| Software | Description |
-| --- | --- |
-| [SplitLab 1.0.5](http://splitting.gm.univ-montp2.fr/) | Original version (most likely works with StackSplit) |
-| [SplitLab 1.2.1](https://robporritt.wordpress.com/software/) | Updated and expanded version (recommended to use with StackSplit) |
-| [SplitLab 1.9.0](https://github.com/IPGP/splitlab) | Most recent version (not compatible with StackSplit yet) |
-| [SplitPy](https://github.com/paudetseis/SplitPy) | Shear wave splitting analysis in Python (based on SplitLab) |
-| [SWSPy](https://github.com/TomSHudson/swspy) | A Python package for performing shear wave splitting in an automated manner |
-| [SeisSplit.jl](https://github.com/anowacki/SeisSplit.jl) | Shear wave splitting analysis in Julia |
+| Software | Language | Description | Author |
+| --- | --- | --- | --- |
+| SplitLab 1.0.5 | MATLAB | Original SplitLab version | Andreas Wüstefeld |
+| [SplitLab 1.2.1](https://robporritt.wordpress.com/software/) | MATLAB | Update of SplitLab 1.0.5 | Rob Porritt |
+| [SplitLab 1.3.0](https://github.com/nmcreasy/SplitLab1.3.0) | MATLAB | Update of SplitLab 1.2.1 | Neala Creasy |
+| [SplitLab 1.9.0](https://github.com/IPGP/splitlab) | MATLAB | Most recent SplitLab version | IPGP |
+| [StackSplit](https://github.com/michaelgrund/stacksplit) | MATLAB | Plugin for multi-event analyses in SplitLab | Michael Grund |
+| [SplitLab-TemporalAlignment](https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment) | MATLAB | Correct temporal alignment of component traces in SplitLab | Yvonne Fröhlich |
+| [SplitRacer](https://www.miriam-reiss.com/splitracer) | MATLAB | Semi-automated workflow| Miriam Reiss |
+| [SplitPy](https://github.com/paudetseis/SplitPy) | Python | Based on SplitLab | Pascal Audet |
+| [SWSPy](https://github.com/TomSHudson/swspy) | Python | Automated workflow | Tom Hudson |
+| [SeisSplit.jl](https://github.com/anowacki/SeisSplit.jl) | Julia | | Andy Nowacki |
 
 References
 ----------
