@@ -10,14 +10,15 @@ For details regarding installation and usage, see the [UserGuide](https://github
 Citation
 --------
 
-If you make use of StackSplit in your work, please acknowledge my paper in which the program is described:
+If you make use of StackSplit in your work, please acknowledge the paper in which the program is described.
+Optionally, you can also cite the [Zenodo DOI](https://zenodo.org/record/5802051#) given above,
+which refers to the latest release of this GitHub repository.
 
 - [**_Grund, M. (2017)_**](https://doi.org/10.1016/j.cageo.2017.04.015).
 StackSplit - a plugin for multi-event shear wave splitting analyses in SplitLab.
 *Computers & Geosciences*, 105, 43-50.
 https://doi.org/10.1016/j.cageo.2017.04.015.
 
-Optionally, you can also cite the [Zenodo DOI](https://zenodo.org/record/5802051#) given above, which refers to the latest release of this GitHub repository.
 It's recommanded to cite also the included corrections:
 
 - [**_Walsh, E., Arnold, R. & Savage, M. K. (2013)_**](https://doi.org/10.1002/jgrb.50386).
