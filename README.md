@@ -23,12 +23,12 @@ It's recommanded to cite also the included corrections:
 
 - [**_Walsh, E., Arnold, R. & Savage, M. K. (2013)_**](https://doi.org/10.1002/jgrb.50386).
 Silver and Chan revisited.
-*Journal of Geophysical Research: Solid Earth*, volume 118, issue 10, pages 5500-5515.
+*Journal of Geophysical Research: Solid Earth*, 118(10), 5500-5515.
 https://doi.org/10.1002/jgrb.50386.
 
 - [**_Fröhlich, Y., Grund, M. & Ritter, J. R. R. (2022)_**](https://doi.org/10.4401/ag-8781).
 On the effects of wrongly aligned seismogram components for shear wave splitting analysis.
-*Annals of Geophysics*, volume 66, issue 2.
+*Annals of Geophysics*, 66(2).
 https://doi.org/10.4401/ag-8781.
 
 Which stacking methods are available?
