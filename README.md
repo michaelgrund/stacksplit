@@ -58,10 +58,10 @@ Related topics
 | [SplitLab 1.3.0](https://github.com/nmcreasy/SplitLab1.3.0) | MATLAB | Update of SplitLab 1.2.1 | Neala Creasy |
 | [SplitLab 1.9.0](https://github.com/IPGP/splitlab) | MATLAB | Most recent SplitLab version | IPGP |
 | [SplitLab-TemporalAlignment](https://github.com/yvonnefroehlich/SplitLab-TemporalAlignment) | MATLAB | Correct temporal alignment of component traces in SplitLab | Yvonne Fröhlich |
-| [SplitRacer](https://www.miriam-reiss.com/splitracer) | MATLAB | Semi-automated workflow| Miriam Reiss |
+| [SplitRacer](https://www.miriam-reiss.com/splitracer) | MATLAB | Semi-automated workflow | Miriam Reiss |
 | [SplitPy](https://github.com/paudetseis/SplitPy) | Python | Based on SplitLab | Pascal Audet |
 | [SWSPy](https://github.com/TomSHudson/swspy) | Python | Automated workflow | Tom Hudson |
-| [SeisSplit.jl](https://github.com/anowacki/SeisSplit.jl) | Julia | | Andy Nowacki |
+| [SeisSplit.jl](https://github.com/anowacki/SeisSplit.jl) | Julia |  | Andy Nowacki |
 
 References
 ----------
