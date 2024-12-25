@@ -1,4 +1,4 @@
-function h=SS_prep_SIMW(h)
+function h = SS_prep_SIMW(h)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,7 +9,7 @@ function h=SS_prep_SIMW(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% prepare waveforms of selected events for application of SIMW
+% Prepare waveforms of selected events for application of SIMW
 %
 %==========================================================================
 % LICENSE
@@ -75,7 +75,7 @@ index=get(h.list,'value');
 %=============================================================================
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-if length(index)==1 % one single event
+if isscalar(index) % one single event  % YF 2024-01-07
 
     tapdesign=tukeywin(length(find_res(index).results.Qcut),h.usetap);
 

@@ -3,7 +3,7 @@
 
 Versions
 - December 2021 (v3.0)
-- January 2023 (v3.1)
+- Monat YYYY (v3.1)
 
 Changes
 - Mainly written: 2021-12-23 (**Michael Grund**)
@@ -34,7 +34,7 @@ Contents
 Requirements
 ------------
 
-StackSplit should run on every computer system on which the original [SplitLab](http://splitting.gm.univ-montp2.fr/)
+StackSplit should run on every operating system on which the original [SplitLab](http://splitting.gm.univ-montp2.fr/)
 package runs. Thus, MATLAB 7.0 or higher, the Mapping Toolbox and for full functionality the Signal Processing
 Toolbox are required. If MATLAB R2014b or higher is running on your system or no license for the
 Mapping Toolbox is available, I recommend to use the [updated SplitLab](https://robporritt.wordpress.com/software/)

@@ -1,4 +1,4 @@
-function h=SS_gen_legends(h)
+function h = SS_gen_legends(h)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,7 +9,8 @@ function h=SS_gen_legends(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% generate legends to display qualities of single measurements
+% Generate legends to display the qualities of the single measurements
+% separately for nulls and splits
 %
 %==========================================================================
 % LICENSE

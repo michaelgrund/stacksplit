@@ -1,4 +1,4 @@
-function h=SS_gen_worldmap(h)
+function h = SS_gen_worldmap(h)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,8 +9,8 @@ function h=SS_gen_worldmap(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% generate world map that displays the station and currently selected events
-% from list
+% Generate world map that displays the station and currently selected
+% events from list
 %
 %==========================================================================
 % LICENSE
@@ -62,9 +62,9 @@ if config.maptool==1
 
     fileparts(mfilename('fullpath'));
     matlab_version = SS_check_matlab_version();
-    % YF 2023-01-04
+    % YF 2023-01-04, 2023-08-16
     % for details please see SS_check_matlab_version.m
-    if matlab_version==2 % MATLAB R2020b and higher
+    if matlab_version > 1  % MATLAB R2020b and higher
         coast_data = load('coastlines');
     else
         coast_data = load('coast');
@@ -84,9 +84,9 @@ if config.maptool==1
     % plot plate boundaries & continents
     plotm(plates_data.PBlat, plates_data.PBlong, 'LineStyle','-','Linewidth',1,'Tag',...
         'Platebounds','Color',[1.2 1 1]*.8, 'ButtonDownFcn', '', 'HitTest', 'off')
-    % YF 2023-01-04
+    % YF 2023-01-04, 2023-08-16
     % for details please see SS_check_matlab_version.m
-    if matlab_version==2 % MATLAB R2020b and higher
+    if matlab_version > 1  % MATLAB R2020b and higher
         fillm(coast_data.coastlat,coast_data.coastlon,'FaceColor',[1 1 1]*.65,'EdgeColor','none','Tag',...
             'Continents', 'ButtonDownFcn', '', 'HitTest', 'off');
     else
@@ -129,8 +129,10 @@ else
     h.EQstatsax=ax;
 
     % check for files needed to construct "alternative" map
-    if exist('SL_plates.mat', 'file')==2 && exist('SL_coasts.mat', 'file')==2 ...
-             && exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file')==2 && exist('ncread')
+    if exist('SL_plates.mat', 'file')==2 && ...
+       exist('SL_coasts.mat', 'file')==2 && ...
+       exist('ETOPO1_Ice_g_gmt4_1deg.grd', 'file')==2 && ...
+       exist('ncread', 'builtin')
 
         % matlab structures included with this distribution
         coast_data = load('SL_coasts.mat');

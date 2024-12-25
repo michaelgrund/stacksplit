@@ -9,37 +9,39 @@ function SS_stacksplit_start
 %==========================================================================
 % FILE DESCRIPTION
 %
-% main function of StackSplit
+% Main function of StackSplit
 %
 % StackSplit is a plugin for the MATLAB toolbox SplitLab (Wüstefeld et al.,
-% 2008) which allows to apply multi-event techniques for shear wave splitting
-% measurements directly from within the main program.
+% 2008) which allows to apply multi-event techniques for shear wave
+% splitting measurements directly from within the main program.
 %
 %
-% !!! NOTE: StackSplit cannot operate without an installed SplitLab version !!!
+% !!! StackSplit cannot operate without an installed SplitLab version !!!
 %
 % !!! Before using StackSplit, take a look into the UserGuide !!!
 %
 %
-% For MATLAB version 2014b and higher I recommend to use the updated SplitLab
-% version by Rob Porritt (available via https://robporritt.wordpress.com/software/)
+% For MATLAB version 2014b and higher I recommend to use the updated
+% SplitLab version by Rob Porritt, available at
+% https://robporritt.wordpress.com/software/
 %
-% The use of StackSplit requires small modifications in some of the original
-% SplitLab functions which partly were taken from Rob Porritts updated version 1.2.1.
-% These modified functions come with this package and must replace the original ones.
-% An overview about these changes is given in SL2SS_changelog.txt in StackSplit/doc.
+% The use of StackSplit requires modifications in some of the original 
+% SplitLab functions which partly were taken from Rob Porritts updated
+% version 1.2.1. These modified functions come with this package and must
+% replace the original ones. An overview about these changes is given in 
+% SL2SS_changelog.txt in StackSplit/doc.
 %
-% StackSplit allows to apply up to now 4 stacking schemes for already existing
-% single SWS measurements (see also REFERENCES section below):
+% StackSplit allows to apply up to now 4 stacking schemes for already
+% existing single SWS measurements (see also REFERENCES section below):
 %
-% 1) SIMW: simultaneous inversion of multiple waveforms in time domain
-%          (Roy et al., 2017)
-% 2) WS  : stacking of error surfaces, normalized on minimum of each single surface
-%          (Wolfe & Silver, 1998)
-% 3) RH  : modified WS method with weight depending on SNR of each measurement
-%          (Restivo & Helffrich, 1999)
-% 4) def : stacking of error surfaces without weighting following, e.g.,
-%          PhD thesis of Wüstefeld (2007)
+% 1) SIMW      : simultaneous inversion of multiple waveforms in the time
+%                domain (Roy et al., 2017)
+% 2) WS        : stacking of error surfaces, normalized on the minimum of
+%                each single surface (Wolfe & Silver, 1998)
+% 3) RH        : modified WS method with weight depending on the SNR of
+%                each single measurement (Restivo & Helffrich, 1999)
+% 4) no weight : stacking of error surfaces without weighting following,
+%                e.g., PhD thesis of Wüstefeld (2007)
 %
 %==========================================================================
 % REFERENCES
@@ -65,19 +67,26 @@ function SS_stacksplit_start
 %
 % Roy et al. (2017), On the improvement of SKS splitting measurements by
 %    the simultaneous inversion of multiple waveforms (SIMW), GJI 208(3),
-%    1508–1523, https://doi.org/10.1093/gji/ggw470
+%    1508–1523, https://doi.org/10.1093/gji/ggw470.
 %
+% Wüstefeld, A. (2007), Methods and applications of shear wave splitting:
+%    The East European Craton. PhD thesis, Univ. de Montpellier, France, 
+%    http://splitting.gm.univ-montp2.fr/, last accessed 11 January 2019.
+% 
 % Restivo & Helffrich (1999), Teleseismic shear wave splitting
-%    measurements in noisy environments, GJI 137, 821-830
+%    measurements in noisy environments, GJI 137, 821-830,
+%    https://doi.org/10.1046/j.1365-246x.1999.00845.x.
 %
 % Wolfe & Silver (1998), Seismic anisotropy of oceanic upper mantle: Shear
-%    wave splitting methodologies and observations, JGR 103(B1), 749-771
+%    wave splitting methodologies and observations, JGR 103(B1), 749-771,
+%    https://doi.org/10.1029/97JB02023.
 %
 % Silver & Chan (1991), Shear wave splitting and subcontinental mantle
-%    deformation, JGR 96, 16429–16454
+%    deformation, JGR 96, 16429–16454, https://doi.org/10.1029/91JB00899.
 %
 % Bowman & Ando (1987), Shear-wave splitting in the upper-mantle wedge
-%    above the Tonga subduction zone. Geophys. J. Roy. Astron. Soc. 88, 2541
+%    above the Tonga subduction zone. Geophys. J. Roy. Astron. Soc. 88,
+%    2541, https://doi.org/10.1111/j.1365-246X.1987.tb01367.x.
 %
 %==========================================================================
 % LICENSE
@@ -127,7 +136,7 @@ config.SS_version='3.1';
 % - v3.0 released 2021-12-23
 %   https://github.com/michaelgrund/stacksplit/releases/tag/v3.0
 %   https://doi.org/10.5281/zenodo.5802051
-% - v3.1 upcoming 2023-01-DD
+% - v3.1 upcoming YYYY-MM-DD
 %   https://github.com/michaelgrund/stacksplit/releases/tag/v3.1
 %VVVVVVVVVVVVVVVVVVVVVVV
 
@@ -811,7 +820,7 @@ end
 
 %==================================================================================================================================
 %==================================================================================================================================
-% call TAPER popup
+% call TAPER pop up
 
 function call_popTAP(hObject,~,~)
 
@@ -820,7 +829,7 @@ function call_popTAP(hObject,~,~)
     h=guidata(hObject);
     checkpop=get(h.pop(1),'Value');
 
-    popupcont=0:0.1:1; % assign corresponding value to selected position in popup menu, 0 corresponds to none
+    popupcont=0:0.1:1; % assign corresponding value to selected position in pop up menu, 0 corresponds to none
     usetap=popupcont(checkpop);
     h.usetap=usetap;
 
@@ -834,7 +843,7 @@ end
 
 %==================================================================================================================================
 %==================================================================================================================================
-% call SURF popup, Esurf or EVsurf
+% call SURF pop up, Esurf or EVsurf
 
 function call_popSURF(hObject,~,~)
 
@@ -857,7 +866,7 @@ end
 
 %==================================================================================================================================
 %==================================================================================================================================
-% call maxBAZ popup
+% call maxBAZ pop up
 
 function call_popMAXBAZ(hObject,~,~)
 
@@ -873,7 +882,7 @@ function call_popMAXBAZ(hObject,~,~)
 
 end
 
-% call maxdist popup
+% call maxdist pop up
 function call_popMAXDIST(hObject,~,~)
 
     global config
@@ -888,7 +897,7 @@ function call_popMAXDIST(hObject,~,~)
 
 end
 
-% call maxpol popup
+% call maxpol pop up
 function call_popMAXPOL(hObject,~,~)
 
     global config

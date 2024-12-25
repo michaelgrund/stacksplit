@@ -1,4 +1,4 @@
-function h=SS_saveresults(h)
+function h = SS_saveresults(h)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,7 +9,11 @@ function h=SS_saveresults(h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% write results of stacked error surfaces/SIMW to txt-file, generate mat-file
+% Write results of stacked error surfaces and SIMW to separate txt-files,
+% generate common mat-file.
+% For SIMW, export the diagnostic plot to the selected file format, note
+% for each saved measurement a corresponding diagnostic plot is saved.
+
 %
 %==========================================================================
 % LICENSE
@@ -85,16 +89,19 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     datesall=vertcat(ev_used.date);
     yyyyJDs=[datesall(:,1) datesall(:,7)];
 
-    string_ev_used=[];
+    string_ev_used = [];
     for ii=1:length(ev_used)
-      phase_used=ev_used(ii).results.SplitPhase;
-      string_ev_used=horzcat(string_ev_used,[num2str(yyyyJDs(ii,1)) '.' num2str(yyyyJDs(ii,2)) ' (' phase_used ')   ']);
+      phase_used = ev_used(ii).results.SplitPhase;
+      string_ev_used = horzcat( ...
+          string_ev_used, ...
+          [num2str(yyyyJDs(ii,1)) '.' num2str(yyyyJDs(ii,2)) ' (' phase_used ')   '] ...
+      );
     end
     %....................................
 
     fname = fullfile(config.savedir,['splitresultsSTACK_' config.project(1:end-4) '.txt' ]);
 
-    xst   = exist(fname);
+    xst   = exist(fname,'file');
     fid   = fopen(fname,'a+');
     if ~xst
         fprintf(fid,'Stacked surface (ME or EV) splitting results, methods: nw (no weight), WS (Wolfe & Silver, 1998), RH (Restivo & Helffrich, 1999)');
@@ -207,7 +214,7 @@ if exist('h','var') && sum([h.check(1).Value h.check(2).Value h.check(3).Value])
     if outtext==1
         disp(['Saved result to file < splitresultsSTACK_' config.project(1:end-4) '.txt > (with remark)!'])
     else
-        disp(['Saved result to file << splitresultsSTACK_' config.project(1:end-4) '.txt >> (without remark)!'])
+        disp(['Saved result to file < splitresultsSTACK_' config.project(1:end-4) '.txt > (without remark)!'])
     end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -248,15 +255,18 @@ else
     datesall=vertcat(ev_used.date);
     yyyyJDs=[datesall(:,1) datesall(:,7)];
 
-    string_ev_used=[];
+    string_ev_used = [];
     for ii=1:length(ev_used)
-      phase_used=ev_used(ii).results.SplitPhase;
-      string_ev_used=horzcat(string_ev_used,[num2str(yyyyJDs(ii,1)) '.' num2str(yyyyJDs(ii,2)) ' (' phase_used ')   ']);
+      phase_used = ev_used(ii).results.SplitPhase;
+      string_ev_used = horzcat( ...
+          string_ev_used, ...
+          [num2str(yyyyJDs(ii,1)) '.' num2str(yyyyJDs(ii,2)) ' (' phase_used ')   '] ...
+      );
     end
     %....................................
     fname = fullfile(config.savedir,['splitresultsSIMW_' config.project(1:end-4) '.txt' ]);
 
-    xst   = exist(fname);
+    xst   = exist(fname,'file');
     fid   = fopen(fname,'a+');
     if ~xst
         fprintf(fid,'Splitting results from SIMW analysis' );
@@ -306,8 +316,12 @@ else
 
     formatstr='%5.3f %5.3f %3.1f %3.1f %3.1f %5.3f %5.3f %s \n';
 
-    fprintf(fid,formatstr,...
-       config.slong, config.slat, SIMW_temp.phiSC(2),SIMW_temp.dtSC(2)*scale_bar,thick_bar,SIMW_temp.bazi_mean,SIMW_temp.dist_mean,config.stnname);
+    fprintf( ...
+       fid, formatstr, ...
+       config.slong, config.slat, ...
+       SIMW_temp.phiSC(2), SIMW_temp.dtSC(2)*scale_bar, thick_bar, ...
+       SIMW_temp.bazi_mean, SIMW_temp.dist_mean, config.stnname ...
+   );
     fclose(fid);
 
     %==========================================================================
@@ -371,7 +385,7 @@ else
     if outtext==1
         disp(['Saved result to file < splitresultsSIMW_' config.project(1:end-4) '.txt > (with remark)!'])
     else
-        disp(['Saved result to file << splitresultsSIMW_' config.project(1:end-4) '.txt >> (without remark)!'])
+        disp(['Saved result to file < splitresultsSIMW_' config.project(1:end-4) '.txt > (without remark)!'])
     end
 
     %==========================================================================

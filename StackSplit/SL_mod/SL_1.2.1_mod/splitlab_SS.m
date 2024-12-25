@@ -13,6 +13,16 @@ warning('off','MATLAB:mir_warning_changing_try_catch');
 SL_checkversion
 config.version='SplitLab1.2.1';
 
+% YF 2019-12-22
+% Modification due to StackSplit up on v3.1
+% Add function checkmattaupclass for loading the matTaup Java classes
+% The calculation of travel paths and curves is not affected
+% (modified from SplitLab 1.9.0)
+taup_ok = checkmattaupclass;
+if taup_ok==0
+    warning('Troubles loading matTaup!')
+end
+
 [p,f] = fileparts(mfilename('fullpath'));  % directory of SplitLab
 set(0,'DefaultFigurecolor', [224   223   227]/255 ,...
       'DefaultFigureWindowStyle','normal',...
@@ -249,12 +259,12 @@ end
 %###################################################
 %===================================================
 
-val =get(gcbo,'Value');
-if  val ==1;
+val = get(gcbo,'Value');
+if  val == 1
     %"Load" string... do nothing!
     return
 elseif  val == 2 %Browse...
-    str ={'*.pjt', '*.pjt - SplitLab projects files';
+    str = {'*.pjt', '*.pjt - SplitLab projects files';
         '*.mat', '*.mat - MatLab files';
         '*.*',     '* - All files'};
     pjtlist = getpref('Splitlab','History');
@@ -303,14 +313,14 @@ splitlab
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function savecallback(src,e)
 global config eq
-str ={'*.pjt', '*.pjt - SplitLab projects files';
+str = {'*.pjt', '*.pjt - SplitLab projects files';
     '*.mat', '*.mat - MatLab files';
     '*.*',     '* - All files'};
 [tmp1,tmp2]=uiputfile( str ,'Project file', ...
     [config.projectdir, filesep, config.project]);
 
 if isstr(tmp2)
-    oldpjt = config.project ;
+    oldpjt = config.project;
     config.projectdir = tmp2;
     config.project    = tmp1;
     newfile = fullfile(tmp2,tmp1);
@@ -334,7 +344,7 @@ if isstr(tmp2)
     save(fullfile(tmp2,tmp1),    'config','eq')
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     files   = {};
-    for k =1:length(pjtlist);
+    for k = 1:length(pjtlist)
         [pp,name,ext] = fileparts(pjtlist{k});
         files{k}=[name ext];
     end

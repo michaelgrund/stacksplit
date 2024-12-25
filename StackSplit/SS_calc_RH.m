@@ -1,4 +1,5 @@
-function [wf,countN]=SS_calc_RH(SNR,bazi_single,bazi_all,h)
+function [wf, countN] = SS_calc_RH(SNR, bazi_single, bazi_all, h)
+% h needed for plotting weighting function uncomment lines up on 68
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,9 +10,9 @@ function [wf,countN]=SS_calc_RH(SNR,bazi_single,bazi_all,h)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% 1) calculate weighting factors for a specific SNR
-% 2) calculate normalization factors depending on BAZ distribution
-%
+% Calculate
+%   1) weighting factors for a specific SNR
+%   2) normalization factors depending on BAZ distribution
 % following the definition of Restivo & Helffrich (1999)
 %
 %==========================================================================

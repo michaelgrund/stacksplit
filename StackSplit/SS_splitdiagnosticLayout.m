@@ -1,4 +1,4 @@
-function [axH, axRC, axSC,axSeis, axwm] = SS_splitdiagnosticLayout(Synfig)
+function [axH, axRC, axSC, axSeis, axwm] = SS_splitdiagnosticLayout(Synfig)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,8 +9,8 @@ function [axH, axRC, axSC,axSeis, axwm] = SS_splitdiagnosticLayout(Synfig)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% generate diagnostic plot for SIMW analysis, this function is a modified
-% version of the original SL function < splitdiagnosticLayout.m >
+% Generate diagnostic plot for SIMW analysis, this function is a modified
+% version of the original SplitLab function < splitdiagnosticLayout.m >
 %
 %==========================================================================
 % LICENSE
@@ -157,8 +157,8 @@ end
 SIMW_temp.remark=remark;
 
 %% xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-function localSavePicture(hFig,evt)
-global config thiseq SIMW_temp
+function localSavePicture(~, ~)  % hFig, evt -> un-used input arguments YF 2023-12-27
+% global config thiseq SIMW_temp  % -> un-used global variables YF 2023-12-27
 defaultname = 'Multi_result_SIMW';
 defaultextension = '.pdf';
 exportfiguredlg(gcbf, [defaultname defaultextension])

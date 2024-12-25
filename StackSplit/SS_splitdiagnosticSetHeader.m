@@ -1,4 +1,7 @@
-function SS_splitdiagnosticSetHeader(axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV,pol,  splitoption, bazi_int, dist_int)
+function SS_splitdiagnosticSetHeader( ...
+    axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV, ...
+    ~, ~, bazi_int, dist_int ...  % pol, splitoption -> un-used input arguments YF 2023-12-27
+)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,8 +12,9 @@ function SS_splitdiagnosticSetHeader(axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV,
 %==========================================================================
 % FILE DESCRIPTION
 %
-% set header for diagnostic plot of SIMW analysis, this function is a modified
-% SplitLab function
+% Set header for diagnostic plot of SIMW analysis, this function is a
+% modified version of the original SplitLab function
+% < splitdiagnosticSetHeader.m >
 %
 %==========================================================================
 % LICENSE
@@ -41,7 +45,7 @@ function SS_splitdiagnosticSetHeader(axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV,
 %==================================================================================================================================
 %==================================================================================================================================
 
-global thiseq config
+global config  % thiseq % -> un-used global variable YF 2023-12-27
 
 axes(axH);
 str11 = sprintf('%4.0f <%4.0f\\circ <%4.0f', phiRC);
@@ -53,26 +57,26 @@ str23 = sprintf('%3.1f < %3.1f s < %3.1f', dtEV);
 
 %%
 
-switch splitoption
-    case 'Minimum Energy'
-       optionstr ='      Minimum Energy';
-    case 'Eigenvalue: max(lambda1)'
-       optionstr ='             max(\lambda1)';
-    case 'Eigenvalue: max(lambda1 / lambda2)'
-       optionstr ='        max(\lambda1 / \lambda2)';
-    case 'Eigenvalue: min(lambda2)'
-       optionstr ='             min(\lambda2)  ';
-    case 'Eigenvalue: min(lambda1 * lambda2)'
-       optionstr ='        min(\lambda1 * \lambda2)';
-end
+% switch splitoption
+%     case 'Minimum Energy'
+%        optionstr ='      Minimum Energy';
+%     case 'Eigenvalue: max(lambda1)'
+%        optionstr ='             max(\lambda1)';
+%     case 'Eigenvalue: max(lambda1 / lambda2)'
+%        optionstr ='        max(\lambda1 / \lambda2)';
+%     case 'Eigenvalue: min(lambda2)'
+%        optionstr ='             min(\lambda2)  ';
+%     case 'Eigenvalue: min(lambda1 * lambda2)'
+%        optionstr ='        min(\lambda1 * \lambda2)';
+% end
 
 str ={['\rm                     Station: \bf' config.stnname ''];
     ['\rmBackazimuth:    \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],bazi_int) '   \rmDistance:  \bf' sprintf(['%5.1f'  '\\circ - %5.1f'  '\\circ'],dist_int) ];
-    [''];
+    '';
     ['\rmRotation-Correlation: ' str11 '     ' str21 ];
     ['\rm      Minimum Energy: ' str12 '     ' str22 ];
     ['\rm          Eigenvalue: ' str13 '     ' str23 ];
-    ['             \rmQuality: \bf ?       \rm     IsNull: \bf ? \rm ']};
+    '             \rmQuality: \bf ?       \rm     IsNull: \bf ? \rm '};
 
 %%% without world map
 % text(.6, .5,str,...

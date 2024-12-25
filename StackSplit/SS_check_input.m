@@ -1,4 +1,4 @@
-function [f,sampling,find_res]=SS_check_input(find_res)
+function [f, sampling, find_res] = SS_check_input(find_res)
 %==========================================================================
 %##########################################################################
 %#                                                                        #
@@ -9,9 +9,9 @@ function [f,sampling,find_res]=SS_check_input(find_res)
 %==========================================================================
 % FILE DESCRIPTION
 %
-% check if input data (results of SplitLab) fulfill several criteria for
-% the sampling rate and the accuracy factor for plotting stacked error
-% surfaces
+% Check if input data (results of SplitLab) fulfill several criteria
+% regarding the sampling rate and the accuracy factor for plotting
+% stacked error surfaces
 %
 %==========================================================================
 % LICENSE
@@ -37,10 +37,22 @@ function [f,sampling,find_res]=SS_check_input(find_res)
 % StackSplit is provided "as is" and without any warranty. The author cannot be
 % held responsible for anything that happens to you or your equipment. Use it
 % at your own risk.
+%
 %==========================================================================
-
-%==================================================================================================================================
-%==================================================================================================================================
+% Major updates:
+%
+% Yvonne Fröhlich (YF)
+% https://github.com/yvonnefroehlich, https://orcid.org/0000-0002-8566-0619
+%
+% - v3.1 (2024) - YF
+%   Replace "resizem" by "imresize" for MATLAB R2023b and higher as
+%   "resizem" was removed in R2023b
+%   For context see PR https://github.com/michaelgrund/stacksplit/pull/13
+%   Please note that the results of these two functions are not always identical
+%   For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
+%   This issue was reported to and confirmed by the MATLAB Support
+%==========================================================================
+%==========================================================================
 
 global config
 
@@ -71,16 +83,20 @@ else
    check_accC=unique(check_rowsC);
 end
 
-% define f for further calculations
+% define accuracy factor f for further calculations
 
-% f: accuracy factor, 1==using all possibilities, which is slowest; only values: 2^n,
-% value must be the same like in function splitSilverChan.m
-% !!! if you use an other setting, please add a corresponding line in the
-% following if query !!!
+% only values: 2^n
+% f=1: using all possibilities, which is slowest
+
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+% - only valid when using the SC method
+% - value must be the same as in function splitSilverChan.m
+% - for another setting, please add a corresponding line in the query below
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 if check_acc==180
-     f=1;
-elseif check_acc==90 % default in SL
+    f=1;
+elseif check_acc==90 % default in SplitLab for SC method
     f=2;
 elseif check_acc==45
     f=4;
@@ -96,13 +112,17 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
    use_samp=max(unique(samp));
 
    if length(unique(samp)) > 1
-        disp(['Data set contains more than one sampling rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ')!'])
-        disp(['Resample all traces to the lowest (' num2str(use_samp) ') and resize surfaces!'])
+        disp('Data set contains more than one sampling')
+        disp(['rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ')!'])
+        disp('Resample all traces to the lowest sampling')
+        disp(['rate (' num2str(use_samp) ') and resize surfaces!'])
    elseif length(unique(check_rows)) > 1
         disp('Data set contains more than one accuracy factor! Resize surfaces!')
    else
-        disp(['Data set contains more than one sampling rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ')'])
-        disp(['and accuracy factor! Resample all traces to the lowest (' num2str(use_samp) ') and resize surfaces!'])
+        disp('Data set contains more than one sampling')
+        disp(['rate (' regexprep(num2str(unique(samp),3), '\s*', ',') ') and one accuracy factor!'])
+        disp('Resample all traces to the lowest sampling')
+        disp(['rate (' num2str(use_samp) ') and resize surfaces!'])
    end
 
    for ii=1:length(find_res)
@@ -142,25 +162,40 @@ if length(unique(samp)) > 1 || length(unique(check_rows)) > 1 ||...
 
        end
 
-            %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            % resize error surfaces
-            size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
+       %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+       % resize error surfaces
+       resizemeth = 'nearest';
+       size_dt_test = length(fix(0:f*1:config.maxSplitTime/use_samp));
 
-            Esurfold=find_res(ii).results.Ematrix;
-            EVsurfold=find_res(ii).results.EVmatrix;
-            Csurfold=find_res(ii).results.Cmatrix;
+       Esurfold = find_res(ii).results.Ematrix;
+       EVsurfold = find_res(ii).results.EVmatrix;
+       Csurfold = find_res(ii).results.Cmatrix;
 
-            % if sampling rate varies, matrix is resized to dimension of
-            % smallest dimension in data set, if accuracy factor varies the
-            % same, otherwise the matrices are not resized.
-            Esurfnew = resizem(Esurfold,[check_acc size_dt_test]);
-            EVsurfnew = resizem(EVsurfold,[check_acc size_dt_test]);
-            Csurfnew = resizem(Csurfold,[check_accC size_dt_test]);
+       % if the sampling rate varies, the matrices are resized to the
+       % smallest dimension in the data set, if the accuracy factor
+       % varies the same, otherwise the matrices are not resized.
 
-            find_res(ii).results.Ematrix=Esurfnew;
-            find_res(ii).results.EVmatrix=EVsurfnew;
-            find_res(ii).results.Cmatrix=Csurfnew;
-            %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+       % YF 2023-01-17, 2023-08-16
+       % "resizem" was removed in R2023b and instead "imresize" should be used
+       % For context see PR https://github.com/michaelgrund/stacksplit/pull/13
+       % Please note that the results of these two functions are not always identical
+       % For examples see https://github.com/michaelgrund/stacksplit/pull/13#issuecomment-1624974426
+       % This issue was reported to and confirmed by the MATLAB Support
+       matlab_version = SS_check_matlab_version();
+       if matlab_version == 3  % MATLAB R2023b and higher
+           Esurfnew = imresize(Esurfold, [check_acc size_dt_test], resizemeth);
+           EVsurfnew = imresize(EVsurfold, [check_acc size_dt_test], resizemeth);
+           Csurfnew = imresize(Csurfold, [check_accC size_dt_test], resizemeth);
+       else
+           Esurfnew = resizem(Esurfold, [check_acc size_dt_test]);
+           EVsurfnew = resizem(EVsurfold, [check_acc size_dt_test]);
+           Csurfnew = resizem(Csurfold, [check_accC size_dt_test]);
+       end
+
+       find_res(ii).results.Ematrix = Esurfnew;
+       find_res(ii).results.EVmatrix = EVsurfnew;
+       find_res(ii).results.Cmatrix = Csurfnew;
+       %XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
    end
 

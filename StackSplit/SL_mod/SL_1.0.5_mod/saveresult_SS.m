@@ -4,17 +4,19 @@ function saveresult(next)
 global eq thiseq config
 
 %% checking
-null= ~isfield(thiseq,'AnisoNull');
-qual= ~isfield(thiseq,'Q');
+null = ~isfield(thiseq,'AnisoNull');
+qual = ~isfield(thiseq,'Q');
 if any([qual,null])
-    str=[];
+    str = [];
+    % YF 2023-11-04
+    % "strvcat" is not recommended by MATLAB anymore
     if qual
-        str=strvcat(str,'Please select QUALITY of this result');
+        str = char(str,'Please select QUALITY of this result');
     end
     if null
-        str=strvcat(str,'Please select if this result is a NULL');
+        str = char(str,'Please select if this result is a NULL');
     end
-    errordlg(strvcat(str,' ' ,'or select "Discard" in the Result menu...'),'Error');
+    errordlg(char(str,' ','or select "Discard" in the Result menu...'),'Error');
     return
 end
 
@@ -39,7 +41,10 @@ eq(num).results(n).f          =  thiseq.tmpresult.f;
 eq(num).results(n).SNR        =  thiseq.tmpresult.SNR;
 eq(num).results(n).remark     =  thiseq.tmpresult.remark;
 eq(num).results(n).method     =  config.splitoption;
-eq(num).results(n).timestamp  =  datestr(now);
+% YF 2023-11-03
+% "datestr" and "now" are not recommended by MATLAB up on R2022b
+% eq(num).results(n).timestamp  =  datestr(now);
+eq(num).results(n).timestamp  =  char(datetime("now"));
 
 %============================================================
 %============================================================
@@ -103,7 +108,7 @@ fname = sprintf('%4.0f.%03.0f.%02.0f_result_%s%s',...
     thiseq.date([1 7 4]), thiseq.SplitPhase, config.exportformat);
 
 
-%check if file already exists (phase already split)
+% check if file already exists (phase already split)
 No=2;
 while exist(fullfile(config.savedir, fname),'file') == 2
     fname = sprintf('%4.0f.%03.0f.%02.0f_result_%s[%.0f]%s',...

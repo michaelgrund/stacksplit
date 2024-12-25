@@ -4,17 +4,19 @@ function saveresult(next)
 global eq thiseq config
 
 %% checking
-null= ~isfield(thiseq,'AnisoNull');
-qual= ~isfield(thiseq,'Q');
+null = ~isfield(thiseq,'AnisoNull');
+qual = ~isfield(thiseq,'Q');
 if any([qual,null])
-    str=[];
+    str = [];
+    % YF 2023-11-04
+    % "strvcat" is not recommended by MATLAB anymore
     if qual
-        str=strvcat(str,'Please select QUALITY of this result');
+        str = char(str,'Please select QUALITY of this result');
     end
     if null
-        str=strvcat(str,'Please select if this result is a NULL');
+        str = char(str,'Please select if this result is a NULL');
     end
-    errordlg(strvcat(str,' ' ,'or select "Discard" in the Result menu...'),'Error');
+    errordlg(char(str,' ','or select "Discard" in the Result menu...'),'Error');
     return
 end
 
@@ -39,7 +41,10 @@ eq(num).results(n).f          =  thiseq.tmpresult.f;
 eq(num).results(n).SNR        =  thiseq.tmpresult.SNR;
 eq(num).results(n).remark     =  thiseq.tmpresult.remark;
 eq(num).results(n).method     =  config.splitoption;
-eq(num).results(n).timestamp  =  datestr(now);
+% YF 2023-11-03
+% "datestr" and "now" are not recommended by MATLAB up on R2022b
+% eq(num).results(n).timestamp  =  datestr(now);
+eq(num).results(n).timestamp  =  char(datetime("now"));
 eq(num).results(n).Cmatrix    =  thiseq.tmpresult.Cmatrix;
 eq(num).results(n).Ematrix    =  thiseq.tmpresult.Ematrix;
 
