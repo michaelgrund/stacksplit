@@ -10,4 +10,4 @@ saveresult.m             adjustments to save new outputs finally
 database editResults.m   adjustments to avoid database conflicts
 seisfigbuttons.m         adjustments to avoid database conflicts
 getFileAndEQseconds.m    fixed start time extraction by SplitLab (v3.0, see Fröhlich et al., 2022)
-checkmattaupclass.m      improvements to load matTaup Java class (v4.0)
+checkmattaupclass.m      improvements to load matTaup Java class (> v3.0)
