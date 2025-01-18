@@ -7,7 +7,7 @@ geterrorbarsRC.m         fixed taper and ndf calculation (see Walsh et al., 2013
 preSplit.m               adjustments to save new outputs temporary
 splitdiagnosticplot.m    adjustments to save new outputs temporary
 saveresult.m             adjustments to save new outputs finally
-database_editResults.m   adjustments to avoid database conflicts
+database editResults.m   adjustments to avoid database conflicts
 seisfigbuttons.m         adjustments to avoid database conflicts
 getFileAndEQseconds.m    fixed start time extraction by SplitLab (v3.0, see Fröhlich et al., 2022)
 checkmattaupclass.m      improvements to load matTaup Java class (> v3.0)
